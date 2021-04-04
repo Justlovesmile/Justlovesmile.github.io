@@ -1,0 +1,20 @@
+User-agent: * 
+Allow: /
+Allow: /categories/
+Allow: /tags/
+Allow: /archives/
+Allow: /about/
+Allow: /friends/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /assets/
+Disallow: /photos/
+Disallow: /qmj/
+Disallow: /img/
+Disallow: /lib/
+Disallow: /fancybox/
+Disallow: /fonts/
+
+Sitemap: https://blog.justlovesmile.top/sitemap.xml
+Sitemap: https://blog.justlovesmile.top/baidusitemap.xml

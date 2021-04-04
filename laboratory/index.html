@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>实验室 | Justlovesmile's BLOG</title><meta name="keywords" content="Blog,Justlovesmile,Life,Think,Code,博客,生活,思考,笔记,代码,计算机"><meta name="author" content="Justlovesmile,865717150@qq.com"><meta name="copyright" content="Justlovesmile"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Github项目              justlovesmile.github.io   我的博客                         WindLX-Experiment   HEU Computer system structure experiment based on windlx                         Greenhouse-management-"><meta property="og:type" content="website"><meta property="og:title" content="实验室"><meta property="og:url" content="https://blog.justlovesmile.top/laboratory/index.html"><meta property="og:site_name" content="Justlovesmile&#39;s BLOG"><meta property="og:description" content="Github项目              justlovesmile.github.io   我的博客                         WindLX-Experiment   HEU Computer system structure experiment based on windlx                         Greenhouse-management-"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/115722-1584503842bd26.jpg"><meta property="article:published_time" content="2020-07-11T03:26:26.000Z"><meta property="article:modified_time" content="2020-07-11T03:26:26.000Z"><meta property="article:author" content="Justlovesmile"><meta property="article:tag" content="Blog,Justlovesmile,Life,Think,Code,博客,生活,思考,笔记,代码,计算机"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/115722-1584503842bd26.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://blog.justlovesmile.top/laboratory/"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//hm.baidu.com"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/img/pwa/manifest.json"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/16.png"><link rel="mask-icon" href="/img/pwa/safari-pinned-tab.svg" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload='this.media="all"'><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?a2ee893562999ebad688b0d82daa100a";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/font/family=Titillium+Web.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"注意：这篇文章距离上次更新已有","messageNext":"天了, 文章的内容可能已过时."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Justlovesmile","link":"链接: ","source":"来源: Justlovesmile's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"var(--btn-bg)","bgDark":"var(--btn-bg)","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={isPost:!1,isHome:!1,isHighlightShrink:!1,isToc:!1,postUpdate:"2020-07-11 11:26:26"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/justlovesmile.css"><link rel="stylesheet" href="/css/blogicon.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Justlovesmile's BLOG" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/logo.jpg" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i> <span>网站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i> <span>打赏</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i> <span>友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i> <span>朋友圈</span></a></li><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i> <span>留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i> <span>归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i> <span>时间轴</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i> <span>随机文章</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i> <span>相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i> <span>歌单</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i> <span>视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-flask"></i> <span>实验室</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i> <span>项目展示</span></a></li><li><a class="site-page child" target="_blank" rel="external nofollow noopener noreferrer" href="https://tongji.baidu.com/web/welcome/ico?s=a2ee893562999ebad688b0d82daa100a"><i class="fa-fw fa fa-headphones"></i> <span>流量统计</span></a></li><li><a class="site-page child" target="_blank" rel="external nofollow noopener noreferrer" href="https://monitor.justlovesmile.top"><i class="fa-fw fas fa-cube"></i> <span>状态监控</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss-square"></i> <span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-info"></i> <span>关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i> <span>我</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i> <span>Love</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-comments"></i> <span>哔哔</span></a></li><li><a class="site-page child" href="/talks/"><i class="fa-fw fa fa-commenting-o"></i> <span>博客日志</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background:0 0"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Justlovesmile's BLOG</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i> <span>网站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i> <span>打赏</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i> <span>友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i> <span>朋友圈</span></a></li><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i> <span>留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i> <span>归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i> <span>时间轴</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i> <span>随机文章</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i> <span>清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i> <span>相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i> <span>歌单</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i> <span>视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-flask"></i> <span>实验室</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i> <span>项目展示</span></a></li><li><a class="site-page child" target="_blank" rel="external nofollow noopener noreferrer" href="https://tongji.baidu.com/web/welcome/ico?s=a2ee893562999ebad688b0d82daa100a"><i class="fa-fw fa fa-headphones"></i> <span>流量统计</span></a></li><li><a class="site-page child" target="_blank" rel="external nofollow noopener noreferrer" href="https://monitor.justlovesmile.top"><i class="fa-fw fas fa-cube"></i> <span>状态监控</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss-square"></i> <span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-info"></i> <span>关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i> <span>我</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i> <span>Love</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-comments"></i> <span>哔哔</span></a></li><li><a class="site-page child" href="/talks/"><i class="fa-fw fa fa-commenting-o"></i> <span>博客日志</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">实验室</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div id="article-container"><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><div class="recent-post-item" style="width:100%;overflow:hidden"><div class="gitcalendar" id="gitcalendar"><div id="gitmessage" :style="{top:y+px,left:x+px,position: fixed,zIndex:9999}"><div class="angle-wrapper"><span>{{span1}} &nbsp;</span><span>{{span2}} 次上传</span></div></div><div class="position-relative"><div class="border py-2 graph-before-activity-overview"><div class="js-gitcalendar-graph mx-md-2 mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas gitcalendar-graph height-full text-center"><div id="gitcalendarcanvasbox" v-if="simplemode"><canvas id="gitcanvas" style="animation:none"></canvas></div><svg class="js-gitcalendar-graph-svg" width="100%" viewbox="0 0 770 128" v-if="!simplemode"><text class="month" :x="32 + monthindex*64" y="20" v-for="(month,monthindex) in monthchange">{{month}}</text><text class="wday" text-anchor="start" dx="0" dy="40">日</text><text class="wday" text-anchor="start" dx="0" dy="65">二</text><text class="wday" text-anchor="start" dx="0" dy="90">四</text><text class="wday" text-anchor="start" dx="0" dy="115">六</text><g v-for="(weekitem,weekIndex) in data" :transform="'translate('+ (16 + weekIndex*14) + ',' + '0)'"><rect @mouseover="selectStyle(dayitem,$event)" @mouseleave="outStyle()" v-for="(dayitem,dayIndex) in weekitem" :style="{fill:thiscolor(dayitem.count),shapeRendering:crispedges}" :data-score="dayitem.count" :data-date="dayitem.date" x="0" :y=" 30 + dayIndex*13 " width="11" height="11"/></g></svg></div><div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1"><div class="float-left text-gray">数据来源<a :href="'https://github.com/'+ user " target="blank">@{{user}}</a></div><div class="contrib-legend text-gray">Less<ul class="legend"><li :style="{backgroundColor:color[0]}"></li><li :style="{backgroundColor:color[2]}"></li><li :style="{backgroundColor:color[4]}"></li><li :style="{backgroundColor:color[6]}"></li><li :style="{backgroundColor:color[8]}"></li></ul>More</div></div></div></div><div class="contrib-column contrib-column-first table-column"><span class="text-muted">过去一年提交</span><span class="contrib-number">{{total}}</span><span class="text-muted">{{oneyearbeforeday}}&nbsp;-&nbsp;{{thisday}}</span></div><div class="contrib-column table-column"><span class="text-muted">最近一月提交</span><span class="contrib-number">{{thisweekdatacore}}</span><span class="text-muted">{{amonthago}}&nbsp;-&nbsp;{{thisday}}</span></div><div class="contrib-column table-column"><span class="text-muted">最近一周提交</span><span class="contrib-number">{{weekdatacore}}</span><span class="text-muted">{{aweekago}}&nbsp;-&nbsp;{{thisday}}</span></div></div></div><script>var gitcalendar = new Vue({
+  el: '#gitcalendar',
+  data: {
+    simplemode: false,
+    user: 'Justlovesmile',
+    fixed: 'fixed',
+    px: 'px',
+    x: '',
+    y: '',
+    span1: '',
+    span2: '',
+    month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    monthchange: [],
+    oneyearbeforeday: '',
+    thisday: '',
+    amonthago: '',
+    aweekago: '',
+    weekdatacore: 0,
+    datacore: 0,
+    total: 0,
+    datadate: '',
+    data: [],
+    positionplusdata: [],
+    firstweek: [],
+    lastweek: [],
+    beforeweek: [],
+    thisweekdatacore: 0,
+    mounthbeforeday: 0,
+    mounthfirstindex: 0,
+    crispedges: 'crispedges',
+    thisdayindex: 0,
+    amonthagoindex: 0,
+    amonthagoweek: [],
+    firstdate: [],
+    first2date: [],
+    montharrbefore: [],
+    monthindex: 0,
+    color: ['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c']
+  },
+  methods: {
+    selectStyle(data, event) {
+      document.querySelector('.angle-wrapper').style.display = 'block'
+      this.span1 = data.date;
+      this.span2 = data.count;
+      this.x = event.clientX - 100;
+      this.y = event.clientY - 60
+    },
+    outStyle() {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+    },
+    thiscolor(x) {
+      if (x === 0) {
+        let i = parseInt(x / 2);
+        return this.color[0]
+      } else if (x < 2) {
+        return this.color[1]
+      } else if (x < 20) {
+        let i = parseInt(x / 2);
+        return this.color[i]
+      } else {
+        return this.color[9]
+      }
+    },
+  }
+});
+var apiurl = 'github-calendar-api.vercel.app' ? 'https://github-calendar-api.vercel.app/api?' : 'https://githubapi.ryanchristian.dev/user/'
+var githubapiurl = apiurl + gitcalendar.user;
+//canvas绘图
+function responsiveChart() {
+  let c = document.getElementById("gitcanvas");
+  if (c) {
+    let cmessage = document.getElementById("gitmessage");
+    let ctx = c.getContext("2d");
+    c.width = document.getElementById("gitcalendarcanvasbox").offsetWidth;
+    let linemaxwitdh = 0.96 * c.width / gitcalendar.data.length;
+    c.height = 9 * linemaxwitdh;
+    let lineminwitdh = 0.8 * linemaxwitdh;
+    let setposition = {
+      x: 0.02 * c.width,
+      y: 0.025 * c.width
+    };
+    for (let week in gitcalendar.data) {
+      weekdata = gitcalendar.data[week];
+      for (let day in weekdata) {
+        let dataitem = {
+          date: "",
+          count: "",
+          x: 0,
+          y: 0
+        };
+        gitcalendar.positionplusdata.push(dataitem);
+        ctx.fillStyle = gitcalendar.thiscolor(weekdata[day].count);
+        setposition.y = Math.round(setposition.y * 100) / 100;
+        dataitem.date = weekdata[day].date;
+        dataitem.count = weekdata[day].count;
+        dataitem.x = setposition.x;
+        dataitem.y = setposition.y;
+        ctx.fillRect(setposition.x, setposition.y, lineminwitdh, lineminwitdh);
+        setposition.y = setposition.y + linemaxwitdh
+      };
+      setposition.y = 0.025 * c.width;
+      setposition.x = setposition.x + linemaxwitdh
+    };
+    ctx.font = "600  Arial";
+    ctx.fillStyle = '#aaa';
+    ctx.fillText("日", 0, 1.9 * linemaxwitdh);
+    ctx.fillText("二", 0, 3.9 * linemaxwitdh);
+    ctx.fillText("四", 0, 5.9 * linemaxwitdh);
+    ctx.fillText("六", 0, 7.9 * linemaxwitdh);
+    let monthindexlist = c.width / 24;
+    for (let index in gitcalendar.monthchange) {
+      ctx.fillText(gitcalendar.monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
+      monthindexlist = monthindexlist + c.width / 12
+    };
+    cmessage.onmousemove = function(event) {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+    };
+    c.onmousemove = function(event) {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+      getMousePos(c, event);
+    };
+
+    function getMousePos(canvas, event) {
+      var rect = canvas.getBoundingClientRect();
+      var x = event.clientX - rect.left * (canvas.width / rect.width);
+      var y = event.clientY - rect.top * (canvas.height / rect.height);
+      //console.log("x:"+x+",y:"+y);
+      for (let item of gitcalendar.positionplusdata) {
+        let lenthx = x - item.x;
+        let lenthy = y - item.y;
+        //console.log(lenthx,lenthy);
+        if (0 < lenthx && lenthx < lineminwitdh) {
+          if (0 < lenthy && lenthy < lineminwitdh) {
+            //console.log(item.date,item.count)
+            document.querySelector('.angle-wrapper').style.display = 'block'
+            gitcalendar.span1 = item.date;
+            gitcalendar.span2 = item.count;
+            gitcalendar.x = event.clientX - 100;
+            gitcalendar.y = event.clientY - 60
+          }
+        }
+        //if(0< x - item.x <lineminwitdh&&0< y - item.y <lineminwitdh){
+        //console.log(item.count,item.date);
+        //}
+      }
+    }
+  }
+}
+//数据统计算法
+function addlastmonth() {
+  if (gitcalendar.thisdayindex === 0) {
+    thisweekcore(52);
+    thisweekcore(51);
+    thisweekcore(50);
+    thisweekcore(49);
+    thisweekcore(48);
+    gitcalendar.thisweekdatacore += gitcalendar.firstdate[6].count;
+    gitcalendar.amonthago = gitcalendar.firstdate[6].date
+  } else {
+    thisweekcore(52);
+    thisweekcore(51);
+    thisweekcore(50);
+    thisweekcore(49);
+    thisweek2core();
+    gitcalendar.amonthago = gitcalendar.first2date[gitcalendar.thisdayindex - 1].date
+  }
+};
+
+function thisweek2core() {
+  for (let i = gitcalendar.thisdayindex - 1; i < gitcalendar.first2date.length; i++) {
+    gitcalendar.thisweekdatacore += gitcalendar.first2date[i].count
+  }
+};
+
+function thisweekcore(index) {
+  for (let item of gitcalendar.data[index]) {
+    gitcalendar.thisweekdatacore += item.count
+  }
+};
+
+function addlastweek() {
+  for (let item of gitcalendar.lastweek) {
+    gitcalendar.weekdatacore += item.count
+  }
+};
+
+function addbeforeweek() {
+  for (let i = gitcalendar.thisdayindex; i < gitcalendar.beforeweek.length; i++) {
+    gitcalendar.weekdatacore += gitcalendar.beforeweek[i].count
+  }
+};
+
+function addweek(data) {
+  if (gitcalendar.thisdayindex === 6) {
+    gitcalendar.aweekago = gitcalendar.lastweek[0].date;
+    addlastweek()
+  } else {
+    lastweek = data.contributions[51];
+    gitcalendar.aweekago = lastweek[gitcalendar.thisdayindex + 1].date;
+    addlastweek();
+    addbeforeweek()
+  }
+}
+
+fetch(githubapiurl)
+  .then(data => data.json())
+  .then(data => {
+    gitcalendar.data = data.contributions;
+    gitcalendar.total = data.total;
+    gitcalendar.first2date = gitcalendar.data[48];
+    gitcalendar.firstdate = gitcalendar.data[47];
+    gitcalendar.firstweek = data.contributions[0];
+    gitcalendar.lastweek = data.contributions[52];
+    gitcalendar.beforeweek = data.contributions[51];
+    gitcalendar.thisdayindex = gitcalendar.lastweek.length - 1;
+    gitcalendar.thisday = gitcalendar.lastweek[gitcalendar.thisdayindex].date;
+    gitcalendar.oneyearbeforeday = gitcalendar.firstweek[0].date;
+    gitcalendar.monthindex = gitcalendar.thisday.substring(5, 7) * 1;
+    gitcalendar.montharrbefore = gitcalendar.month.splice(gitcalendar.monthindex, 12 - gitcalendar.monthindex);
+    gitcalendar.monthchange = gitcalendar.montharrbefore.concat(gitcalendar.month);
+    addweek(data);
+    addlastmonth();
+    responsiveChart();
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
+//手机版更换为svg绘制
+if (gitcalendar.simplemode == true) {
+  if (document.getElementById("gitcalendarcanvasbox").offsetWidth < 500) {
+    gitcalendar.simplemode = false
+  }
+}
+
+//当改变窗口大小时重新绘制canvas
+window.onresize = function() {
+  if (gitcalendar.simplemode) responsiveChart()
+}
+
+//解决滚动滑轮时出现的标签显示
+window.onscroll = function() {
+  if (document.querySelector('.angle-wrapper')) {
+    document.querySelector('.angle-wrapper').style.display = 'none'
+  }
+};</script><p></p><h2>Github项目</h2><p></p><div class="gallery-group-main"><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/gallery/2%2810%29.PNG" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">justlovesmile.github.io</div><p>我的博客</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/Justlovesmile.github.io"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200614110049.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">WindLX-Experiment</div><p>HEU Computer system structure experiment based on windlx</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/WindLX-Experiment"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200624120328.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">Greenhouse-management-system</div><p>嵌入式课程设计//基于Proteus，Arduino，Flask搭建的智能大棚管理系统</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/Greenhouse-management-system"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200619203709.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">MFC_WORK</div><p>计算机图形学课设：二维变换画图软件</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/MFC-WORK"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/bgok2.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">database_program</div><p>数据库课设，falsk，mysql，bbs论坛</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/database_program"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/emoji.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">emotion</div><p>emoji表情库</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/emotion"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/game.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">CDN</div><p>我的jsdelivrCDN库</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile/CDN"></a></figcaption></figure></div><h2>博客相关</h2><div class="gallery-group-main"><figure class="gallery-group"><img class="gallery-group-img" src="https://blog.justlovesmile.top/img/miniprogram.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">博客小程序</div><p>Hexo博客的微信小程序版本</p><a href="/html/miniprogram/"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/mikutap1.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">MikuTap</div><p>有趣的音乐游戏</p><a href="/html/Miku/"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/robotandlight.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">博客监控</div><p>monitor.justlovesmile.top</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://monitor.justlovesmile.top"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200711141854.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">打赏充电</div><p>添加一个恰饭页面</p><a href="/donate/"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/230449-1584630289d372.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">博客日志</div><p>更新记录，开启闲言碎语模式#%&*</p><a href="/talks/"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/224035-1577976035e190.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">即刻短文</div><p>多平台，更方便发布的说说</p><a href="/essay/"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200713200448.png" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">个人主页</div><p>由Vue Press驱动的个人主页</p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.justlovesmile.top"></a></figcaption></figure><figure class="gallery-group"><img class="gallery-group-img" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/093818-1492997898b63f.jpg" alt="Group Image Gallery"><figcaption><div class="gallery-group-name">考研单词</div><p>总结5000+考研核心词汇检测，大量单词预警！！</p><a href="/html/words/"></a></figcaption></figure></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><p style="font-size:var(--global-font-size)">&copy;2019 - 2021 By Justlovesmile</p><p style="font-size:var(--global-font-size)"><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow noopener noreferrer">蜀ICP备20004960号</a> | 由<a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io/">Hexo</a>强力驱动 | Theme By <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></p><p style="font-size:var(--global-font-size)"><a href="/random/"><i class="fa fa-random" aria-hidden="true"></i></a>&nbsp;|&nbsp;<a href="/guestbook/"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;|&nbsp;<a href="/about/"><i class="fa fa-info-circle" aria-hidden="true"></i></a>&nbsp;|&nbsp;<a href="/"><i class="fa fa-home" aria-hidden="true"></i></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div></div><hr><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script defer="defer" src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script defer="defer" src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'blog-comment-3gt33nkmf9f97e6e',
+      region: 'ap-shanghai'
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'blog-comment-3gt33nkmf9f97e6e',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><canvas id="universe"></canvas><script defer="defer">console.log("\n %c 欢迎来到Justlovesmile の Blog %c https://github.com/Justlovesmile %c https://justlovesmile.top \n","color: #f9ed69; background: #252a34; padding:5px 0;","background: #3fc1c9; padding:5px 0;","background: #3fc1c9; padding:5px 0;")</script><script defer="defer" src="/js/justlovesmile.js"></script><div class="app-refresh" id="app-refresh"><div class="app-refresh-wrap"><label>✨ 网站已更新最新版本 👉</label> <a href="javascript:void(0)" onclick="location.reload()">点击刷新</a></div></div><script data-pjax>function showNotification(){if(GLOBAL_CONFIG.Snackbar){var t="light"===document.documentElement.getAttribute("data-theme")?GLOBAL_CONFIG.Snackbar.bgLight:GLOBAL_CONFIG.Snackbar.bgDark,e=GLOBAL_CONFIG.Snackbar.position;Snackbar.show({text:"已更新最新版本",backgroundColor:t,duration:5e5,pos:e,actionText:"点击刷新",actionTextColor:"#fff",onActionClick:function(t){location.reload()}})}else{var o=`top: 0; background: ${"light"===document.documentElement.getAttribute("data-theme")?"#49b1f5":"#1f1f1f"};`;document.getElementById("app-refresh").style.cssText=o}}"serviceWorker"in navigator&&(navigator.serviceWorker.controller&&navigator.serviceWorker.addEventListener("controllerchange",function(){showNotification()}),window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js")}));</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
