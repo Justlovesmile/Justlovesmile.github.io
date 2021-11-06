@@ -1,0 +1,1690 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>大学课程 | 《微机原理与接口技术》笔记 | Justlovesmile's BLOG</title><meta name="keywords" content="学习笔记,大学课程,微机原理与接口技术"><meta name="author" content="Justlovesmile,865717150@qq.com"><meta name="copyright" content="Justlovesmile"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大学课程《微机原理与接口技术》学习笔记整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大学课程 | 《微机原理与接口技术》笔记">
+<meta property="og:url" content="https://blog.justlovesmile.top/posts/43666.html">
+<meta property="og:site_name" content="Justlovesmile&#39;s BLOG">
+<meta property="og:description" content="大学课程《微机原理与接口技术》学习笔记整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110553-u34116618882606377503fm11gp0.jpg">
+<meta property="article:published_time" content="2020-09-05T10:05:39.000Z">
+<meta property="article:modified_time" content="2020-09-05T10:05:39.000Z">
+<meta property="article:author" content="Justlovesmile">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="大学课程">
+<meta property="article:tag" content="微机原理与接口技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110553-u34116618882606377503fm11gp0.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://blog.justlovesmile.top/posts/43666"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//hm.baidu.com"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/img/pwa/manifest.json"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/16.png"><link rel="mask-icon" href="/img/pwa/safari-pinned-tab.svg" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a2ee893562999ebad688b0d82daa100a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/font/family=Titillium+Web.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Justlovesmile","link":"链接: ","source":"来源: Justlovesmile's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"var(--mj-card-bg)","bgDark":"var(--mj-card-bg)","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '大学课程 | 《微机原理与接口技术》笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 18:05:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="/css/justlovesmile.css"><link rel="stylesheet" href="/css/blogicon.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Justlovesmile's BLOG" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></li><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 实验室</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 友链订阅</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-commenting-o"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 关注</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 打赏</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110553-u34116618882606377503fm11gp0.jpg')"><nav id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/">Justlovesmile</a></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></li><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 实验室</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 友链订阅</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-commenting-o"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 关注</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 打赏</span></a></li></ul></div></div></div><div id="nav-right"><div id="search-button"><a class="nav-rightbutton site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div id="darkmode_navswitch"><a class="nav-rightbutton site-page darkmode_switchbutton" onclick="switchDarkMode()"><i class="fas fa-adjust"></i></a></div><div id="toggle-menu"><a class="nav-rightbutton site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">大学课程 | 《微机原理与接口技术》笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-05T10:05:39.000Z" title="发表于 2020-09-05 18:05:39">2020-09-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-05T10:05:39.000Z" title="更新于 2020-09-05 18:05:39">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>41分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="大学课程 | 《微机原理与接口技术》笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/43666.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>大学课程《微机原理与接口技术》学习笔记整理</p>
+<span id="more"></span>
+
+<h1 id="第一章-微型计算机基础概论"><a href="#第一章-微型计算机基础概论" class="headerlink" title="第一章 微型计算机基础概论"></a>第一章 微型计算机基础概论</h1><h2 id="第一讲-关于"><a href="#第一讲-关于" class="headerlink" title="第一讲 关于"></a>第一讲 关于</h2><ul>
+<li>计算机的主要应用：数值计算，信息处理，过程控制</li>
+<li>微机原理与接口技术包括：数值信息表示，微型机基本原理，汇编程序设计，半导体存储器及其接口设计，输入输出技术</li>
+</ul>
+<h2 id="第二讲-微型计算机系统组成"><a href="#第二讲-微型计算机系统组成" class="headerlink" title="第二讲 微型计算机系统组成"></a>第二讲 微型计算机系统组成</h2><ul>
+<li>计算机系统：<ul>
+<li>硬件系统<ul>
+<li>主机系统：CPU，存储器，输入输出接口，总线</li>
+<li>外部设备</li>
+</ul>
+</li>
+<li>软件系统</li>
+</ul>
+</li>
+<li>能够与CPU直接进行信息交换的部件属于主机系统，不能够与CPU直接进行信息交换的部件属于外部设备</li>
+<li>CPU<ul>
+<li>微处理器简称CPU，是计算机的核心</li>
+<li>主要包括：运算器，控制器，寄存器组</li>
+</ul>
+</li>
+<li>存储器：<ul>
+<li>计算机中的记忆装置。用于存放计算机工作过程中需要操作的数据和程序</li>
+<li>内存储器 ：<ul>
+<li>存取速度较快，容量相对较小</li>
+<li>内存按单元组织，每单元都对应一个惟一的地址 </li>
+<li>每个内存单元中存放1Byte数据【每8位0或1称 为1字节（Byte）】</li>
+<li>内存单元个数称为内存容量</li>
+<li>按工作方式分类：随机存取存储器（RAM），只读存储器（ROM） </li>
+</ul>
+</li>
+<li>外存储器 <ul>
+<li>联机外存：硬磁盘 </li>
+<li>脱机外存：各种移动存储设备</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输入/输出接口 <ul>
+<li>接口是CPU与外部设备间的桥梁</li>
+<li>主要功能：<ul>
+<li>数据缓冲寄存；</li>
+<li>信号电平或类型的转换；</li>
+<li>实现主机与外设间的运行匹配。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总线 <ul>
+<li>是一组导线和相关的控制、驱动电路的集合。</li>
+<li>是计算机系统各部件之间传输地址、数据和控制信息的通道 </li>
+<li>地址总线（AB） 数据总线（DB） 控制总线（CB） </li>
+</ul>
+</li>
+</ul>
+<h2 id="第三讲-微机工作过程"><a href="#第三讲-微机工作过程" class="headerlink" title="第三讲 微机工作过程"></a>第三讲 微机工作过程</h2><ul>
+<li>计算机的工作就是按照一定的顺序，一条条地执行指令</li>
+<li>指令： 由人向计算机发出的、能够为计算机所识别的命令 </li>
+<li>过程：<strong>取指令</strong>-&gt;<strong>分析指令</strong>-&gt;读取操作数-&gt;<strong>执行指令</strong>-&gt;存放结果 </li>
+<li>顺序执行： 一条指令执行完了再执行下一条指令。 <ul>
+<li>执行时间=取指令+分析指令+执行指令 </li>
+<li>设：三个部分的执行时间均为Δt，则：执行n条指令时间T0为：  </li>
+<li>T0=3nΔt </li>
+</ul>
+</li>
+<li>并行执行： 同时执行两条或多条指令。 <ul>
+<li>仅第1条指令需要3 Δt时间，之后每经过1 Δt，就有一条指令执行结束</li>
+<li>执行时间： T =3Δt +（ n-1）Δt </li>
+</ul>
+</li>
+<li>并行： 更高的效率，更高的复杂度 </li>
+<li>相对于顺序执行方式，指令并行执行的优势用加速比S表示： <ul>
+<li>S=顺序执行花费的时间/并行执行花费的时间 </li>
+<li>例： 3n Δt /（3Δt +（ n-1）Δt) =3n/（2+n） </li>
+</ul>
+</li>
+<li>冯 • 诺依曼计算机的工作原理: 存储程序工作原理,结构特点:运算器为核心 </li>
+<li>冯 • 诺依曼机的工作过程 <ul>
+<li>取一条指令的工作过程： <ul>
+<li>① 将指令所在地址赋给程序计数器PC； </li>
+<li>② PC内容送到地址寄存器AR，PC自动加1； </li>
+<li>③ 把AR的内容通过地址总线送至内存储器，经地址译码器译码，选中相应单元。 </li>
+<li>④ CPU的控制器发出读命令。 </li>
+<li>⑤ 在读命令控制下，把所选中单元的内容（即指令操作码）读到数据总线 DB。 </li>
+<li>⑥ 把读出的内容经数据总线送到数据寄存器DR。 </li>
+<li>⑦ 指令译码:数据寄存器DR将它送到指令寄存器IR，然后再送到指令译码器ID </li>
+</ul>
+</li>
+<li>特点： <ul>
+<li>程序存储，共享数据，顺序执行 </li>
+<li>属于顺序处理机，适合于确定的算法和数值数据的处理。</li>
+</ul>
+</li>
+<li>不足： <ul>
+<li>与存储器间有大量数据交互，对总线要求很高；</li>
+<li>执行顺序由程序决定，对大型复杂任务较困难；</li>
+<li>以运算器为核心，处理效率较低；</li>
+<li>由PC控制执行顺序，难以进行真正的并行处理。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>哈佛结构 <ul>
+<li>指令和数据分别存放在两个独立的存储器模块中； </li>
+<li>CPU与存储器间指令和数据的传送分别采用两组独立的总线；</li>
+<li>可以在一个机器周期内同时获得指令操作码和操作数。 </li>
+</ul>
+</li>
+</ul>
+<h2 id="第四讲-常用数制"><a href="#第四讲-常用数制" class="headerlink" title="第四讲 常用数制"></a>第四讲 常用数制</h2><ul>
+<li>计算机中的常用计数制：十进制 ，二进制数 ，十六进制数 ，八进制数 </li>
+</ul>
+<h2 id="第五讲-编码"><a href="#第五讲-编码" class="headerlink" title="第五讲 编码"></a>第五讲 编码</h2><ul>
+<li>编码：<ul>
+<li>信息从一种形式或格式转换为另一种形式的过程</li>
+<li>用代码来表示各种信息，以便于计算机处理。 </li>
+</ul>
+</li>
+<li>需要编码的信息种类：数值，字符，声音，图形，图像 </li>
+<li>所有需要由计算机处理的信息，都需要编码，使所有信息都以二进制码形式表示</li>
+<li>计算机中的编码 <ul>
+<li>数值编码：<ul>
+<li>二进制码</li>
+<li>BCD码 </li>
+</ul>
+</li>
+<li>西文字符编码<ul>
+<li>ASCII码 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BCD（Binary Coded Decimal）码 <ul>
+<li>用二进制表示的十进制数</li>
+<li>特点： <ul>
+<li>保留十进制的权，数字用0和1表示。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>8421BCD编码： <ul>
+<li>用4位二进制码表示1位十进制数，每4位之间有一个空格 </li>
+<li>1010—1111是非法BCD码</li>
+<li>（0001 0001 .0010 0101）BCD    =11 .25    =（1011 .01）B </li>
+</ul>
+</li>
+<li>BCD码在计算机中的存储方式 <ul>
+<li>以压缩BCD码形式存放：<ul>
+<li>用4位二进制码表示1位BCD码</li>
+<li>一个存储单元中存放2位BCD数</li>
+</ul>
+</li>
+<li>以扩展BCD码形式存放 <ul>
+<li>用8位二进制码表示1位BCD码.即高4位为0，低4位为有效位 </li>
+<li>每个存储单元存放1位BCD </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ASCII码 <ul>
+<li>西文字符编码：将每个字母、数字、标点、控制符用1Byte二进制码表示 </li>
+<li>标准ASCII的有效位：7bit，最高位默认为0 </li>
+</ul>
+</li>
+<li>ASCII码的奇偶校验 <ul>
+<li>奇校验：加上校验位后编码中“1”的个数为奇数。</li>
+<li>偶校验：加上校验位后编码中“1”的个数为偶数。 </li>
+</ul>
+</li>
+</ul>
+<h2 id="第六讲-数及其运算"><a href="#第六讲-数及其运算" class="headerlink" title="第六讲 数及其运算"></a>第六讲 数及其运算</h2><ul>
+<li>定点数</li>
+<li>浮点数 <ul>
+<li>小数点的位置可以左右移动的数</li>
+<li>规格化浮点数：尾数部分用纯小数表示，即小数点右边第1位不为0 </li>
+</ul>
+</li>
+<li>无符号数</li>
+<li>有符号数：用最高位表示符号，其余是数值，0正，1负<ul>
+<li>原码：最高位为符号位，其余为真值部分<ul>
+<li>[X]原=符号位+|绝对值| </li>
+<li>有[+0]和[-0]之分</li>
+</ul>
+</li>
+<li>反码：<ul>
+<li>若X&gt;0 ，则 [X]反 = [X]原 </li>
+<li>若X&lt;0， 则 [X]反 = 对应原码的符号位不变，数值部分按位求反。</li>
+<li>有[+0]和[-0]之分</li>
+</ul>
+</li>
+<li>补码：<ul>
+<li>若X&gt;0， 则 [X]补 = [X]反= [X]原</li>
+<li>若X&lt;0， 则 [X]补 = [X]反+1 </li>
+<li>没有[+0]和[-0]之分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>无符号整数的表示范围(n表示字长)： 0 ≤ X ≤ 2^n - 1</li>
+<li>有符号整数的表示范围： <ul>
+<li>原码和反码： -（2^(n-1) -1） ≤ X ≤ 2^(n-1) -1 </li>
+<li>补码： -2^(n-1) ≤ X ≤ 2^(n-1) -1 </li>
+<li>对8位二进制数：<ul>
+<li>原码： -127 ～+127</li>
+<li>反码： -127 ～+127</li>
+<li>补码： -128 ～+127 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第七讲-基本逻辑运算和逻辑门"><a href="#第七讲-基本逻辑运算和逻辑门" class="headerlink" title="第七讲 基本逻辑运算和逻辑门"></a>第七讲 基本逻辑运算和逻辑门</h2><ul>
+<li>逻辑，命题，推理</li>
+<li>基本逻辑运算：与或非</li>
+<li>逻辑运算是按位进行的运算，低位运算结果对高位运算不产生影响 </li>
+<li>算术运算是两个数之间的运算，低位运算结果将对高位运算产生影响</li>
+</ul>
+<h2 id="第八讲-基本逻辑运算及其门电路"><a href="#第八讲-基本逻辑运算及其门电路" class="headerlink" title="第八讲 基本逻辑运算及其门电路"></a>第八讲 基本逻辑运算及其门电路</h2><ul>
+<li>与非，或非，异或，同或</li>
+</ul>
+<h1 id="第二章-微处理器与总线"><a href="#第二章-微处理器与总线" class="headerlink" title="第二章 微处理器与总线"></a>第二章 微处理器与总线</h1><h2 id="第九讲-8088-8086微处理器"><a href="#第九讲-8088-8086微处理器" class="headerlink" title="第九讲 8088/8086微处理器"></a>第九讲 8088/8086微处理器</h2><ul>
+<li>8088/8086 CPU的特点 <ul>
+<li>采用并行流水线工作方式<ul>
+<li>通过设置指令预取队列实现</li>
+</ul>
+</li>
+<li>对内存空间实行分段管理<ul>
+<li>将内存分为4个段并设置地址段寄存器，以实现对1MB空间的寻址</li>
+</ul>
+</li>
+<li>支持协处理器</li>
+</ul>
+</li>
+<li>8088/8086可工作于两种模式下 <ul>
+<li>最小模式：单处理器模式，所有控制信号由微处理器产生<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200605180344.png"></li>
+</ul>
+</li>
+<li>最大模式：最大模式为多处理器模式，部分控制信号由外部总线控制器产生 <ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200605180420.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第十讲-8088的主要引线及其内部结构"><a href="#第十讲-8088的主要引线及其内部结构" class="headerlink" title="第十讲 8088的主要引线及其内部结构"></a>第十讲 8088的主要引线及其内部结构</h2><ul>
+<li>8088最小模式下的主要引脚信号<ul>
+<li>完成一次访问内存或接口所需要的主要信号</li>
+<li>与外部同步控制信号</li>
+<li>中断请求和响应信号</li>
+<li>总线保持和响应信号<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200605180737.png"></li>
+</ul>
+</li>
+<li>主要控制信号<ul>
+<li>WR：  写信号；</li>
+<li>RD：  读信号；</li>
+<li>IO/M：为“0”表示访问内存，为“1”表示访问接口；</li>
+<li>DEN： 低电平有效时，允许进行读/写操作；</li>
+<li>DT/R：数据收发器的传送方向控制；</li>
+<li>ALE：  地址锁存信号；</li>
+<li>RESET：复位信号。 </li>
+</ul>
+</li>
+<li>中断请求和响应信号<ul>
+<li>INTR：可屏蔽中断请求输入端</li>
+<li>NMI： 非屏蔽中断请求输入端 </li>
+<li>INTA：中断响应输出端 </li>
+</ul>
+</li>
+<li>总线保持信号<ul>
+<li>HOLD：总线保持请求信号输入端。当CPU以外的其他设备要求占用总线时，通过该引脚向CPU发出请求。</li>
+<li>HLDA：总线保持响应信号输出端。CPU对HOLD信号的响应信号。 </li>
+</ul>
+</li>
+<li>微处理器读取一条指令的控制过程<ul>
+<li>1.发出读取数据所在的目标地址<ul>
+<li>内存储器单元地址</li>
+<li>I/O接口地址 </li>
+</ul>
+</li>
+<li>2.发出读控制信号</li>
+<li>3.送出传输的数据 </li>
+</ul>
+</li>
+<li>地址线和数据线：<ul>
+<li>20位地址信号(20根地址线)–》可产生2^20=1M个编码 </li>
+<li>8位数据信号(8位数据线)–》可同时传输8bit二进制码 </li>
+</ul>
+</li>
+<li>8088内部结构：<ul>
+<li>执行单元EU<ul>
+<li>构成：运算器，8个通用寄存器，1个标志寄存器，EU部分控制电路</li>
+<li>功能：指令译码，指令执行，暂存中间运算结果，保存运算结果特征 </li>
+</ul>
+</li>
+<li>总线接口单元BIU<ul>
+<li>功能：</li>
+<li>从内存中取指令到指令预取队列，指令预取队列是并行流水线工作的基础</li>
+<li>负责与内存或输入/输出接口之间的数据传送</li>
+<li>在执行转移程序时，BIU使指令预取队列复位，从指定的新地址取指令，并立即传给执行单元执行。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>指令预取队列的存在使EU和BIU两个部分可同时进行工作 </li>
+<li>8088和8086CPU引线功能比较 <ul>
+<li>数据总线宽度不同：8088的外部总线宽度是8位，8086为16位。 </li>
+<li>访问存储器和输入输出控制信号含义不同：8088——IO/M=0表示访问内存；8086——IO/M=1表示访问内存。 </li>
+<li>其他部分引线功能的区别 </li>
+</ul>
+</li>
+</ul>
+<h2 id="第十一讲-8088CPU内部寄存器"><a href="#第十一讲-8088CPU内部寄存器" class="headerlink" title="第十一讲 8088CPU内部寄存器"></a>第十一讲 8088CPU内部寄存器</h2><ul>
+<li>含14个16位寄存器，按功能可分为三类： <ul>
+<li>8个通用寄存器<ul>
+<li>数据寄存器（AX，BX，CX，DX）</li>
+<li>地址指针寄存器（SP，BP）</li>
+<li>变址寄存器（SI，DI） </li>
+</ul>
+</li>
+<li>4个段寄存器</li>
+<li>2个控制寄存器  </li>
+</ul>
+</li>
+<li>通用寄存器：<ul>
+<li>数据寄存器：8088/8086含4个16位数据寄存器，它们又可分为8个8位寄存器，即： <ul>
+<li>AX——-AH，AL：累加器，所有I/O指令都通过AX与接口传送信息，中间运算结果也多放于AX中； </li>
+<li>BX——-BH，BL：基址寄存器,在间接寻址中用于存放基地址</li>
+<li>CX——-CH，CL：计数寄存器,用于在循环或串操作指令中存放计数值</li>
+<li>DX——-DH，DL：数据寄存器,在间接寻址的I/O指令中存放I/O端口地址；在32位乘除法运算时，存放高16位数。 </li>
+</ul>
+</li>
+<li>地址指针寄存器:<ul>
+<li>SP：堆栈指针寄存器，其内容为栈顶的偏移地址 </li>
+<li>BP：基址指针寄存器，常用于在访问内存时存放内存单元的偏移地址。 </li>
+</ul>
+</li>
+<li>变址寄存器 <ul>
+<li>SI：源变址寄存器</li>
+<li>DI：目标变址寄存器</li>
+<li>变址寄存器在指令中常用于存放数据在内存中的地址。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BX与BP在应用上的区别 <ul>
+<li>作为通用寄存器，二者均可用于存放数据；</li>
+<li>作为基址寄存器，用BX表示所寻找的数据在数据段；用BP 则表示数据在堆栈段。 </li>
+</ul>
+</li>
+<li>段寄存器:<ul>
+<li>作用:用于存放相应逻辑段的段基地址</li>
+<li>8086/8088内存中逻辑段的类型<ul>
+<li>代码段: 存放指令代码</li>
+<li>数据段: 存放操作的数据</li>
+<li>附加段: 存放附加的操作的数据</li>
+<li>堆栈段: 存放暂时不用但需保存的数据。 </li>
+</ul>
+</li>
+<li>CS:代码段寄存器，存放代码段的段基地址。</li>
+<li>DS:数据段寄存器，存放数据段的段基地址。</li>
+<li>ES:附加段寄存器，存放附加段的段基地址。</li>
+<li>SS:堆栈段寄存器，存放堆栈段的段基地址 </li>
+<li>段寄存器的值表明相应逻辑段在内存中的位置 </li>
+</ul>
+</li>
+<li>控制寄存器：<ul>
+<li>指令指针控制寄存器IP</li>
+<li>状态标志寄存器FLAGS<ul>
+<li>状态标志位：<ul>
+<li>CF:进位标志位。加(减)法运算时，若最高位有进(借)位则CF=1</li>
+<li>OF:溢出标志位。当算术运算的结果超出了有符号数的可表达范围时，OF=l</li>
+<li>ZF:零标志位。当运算结果为零时ZF=1</li>
+<li>SF:符号标志位。当运算结果的最高位为1时，SF=l</li>
+<li>PF:奇偶标志位。运算结果的低8位中“1”的个数为偶数时PF=l</li>
+<li>AF:辅助进位标志位。加(减)操作中，若Bit3(D3)向Bit4(D4)有进位(借位)， AF=1</li>
+</ul>
+</li>
+<li>控制标志位：<ul>
+<li>TF:单步陷阱标志位，也叫跟踪标志位。TF=1时，使CPU处于单步执行指令的工作方式。</li>
+<li>IF:中断允许标志位。IF=1时，CPU可以响应中断请求。</li>
+<li>DF:方向标志位。在数据串操作时确定操作的方向。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第十二讲-实模式下的存储器寻址"><a href="#第十二讲-实模式下的存储器寻址" class="headerlink" title="第十二讲 实模式下的存储器寻址"></a>第十二讲 实模式下的存储器寻址</h2><ul>
+<li>存储单位地址及其内容表示<ul>
+<li>若X表示某个单元地址，则[X]表示X单元的内容</li>
+<li>例如：[0004H]=34H代表34存放在4号单元，而[0004H]=1234H，代表34存放在4号单元，12存放在5号单元</li>
+</ul>
+</li>
+<li>字的存储<ul>
+<li>占连续两个字节（16位）</li>
+<li>低对低，高对高</li>
+<li>用低位地址来表示字的地址</li>
+</ul>
+</li>
+<li>规则存放，非规则存放<ul>
+<li>8088：数据总线8位，每次传送1个字节</li>
+<li>8086：数据总线16位<ul>
+<li>字：16位，规则字，以偶地址开始存放</li>
+<li>字节： 高8位传送奇地址，低8位传送偶地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内存储器管理<ul>
+<li>8088CPU是16位体系结构的微处理器</li>
+<li>可以同时处理16位二进制码</li>
+<li>8088CPU需要管理1MB内存</li>
+</ul>
+</li>
+<li>分段技术<ul>
+<li>分为若干个逻辑段，取内地址，用16位表示，每段最大64KB</li>
+<li>对段首地址（物理地址）规定，段首地址低4位为0，例如：00000H,00010H,FFFF0H</li>
+<li>段地址：段的起始地址的高16位</li>
+<li>偏移地址：段内相对于段的起始地址的偏移量（字节数）</li>
+</ul>
+</li>
+<li>实地址模式下的存储器地址变换<ul>
+<li>内存物理地址由段基地址和偏移地址组成</li>
+<li>物理地址=段基地址×16+偏移地址</li>
+</ul>
+</li>
+<li>内存地址变换<ul>
+<li>内存单元编址<ul>
+<li>段（基）地址</li>
+<li>段内地址（相对地址/偏移地址）</li>
+</ul>
+</li>
+<li>存储器的编址<ul>
+<li>段（基）地址</li>
+<li>相对地址（偏移地址）</li>
+<li>逻辑段的起始地址称为段首，段首的偏移地址0000H</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>段寄存器：<ul>
+<li>作用：用于存放相应逻辑段的段基地址</li>
+<li>8086/8088内存中逻辑段的类型<ul>
+<li>代码段==&gt;CS（代码段寄存器）<ul>
+<li>CS×16+IP</li>
+</ul>
+</li>
+<li>数据段==&gt;DS（数据段寄存器）<ul>
+<li>DS×16+偏移地址</li>
+</ul>
+</li>
+<li>附加段==&gt;ES（附加段寄存器）<ul>
+<li>ES×16+偏移地址</li>
+</ul>
+</li>
+<li>堆栈段==&gt;SS（堆栈段寄存器）<ul>
+<li>SS×16+SP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>8086/8088内存中每类逻辑段的数量最多64K个</li>
+</ul>
+</li>
+<li>逻辑段与逻辑地址<ul>
+<li>内存的分段式逻辑分段，不是物理段</li>
+<li>两个逻辑段可以完全重合或部分重合</li>
+</ul>
+</li>
+<li>堆栈及堆栈段的使用<ul>
+<li>堆栈： <ul>
+<li>内存中一个特殊区域，用于存放暂时不用或需要保护的数据。</li>
+<li>常用于响应中断或子程序调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626171551.png"></p>
+<h2 id="第十三讲-8088-系统总线"><a href="#第十三讲-8088-系统总线" class="headerlink" title="第十三讲 8088 系统总线"></a>第十三讲 8088 系统总线</h2><ul>
+<li>总线时序<ul>
+<li>CPU工作时序<ul>
+<li>CPU各引脚信号在时间上的关系</li>
+</ul>
+</li>
+<li>总线周期<ul>
+<li>CPU完成一次访问内存（或接口）操作所需要的时间</li>
+<li>8086的基本总线周期为4个时钟周期，每个时钟周期间隔称为一个T状态（8086/8088：5MHz时钟信号，时钟周期T=200ns）<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626181818.png"></li>
+<li>T1 状态：BIU将RAM或I/O地址放在地址/数据复用             总线（AD）上。</li>
+<li>T2 状态：   <ul>
+<li>读总线周期： A/D总线为接收数据做准备。改变线路的方向。</li>
+<li>写总线周期： A/D总线上形成待写的数据，且保持到总线周期的结束(T4)。</li>
+</ul>
+</li>
+<li>T3, T4:对于读或写总线周期，AD总线上均为数据。</li>
+<li>Tw: 当RAM或I/O接口速度不够时，T3与 T4 之间可插入等待状态 Tw 。</li>
+<li>Ti : 当BIU无访问操作数和取指令的任务时，8086不执行总线操作，总线周期处于空闲状态 Ti 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总线：<ul>
+<li>按层次结构分类：<ul>
+<li>CPU总线</li>
+<li>系统总线</li>
+<li>外部总线</li>
+</ul>
+</li>
+<li>按传送信息的类别分类：<ul>
+<li>地址总线</li>
+<li>数据总线</li>
+<li>控制总线</li>
+</ul>
+</li>
+<li>按总线在微机系统的位置分类：<ul>
+<li>片内总线</li>
+<li>片间总线</li>
+<li>系统总线</li>
+<li>通信总线</li>
+</ul>
+</li>
+<li>总线的基本功能<ul>
+<li>数据传送</li>
+<li>仲裁控制</li>
+<li>出错处理</li>
+<li>总线驱动</li>
+</ul>
+</li>
+<li>总线的主要性能指标<ul>
+<li>总线带宽（B/S）<ul>
+<li>单位时间内总线上可传送的数据量</li>
+<li>总线带宽=位宽×工作频率</li>
+</ul>
+</li>
+<li>总线位宽（bit）<ul>
+<li>能同时传送的数据位数</li>
+</ul>
+</li>
+<li>总线的工作频率（MHz）<ul>
+<li>总线带宽=（位宽/8）×（工作频率/每个存储周期的时钟数）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>引脚信号设计特点<ul>
+<li>分时复用，如引脚AD0-AD15<ul>
+<li>如何实现：增加地址锁存器</li>
+<li>8282三位锁存器</li>
+<li>8286八位数据收发器</li>
+</ul>
+</li>
+<li>两种工作模式复用<ul>
+<li>最大模式</li>
+<li>最小模式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="第三章-指令系统概述"><a href="#第三章-指令系统概述" class="headerlink" title="第三章 指令系统概述"></a>第三章 指令系统概述</h1><h2 id="第十四讲-8088-8086指令系统"><a href="#第十四讲-8088-8086指令系统" class="headerlink" title="第十四讲 8088/8086指令系统"></a>第十四讲 8088/8086指令系统</h2><ul>
+<li>指令：控制计算机完成某种操作的命令</li>
+<li>指令系统：处理器所能识别的所有指令的集合</li>
+<li>指令的兼容性：同一系列机的指令都是兼容的</li>
+<li>一条指令应包含的信息：<ul>
+<li>运算数据的来源</li>
+<li>运算结果的去向</li>
+<li>执行的操作</li>
+</ul>
+</li>
+<li>指令格式<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626182906.png"></li>
+<li>指令中的操作数<ul>
+<li>立即数：参加操作的数据本身，可以是8位或16位，只能作为源操作数，无法作为目标操作数<ul>
+<li><code>MOV AX, 1234H</code></li>
+</ul>
+</li>
+<li>寄存器：数据存放地址<ul>
+<li><code>MOV AX, BX</code></li>
+</ul>
+</li>
+<li>存储器：数据存放地址<ul>
+<li>参加运算的数存放在存储器的某一个或两个单元中</li>
+<li>表现形式： [操作数在内存中的偏移地址]</li>
+<li><code>MOV AL, [1200H]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第十五讲-指令的寻址方式"><a href="#第十五讲-指令的寻址方式" class="headerlink" title="第十五讲 指令的寻址方式"></a>第十五讲 指令的寻址方式</h2><ul>
+<li><p>操作数可能的来源或运算结果可能的去处：</p>
+<ul>
+<li>由指令直接给出</li>
+<li>寄存器</li>
+<li>内存单元</li>
+</ul>
+</li>
+<li><p>寻找操作数所在地址的方法可以有三种大类型：</p>
+<ul>
+<li>指令直接给出的方式</li>
+<li>存放于寄存器中的寻址方式</li>
+<li>存放于存储器中的寻址方式</li>
+</ul>
+</li>
+<li><p>1.直接寻址：</p>
+<ul>
+<li>指令中直接给出操作数的偏移地址</li>
+<li>直接寻址方式下，操作数默认为在数据段，但允许段重设，即由指令给出所在逻辑段。 </li>
+<li><code>MOV AX，ES：[1200H]</code>  ES：段重设符</li>
+</ul>
+</li>
+<li><p>2.寄存器间接寻址</p>
+<ul>
+<li>操作数存放在内存中，数据在内存中的偏移地址为方括号中通用寄存器的内容</li>
+<li>仅有4个通用寄存器可用于存放数据的偏移地址，<code>BX</code>，<code>BP</code>，<code>SI</code>，<code>DI</code><ul>
+<li>若使用<code>BX</code>,<code>SI</code>,<code>DI</code>，则操作数在数据段<code>DS</code>中<ul>
+<li>物理地址=DS×16+{BX/SI/DI}</li>
+</ul>
+</li>
+<li>若使用<code>BP</code>，则操作数在堆栈段<code>SS</code>中<ul>
+<li>物理地址=SS×16+BP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>间接寻址的一般格式：[ 间址寄存器 ] </li>
+<li>例： <code>MOV AX，[BX]</code></li>
+<li>可以段重设</li>
+</ul>
+</li>
+<li><p>3.寄存器相对寻址</p>
+<ul>
+<li>操作数的偏移地址为寄存器的内容加上一个位移量</li>
+<li>相对寻址主要用于一维数组的操作</li>
+<li><code>MOV AX，[BX+DATA]</code></li>
+</ul>
+</li>
+<li><p>4.基址、变址寻址</p>
+<ul>
+<li>操作数的偏移地址为<ul>
+<li>一个基址寄存器的内容 + 一个变址寄存器的内容；</li>
+</ul>
+</li>
+<li>操作数的<strong>段地址由选择的基址寄存器决定</strong><ul>
+<li>基址寄存器为<code>BX</code>，默认在数据段<code>DS</code></li>
+<li>基址寄存器为<code>BP</code>，默认在堆栈段<code>SS</code></li>
+</ul>
+</li>
+<li>基址变址寻址方式与相对寻址方式一样，主要用于一维数组操作。 </li>
+</ul>
+</li>
+<li><p>5.基址、变址、相对寻址</p>
+<ul>
+<li>操作数的偏移地址为：<ul>
+<li>基址寄存器内容+变址寄存器内容+位移量</li>
+</ul>
+</li>
+<li>操作数的段地址由选择的基址寄存器决定。</li>
+<li>基址变址相对寻址方式主要用于二维表格操作。</li>
+<li>例如：<code>MOV AL, [BP][DI]5</code>==&gt;也可以表示为<code>[BP+DI+5]</code></li>
+</ul>
+</li>
+<li><p>6.隐含寻址</p>
+<ul>
+<li>指令中隐含了一个或两个操作数的地址，即操作数在默认的地址中。</li>
+<li>例：<ul>
+<li><code>MUL BL</code></li>
+</ul>
+</li>
+<li>指令执行：<ul>
+<li><code>AL×BL--&gt;AX</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>I/O端口寻址方式</p>
+<ul>
+<li>直接端口寻址<ul>
+<li>由指令提供一个8位端数（0-255）</li>
+</ul>
+</li>
+<li>间接端口寻址<ul>
+<li>由DX寄存器给出，寻址64KB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626201755.png"></p>
+<h2 id="第十六讲-数据传送指令"><a href="#第十六讲-数据传送指令" class="headerlink" title="第十六讲 数据传送指令"></a>第十六讲 数据传送指令</h2><ul>
+<li>8086指令系统从功能上包括六大类：<ul>
+<li>数据传送</li>
+<li>算术运算</li>
+<li>逻辑运算和移位</li>
+<li>串操作</li>
+<li>程序控制</li>
+<li>处理器控制</li>
+</ul>
+</li>
+<li>数据传送类指令<ul>
+<li>1.通用数据传送指令<ul>
+<li>一般数据传送指令<ul>
+<li><code>MOV</code></li>
+<li>格式：<code>MOV dest,src</code></li>
+<li>操作：<code>src-&gt;dest</code></li>
+<li>例子：<code>MOV AL, BL</code></li>
+<li>注意点：两操作数字长必须相同；两操作数不允许同时为存储器操作数；两操作数不允许同时为段寄存器；在源操作数是立即数时，目标操作数不能是段寄存器；IP和CS不作为目标操作数，FLAGS一般也不作为操作数在指令中出现。 </li>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626203308.png"></li>
+</ul>
+</li>
+<li>堆栈操作指令<ul>
+<li>先进后出，以字为单位</li>
+<li>压栈：<code>PUSH OPRD</code> 16位寄存器或存储器两单元</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626204137.png"></li>
+<li>出栈：<code>POP OPRD</code></li>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626204453.png"></li>
+<li>指令的操作数必须是16位；操作数可以是寄存器或存储器两单元，但不能是立即数；不能从栈顶弹出一个字给CS；PUSH和POP指令在程序中一般成对出现；PUSH指令的操作方向是从<code>高地址向低地址</code>，而POP指令的操作正好相反。 </li>
+<li>堆栈指针寄存器SP指向栈顶位置</li>
+</ul>
+</li>
+<li>交换指令<ul>
+<li>格式：<code>XCHG REG，MEM/REG</code></li>
+<li>注：两操作数必须有一个是寄存器操作数;不允许使用段寄存器。</li>
+<li>例：<code>XCHG AX, BX</code>,<code>XCHG [2000], CL</code></li>
+</ul>
+</li>
+<li>查表转换指令<ul>
+<li>格式：<code>XLAT</code></li>
+<li>说明：用BX的内容代表表格首地址，AL内容为表内位移量，BX+AL得到要查找元素的偏移地址</li>
+<li>操作：将BX+AL所指单元的内容送AL（将BX为首地址的,偏移地址为AL的内容送给AL。）</li>
+</ul>
+</li>
+<li>字位扩展指令 <ul>
+<li>将符号数的符号位扩展到高位；</li>
+<li>指令为零操作数指令，采用隐含寻址，隐含的操作数为AX及AX，DX</li>
+<li>无符号数的扩展规则为在高位补0</li>
+<li>字节到字：<code>CBW</code>，将AL内容扩展到AX ，若AL最高位=1，则执行后AH=FFH，若AL最高位=0，则执行后AH=00H 。AL不变（即将AL的符号位移至AH）<ul>
+<li>CBW属符号扩展指令，它可以把8位扩展到16位，扩展前后两数的真值不变，主要用于数据类型不同时用符号扩展指令可以使得数据类型相同。</li>
+</ul>
+</li>
+<li>字到双字：<code>CWD</code>，将AX内容扩展到DX AX ，若AX最高位=1，则执行后DX=FFFFH，若AX最高位=0，则执行后DX=0000H<ul>
+<li>CWD的作用是将带符号的16位整数（AX）转为32位的带符号位的整数(DX:AX),例如：AX=0xFFFE, 转为32位带符号位的整数时，DX=0xFFFF,AX=0XFFFE.又例如：AX=0x0002,转为带符号位的整数时DX=0x0000,AX=0x0002.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.输入输出指令<ul>
+<li>从端口地址读入数据到累加器/将累加器的值输出到端口中 </li>
+<li>指令格式：<ul>
+<li>输入指令： <code>IN acc，PORT</code></li>
+<li>输出指令 ：<code>OUT PORT，acc</code></li>
+</ul>
+</li>
+<li>根据端口地址码的长度，指令具有两种不同的端口地址表现形式：直接寻址，间接寻址</li>
+</ul>
+</li>
+<li>3.地址传送指令<ul>
+<li><code>LEA</code>取偏移地址指令<ul>
+<li>将变量的16位偏移地址写入到目标寄存器</li>
+<li><code>LEA REG,SRC</code></li>
+</ul>
+</li>
+<li><code>LDS</code>指令<ul>
+<li><code>LDS</code>（Load pointer using DS）的一般格式：</li>
+<li><code>LDS 通用寄存器，存储器操作数(32位)</code></li>
+</ul>
+</li>
+<li><code>LES</code>指令<ul>
+<li><code>LDS</code>和<code>LES</code>均用于将一个32位的远地址指针写入到目标寄存器。</li>
+<li><code>LES</code>（Load pointer using ES）的一般格式：</li>
+<li><code>LES 通用寄存器，存储器操作数(32位)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4.标志传送指令<ul>
+<li>隐含操作数AH,将FLAGS的低8位装入AH <ul>
+<li><code>LAHF</code>（Load AH from Flags）</li>
+<li><code>SAHF</code>（Store AH into Flags）</li>
+</ul>
+</li>
+<li>隐含操作数FLAGS<ul>
+<li><code>PUSHF</code>（Push flags onto stack）</li>
+<li><code>POPF</code>（Pop flags off stack）</li>
+</ul>
+</li>
+<li>除标志传送指令外，其它指令的执行对标志位不产生影响</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="第四章-算术运算，逻辑运算与移位操作指令"><a href="#第四章-算术运算，逻辑运算与移位操作指令" class="headerlink" title="第四章 算术运算，逻辑运算与移位操作指令"></a>第四章 算术运算，逻辑运算与移位操作指令</h1><h2 id="第十七讲-算术运算类指令"><a href="#第十七讲-算术运算类指令" class="headerlink" title="第十七讲 算术运算类指令"></a>第十七讲 算术运算类指令</h2><ul>
+<li>加法运算指令<ul>
+<li>1.<code>ADD</code>加法指令<ul>
+<li>格式：<code>ADD OPRD1，OPRD2</code></li>
+<li>操作：<code>OPRD1+OPRD2--&gt;OPRD1</code></li>
+<li>ADD指令的执行对全部6个状态标志位都产生影响</li>
+</ul>
+</li>
+<li>2.<code>ADC</code>带进位的加法指令<ul>
+<li><code> OPRD1+OPRD2+CF--&gt;OPRD1</code></li>
+</ul>
+</li>
+<li>3.<code>INC</code>加1指令<ul>
+<li>格式：<code>INC OPRD</code></li>
+<li>操作：<code>OPRD+1--&gt;OPRD</code></li>
+<li>常用于在程序中修改地址指针,OPRD不能是段寄存器,不能是立即数，除CF外，影响其他标志位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>减法运算指令<ul>
+<li>1.普通减法指令<code>SUB</code><ul>
+<li>格式：<code>SUB OPRD1，OPRD2</code></li>
+<li>操作：<code>OPRD1- OPRD2--&gt;OPRD1</code></li>
+<li>对标志位的影响与ADD指令同</li>
+</ul>
+</li>
+<li>2.考虑借位的减法指令<code>SBB</code><ul>
+<li>操作：<code>OPRD1- OPRD2- CF--&gt;OPRD1</code></li>
+</ul>
+</li>
+<li>3.减1指令<code>DEC</code><ul>
+<li>格式：<code>DEC OPRD</code></li>
+<li>操作：<code>OPRD - 1--&gt;OPRD</code></li>
+<li>除了不影响CF外，影响其他标志位</li>
+</ul>
+</li>
+<li>4.比较指令<code>CMP</code><ul>
+<li>格式：    <code>CMP OPRD1，OPRD2</code></li>
+<li>操作：<code>OPRD1- OPRD2</code></li>
+<li>指令执行的结果不影响目标操作数，仅影响标志位！</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200626210751.png"></li>
+</ul>
+</li>
+<li>5.求补指令<code>NEG</code><ul>
+<li><code>NEG OPRD</code></li>
+<li>操作：<code>0-OPRD--&gt;OPRD</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>乘法指令<ul>
+<li>乘法指令采用隐含寻址，隐含的是存放被乘数的累加器AL或AX及存放结果的AX，DX； </li>
+<li>1.无符号的乘法指令MUL<ul>
+<li><code>MUL OPRD</code>不能是立即数和段寄存器</li>
+<li>操作：<ul>
+<li>OPRD为字节数<code>AL×OPRD--&gt;AX</code></li>
+<li>OPRD为16位数<code>AX×OPRD--&gt;DX,AX</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.带符号的乘法指令IMUL <ul>
+<li>格式：<code>IMUL OPRD</code></li>
+<li>指令格式及对操作数的要求与MUL指令相同。</li>
+<li>指令执行原理：<ul>
+<li>① 将两个操作数取补码（对负数按位取反加1，正数不变）；</li>
+<li>② 做乘法运算；</li>
+<li>③ 将乘积按位取反加1。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>除法指令<ul>
+<li>1.无符号除法指令<ul>
+<li>格式： <code>DIV OPRD</code></li>
+<li>操作：<ul>
+<li>操作数是字节(8位)：<code>AX/OPRD</code>,商–&gt;AL,余数–&gt;AH</li>
+<li>操作数是字(16位)：<code>DX,AX/OPRD</code>,商–&gt;AX,余数–&gt;DX</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.有符号除法指令<ul>
+<li>格式： <code>IDIV OPRD</code></li>
+<li>指令格式及对操作数的要求与DIV指令相同。</li>
+</ul>
+</li>
+<li>注：<ul>
+<li>余数符号与被除数相同</li>
+<li>范围<ul>
+<li>双字/字：商范围 -32768到+32767</li>
+<li>字/字节：商范围 -128到+127</li>
+<li>超过范围按除数为0处理，产生0号中断<br>算术运算指令的执行大多对状态标志位会产生影响</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第十八讲-逻辑运算指令"><a href="#第十八讲-逻辑运算指令" class="headerlink" title="第十八讲 逻辑运算指令"></a>第十八讲 逻辑运算指令</h2><ul>
+<li>逻辑运算指令<ul>
+<li>对操作数的要求：<ul>
+<li>大多与MOV指令相同。</li>
+<li>“非”运算指令要求操作数不能是立即数；</li>
+</ul>
+</li>
+<li>对标志位的影响<ul>
+<li>除“非”运算指令，其余指令的执行都会影响除<code>AF</code>外的5个状态标志；</li>
+<li>无论执行结果如何，都会使标志位<code>OF=CF=0</code>。</li>
+<li>“非”运算指令的执行不影响标志位。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.”与”指令<ul>
+<li>格式：<code>AND OPRD1，OPRD2</code></li>
+<li>操作：两操作数相“与”，结果送目标地址。<code>(OPRD1)∧(OPRD2)--&gt;(OPRD1)</code></li>
+<li>CF=0,OF=0,SF,ZF,PF有影响，对AF无影响</li>
+</ul>
+</li>
+<li>2.”或”指令<ul>
+<li>格式：<code>OR OPRD1，OPRD2</code></li>
+<li>操作：两操作数相“或”，结果送目标地址 </li>
+</ul>
+</li>
+<li>3.”非”指令<ul>
+<li>格式：<code>NOT OPRD</code></li>
+<li>操作：操作数按位取反再送回原地址</li>
+</ul>
+</li>
+<li>4.”异或”指令<ul>
+<li>格式：<code>XOR OPRD1，OPRD2</code></li>
+<li>操作：两操作数相“异或”，结果送目标地址 </li>
+</ul>
+</li>
+<li>5.”测试”指令<ul>
+<li>格式：<code>TEST OPRD1，OPRD2</code></li>
+<li>操作：执行“与”运算，但运算的结果不送回目标地址。</li>
+<li>应用：常用于测试某些位的状态 </li>
+</ul>
+</li>
+</ul>
+<h2 id="第十九讲-移位操作指令"><a href="#第十九讲-移位操作指令" class="headerlink" title="第十九讲 移位操作指令"></a>第十九讲 移位操作指令</h2><ul>
+<li>移位操作指令<ul>
+<li>控制二进制位向左或向右移动的指令<ul>
+<li>非循环移位指令</li>
+<li>循环移位指令</li>
+</ul>
+</li>
+<li>移动移动1位时由指令直接给出；移动两位及以上时，移位次数必须由CL指定</li>
+</ul>
+</li>
+<li>1.非循环移位指令<ul>
+<li>逻辑左移<code>SHL</code><ul>
+<li>格式： <code>SHL OPR,CNT</code></li>
+<li>注：<ul>
+<li>OPR不能是立即数和段寄存器操作数</li>
+<li>CNT移位次数，若为1，直接写在指令中，若为几，必须先写入CL中</li>
+<li>对CF，OP，PF,ZF，SF有影响，对AF无意义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>算术左移<code>SAL</code><ul>
+<li>格式：<code>SAL OPR,CNT</code></li>
+<li>操作同<code>SHL</code></li>
+</ul>
+</li>
+<li>逻辑右移<code>SHR</code><ul>
+<li>格式：<code>SHR OPR,CNT</code></li>
+</ul>
+</li>
+<li>算术右移<code>SAR</code><ul>
+<li>格式：<code>SAR OPR,CNT</code></li>
+<li>操作：左边补上符号位，和之前的符号一样</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.循环移位指令<ul>
+<li>不带进位位的循环移位<ul>
+<li>左移 <code>ROL</code><ul>
+<li>格式： <code>ROL OPR,CNT</code></li>
+</ul>
+</li>
+<li>右移 <code>ROR</code><ul>
+<li>格式： <code>ROR OPR,CNT</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>带进位位的循环移位<ul>
+<li>左移 <code>RCL</code><ul>
+<li>格式： <code>RCL OPR,CNT</code></li>
+</ul>
+</li>
+<li>右移 <code>RCR</code><ul>
+<li>格式： <code>RCR OPR,CNT</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="第五章-串操作指令"><a href="#第五章-串操作指令" class="headerlink" title="第五章 串操作指令"></a>第五章 串操作指令</h1><h2 id="第二十讲-串操作指令"><a href="#第二十讲-串操作指令" class="headerlink" title="第二十讲 串操作指令"></a>第二十讲 串操作指令</h2><ul>
+<li>针对数据块或字符串的操作 </li>
+<li>可实现存储器到存储器的数据传送； </li>
+<li>待操作的数据串称为源串，目标地址称为目标串。 </li>
+<li>串操作指令的操作对象是多个字节数（一串字符或数据），因此，指令的执行需要确定：<ul>
+<li>串所在的区域<ul>
+<li>源串一般存放在数据段，偏移地址由SI指定。允许段重设。</li>
+<li>目标串必须在附加段，偏移地址由DI指定</li>
+</ul>
+</li>
+<li>串的首地址（原串、目标串起始地址）</li>
+<li>串长度（大小）<ul>
+<li>串长度值由CX指定 </li>
+</ul>
+</li>
+<li>串的操作方向<ul>
+<li>由DF标志位决定。指令根据DF状态自动修改地址指针<ul>
+<li>DF=0 增地址方向 </li>
+<li>DF=1 减地址方向 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过增加重复前缀， 可以实现对CX值的自动修改 <ul>
+<li> 无条件重复</li>
+<li>REP<ul>
+<li>当CX≠0时，REP后的指令将继续重复执行</li>
+<li>常用于传送类指令前–》未传完则继续传送 </li>
+</ul>
+</li>
+<li>条件重复<ul>
+<li>相等（为零）重复：REPE（REPZ）</li>
+<li>CX≠0  ∩  ZF=1，则前缀后的指令将继续重复执行</li>
+<li>不相等（不为零）重复：REPNE（ REPNZ）</li>
+<li>CX≠0  ∩  ZF=0，则前缀后的指令将继续重复执行 </li>
+<li>条件前缀常用于运算类指令前，当：<ul>
+<li>1）操作未结束  AND  结果=0</li>
+<li>2）操作未结束  AND  结果≠0 使其后的指令继续重复执行。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>串操作指令 <ul>
+<li>串传送 <code>MOVS</code> </li>
+<li>串比较 <code>CMPS</code> </li>
+<li>串扫描 <code>SCAS</code> </li>
+<li>串装入 <code>LODS</code> </li>
+<li>串送存 <code>STOS</code> </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627102608.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627102624.png"></p>
+<h2 id="第二十一讲-串传送与串比较指令"><a href="#第二十一讲-串传送与串比较指令" class="headerlink" title="第二十一讲 串传送与串比较指令"></a>第二十一讲 串传送与串比较指令</h2><p>1.串传送指令</p>
+<ul>
+<li>功能：将原数据串传送到目标地址</li>
+<li>格式：<ul>
+<li><code>MOVS OPRD1，OPRD2</code></li>
+<li><code>MOVSB</code>,按字节传送</li>
+<li><code>MOVSW</code>，按字传送</li>
+</ul>
+</li>
+<li>串传送指令常与无条件重复前缀连用</li>
+</ul>
+<p>2.串比较指令</p>
+<ul>
+<li>功能：用于实现两个数据串的比较</li>
+<li>操作：<ul>
+<li>目标串-源串，结果不写回目标地址</li>
+<li>常与条件重复前缀连用</li>
+</ul>
+</li>
+<li>格式：<ul>
+<li><code>CMPS OPRD1，OPRD2</code></li>
+<li><code>CMPSB</code></li>
+<li><code>CMPSW</code></li>
+</ul>
+</li>
+<li>前缀的操作对标志位不影响</li>
+</ul>
+<h2 id="第二十二讲-串扫描指令"><a href="#第二十二讲-串扫描指令" class="headerlink" title="第二十二讲 串扫描指令"></a>第二十二讲 串扫描指令</h2><ul>
+<li><p>格式：</p>
+<ul>
+<li><code>SCAS OPRD</code></li>
+<li><code>SCASB</code></li>
+<li><code>SCASW</code></li>
+</ul>
+</li>
+<li><p>执行与CMPS指令相似的操作，区别是：这里的源操作数是AX或AL</p>
+</li>
+<li><p>串扫描指令应用例：</p>
+<ul>
+<li>在ES段中从2000H单元开始存放了10个字符，寻找其中有无字符“A”。若有则记下搜索次数，将搜索次数写入到DATA1单元，并将存放“A”的地址写入DATA2单元。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627103549.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="第二十三讲-串装入与串存储指令"><a href="#第二十三讲-串装入与串存储指令" class="headerlink" title="第二十三讲 串装入与串存储指令"></a>第二十三讲 串装入与串存储指令</h2><p>1.串装入指令</p>
+<ul>
+<li>格式：<ul>
+<li><code>LODS OPRD</code></li>
+<li><code>LODSB</code></li>
+<li><code>LODSW</code></li>
+</ul>
+</li>
+<li>操作：<ul>
+<li>对字节：AL  [DS:SI]</li>
+<li>对  字：AX  [DS:SI]</li>
+</ul>
+</li>
+</ul>
+<p>2.串存储指令</p>
+<ul>
+<li><p>格式：</p>
+<ul>
+<li><code>STOS OPRD</code></li>
+<li><code>STOSB</code></li>
+<li><code>STOSW</code></li>
+</ul>
+</li>
+<li><p>操作：</p>
+<ul>
+<li>对字节： AL  [ES:DI]</li>
+<li>对  字： AX  [ES:DI]</li>
+</ul>
+</li>
+<li><p>串操作指令应用注意事项:</p>
+<ul>
+<li>需要定义附加段<ul>
+<li>目标操作数必须在附加段</li>
+</ul>
+</li>
+<li>需要设置数据的操作方向<ul>
+<li>确定DF的状态</li>
+</ul>
+</li>
+<li>源串和目标串指针分别为SI和DI</li>
+<li>串长度值必须由CX给出</li>
+<li>注意重复前缀的使用方法<ul>
+<li>传送类指令前加无条件重复前缀</li>
+<li>串比较类指令前加条件重复前缀，但前缀不影响ZF状态 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="第六章-程序与处理器控制指令"><a href="#第六章-程序与处理器控制指令" class="headerlink" title="第六章 程序与处理器控制指令"></a>第六章 程序与处理器控制指令</h1><h2 id="第二十四讲-程序控制指令"><a href="#第二十四讲-程序控制指令" class="headerlink" title="第二十四讲 程序控制指令"></a>第二十四讲 程序控制指令</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627104125.png"></p>
+<ul>
+<li>程序控制类指令<ul>
+<li>转移指令<ul>
+<li>通过修改指令的偏移地址或段地址及偏移地址实现程序的转移</li>
+<li>无条件转移指令–&gt;无条件转移到目标地址<ul>
+<li><code>JMP OPRD</code></li>
+<li>段内直接转移<ul>
+<li>当偏移量为8位时，称为段内直接短跳转<ul>
+<li>格式：<code>JMP (SHORT) 标号</code></li>
+<li>操作：<code>(IP)&lt;--disp8+(IP)</code></li>
+</ul>
+</li>
+<li>当偏移量为8位时，称为段内直接近跳转<ul>
+<li>格式：<code>JMP (NEAR PTR) 标号</code></li>
+<li>操作：<code>(IP)&lt;--disp16+(IP)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>段内间接转移<ul>
+<li><code>JMP BP</code><ul>
+<li>转向(SS):(BP)</li>
+</ul>
+</li>
+<li><code>JMP BX</code><ul>
+<li>转向(CS):(BX)</li>
+</ul>
+</li>
+<li><code>JMP (WORD PTR) [BX][DI]</code><ul>
+<li>转向(CS):(BX)+(DI)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>段间直接转移<ul>
+<li><code>JMP (FAR PTR) 标号</code></li>
+<li>执行该指令时，将把标号所在的段的值送CS，将标号在所属段内的偏移量送IP，从而形成新的转移地址CS:IP</li>
+</ul>
+</li>
+<li>段间间接转移<ul>
+<li><code>JMP DWORD PTR [BX]</code></li>
+<li>中间的<code>DWORD PTR</code>不能省略，表示存储器双字操作数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件转移指令–&gt;当具备一定条件时转移到目标地址<ul>
+<li><code>JC/JNC</code><ul>
+<li>判断CF的状态。常用于两个无符号数大小比较</li>
+</ul>
+</li>
+<li><code>JZ/JNZ</code><ul>
+<li>判断ZF的状态。常用于循环体的结束判断</li>
+</ul>
+</li>
+<li><code>JO/JNO</code><ul>
+<li>判断OF的状态。常用于有符号数溢出的判断</li>
+</ul>
+</li>
+<li><code>JP/JNP</code><ul>
+<li>判断PF的状态。用于判断运算结果低8位中1的个数是否为偶数</li>
+</ul>
+</li>
+<li><code>JS /JNS</code><ul>
+<li>判断SF的状态。常用于判断数的性质 </li>
+</ul>
+</li>
+<li><code>JA/JAE/JB/JBE</code><ul>
+<li>判断CF或CF+ZF的状态。常用于无符号数大小的比较</li>
+</ul>
+</li>
+<li><code>JG/JGE/JL/JLE</code><ul>
+<li>判断SF+OF或SF+OF+ZF的状态。常用于有符号数大小的比较</li>
+</ul>
+</li>
+<li><code>JCXZ</code><ul>
+<li>可根据指令执行后CX的结果实现转移<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200829201509.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>循环控制<ul>
+<li><code>LOOP</code><ul>
+<li>条件：CX≠0</li>
+</ul>
+</li>
+<li><code>LOOPZ</code><ul>
+<li>条件：CX≠0，且ZF=1</li>
+</ul>
+</li>
+<li><code>LOOPNZ</code><ul>
+<li>条件：CX≠0，且ZF=0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>过程调用<ul>
+<li>用于调用一个子过程，必须保护返回地址 </li>
+<li>调用指令的执行过程<ul>
+<li>① 保护断点：将调用指令的下一条指令的地址（断点）压入堆栈</li>
+<li>② 获取子过程的入口地址：子过程第1条指令的偏移地址</li>
+<li>③ 执行子过程：功能实现，参数的保存及恢复</li>
+<li>④ 恢复断点，返回原程序：将断点偏移地址由堆栈弹出 </li>
+</ul>
+</li>
+<li>段内调用：被调用程序与调用程序在同一代码段<ul>
+<li><code>CALL NEAR PROCC</code></li>
+</ul>
+</li>
+<li>段间调用:子过程与原调用程序不在同一代码段</li>
+<li>返回指令:<ul>
+<li>功能：从堆栈中弹出断点地址，返回原程序</li>
+<li>格式：<code>RET</code></li>
+<li>子程序的最后一条指令必须是RET</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>中断控制<ul>
+<li>中断的概念:某种异常或随机事件使处理器暂时停止正在运行的程序，转去执行一段特殊处理程序，并在处理结束后返回原程序被中断处继续执行的过程。</li>
+<li>中断指令：引起CPU产生一次中断的指令 <ul>
+<li>格式：<code>INT n</code></li>
+<li>说明： nх4</li>
+</ul>
+</li>
+<li>中断指令的执行过程<ul>
+<li>① 将FLAGS压入堆栈；</li>
+<li>② 将INT指令的下一条指令的CS、IP压栈；</li>
+<li>③ 由n×4得到存放中断向量的地址；</li>
+<li>④ 将中断向量（中断服务程序入口地址）送CS和IP寄存器；</li>
+<li>⑤ 转入中断服务程序</li>
+</ul>
+</li>
+<li>中断返回指令:<ul>
+<li>格式：<code>IRET</code></li>
+<li>中断服务程序的最后一条指令，负责：恢复断点;恢复标志寄存器内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二十五讲-处理器控制指令"><a href="#第二十五讲-处理器控制指令" class="headerlink" title="第二十五讲 处理器控制指令"></a>第二十五讲 处理器控制指令</h2><ul>
+<li>这类指令用来对CPU进行控制，如修改标志寄存器，使CPU暂停，使CPU与外部设备同步等。<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627113916.png"></li>
+</ul>
+<h1 id="第七章-汇编语言"><a href="#第七章-汇编语言" class="headerlink" title="第七章 汇编语言"></a>第七章 汇编语言</h1><h2 id="第二十六讲-汇编语言程序设计"><a href="#第二十六讲-汇编语言程序设计" class="headerlink" title="第二十六讲 汇编语言程序设计"></a>第二十六讲 汇编语言程序设计</h2><ol>
+<li>汇编语言源程序与汇编程序<br>（1）汇编语言源程序：用助记符编写<br>（2）汇编程序：源程序的编译程序</li>
+<li>汇编语言程序设计与执行过程<br>（1）输入汇编语言源程序：源文件.ASM<br>（2）汇编MASM：目标文件.OBJ<br>（3）链接LINK：可执行文件.EXE<br>（4）调试TD：最终程序</li>
+<li>汇编语言语句类型和格式<br>（1）语句类型：指令性语句，指示性语句<br>（2）语句格式：<br>指令性语句：<code>[标号：] [前缀] 助记符 [操作数]，[操作数] [ ；注释] </code><br>指示性语句格式： <code>[名字] 伪指令助记符 操作数 [，操作数，…] [ ；注释] </code></li>
+<li>汇编语言语句中的操作数<br>(1)寄存器<br>(2)存储器单元<br>(3)常量:（数字/字符串）<br>(4)变量或标号<br>(5)表达式 ：算术运算；逻辑运算；关系运算；取值运算（<code>OFFSET</code>,<code>SEG</code>）和属性运算(<code>PTR</code>)；其它运算 </li>
+</ol>
+<h2 id="第二十七讲-数据定义伪代码"><a href="#第二十七讲-数据定义伪代码" class="headerlink" title="第二十七讲 数据定义伪代码"></a>第二十七讲 数据定义伪代码</h2><ol>
+<li>数据定义伪指令<br>（1）用于定义数据区中变量的类型及其所占内存空间大小<br>（2）DB（Define Byte）:定义的变量为字节型<br>（3）DW （Define Word） :定义的变量为字类型<br>（4）DD （Define Double Word） :定义的变量为双字型<br>（5）DQ （Define Quadword） :定义的变量为4字型<br>（6）DT （Define Tenbytes） :定义的变量为10字节型</li>
+<li>重复操作符<br>（1）当同样的操作数重复多次时，可以使用重复操作符<br>（2）作用：为一个数据区的各单元设置相同的初值<br>（3）格式：[变量名] 伪指令助记符 n DUP（初值 [,初值,… ] ）<br>（4）例：<code>M1 DB 10 DUP（0）</code></li>
+<li>“？”的作用<br>（1）表示随机值，用于预留存储空间<br>（2）例：<code>MEM1 DB 34H，’A’，？</code>，例：<code>DW 20 DUP（？）</code></li>
+<li>调整偏移量伪指令<br>（1）规定程序或变量在逻辑段中的起始地址<br>（2）格式：<code>ORG 表达式</code><br>（3）例：<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DATA <span class="meta">SEGMENT</span></span><br><span class="line">ORG <span class="number">1200H</span></span><br><span class="line">BUFF <span class="built_in">DB</span> <span class="number">1</span>,<span class="number">2</span></span><br><span class="line">DATA ENDS </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="第二十八讲-符号与段定义相关伪指令"><a href="#第二十八讲-符号与段定义相关伪指令" class="headerlink" title="第二十八讲 符号与段定义相关伪指令"></a>第二十八讲 符号与段定义相关伪指令</h2><ol>
+<li>符号定义伪指令<br>（1）将表达式的值赋给一个名字。当源程序中需多次引用某一表达式时，可以利用EQU伪指令，用一个符号代替表达式，以便于程序维护。<br>（2）格式：<code>符号名 EQU 表达式</code><br>（3）操作：用符号名取代后边的表达式，不可重新定义<br>（4）例：<code>CONSTANT EQU 100 </code></li>
+<li>段定义伪指令<br>（1）在汇编语言源程序中定义逻辑段<br>说明逻辑段的起始和结束<br>说明不同程序模块中同类逻辑段之间的联系形态<br>（2）格式：<code>段名 SEGMENT [定位类型] [组合类型] [’类别’] </code></li>
+<li>设定段寄存器伪指令<br>（1）说明所定义逻辑段的性质<br>（2）格式：<code>ASSUME 段寄存器名:段名[，段寄存器名:段名，…] </code></li>
+<li>结束伪指令<br>（1）表示源程序结束<br>（2）格式：<code>END [标号] </code></li>
+</ol>
+<h2 id="第二十九讲-其他伪指令"><a href="#第二十九讲-其他伪指令" class="headerlink" title="第二十九讲 其他伪指令"></a>第二十九讲 其他伪指令</h2><ol>
+<li>过程定义伪指令<br>（1）用于定义一个过程体<br>（2）格式：<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过程名 PROC [ <span class="built_in">NEAR</span> / <span class="built_in">FAR</span> ]</span><br><span class="line">┇</span><br><span class="line"><span class="keyword">RET</span></span><br><span class="line">过程名 ENDP</span><br></pre></td></tr></table></figure>
+（3）<img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627120345.png"></li>
+<li>宏命令伪指令<br>（1）宏：源程序中由汇编程序识别的具有独立功能的一段程序代码<br>（2）当源程序中需要多次使用同一个程序段时，可以将该程序段定义为一个宏<br>（3）格式：<code>宏命令名 MACRO &lt;形式参数&gt;</code><br>（4）<img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627120517.png"></li>
+</ol>
+<h2 id="第三十讲-系统功能调用"><a href="#第三十讲-系统功能调用" class="headerlink" title="第三十讲 系统功能调用"></a>第三十讲 系统功能调用</h2><ol>
+<li>BIOS、DOS功能调用<br>（1）BIOS：驻留在ROM中的基本输入/输出系统<br>加电自检，装入引导，主要I/O设备处理程序及接口控制<br>（2）DOS：磁盘操作系统<br>DOS功能/BIOS功能调用是调用系统内核子程序<br>（3）BIOS、DOS功能调用：DOS功能与BIOS功能均通过中断方式调用，DOS和BIOS中断均可能影响AX</li>
+<li>DOS软中断<br>（1）DOS中断包括：设备管理，目录管理，文件管理，其它用中断类型码区分<br>（2）DOS软中断：类型码为21H </li>
+<li>单字符输入<br>（1）调用方法：<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MOV</span> <span class="number">AH</span>，<span class="number">01</span></span><br><span class="line"><span class="keyword">INT</span> <span class="number">21H</span></span><br></pre></td></tr></table></figure>
+（2）输入的字符在AL中 </li>
+<li>字符串输入<br>（1）接收由键盘输入一串字符<br>（2）输入的字符串存储在内存指导区域中<br>（3）用户自定义缓冲区格式：<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627121105.png"></li>
+<li>单字符显示输出<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627121240.png"></li>
+<li>字符串显示输出<br>AH 功能号09H<br>DS：DX 待输出字符串的偏移地址<br>INT 21H</li>
+<li>返回操作系统（DOS）功能<br>（1）功能号：4CH<br>（2）调用格式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV AH，4CH</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure>
+（3）功能：程序执行完该2条语句后能正常返回OS;常位于程序结尾处</li>
+</ol>
+<h1 id="第八章-半导体存储器"><a href="#第八章-半导体存储器" class="headerlink" title="第八章 半导体存储器"></a>第八章 半导体存储器</h1><h2 id="第三十一讲-半导体存储器概述"><a href="#第三十一讲-半导体存储器概述" class="headerlink" title="第三十一讲 半导体存储器概述"></a>第三十一讲 半导体存储器概述</h2><ol>
+<li>半导体存储器<br>（1）由能够表示二进制数“0”和“1”的，具有记忆功能的半导体器件组成<br>（2）能存放一位二进制数的半导体器件称为一个存储元<br>（3）若干存储元构成一个存储单元</li>
+<li>半导体存储器的分类</li>
+</ol>
+<ul>
+<li>内存储器：<ul>
+<li>随机存取存储器（RAM）<ul>
+<li>静态存储器（SRAM）</li>
+<li>动态存储器（DRAM）</li>
+</ul>
+</li>
+<li>只读存储器（ROM）<ul>
+<li>掩模ROM</li>
+<li>一次性可写ROM</li>
+<li>可读写ROM<ul>
+<li>EPROM</li>
+<li>EEPROM</li>
+<li>PROM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>半导体存储器的主要技术指标<br>（1）存储容量：存储单元个数×每单元的二进制数位数<br>存储容量=2^m×N<br>（m：芯片地址线根数）<br>（N：芯片数据线根数）<br>（2）存取时间：实现一次读/写所需要的时间<br>（3）存取周期：连续启动两次独立的存储器操作所需间隔的最小时间<br>（4）可靠性，功耗</li>
+</ol>
+<h2 id="第三十二讲-微机中的存储器"><a href="#第三十二讲-微机中的存储器" class="headerlink" title="第三十二讲 微机中的存储器"></a>第三十二讲 微机中的存储器</h2><ol>
+<li>微机中的存储器<br>（1）内存储器<br>主内存<br>高速缓冲存储器<br>（2）外存储器<br>联机外存<br>脱机外存<br>（3）虚拟存储器<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627143039.png"></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">内存</th>
+<th align="center">外存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">速度</td>
+<td align="center">快</td>
+<td align="center">慢</td>
+</tr>
+<tr>
+<td align="center">容量</td>
+<td align="center">小</td>
+<td align="center">大</td>
+</tr>
+<tr>
+<td align="center">单位容量价格</td>
+<td align="center">高</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td align="center">制造材料</td>
+<td align="center">半导体</td>
+<td align="center">磁性材料</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li><p>微机中的存储系统主要有：<br>（1）Cache存储器系统<br>（2）虚拟存储器系统</p>
+</li>
+<li><p>随机存取存储器<br>（1）特点：可以随机读或写操作；掉电后存储内容即丢失<br>（2）类型：静态随机存取存储器（SRAM）；动态随机存取存储器（DRAM）</p>
+</li>
+</ol>
+<h2 id="第三十三讲-存储单元的编址"><a href="#第三十三讲-存储单元的编址" class="headerlink" title="第三十三讲 存储单元的编址"></a>第三十三讲 存储单元的编址</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627143427.png"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627143454.png"></p>
+<ol>
+<li>地址译码电路<br>（1）单译码结构<br>（2）双译码结构<br>（3）3-8译码器（741S138）</li>
+</ol>
+<h2 id="第三十四讲-存储器扩展技术"><a href="#第三十四讲-存储器扩展技术" class="headerlink" title="第三十四讲 存储器扩展技术"></a>第三十四讲 存储器扩展技术</h2><ol>
+<li>存储器扩展：用已有的存储器芯片构造一个需要的存储空间<br>（1）用多片存储芯片构成一个需要的内存空间；<br>（2）各存储器芯片在整个内存中占据不同的地址范围；<br>（3）任一时刻仅有一片（或一组）被选中。<br>（4）存储器芯片的存储容量等于：单元数×每单元的位数 </li>
+<li>存储器扩展方法<br>（1）位扩展–》扩展字长<br>（2）字扩展–》扩展单元数<br>（3）字位扩展–》既扩展字长也扩展单元数</li>
+</ol>
+<h1 id="第九章-输入输出与中断技术"><a href="#第九章-输入输出与中断技术" class="headerlink" title="第九章 输入输出与中断技术"></a>第九章 输入输出与中断技术</h1><h2 id="第三十五讲-输入输出技术概述"><a href="#第三十五讲-输入输出技术概述" class="headerlink" title="第三十五讲 输入输出技术概述"></a>第三十五讲 输入输出技术概述</h2><ol>
+<li>I/O接口<br>（1）接口要解决的问题<br>速度匹配👉数据的缓冲与暂存<br>信号的驱动能力👉信号驱动<br>信号形式和电平的匹配👉信号类型转换<br>信息格式👉信号格式转换<br>时序匹配（定时关系）<br>总线隔离👉三态门 </li>
+<li>I/O端口及其编址<br>（1）端口：接口电路中用于缓存数据及控制信息的部件<br>（2）分类：数据端口，控制端口，状态端口<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627144642.png"><br>（3）I/0端口编址：为确保CPU能够访问到每个不同的端口<br>（4）寻址端口的方法：</li>
+</ol>
+<ul>
+<li>先找到端口所在的接口电路芯片</li>
+<li>再在该芯片上找具体访问的端口<ul>
+<li>若接口中仅有一个端口，则找到芯片即找到端口</li>
+<li>若接口中有多个端口，则找到芯片后需再找端口<br>（5）每个端口地址=片选地址（高位地址）+片内地址 </li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li> I/O地址译码<br>（1）目的：确定端口的地址<br>（2）参加译码的信号：<br><code>#IOR，#IOW，高位地址信号</code><br>（3）对端口读/写信号的产生条件</li>
+</ol>
+<ul>
+<li><code>IO/#M=1</code></li>
+<li><code>#RD=0 #IOR=0</code></li>
+<li><code>#WR=0 #IOW=0</code><br>（4）当接口只有一个端口时：无片内地址，全部地址信号均为高位地址（可全部参与译码），译码输出直接选择该端口；<br>（5）当接口具有多个端口时：则16位地址线的高位参与译码（决定接口的基地址），而低位则用于确定要访问哪一个端口</li>
+</ul>
+<h2 id="第三十六讲-简单接口芯片"><a href="#第三十六讲-简单接口芯片" class="headerlink" title="第三十六讲 简单接口芯片"></a>第三十六讲 简单接口芯片</h2><ol>
+<li> 接口的分类及特点<br>（1）按传输信息的方向分类：<br>输入接口<br>输出接口<br>（2）按传输信息的类型分类：<br>数字接口<br>模拟接口<br>（3）按传输信息的方式分类：<br>并行接口<br>串行接口</li>
+<li>接口特点<br>（1）输入接口：<br>要求对数据具有控制能力<br>常用三态门实现<br>（2）输出接口：<br>要求对数据具有锁存能力<br>常用锁存器实现</li>
+</ol>
+<h2 id="第三十七讲-基本输入输出方法"><a href="#第三十七讲-基本输入输出方法" class="headerlink" title="第三十七讲 基本输入输出方法"></a>第三十七讲 基本输入输出方法</h2><ol>
+<li>基本输入/输出方法<br>（1）无条件传送：要求外设总是处于准备好状态<br>优点：软件及接口硬件简单<br>缺点：只适用于简单外设，适应范围较窄<br>（2）查询式传送：仅当条件满足时才能进行数据传送；每满足一次条件只能进行一次数据传送。<br>适用场合：外设并不总是准备好；对传送速率和效率要求不高<br>工作条件：外设应提供设备状态信息；接口应具备状态端口<br>（3）中断方式传送<br>特点：外设在需要时向CPU提出请求，CPU再去为它服务。服务结束后或在外设不需要时，CPU可执行自己的程序。<br>优点：CPU效率高，实时性好，速度快。<br>缺点：程序编制相对较为复杂。<br>（4）直接存储器存取(DMA) ：<br>特点：<br>①外设直接与存储器进行数据交换 ，CPU不再担当数据传输的中介者；<br>②总线由DMA控制器（DMAC）进行控制（CPU要放弃总线控制权），内存/外设的地址和读写控制信号均由DMAC提供。<br>③DMA传送方式有单元传送方式，快传送方式，请求传送方式<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627145513.png"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627145541.png"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627145557.png"></li>
+</ol>
+<h3 id="DMA控制器8237A"><a href="#DMA控制器8237A" class="headerlink" title="DMA控制器8237A"></a>DMA控制器8237A</h3><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200907143459.png"></p>
+<h2 id="第三十八讲-中断技术"><a href="#第三十八讲-中断技术" class="headerlink" title="第三十八讲 中断技术"></a>第三十八讲 中断技术</h2><ol>
+<li>中断的基本概念<br>（1）CPU执行程序时，由于发生了某种随机的事件(外部或内部)，<br>引起CPU暂时中断正在运行的程序，转去执行一段特殊的服务<br>程序，以处理该事件，该事件处理完后又返回被中断的程序<br>继续执行，这一过程称为中断。<br>（2）引入中断的原因<br>提高对外设请求的响应实时性。<br>提高了CPU的利用率<br>避免了CPU不断检测外设状态的过程<br>（3）中断类型<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200627145857.png"></li>
+</ol>
+<h1 id="第十章-可编程数字接口电路"><a href="#第十章-可编程数字接口电路" class="headerlink" title="第十章 可编程数字接口电路"></a>第十章 可编程数字接口电路</h1><h2 id="可编程定时计数器8253"><a href="#可编程定时计数器8253" class="headerlink" title="可编程定时计数器8253"></a>可编程定时计数器8253</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8253-1.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8253-2.PNG"></p>
+<h2 id="可编程并行接口8255"><a href="#可编程并行接口8255" class="headerlink" title="可编程并行接口8255"></a>可编程并行接口8255</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8255-1.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8255-2.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8255-3.PNG"></p>
+<h2 id="可编程中断控制器8259"><a href="#可编程中断控制器8259" class="headerlink" title="可编程中断控制器8259"></a>可编程中断控制器8259</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8259-1.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8259-2.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8259-3.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8259-4.PNG"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/8259-5.PNG"></p>
+<h1 id="第十一章-模拟接口电路"><a href="#第十一章-模拟接口电路" class="headerlink" title="第十一章 模拟接口电路"></a>第十一章 模拟接口电路</h1><h2 id="模拟量的输入输出"><a href="#模拟量的输入输出" class="headerlink" title="模拟量的输入输出"></a>模拟量的输入输出</h2><p>D： （Digital） 数字量<br>A： （Analog） 模拟量<br>采样和量化</p>
+<h2 id="D-A转换器和A-D转换器"><a href="#D-A转换器和A-D转换器" class="headerlink" title="D/A转换器和A/D转换器"></a>D/A转换器和A/D转换器</h2><ol>
+<li>主要参数<br>（1）分辨率<br>输入的二进制数每+1/-1个最低有效位LSB，使输出变化的程度 , 1LSB = 1/(2^n-1)<br>[n：D/A转换器的字长]<br>（2）转换时间<br>（3）精度<br>（4）线性度</li>
+<li>D/A转换器与微处理器的接口方法<br>（1）接口任务:解决数据锁存，缓冲问题<br>（2）特点：控制信号，无专门数据传送间隔时间，调节数据宽度<br>（3）接口电路结构：通用并行接口或直连<br>（4）D/A：数字量转换为模拟量</li>
+</ol>
+<h2 id="D-A转换器（DAC0832）NS"><a href="#D-A转换器（DAC0832）NS" class="headerlink" title="D/A转换器（DAC0832）NS"></a>D/A转换器（DAC0832）NS</h2><ol>
+<li>三种工作方式：直通方式，单缓冲方式，双缓冲方式</li>
+<li>8位寄存器，T型电阻网络，电流型输出，不可编程</li>
+<li>主要引脚功能：D7-D0，ILE，CS，WR1，WR2，XFER（低电平有效）</li>
+<li>内部结构：<br>（1）8位输入寄存器<br>（2）8位DAC寄存器<br>（3）8位D/A转换器<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20200907141224.png"></li>
+</ol>
+<h2 id="A-D转换器（ADC0809）"><a href="#A-D转换器（ADC0809）" class="headerlink" title="A/D转换器（ADC0809）"></a>A/D转换器（ADC0809）</h2><p>1.特点</p>
+<ul>
+<li>8通道（8路）输入</li>
+<li>8位字长</li>
+<li>逐位逼近型</li>
+<li>转换时间100us</li>
+<li>内置三态输出缓冲器</li>
+</ul>
+<p>2.主要引脚功能</p>
+<ul>
+<li>D7-D0：输出数据线，三态</li>
+<li>IN0-IN7：8通道模拟输入</li>
+<li>ADDC,ADDB,ADDA通道地址选择</li>
+<li>Start：启动变换</li>
+<li>ALE：通道地址锁存</li>
+<li>EOC：转换结束状态输出</li>
+<li>OE：输出允许</li>
+<li>CLK：工作时钟</li>
+</ul>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>控制信号<br>（1）M/IO=1,CPU对存储器操作，M/IO=0,CPU对I/O操作<br>（2）DT/R=1,CPU→【内存/（I/O）】，DT/R=0，外部→CPU<br>（3）8086，RD，WR低电平有效</li>
+<li>ADC0809<br>（1）EOC发出中断请求<br>（2）CPU查询EOC状态</li>
+<li>D/A和A/D<br>（1）主要参数：分辨率，转换时间，精度</li>
+<li>数据传输方式（输入输出控制方式）<br>（1）程序控制方式<br> (1.1)无条件传送<br> (1.2)有条件传送（查询）<br>（2）中断控制方式<br>（3）DMA<br> （3.1）DMA传送方式：单元传送，块传送，请求传送<br> （3.2）DMAC，8237A<br> （3.3）DMA方式写，外设到存储器<br> （3.4）8237占用8个输入输出端口<br> （3.5）DMA控制方式中需要用到的一对联络信号是HLDA/HRQ</li>
+<li>串行接口<br>（1）串行接口中，并行数据和串行数据的转换通过移位寄存器实现<br>（2）RS-232是串行通信标准</li>
+<li>片选控制方式，全译码，部分译码，线译码</li>
+<li>I/O接口有独立编址和统一编址方式</li>
+<li>复位后段寄存器的初值为：CS=FFFFH，DS=0000H，SS=0000H，ES=0000H,其他寄存器的初值都是0，特别是CS=FFFFH，IP=0000H，因此复位后CPU从FFFF0H开始执行程序</li>
+<li>奇地址存储体和系统数据总线高8位相连，用BHE=0作为选通信号；偶地址存储体和系统数据总线低8位相连，用A0=0作为连通信号</li>
+<li>对准字，从偶地址开始存放字数据的存放方式（传一次，A0和BHE都有效），非对准字，从奇地址开始存放字数据的存放方式（传两次，先奇BHE后偶A0）</li>
+<li>寻址隐含约定：<br>（1）直接寻址，DS<br>（2）寄存器寻址：DS←BX/SI/DI；SS←BP<br>（3）基址变址寻址：DS←BX+SI/DI ； SS：BP+SI/DI<br>（4）堆栈：SS←SP<br>（5）取指令：CS←IP</li>
+</ol>
+</article><div class="post-reward"><div class="reward-button"><i class="fas fa-hamburger"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/donate"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/">微机原理与接口技术</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110553-u34116618882606377503fm11gp0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-info">大学课程 | 《微机原理与接口技术》笔记</span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.justlovesmile.top/posts/43666.html">https://blog.justlovesmile.top/posts/43666.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.justlovesmile.top" target="_blank">Justlovesmile's BLOG</a>！</span></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/651e6a0b.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584111180-soft.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">大学课程 | 计算机系统结构精简知识点</div></div></a></div><div class="next-post pull-right"><a href="/posts/7c5e3f37.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/202851-1495024131b004.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习笔记 | CSP201912认证考试部分题解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/651e6a0b.html" title="大学课程 | 计算机系统结构精简知识点"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584111180-soft.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-08</div><div class="title">大学课程 | 计算机系统结构精简知识点</div></div></a></div><div><a href="/posts/50754.html" title="大学课程 | 计算机系统结构"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584111180-soft.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-13</div><div class="title">大学课程 | 计算机系统结构</div></div></a></div><div><a href="/posts/51917.html" title="大学课程 | 计算机组成原理"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584111542-u25365703711528446357fm11gp0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-18</div><div class="title">大学课程 | 计算机组成原理</div></div></a></div><div><a href="/posts/16050.html" title="大学课程 | 《算法分析与设计》笔记"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/H21b5f6b8496141a1979a33666e1074d9x.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-19</div><div class="title">大学课程 | 《算法分析与设计》笔记</div></div></a></div><div><a href="/posts/50753.html" title="大学课程 | 编译原理知识点"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/001243-1573661563c583.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-25</div><div class="title">大学课程 | 编译原理知识点</div></div></a></div><div><a href="/posts/8398.html" title="大学课程 | 计算机操作系统"><img class="cover" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/233900-1579621140c81d.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-16</div><div class="title">大学课程 | 计算机操作系统</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">Justlovesmile</div><div class="author-info__description">一个计算机专业学生的个人博客，记录着学习笔记和生活中的思考，期待着和所有人相遇</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><!--if(theme.social)--><!--    .card-info-social-icons.is-center--><!--      !=fragment_cache('social', function(){return partial('includes/header/social')}) --></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bell"></i><span>公告</span></div><div class="announcement_content"><p>不定时更新博客，欢迎交换<a href="/friends/"><strong>友链</strong></a>...</p><div class="twopeople"><div class="container" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width:200px;max-height:200px;touch-action:none;width:640px;height:640px;"></canvas></div><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script><script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script><style>.twopeople{margin:0;align-items:center;justify-content:center;text-align:center;}canvas{display:block;margin:0 auto;cursor:move;}</style></div><div style="text-align:center;"><a href="https://www.foreverblog.cn/" target="_blank" rel="external nofollow noopener noreferrer"> <img src="https://img.foreverblog.cn/logo_en_default.png" alt="foreverblog" style="width:auto;height:16px;"></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E6%A6%82%E8%AE%BA"><span class="toc-text">第一章 微型计算机基础概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%AE%B2-%E5%85%B3%E4%BA%8E"><span class="toc-text">第一讲 关于</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90"><span class="toc-text">第二讲 微型计算机系统组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%AE%B2-%E5%BE%AE%E6%9C%BA%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">第三讲 微机工作过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%AE%B2-%E5%B8%B8%E7%94%A8%E6%95%B0%E5%88%B6"><span class="toc-text">第四讲 常用数制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%AE%B2-%E7%BC%96%E7%A0%81"><span class="toc-text">第五讲 编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%AE%B2-%E6%95%B0%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97"><span class="toc-text">第六讲 数及其运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%AE%B2-%E5%9F%BA%E6%9C%AC%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8"><span class="toc-text">第七讲 基本逻辑运算和逻辑门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E8%AE%B2-%E5%9F%BA%E6%9C%AC%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%8F%8A%E5%85%B6%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="toc-text">第八讲 基本逻辑运算及其门电路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8E%E6%80%BB%E7%BA%BF"><span class="toc-text">第二章 微处理器与总线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E8%AE%B2-8088-8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">第九讲 8088&#x2F;8086微处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E8%AE%B2-8088%E7%9A%84%E4%B8%BB%E8%A6%81%E5%BC%95%E7%BA%BF%E5%8F%8A%E5%85%B6%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-text">第十讲 8088的主要引线及其内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E8%AE%B2-8088CPU%E5%86%85%E9%83%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">第十一讲 8088CPU内部寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E8%AE%B2-%E5%AE%9E%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%AD%98%E5%82%A8%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="toc-text">第十二讲 实模式下的存储器寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E8%AE%B2-8088-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF"><span class="toc-text">第十三讲 8088 系统总线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">第三章 指令系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E8%AE%B2-8088-8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-text">第十四讲 8088&#x2F;8086指令系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E8%AE%B2-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-text">第十五讲 指令的寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="toc-text">第十六讲 数据传送指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%EF%BC%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E4%B8%8E%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-text">第四章 算术运算，逻辑运算与移位操作指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E8%AE%B2-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%B1%BB%E6%8C%87%E4%BB%A4"><span class="toc-text">第十七讲 算术运算类指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AB%E8%AE%B2-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="toc-text">第十八讲 逻辑运算指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B9%9D%E8%AE%B2-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-text">第十九讲 移位操作指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-text">第五章 串操作指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E8%AE%B2-%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十讲 串操作指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E8%AE%B2-%E4%B8%B2%E4%BC%A0%E9%80%81%E4%B8%8E%E4%B8%B2%E6%AF%94%E8%BE%83%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十一讲 串传送与串比较指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E8%AE%B2-%E4%B8%B2%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十二讲 串扫描指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%89%E8%AE%B2-%E4%B8%B2%E8%A3%85%E5%85%A5%E4%B8%8E%E4%B8%B2%E5%AD%98%E5%82%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十三讲 串装入与串存储指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%A4%84%E7%90%86%E5%99%A8%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">第六章 程序与处理器控制指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%AE%B2-%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十四讲 程序控制指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%94%E8%AE%B2-%E5%A4%84%E7%90%86%E5%99%A8%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十五讲 处理器控制指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80"><span class="toc-text">第七章 汇编语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E8%AE%B2-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-text">第二十六讲 汇编语言程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%83%E8%AE%B2-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-text">第二十七讲 数据定义伪代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AB%E8%AE%B2-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E6%AE%B5%E5%AE%9A%E4%B9%89%E7%9B%B8%E5%85%B3%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十八讲 符号与段定义相关伪指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B9%9D%E8%AE%B2-%E5%85%B6%E4%BB%96%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-text">第二十九讲 其他伪指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E8%AE%B2-%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8"><span class="toc-text">第三十讲 系统功能调用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">第八章 半导体存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%80%E8%AE%B2-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-text">第三十一讲 半导体存储器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%8C%E8%AE%B2-%E5%BE%AE%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">第三十二讲 微机中的存储器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%89%E8%AE%B2-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%E7%9A%84%E7%BC%96%E5%9D%80"><span class="toc-text">第三十三讲 存储单元的编址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%9B%9B%E8%AE%B2-%E5%AD%98%E5%82%A8%E5%99%A8%E6%89%A9%E5%B1%95%E6%8A%80%E6%9C%AF"><span class="toc-text">第三十四讲 存储器扩展技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%8A%80%E6%9C%AF"><span class="toc-text">第九章 输入输出与中断技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%94%E8%AE%B2-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0"><span class="toc-text">第三十五讲 输入输出技术概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%85%AD%E8%AE%B2-%E7%AE%80%E5%8D%95%E6%8E%A5%E5%8F%A3%E8%8A%AF%E7%89%87"><span class="toc-text">第三十六讲 简单接口芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%83%E8%AE%B2-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%96%B9%E6%B3%95"><span class="toc-text">第三十七讲 基本输入输出方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DMA%E6%8E%A7%E5%88%B6%E5%99%A88237A"><span class="toc-text">DMA控制器8237A</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%85%AB%E8%AE%B2-%E4%B8%AD%E6%96%AD%E6%8A%80%E6%9C%AF"><span class="toc-text">第三十八讲 中断技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%95%B0%E5%AD%97%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF"><span class="toc-text">第十章 可编程数字接口电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%AE%9A%E6%97%B6%E8%AE%A1%E6%95%B0%E5%99%A88253"><span class="toc-text">可编程定时计数器8253</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%B9%B6%E8%A1%8C%E6%8E%A5%E5%8F%A38255"><span class="toc-text">可编程并行接口8255</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E5%99%A88259"><span class="toc-text">可编程中断控制器8259</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF"><span class="toc-text">第十一章 模拟接口电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text">模拟量的输入输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-A%E8%BD%AC%E6%8D%A2%E5%99%A8%E5%92%8CA-D%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-text">D&#x2F;A转换器和A&#x2F;D转换器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-A%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88DAC0832%EF%BC%89NS"><span class="toc-text">D&#x2F;A转换器（DAC0832）NS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-D%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88ADC0809%EF%BC%89"><span class="toc-text">A&#x2F;D转换器（ADC0809）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/865c56ba.html" title="目标检测 | 常用数据集标注格式及生成脚本"><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/202109111517311.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="目标检测 | 常用数据集标注格式及生成脚本"></a><div class="content"><a class="title" href="/posts/865c56ba.html" title="目标检测 | 常用数据集标注格式及生成脚本">目标检测 | 常用数据集标注格式及生成脚本</a><time datetime="2021-09-11T07:11:26.000Z" title="发表于 2021-09-11 15:11:26">2021-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2bfb1caa.html" title="Hexo博客 | 动态分类标签条，自动获取全站分类与标签进行展示"><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/202108142119256.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客 | 动态分类标签条，自动获取全站分类与标签进行展示"></a><div class="content"><a class="title" href="/posts/2bfb1caa.html" title="Hexo博客 | 动态分类标签条，自动获取全站分类与标签进行展示">Hexo博客 | 动态分类标签条，自动获取全站分类与标签进行展示</a><time datetime="2021-08-14T13:10:23.000Z" title="发表于 2021-08-14 21:10:23">2021-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6a260bf6.html" title="Hexo博客 | 如何让你的博客拥有星空背景和流星特效"><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/202108121750639.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客 | 如何让你的博客拥有星空背景和流星特效"></a><div class="content"><a class="title" href="/posts/6a260bf6.html" title="Hexo博客 | 如何让你的博客拥有星空背景和流星特效">Hexo博客 | 如何让你的博客拥有星空背景和流星特效</a><time datetime="2021-08-12T09:41:33.000Z" title="发表于 2021-08-12 17:41:33">2021-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/223c1a0c.html" title="iOS快捷指令 | iPicGo，随时随地用手机上传图片到图床"><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20210326105717.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="iOS快捷指令 | iPicGo，随时随地用手机上传图片到图床"></a><div class="content"><a class="title" href="/posts/223c1a0c.html" title="iOS快捷指令 | iPicGo，随时随地用手机上传图片到图床">iOS快捷指令 | iPicGo，随时随地用手机上传图片到图床</a><time datetime="2021-03-26T05:48:49.000Z" title="发表于 2021-03-26 13:48:49">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6a054795.html" title="深度学习 | GAN，什么是生成对抗网络"><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20210226103604.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深度学习 | GAN，什么是生成对抗网络"></a><div class="content"><a class="title" href="/posts/6a054795.html" title="深度学习 | GAN，什么是生成对抗网络">深度学习 | GAN，什么是生成对抗网络</a><time datetime="2021-03-03T02:43:37.000Z" title="发表于 2021-03-03 10:43:37">2021-03-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="social-icon" href="mailto:865717150@qq.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_43701912" target="_blank" title="CSDN" rel="external nofollow noopener noreferrer"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="https://github.com/Justlovesmile" target="_blank" title="Github" rel="external nofollow noopener noreferrer"><i class="fab fa-github"></i></a><a class="social-icon" href="https://weibo.com/u/5252319712" target="_blank" title="微博" rel="external nofollow noopener noreferrer"><i class="fa fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/168738824" target="_blank" title="Bilibili" rel="external nofollow noopener noreferrer"><i class="fas iconfont icon-bilibili"></i></a></div><div id="mj-footer"><div class="footer-group"><h3 class="footer-title">关于</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.justlovesmile.top/">个人主页</a><a class="footer-item" href="/donate/">赞赏博主</a><a class="footer-item" href="/update/">博客日志</a><a class="footer-item" href="/charts/">博客统计</a></div></div><div class="footer-group"><h3 class="footer-title">归档</h3><div class="footer-links"><a class="footer-item" href="/archives/">文章归档</a><a class="footer-item" href="/tags/">全部标签</a><a class="footer-item" href="/categories/">全部分类</a><a class="footer-item" href="/random/">随机文章</a></div></div><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/guestbook/">博客留言</a><a class="footer-item" href="/friends/">友情链接</a><a class="footer-item" href="/fcircle/">友链订阅</a><a class="footer-item" href="/atom.xml">RSS订阅</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/privacy/">隐私协议</a><a class="footer-item" href="/cookies/">Cookies</a><a class="footer-item" href="/cc/">版权协议</a></div></div></div><div id="footer-banner"><div class="footer-banner-links"><div class="footer-banner-left"><div id="footer-banner-tips">©2019 - 2021 By Justlovesmile</div></div><div class="footer-banner-right"><a class="footer-banner-link" target="_blank" rel="external nofollow noopener noreferrer" href="http://beian.miit.gov.cn/">蜀ICP备20004960号</a><a class="footer-banner-link" href="/update/">主题</a><a class="footer-banner-link" href="/about/">关于</a></div></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div></div><hr><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script defer src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script defer src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'blog-comment-3gt33nkmf9f97e6e',
+      region: 'ap-shanghai'
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'blog-comment-3gt33nkmf9f97e6e',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><canvas id="universe"></canvas><script defer>console.log("\n %c 欢迎来到Justlovesmile の Blog %c https://github.com/Justlovesmile %c https://justlovesmile.top \n","color: #f9ed69; background: #252a34; padding:5px 0;","background: #3fc1c9; padding:5px 0;","background: #3fc1c9; padding:5px 0;");</script><script defer src="/js/justlovesmile.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
