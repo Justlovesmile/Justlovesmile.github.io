@@ -882,7 +882,7 @@
                                         t.gitee[e].body.card_style="item"
                                     }
                                     else if (i.labels=="大伙伴"){
-                                        t.gitee[e].body.card_style="card"
+                                        t.gitee[e].body.card_style="item"
                                     }
                                     else if (i.labels=="失联"){
                                         t.gitee[e].body.card_style="error"
@@ -899,7 +899,7 @@
                                         t.github[r].body.card_style="item"
                                     }
                                     else if (i.labels=="大伙伴"){
-                                        t.github[r].body.card_style="card"
+                                        t.github[r].body.card_style="item"
                                     }
                                     else if (i.labels=="失联"){
                                         t.github[r].body.card_style="error"
