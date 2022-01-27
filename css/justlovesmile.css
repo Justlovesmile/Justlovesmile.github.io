@@ -47,7 +47,6 @@
     --style-border: 1px solid var(--mj-card-border);
     --mj-readmodebg: rgb(232,225,225);
     --mj-transparent-card-bg: rgba(255, 255, 255, 0.8);
-    --mj-darkmode-btn: var(--light-grey);
   }
   
   [data-theme=dark] {
@@ -344,7 +343,7 @@ a:hover{color:var(--mj-hovertext);}
     padding: 0 .4rem 0 .4rem;
     position: relative;
 }
-#darkmode_navswitch a{
+[data-theme=dark] #darkmode_navswitch a{
     color: var(--mj-darkmode-btn) !important;
 }
 #nav .site-page {
