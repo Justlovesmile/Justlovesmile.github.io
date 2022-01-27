@@ -47,6 +47,7 @@
     --style-border: 1px solid var(--mj-card-border);
     --mj-readmodebg: rgb(232,225,225);
     --mj-transparent-card-bg: rgba(255, 255, 255, 0.8);
+    --mj-darkmode-btn: var(--light-grey);
   }
   
   [data-theme=dark] {
@@ -80,6 +81,7 @@
     --mj-readmodebg: #0d0d0d;
     --mj-transparent-card-bg: rgba(19, 20, 21, 0.8);
     --bbtalk-color: #30343f;
+    --mj-darkmode-btn: #ffc93e;
   }
 
 /* 全局 */
@@ -184,6 +186,7 @@ a:hover{color:var(--mj-hovertext);}
 #nav a:hover{
     color: var(--mj-white) !important;
 }
+
 #nav .nav-fixed a{
     color: var(--mj-fontcolor)!important;
     text-shadow: none;
@@ -340,6 +343,9 @@ a:hover{color:var(--mj-hovertext);}
     display: inline;
     padding: 0 .4rem 0 .4rem;
     position: relative;
+}
+#darkmode_navswitch a{
+    color: var(--mj-darkmode-btn) !important;
 }
 #nav .site-page {
     position: relative;
@@ -677,6 +683,13 @@ blockquote {
   transition: 0.6s;
   transform: translateX(-5px)!important;
 }
+#article-container .flink .flink-list > .flink-list-item:hover:before,
+#article-container .flink .flink-list > .flink-list-item:focus:before,
+#article-container .flink .flink-list > .flink-list-item:active:before {
+    opacity: 0;
+    transform: scale(0);
+}
+
 
 /* index */
 .layout>div:first-child:not(.recent-posts) {
