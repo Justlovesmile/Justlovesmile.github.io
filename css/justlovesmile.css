@@ -1243,7 +1243,17 @@ a.reward-main-btn:hover {
     width: 100%;
     height: 500px;
   }
-
+  .error404 #error-wrap .error-content .error-img {
+    background-size: cover;
+    background-position: center;
+  }
+#error-wrap .error-content .error-info a {
+    display: inline-block;
+    margin: .5rem 20%;
+    padding: .3rem 1.5rem;
+    background: var(--btn-bg);
+    color: var(--btn-color);
+}
 /* categorybar  */
 #category-bar{
     padding: 0.4rem 1rem 0.4rem 0.5rem;
