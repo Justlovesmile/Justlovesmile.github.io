@@ -161,3 +161,52 @@ categoriesBarActive()
 tagsBarActive()
 topCategoriesBarScroll()
 topPostsBarScroll()
+
+if (document.getElementById('post-cover')) {
+  let list = []
+  for (let i = 0; i <= 5; i++) {
+    for (let j = 0; j <= 5; j++) {
+      for (let k = 0; k <= 5; k++) {
+        list.push(`rgb(${i},${j},${k})`)
+        list.push(`rgb(${255 - i},${255 - j},${255 - k})`)
+      }
+    }
+  }
+  const img = document.getElementById('post-cover').getAttribute('data-lazy-src')
+  console.log(img)
+  RGBaster.colors(img, {
+      paletteSize: 30,
+      exclude: list,
+      success: function(t) {
+        if (t.dominant != 'rgb()'){
+          const c = t.dominant.match(/\d+/g);
+          const Color = `rgba(${c[0]},${c[1]},${c[2]},0.8)`;
+          let fontColor;
+          const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
+          if (grayLevel >= 192) {
+            // 若为浅色，把文字设置为黑色
+            fontColor = '#000';
+            metaColor = '#4C4948';
+          } else {
+            fontColor = '#fff';
+            metaColor = '#eee';
+          }
+          document.styleSheets[0].addRule(":root", "--mj-main:" + Color + "!important")
+          document.styleSheets[0].addRule(":root", "--mj-titlecolor:" + fontColor + "!important")
+          document.styleSheets[0].addRule(":root", "--mj-metacolor:" + metaColor + "!important")
+        } else {
+          document.styleSheets[0].addRule(":root", "--mj-main: rgba(0,0,0,0.5) !important")
+          document.styleSheets[0].addRule(":root", "--mj-titlecolor: #fff !important")
+          document.styleSheets[0].addRule(":root", "--mj-metacolor: #eee !important")
+        }
+      },
+      error: function() {
+          document.styleSheets[0].addRule(":root", "--mj-main: rgba(0,0,0,0.5) !important")
+          document.styleSheets[0].addRule(":root", "--mj-titlecolor: #fff !important")
+          document.styleSheets[0].addRule(":root", "--mj-metacolor: #eee !important")
+      }
+  })
+} else {
+  document.styleSheets[0].addRule(":root", "--mj-main: transparent !important")
+  document.styleSheets[0].addRule(":root", "--mj-titlecolor: var(--light-grey) !important")
+}

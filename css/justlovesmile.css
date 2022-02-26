@@ -93,9 +93,6 @@ body{cursor: url(https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/cursor.ico)
 
 #post .post-copyright {border-radius: 8px;}
 
-#page-header:not(.not-top-img):before {background-color: transparent !important;}
-#page-header.post-bg:before {position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5) !important;content: '';}
-
 span.inline-tag {display: inline;padding: .2em .6em .3em;font-size: 90%;font-weight: 400;line-height: 1;color: #fff;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .1rem;border-radius: 6px;background-color: var(--Color);}
 p.red,span.red {--Color: rgb(233, 30, 100);--ColorA: rgba(233, 30, 100, 0.2);}
 p.green,span.green {--Color: rgb(139, 195, 74);--ColorA: rgba(139, 195, 74, 0.2);}
@@ -379,6 +376,76 @@ a:hover{color:var(--mj-hovertext);}
 .nav-rightbutton{
     font-size: 1em;
     padding-left: .4rem !important;
+}
+/* 文章顶部post info */
+
+.coverdiv:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 330px -220px 300px 60px var(--mj-main) inset;
+}
+.coverdiv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    filter: blur(2px);
+}
+.coverdiv #post-cover {
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    min-width: 50vw;
+    min-height: 20rem;
+    opacity: .8;
+}
+
+#page-header:not(.not-top-img):before {background-color: transparent !important;}
+/*
+#page-header.post-bg:before {position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5) !important;content: '';}
+*/
+
+#page-header {
+    background-image: none!important;
+    display: flex;
+    justify-content: center;
+}
+#page-header.post-bg {
+    background-color: var(--mj-main);
+    transition: 0s;
+    overflow: hidden;
+}
+#page-header.post-bg:before {
+    transition: 0s;
+    background-color: var(--mj-main);
+}
+#post-info .post-title {
+    color: var(--mj-titlecolor) !important;
+    font-size: 3.5em;
+    font-weight: 700;
+}
+#page-header #nav a{
+    color: var(--mj-titlecolor);
+}
+#page-header #nav a:hover{
+    color: var(--mj-white);
+}
+@media screen and (max-width: 768px){
+    #post-info .post-title {
+        font-size: 2.5em;
+    }
+}
+
+#post-info #post-meta,
+#post-info #post-meta a{
+    color: var(--mj-metacolor) !important;
+    font-size: 1em;
+    font-weight: 500;
 }
 
 /* 底部 */
