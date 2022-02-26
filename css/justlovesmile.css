@@ -622,7 +622,7 @@ blockquote {
 }
 #article-container a:hover {
     text-decoration: none;
-    background: var(--mj-main);
+    background: var(--mj-theme);
     color: var(--mj-white);
     border-bottom: none;
     border-radius: 8px;
@@ -865,6 +865,18 @@ a.article-meta__categories:hover{
   }
 }
 /* 分类  */
+@media screen and (min-width: 1024px){
+.article-sort-item-img {
+    overflow: hidden;
+    width: 150px;
+    height: 80px;
+    border-radius: 12px;
+}
+}
+.article-sort-item-img {
+    border-radius: 8px;
+}
+
 #page .category-lists ul {
     text-align: center;
 }
