@@ -571,7 +571,7 @@ div#footer_deal a:hover{
     transition: all 0s;
 }
 #article-container .tabs>.nav-tabs>.tab:not(.active) button:hover {
-    background: var(--mj-main)!important;
+    background: var(--mj-theme)!important;
     color: var(--mj-white);
     border-top: none !important;
 }
@@ -877,7 +877,7 @@ a.article-meta__categories:hover{
     left: 5px;
 }
 #page .category-lists ul li:hover {
-    background: var(--mj-main);
+    background: var(--mj-theme);
 }
 #page .category-lists ul li:hover a,
 #page .category-lists ul li a:hover,
@@ -1298,7 +1298,7 @@ a.reward-main-btn:hover {
     transition:.3s;
   }
   #body-wrap.error404 .aside-list .aside-list-item:hover .content a{
-    color: var(--mj-main);
+    color: var(--mj-theme);
   }
   #error-wrap .error-content .error-info a:hover{
     background-color:var(--mj-blue);
@@ -1371,12 +1371,12 @@ a.reward-main-btn:hover {
     color: var(--mj-fontcolor);
   }
   .category-bar-item:hover a{
-    background: var(--mj-main);
+    background: var(--mj-theme);
     color: var(--mj-white);
   }
   
   .category-bar-item.select a {
-    background: var(--mj-main);
+    background: var(--mj-theme);
     color: var(--mj-white);
     border-radius: 12px;
   }

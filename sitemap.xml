@@ -1138,7 +1138,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E8%80%83%E7%A0%94/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1173,14 +1173,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-02-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E8%80%83%E7%A0%94/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1188,6 +1181,13 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/pytorch/</loc>
+    <lastmod>2022-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1222,14 +1222,21 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
+    <loc>https://blog.justlovesmile.top/tags/MySQL/</loc>
+    <lastmod>2022-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1250,14 +1257,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/MySQL/</loc>
-    <lastmod>2022-02-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

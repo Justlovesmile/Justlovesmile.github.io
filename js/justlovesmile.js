@@ -173,7 +173,6 @@ if (document.getElementById('post-cover')) {
     }
   }
   const img = document.getElementById('post-cover').getAttribute('data-lazy-src')
-  console.log(img)
   RGBaster.colors(img, {
       paletteSize: 30,
       exclude: list,
