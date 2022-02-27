@@ -85,6 +85,7 @@
 
 /* 全局 */
 body{cursor: url(https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/cursor.ico),default;}
+#web_bg{filter: blur(8px);transform: scale(1.2);}
 .read-mode{font-size:17px;font-family: 'Titillium Web'; background-color: var(--mj-readmodebg);}
 .layout.hide-aside{max-width:1200px;}
 
@@ -539,7 +540,7 @@ div#footer_deal a:hover{
 #footer-banner .footer-banner-link {
     margin-right: 1rem;
     color: var(--mj-white);
-    font-size: .8rem;
+    font-size: .9rem;
     font-weight: 700;
     white-space: nowrap;
 }
@@ -631,10 +632,10 @@ blockquote {
     color: var(--mj-lighttext);
 }
 #article-container p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 2.14;
-    font-weight: 400;
-    margin: 1rem 0;
+    font-weight: 500;
+    margin: 0 0 1rem;
 }
 #article-container a[data-fancybox],
 #article-container a[data-fancybox]:hover,
@@ -760,7 +761,7 @@ blockquote {
 /* index */
 .layout>div:first-child:not(.recent-posts) {
     box-shadow: var(--mj-shadow-lightblack);
-    padding: 1rem 2rem;
+    padding: 2.5rem 3rem 1rem;
     border-radius: 12px;
     background: var(--mj-card-bg);
     border: var(--style-border);
