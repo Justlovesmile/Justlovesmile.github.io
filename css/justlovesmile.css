@@ -427,7 +427,7 @@ a:hover{color:var(--mj-hovertext);}
 }
 #post-info .post-title {
     color: var(--mj-titlecolor) !important;
-    font-size: 3.5em;
+    font-size: 3em;
     font-weight: 700;
 }
 #page-header #nav a{
