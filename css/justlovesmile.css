@@ -429,6 +429,7 @@ a:hover{color:var(--mj-hovertext);}
     color: var(--mj-titlecolor) !important;
     font-size: 3em;
     font-weight: 700;
+    margin: 4px 0 16px 0;
 }
 #page-header #nav a{
     color: var(--mj-titlecolor);
@@ -442,39 +443,44 @@ a:hover{color:var(--mj-hovertext);}
     }
 }
 @media screen and (min-width: 768px){
-#page-header #post-info {
-    text-align: left;
-}
-#post-info #post-meta{
-    display: inline-flex;
-}
-#post-info #post-meta .post-meta-separator{
-    display: none;
-}
-#post-info #post-meta .post-meta-icon{
-    margin-left: .8rem;
-}
-#post-info #post-meta,
-#post-info #post-meta a{
-    color: var(--mj-metacolor) !important;
-    font-size: 1em;
-    font-weight: 500;
-}
+    #post-info .post-title {
+        font-size: 3.5em;
+    }
+    #page-header #post-info {
+        text-align: left;
+        max-width: 1500px;
+        padding: 0 3rem;
+    }
+    #post-info #post-meta{
+        display: inline-flex;
+    }
+    #post-info #post-meta .post-meta-separator{
+        display: none;
+    }
+    #post-info #post-meta .post-meta-icon{
+        margin-left: .8rem;
+    }
+    #post-info #post-meta,
+    #post-info #post-meta a{
+        color: var(--mj-metacolor) !important;
+        font-size: 1em;
+        font-weight: 500;
+    }
 
-#post-info #post-meta .meta-share-time,
-#post-info #post-meta .meta-avatar,
-#post-info #post-meta .meta-firstline,
-#post-info #post-meta .meta-secondline {
-    display: flex;
-}
-.meta-avatar img {
-    width: 30px;
-    border-radius: 30px;
-    height: 30px;
-}
-.meta-avatar .meta-avatar-name {
-    margin: 0 .5rem;
-}
+    #post-info #post-meta .meta-share-time,
+    #post-info #post-meta .meta-avatar,
+    #post-info #post-meta .meta-firstline,
+    #post-info #post-meta .meta-secondline {
+        display: flex;
+    }
+    .meta-avatar img {
+        width: 30px;
+        border-radius: 30px;
+        height: 30px;
+    }
+    .meta-avatar .meta-avatar-name {
+        margin: 0 .5rem;
+    }
 }
 @media screen and (max-width: 768px){
     .meta-share-time {
@@ -495,9 +501,7 @@ a:hover{color:var(--mj-hovertext);}
     opacity: .5;
     margin-left: 1rem;
 }
-#post-info .post-title{
-    margin: 4px 0 16px 0;
-}
+
 
 /* 底部 */
 #footer {
