@@ -36,7 +36,7 @@
     --mj-secondtext: rgba(60, 60, 67, 0.6);
     --mj-scrollbar: rgba(60, 60, 67, 0.4);
     --mj-card-btn-bg: #f1f2f2;
-    --mj-post-blockquote-bg: #fafcff;
+    --mj-post-blockquote-bg: #f7f9fe;
     --mj-post-tabs-bg: #f2f5f8;
     --mj-secondbg: #ededed;
     --mj-shadow-nav:0 5px 12px -5px rgba(102, 68, 68, 0.05);
@@ -606,6 +606,9 @@ div#footer_deal a:hover{
     font-weight: 700;
 }
 /* 文章页  */
+#article-container img{
+    border-radius: 8px;
+}
 #article-container .tabs {
     margin: 1rem 0!important;
     border-radius: 12px;
@@ -699,6 +702,7 @@ blockquote {
 #article-container a.headerlink{
   border-bottom: none !important;
   background: none;
+  padding: 0;
 }
 #article-container #moments_container a:hover,
 #article-container .flink-desc a:hover{
@@ -932,7 +936,9 @@ a.article-meta__categories:hover{
 .article-sort-item-img {
     border-radius: 8px;
 }
-
+.article-sort-item-title{
+    font-weight: 600;
+}
 #page .category-lists ul {
     text-align: center;
 }
@@ -1456,6 +1462,7 @@ span.card-archive-list-count-unit {
     overflow: hidden;
     margin-bottom: 1rem;
     border: var(--style-border);
+    justify-content: space-between;
   }
   #category-bar:hover{border: var(--style-hover-border);}
   #tag #category-bar,
