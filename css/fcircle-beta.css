@@ -1,0 +1,54 @@
+/*
+Last Modified time : 20220211 08:00 by https://immmmm.com
+Last Modified time : 20220313 20:00 by https://blog.justlovesmile.top
+*/
+:root{
+  --mj-floorcolor: #a9a9b3;
+}
+/* 基本信息 */
+#cf-state {font-size:16px;border-radius:8px;box-shadow:none;max-width:810px;margin:auto;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
+.cf-state-data {width:100%;display:flex;}
+.cf-data-friends,.cf-data-active,.cf-data-article{height:60px;background:transparent;display:flex;flex-direction:column;width:33%;cursor:pointer;}
+.cf-label {font-size:16px;padding:0 3%;align-self:center;text-align:center;width:100%;height:30px;}
+.cf-message{align-self:center;text-align:center;padding:0 3%;width:50%;font-size:20px;}
+/* 排序按钮 */
+#cf-change{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
+/* 更多按钮 */
+#cf-more {width:40%;max-width:810px;height:30px;margin:auto;border-radius:12px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
+#cf-more:hover{width:60%;}
+#cf-more i.fas::before {content:"∞";}
+/* 主容器 */
+#cf-container {width:100%;max-width:900px;height:auto;margin:auto;}
+#cf-container a {text-decoration:none; border-bottom: none;}
+#cf-container a:hover{background: none;}
+.cf-article {margin:20px 1%;border-radius:5px;font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;}
+.cf-article:hover{transition:transform .3s;-webkit-transform:scale(1.3);transform:scale(1.03)}
+.cf-article-avatar{line-height:35px;}
+.cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%;margin:0 0 -4px !important;background: #fff;}
+.cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
+.cf-article-floor{position: absolute;top: 0;right:0.5rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;}
+.cf-article-title{font-weight: 500;position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
+.cf-article-time {font-size:14px;text-align:right;float:right;font-weight:400;}
+.cf-time-updated,.cf-time-created {display:inline-block;text-align:left;white-space:nowrap;}
+.cf-time-updated i.fas,.cf-time-created i.far{padding-right:8px;}
+.cf-article-time i:before {margin-right:5px;}
+/* 底部 */
+#cf-footer{margin:6rem 1% 2rem 0;text-align:right;font-size:13px;}
+.cf-data-lastupdated{font-size:13px;text-align:right;display: block;}
+/* 颜色 */
+.cf-article:hover .cf-article-title{letter-spacing:2px;color:var(--mj-theme) !important;}
+#cf-more i.fas:hover{color:var(--mj-theme);}
+#cf-state,#cf-more {background:var(--mj-post-blockquote-bg);color:var(--font-color);}
+#cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--mj-floorcolor);}
+.cf-article-author,.cf-article a.cf-article-title,.cf-article:hover .cf-article-floor,.cf-article:hover .cf-time-created,.cf-article:hover .cf-time-updated{color:var(--font-color);}
+.cf-article {background:var(--mj-post-blockquote-bg);}
+#cf-change span:hover{color:var(--mj-theme);cursor:pointer;}
+#cf-change .cf-change-now{color:var(--mj-theme);font-weight:800;}
+/* 移动端适配 */
+@media screen and (max-width:400px) {
+  #cf-state {font-size:14px;}
+  .cf-article-time i{display:none;}
+}
+@media screen and (max-width:300px) {
+  #cf-state,.cf-article-time{display:none;}
+}
