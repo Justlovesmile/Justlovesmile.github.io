@@ -3576,7 +3576,7 @@ h2.f4.text-normal.mb-3 {
   content: '';
 }
 #page-header.full_page {
-  height: 300px;
+  height: 220px;
   background-attachment: fixed;
 }
 #page-header.full_page #site-info {

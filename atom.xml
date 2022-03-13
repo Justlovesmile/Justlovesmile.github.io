@@ -35,9 +35,9 @@
     
     <category term="深度学习" scheme="https://blog.justlovesmile.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="目标检测" scheme="https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
     <category term="论文笔记" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="目标检测" scheme="https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
@@ -81,12 +81,10 @@
     
     
     
-    <category term="随笔记录" scheme="https://blog.justlovesmile.top/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/"/>
+    <category term="折腾记录" scheme="https://blog.justlovesmile.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
     
     
     <category term="Jupyter Lab" scheme="https://blog.justlovesmile.top/tags/Jupyter-Lab/"/>
-    
-    <category term="教程" scheme="https://blog.justlovesmile.top/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
@@ -107,11 +105,11 @@
     <category term="人工智能" scheme="https://blog.justlovesmile.top/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     
-    <category term="python" scheme="https://blog.justlovesmile.top/tags/python/"/>
-    
     <category term="深度学习" scheme="https://blog.justlovesmile.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="目标检测" scheme="https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="python" scheme="https://blog.justlovesmile.top/tags/python/"/>
     
   </entry>
   
@@ -186,7 +184,7 @@
     
     
     
-    <category term="随笔记录" scheme="https://blog.justlovesmile.top/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/"/>
+    <category term="折腾记录" scheme="https://blog.justlovesmile.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
     
     
     <category term="iOS" scheme="https://blog.justlovesmile.top/tags/iOS/"/>
@@ -266,7 +264,7 @@
     
     <category term="深度学习" scheme="https://blog.justlovesmile.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="论文" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87/"/>
+    <category term="论文笔记" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
     <category term="小样本学习" scheme="https://blog.justlovesmile.top/tags/%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0/"/>
     
@@ -347,7 +345,7 @@
     
     <category term="GANs" scheme="https://blog.justlovesmile.top/tags/GANs/"/>
     
-    <category term="论文" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87/"/>
+    <category term="论文笔记" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -399,9 +397,9 @@
     <category term="人工智能" scheme="https://blog.justlovesmile.top/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     
-    <category term="python" scheme="https://blog.justlovesmile.top/tags/python/"/>
-    
     <category term="深度学习" scheme="https://blog.justlovesmile.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="python" scheme="https://blog.justlovesmile.top/tags/python/"/>
     
     <category term="pytorch" scheme="https://blog.justlovesmile.top/tags/pytorch/"/>
     
@@ -502,9 +500,9 @@
     <category term="学习笔记" scheme="https://blog.justlovesmile.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="CSP" scheme="https://blog.justlovesmile.top/tags/CSP/"/>
-    
     <category term="python" scheme="https://blog.justlovesmile.top/tags/python/"/>
+    
+    <category term="CSP" scheme="https://blog.justlovesmile.top/tags/CSP/"/>
     
     <category term="算法" scheme="https://blog.justlovesmile.top/tags/%E7%AE%97%E6%B3%95/"/>
     
@@ -524,12 +522,10 @@
     
     
     
-    <category term="随笔记录" scheme="https://blog.justlovesmile.top/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/"/>
+    <category term="生活琐事" scheme="https://blog.justlovesmile.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
     
     
-    <category term="漫威" scheme="https://blog.justlovesmile.top/tags/%E6%BC%AB%E5%A8%81/"/>
-    
-    <category term="DC" scheme="https://blog.justlovesmile.top/tags/DC/"/>
+    <category term="超级英雄" scheme="https://blog.justlovesmile.top/tags/%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84/"/>
     
     <category term="电影" scheme="https://blog.justlovesmile.top/tags/%E7%94%B5%E5%BD%B1/"/>
     
