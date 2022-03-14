@@ -6,7 +6,7 @@
   <link href="https://blog.justlovesmile.top/atom.xml" rel="self"/>
   
   <link href="https://blog.justlovesmile.top/"/>
-  <updated>2022-03-12T13:59:01.000Z</updated>
+  <updated>2022-03-14T03:26:21.000Z</updated>
   <id>https://blog.justlovesmile.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>目标检测 | RetinaNet，经典单阶段Anchor-Based目标检测模型</title>
+    <link href="https://blog.justlovesmile.top/posts/bb608df3.html"/>
+    <id>https://blog.justlovesmile.top/posts/bb608df3.html</id>
+    <published>2022-03-14T03:26:21.000Z</published>
+    <updated>2022-03-14T03:26:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Focal-Loss-for-Dense-Object-Detection"><a href="#Focal-Loss-for-Dense-Object-Detection" class="headerlink" title="Focal Loss for Dense Object Detection"></a>Focal Loss for Dense Object Detection</h1><blockquote><p>论文来源：IEEE Transactions on Pattern Analysis and Machine Intelligence 2020<br>论文链接：<a href="https://ieeexplore.ieee.org/document/8417976">Focal Loss for Dense Object Detection | IEEE Xplore</a><br>论文代码：<a href="https://github.com/facebookresearch/Detectron">https://github.com/facebookresearch/Detectron</a></p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211119213555220.png" alt="image-20211119213555220"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;lin2017focal,</span><br><span class="line">  title=&#123;Focal loss for dense object detection&#125;,</span><br><span class="line">  author=&#123;Lin, Tsung-Yi and Goyal, Priya and Girshick, Ross and He, Kaiming and Doll&#123;\&#x27;a&#125;r, Piotr&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE international conference on computer vision&#125;,</span><br><span class="line">  pages=&#123;2980--2988&#125;,</span><br><span class="line">  year=&#123;2017&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table><thead><tr><th>标签</th><th>目的</th><th>方法</th><th>总结</th></tr></thead><tbody><tr><td>#Anchor #单阶段</td><td>解决正负样本严重不均衡的问题</td><td>retinanet和focal loss</td><td>针对训练过程中的实际问题，修改损失函数以达到优化的目的</td></tr></tbody></table><h2 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h2><p>作者认为之前的单阶段检测算法精度不高的原因可能是前后景类别（正负样本）严重不均衡导致的。因此作者重新设计了一个损失：Focal Loss，其能降低可以较好分类的样本的损失权重，防止训练过程中大量的easy negatives给检测器带来的压制影响，并基于Focal Loss设计提出并训练了RetinaNet。</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>RetinaNet的结构如下图：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120135540595.png" alt="image-20211120135540595"></p><p>主要包括三个部分：</p><ul><li>Backbone：使用了ResNet+FPN，用于生成多尺度{p3~p7}卷积特征图</li><li>Anchor：p3-p7特征图的base_size设置为$[32^2,64^2,128^2,256^2,512^2]$，在每一层特征图针对denser scale coverage，设置{${2^0,2^{1/3},2^{2/3}}$}三种不同的anchor size，比例为{1:2,1:1,2:1}，即每个位置9种Anchor。</li><li>subnets：用于分类和回归，结构相同但参数不共享的小型FCN结构</li></ul><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120135222791.png" alt="image-20211120135222791"></p><h3 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h3><p>作者提到基于R-CNN模式的两阶段算法在解决训练过程中的正负样本不均衡的方法是：</p><ul><li>两阶段级联：在proposal阶段过滤掉大量负样本</li><li>启发式采样：例如固定正负样本比例（例如1:3）或者在线难样本挖掘（Online Hard Example Mining，OHEM）</li></ul><p>Focal loss的做法是设置一个sacling factor，如下图的$(1-p_t)^{\gamma}$，其可以自动的对easy example进行降权，从而使模型更关注hard example。</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120135146831.png" alt="image-20211120135146831"></p><p>首先，对于二分类任务，普通的交叉熵如下：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120132951497.png" alt="image-20211120132951497"></p><p>如果定义$p_t$：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120133459396.png" alt="image-20211120133459396"></p><p>那么交叉熵可以写成$CE(p,y)=CE(p_t)=-log(p_t)$</p><p>有一种常见的用于解决类别不均衡的方法是添加一个权重变量$\alpha \in [0,1]$：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120133655071.png" alt="image-20211120133655071"></p><p>Focal Loss的做法是添加了一个权重变量$(1-p_t)^{\gamma}$：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120133916235.png" alt="image-20211120133916235"></p><p>因此当$p_t$趋近于1时，可以较好分类的样本被降权；而$\gamma$可以用来调节权重比率。除此之外，还可以将$\alpha$和FL损失相结合：</p><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120134227038.png" alt="image-20211120134227038"></p><p>除此之外还有其他的Focal Loss变种形式。</p><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/image-20211120141212266.png" alt="image-20211120141212266"></p>]]></content>
+    
+    
+    <summary type="html">RetinaNet是He Kaiming等人在提出的一种单阶段目标检测算法，其针对现有单阶段检测模型中前后景（正负样本）类别的不平衡问题，提出了Focal Loss损失函数，用来降低大量easy negatives样本在标准交叉熵中所占权重。</summary>
+    
+    
+    
+    <category term="人工智能" scheme="https://blog.justlovesmile.top/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="深度学习" scheme="https://blog.justlovesmile.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="论文笔记" scheme="https://blog.justlovesmile.top/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="目标检测" scheme="https://blog.justlovesmile.top/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>目标检测 | Faster R-CNN，经典两阶段检测模型</title>
@@ -505,29 +530,6 @@
     <category term="CSP" scheme="https://blog.justlovesmile.top/tags/CSP/"/>
     
     <category term="算法" scheme="https://blog.justlovesmile.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随笔记录 | 漫威DC观影指南</title>
-    <link href="https://blog.justlovesmile.top/posts/604a50ec.html"/>
-    <id>https://blog.justlovesmile.top/posts/604a50ec.html</id>
-    <published>2020-07-22T12:17:25.000Z</published>
-    <updated>2020-07-22T12:17:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Marvel"><a href="#Marvel" class="headerlink" title="Marvel"></a>Marvel</h2><h3 id="MCU-漫威电影宇宙"><a href="#MCU-漫威电影宇宙" class="headerlink" title="MCU(漫威电影宇宙)"></a>MCU(漫威电影宇宙)</h3><p>十年漫威，一战终局，英雄已去，传奇依旧</p><p><big>对</big>于MCU（漫威电影宇宙）的<strong>电影</strong>观看顺序，上映顺序就是最好的指南</p><table><thead><tr><th>阶段</th><th>观影顺序（↓）</th><th>上映时间</th></tr></thead><tbody><tr><td>《无限传奇》第一阶段</td><td>钢铁侠</td><td>2008</td></tr><tr><td></td><td>无敌浩克</td><td>2008</td></tr><tr><td></td><td>钢铁侠2</td><td>2010</td></tr><tr><td></td><td>雷神</td><td>2011</td></tr><tr><td></td><td>美国队长：复仇者先锋</td><td>2011</td></tr><tr><td></td><td>复仇者联盟</td><td>2012</td></tr><tr><td>《无限传奇》第二阶段</td><td>钢铁侠3</td><td>2013</td></tr><tr><td></td><td>雷神2：黑暗世界</td><td>2013</td></tr><tr><td></td><td>美国队长2：冬日战士</td><td>2014</td></tr><tr><td></td><td>银河护卫队</td><td>2014</td></tr><tr><td></td><td>复仇者联盟2：奥创纪元</td><td>2015</td></tr><tr><td></td><td>蚁人</td><td>2015</td></tr><tr><td>《无限传奇》第三阶段</td><td>美国队长3：内战</td><td>2016</td></tr><tr><td></td><td>奇异博士</td><td>2016</td></tr><tr><td></td><td>银河护卫队2</td><td>2017</td></tr><tr><td></td><td>蜘蛛侠：英雄归来</td><td>2017</td></tr><tr><td></td><td>雷神3：诸神黄昏</td><td>2017</td></tr><tr><td></td><td>黑豹</td><td>2018</td></tr><tr><td></td><td>复仇者联盟3：无限战争</td><td>2018</td></tr><tr><td></td><td>蚁人2：黄蜂女现身</td><td>2018</td></tr><tr><td></td><td>惊奇队长</td><td>2019</td></tr><tr><td></td><td>复仇者联盟4：终局之战</td><td>2019</td></tr><tr><td></td><td>蜘蛛侠2：英雄远征（2019）</td><td>2019</td></tr></tbody></table><ul><li>下面是完整的电影，电视剧以及短片的观影顺序图：</li></ul><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/d01373f082025aafc11ca80500690662024f1a59.jpg"></p><h3 id="X战警宇宙"><a href="#X战警宇宙" class="headerlink" title="X战警宇宙"></a>X战警宇宙</h3><table><thead><tr><th>系列名称</th><th>观影顺序（↓）</th><th>上映时间</th></tr></thead><tbody><tr><td>X战警系列作品</td><td>《金刚狼》X-Men Origins:Wolverine</td><td>2009</td></tr><tr><td></td><td>《X战警：第一战》X-Men:First Class</td><td>2011</td></tr><tr><td></td><td>《X战警》X-Men</td><td>2000</td></tr><tr><td></td><td>《X战警2》X2</td><td>2003</td></tr><tr><td></td><td>《X战警：背水一战》X-Men:The Last Stand</td><td>2006</td></tr><tr><td></td><td>《金刚狼2》The Wolverine</td><td>2013</td></tr><tr><td></td><td>《X战警：逆转未来》X-Men:Days of Future Past</td><td>2014</td></tr><tr><td></td><td>《死侍》Dead pool</td><td>2016</td></tr><tr><td></td><td>《X战警：天启》X-Men:Apocalypse</td><td>2016</td></tr><tr><td></td><td>《金刚狼3：殊死一战》Logan</td><td>2017</td></tr><tr><td></td><td>《死侍2：我爱我家》Deadpool2</td><td>2018</td></tr><tr><td></td><td>《X战警：黑凤凰》Dark Phoenix</td><td>2019</td></tr><tr><td></td><td>《新变种人》The New Mutants</td><td>2020</td></tr></tbody></table><h3 id="索尼电影宇宙"><a href="#索尼电影宇宙" class="headerlink" title="索尼电影宇宙"></a>索尼电影宇宙</h3><table><thead><tr><th>系列名称</th><th>观影顺序（↓）</th><th>上映时间</th></tr></thead><tbody><tr><td>索尼漫威宇宙</td><td>《蜘蛛侠》</td><td>2002</td></tr><tr><td></td><td>《蜘蛛侠2》</td><td>2004</td></tr><tr><td></td><td>《蜘蛛侠3》</td><td>2007</td></tr><tr><td></td><td>《超凡蜘蛛侠》</td><td>2012</td></tr><tr><td></td><td>《超凡蜘蛛侠2》</td><td>2014</td></tr><tr><td></td><td>《毒液：致命守护者》</td><td>2018</td></tr><tr><td></td><td>《蜘蛛侠：平行宇宙》（动画电影）</td><td>2018</td></tr></tbody></table><h3 id="其他漫威电影"><a href="#其他漫威电影" class="headerlink" title="其他漫威电影"></a>其他漫威电影</h3><table><thead><tr><th>电影名</th><th>上映时间</th></tr></thead><tbody><tr><td>《新神奇四侠》</td><td>2015</td></tr><tr><td>《超能陆战队》（动画电影）</td><td>2014</td></tr><tr><td>《恶灵骑士2：复仇时刻》</td><td>2011</td></tr><tr><td>《惩罚者2》</td><td>2008</td></tr><tr><td>《神奇四侠2：银影侠来袭》</td><td>2007</td></tr><tr><td>《恶灵骑士》</td><td>2007</td></tr><tr><td>《神奇四侠》</td><td>2005</td></tr><tr><td>《类人体》</td><td>2005</td></tr><tr><td>《艾丽卡》</td><td>2005</td></tr><tr><td>《惩罚者》</td><td>2004</td></tr><tr><td>《刀锋战士3》</td><td>2004</td></tr><tr><td>《夜魔侠》</td><td>2003</td></tr><tr><td>《浩克》</td><td>2003</td></tr><tr><td>《刀锋战士2》</td><td>2002</td></tr><tr><td>《刀锋战士》</td><td>1998</td></tr><tr><td>《神奇四侠》</td><td>1994</td></tr><tr><td>《惩罚者》</td><td>1989</td></tr><tr><td>《霍华德怪鸭》</td><td>1986</td></tr></tbody></table><h2 id="DC"><a href="#DC" class="headerlink" title="DC"></a>DC</h2><h3 id="DCEU（DC扩展宇宙）"><a href="#DCEU（DC扩展宇宙）" class="headerlink" title="DCEU（DC扩展宇宙）"></a>DCEU（DC扩展宇宙）</h3><table><thead><tr><th>电影名</th><th>上映时间</th></tr></thead><tbody><tr><td>《超人：钢铁之躯》</td><td>2013</td></tr><tr><td>《DC电影出品：正义联盟黎明》</td><td>2016</td></tr><tr><td>《蝙蝠侠大战超人：正义黎明》</td><td>2016</td></tr><tr><td>《自杀小队》</td><td>2016</td></tr><tr><td>《神奇女侠》</td><td>2017</td></tr><tr><td>《正义联盟》</td><td>2017</td></tr><tr><td>《海王》</td><td>2018</td></tr><tr><td>《雷霆沙赞》</td><td>2019</td></tr></tbody></table><h3 id="其他DC电影"><a href="#其他DC电影" class="headerlink" title="其他DC电影"></a>其他DC电影</h3><ul><li>太过久远的电影就不罗列了</li></ul><table><thead><tr><th>电影名</th><th>上映时间</th></tr></thead><tbody><tr><td>《猫女》</td><td>2004</td></tr><tr><td>《康斯坦丁》</td><td>2005</td></tr><tr><td>《V字仇杀队》</td><td>2005</td></tr><tr><td>《蝙蝠侠：侠影之谜》</td><td>2005</td></tr><tr><td>《超人归来》</td><td>2006</td></tr><tr><td>《黑暗骑士》</td><td>2008</td></tr><tr><td>《守望者》</td><td>2009</td></tr><tr><td>《失败者》</td><td>2010</td></tr><tr><td>《西部英雄约拿·哈克斯》</td><td>2010</td></tr><tr><td>《绿灯侠》</td><td>2011</td></tr><tr><td>《黑暗骑士崛起》</td><td>2012</td></tr><tr><td>《乐高蝙蝠侠大电影》</td><td>2017</td></tr><tr><td>《小丑》</td><td>2019</td></tr></tbody></table><h2 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h2><div class="fj-gallery"><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/444211.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/344e370b0a0d5fb463724cc556458d22.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/4c1svpbxcfh.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/4fcd5y13bws.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/bi3wrjelcd4.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/db2984b3a973e7e8cdc6834de4f69704.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/e7530dec43be8a8c7718752306bbbb54.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/ijelpz2bnxp.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/op3pktbhatl.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/qhoo4nupjp5.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/zfx1it4hq3i.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/zjykzjztrjg.jpg"></p>          </div>]]></content>
-    
-    
-    <summary type="html">对于漫威和DC的电影的观影顺序介绍，十年漫威，一战终局，英雄已去，传奇依旧...</summary>
-    
-    
-    
-    <category term="生活琐事" scheme="https://blog.justlovesmile.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
-    
-    
-    <category term="超级英雄" scheme="https://blog.justlovesmile.top/tags/%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84/"/>
-    
-    <category term="电影" scheme="https://blog.justlovesmile.top/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
