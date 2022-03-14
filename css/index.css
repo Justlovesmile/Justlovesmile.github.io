@@ -1399,7 +1399,11 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url('https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/gallery/2%2810%29.PNG');
+  background: -webkit-linear-gradient(bottom, #fff1eb 0%, #2980b9 100%);
+  background: -moz-linear-gradient(bottom, #fff1eb 0%, #2980b9 100%);
+  background: -o-linear-gradient(bottom, #fff1eb 0%, #2980b9 100%);
+  background: -ms-linear-gradient(bottom, #fff1eb 0%, #2980b9 100%);
+  background: linear-gradient(to top, #fff1eb 0%, #2980b9 100%);
   background-attachment: local;
   background-position: center;
   -webkit-background-size: cover;
@@ -5599,7 +5603,11 @@ blockquote.pullquote.right {
   content: '';
 }
 [data-theme='dark'] #web_bg {
-  background: url("https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/gallery/darkmodepicture6.jpg");
+  background: -webkit-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -moz-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -o-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -ms-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: linear-gradient(to bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
 }
 [data-theme='dark'] #article-container code {
   background: #2c2c2c;
