@@ -50,11 +50,11 @@ function loadStatistical(sdata){
   var messageBoard =`
   <div id="cf-state" class="cf-new-add">
     <div class="cf-state-data">
-      <div class="cf-data-friends" onclick="openToShow()">
+      <div class="cf-data-friends">
         <span class="cf-label">订阅</span>
         <span class="cf-message">${sdata.friends_num}</span>
       </div>
-      <div class="cf-data-active" onclick="changeEgg()">
+      <div class="cf-data-active">
         <span class="cf-label">活跃</span>
         <span class="cf-message">${sdata.active_num}</span>
       </div>
@@ -197,34 +197,6 @@ function checkVersion(){
         versionID.innerHTML = "网络错误，检测失败！"
       }
   })
-}
-// 切换为公共全库
-function changeEgg(){
-  //有自定义json或api执行切换
-  if(fdata.jsonurl || fdata.apiurl ){
-    document.querySelectorAll('.cf-new-add').forEach(el => el.remove());
-    localStorage.removeItem("updatedArticleData")
-    localStorage.removeItem("createdArticleData")
-    localStorage.removeItem("nextArticle")
-    localStorage.removeItem("statisticalData")
-    container.innerHTML = ""
-    UrlNow = localStorage.getItem("urlNow")
-    //console.log("新"+UrlNow)
-    var UrlNowPublic = fdata.apipublieurl+'all?'
-    if(UrlNow !== UrlNowPublic){ //非完整默认公开库
-      changeUrl = fdata.apipublieurl+'all?'
-    }else{
-      if(fdata.jsonurl){
-        changeUrl = fdata.apipublieurl+'postjson?jsonlink='+ fdata.jsonurl+"&"
-      }else if(fdata.apiurl){
-        changeUrl = fdata.apiurl+'all?'
-      }
-    }
-    localStorage.setItem("urlNow",changeUrl)
-    FetchFriendCircle(sortNow,changeUrl)
-  }else{
-    clearLocal()
-  }
 }
 // 首次加载文章
 function FetchFriendCircle(sortNow,changeUrl){

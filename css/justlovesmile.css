@@ -1204,6 +1204,9 @@ a.reward-main-btn:hover {
     border-radius: 24px !important;
 }
 /* 侧边栏  */
+.card-announcement-animation{
+    color: var(--mj-theme);
+}
 .post #aside-content .card-info{
     background: var(--mj-main)!important;
     color: var(--mj-titlecolor)!important;
