@@ -154,7 +154,7 @@
 <li>GitHub事在网络上提供Git仓库的一项服务，使用GitHub可以实现多人协作</li>
 </ul>
 <h1 id="Git初始设置"><a href="#Git初始设置" class="headerlink" title="Git初始设置"></a>Git初始设置</h1><h2 id="git-config命令的–global参数"><a href="#git-config命令的–global参数" class="headerlink" title="git config命令的–global参数"></a>git config命令的–global参数</h2><ul>
-<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#56;&#54;&#53;&#55;&#49;&#55;&#49;&#53;&#x30;&#64;&#113;&#113;&#46;&#99;&#111;&#109;">&#56;&#54;&#53;&#55;&#49;&#55;&#49;&#53;&#x30;&#64;&#113;&#113;&#46;&#99;&#111;&#109;</a>“</li>
+<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#56;&#x36;&#53;&#55;&#49;&#x37;&#49;&#x35;&#x30;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#56;&#x36;&#53;&#55;&#49;&#x37;&#49;&#x35;&#x30;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a>“</li>
 <li>让命令的输出具有更高的可读性<br>$ git config –global color.ui auto</li>
 </ul>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><ul>
@@ -164,7 +164,7 @@
 <li>查看提交日志</li>
 </ul>
 <p>（1）$ git log（+文件名）</p>
-<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#x38;&#54;&#x35;&#x37;&#x31;&#55;&#49;&#x35;&#x30;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x38;&#54;&#x35;&#x37;&#x31;&#55;&#49;&#x35;&#x30;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
+<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#x38;&#54;&#x35;&#55;&#x31;&#55;&#49;&#x35;&#x30;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x38;&#54;&#x35;&#55;&#x31;&#55;&#49;&#x35;&#x30;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
 <p>（2）$ git log –pretty=oneline</p>
 <p>db0644b6e8c15385d34c80b44fab5a2124289526 (HEAD -&gt; master) add one line<br>5022ed9f401a7a95b2c325d1f57ef7c9c291e860 wrote a read.txt<br>a4207cab55e08e29847031903c3d885f522483d3 wrote a file</p>
 <p>（3）$ git log -p查看文件改动</p>
@@ -191,23 +191,23 @@
 </li>
 </ul>
 <h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
-<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#x6f;&#x75;&#114;&#101;&#x6d;&#97;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#x79;&#x6f;&#x75;&#114;&#101;&#x6d;&#97;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a>“</p>
+<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;">&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;</a>“</p>
 </li>
 <li><p>查看id_rsa.pub文件，并复制<br>$ cat ~/.ssh/id_rsa.pub</p>
 </li>
 <li><p>然后再在github中添加ssh key</p>
 </li>
-<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;</a></p>
+<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a></p>
 </li>
 <li><p>在github中创建一个git仓库</p>
 </li>
-<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 <li><p>将本地库的所有内容推送到远程库上<br>$ git push -u origin master</p>
 </li>
 <li><p>从现在起，只要本地作了提交，就可以通过命令：<br>$ git push origin master</p>
 </li>
-<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>:Justlovesmile/practice.git</p>
+<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:Justlovesmile/practice.git</p>
 </li>
 </ul>
 <h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建于合并"><a href="#创建于合并" class="headerlink" title="创建于合并"></a>创建于合并</h2><ul>
@@ -256,13 +256,13 @@
 <h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><ul>
 <li><p>查看远程库的信息<br>$ git remote<br>origin</p>
 </li>
-<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a>:Justlovesmile/Hello-World.git (push)</p>
+<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:Justlovesmile/Hello-World.git (push)</p>
 </li>
 <li><p>推送master主分支<br>$ git push origin master</p>
 </li>
 <li><p>推送其他分支<br>$ git push origin dev</p>
 </li>
-<li><p>抓取分支<br>$ git clone <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>抓取分支<br>$ git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 </ul>
 <ul>
@@ -286,7 +286,7 @@
 </li>
 <li><p>给对应的版本打上标签<br>$ git tag v0.9 f52c633</p>
 </li>
-<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#x61;&#x73;&#x6b;&#120;&#x75;&#101;&#x66;&#101;&#x6e;&#103;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x61;&#x73;&#x6b;&#120;&#x75;&#101;&#x66;&#101;&#x6e;&#103;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
+<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#97;&#x73;&#107;&#120;&#x75;&#x65;&#x66;&#x65;&#110;&#x67;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#97;&#x73;&#107;&#120;&#x75;&#x65;&#x66;&#x65;&#110;&#x67;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
 </li>
 <li><p>创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
 </li>
@@ -302,7 +302,7 @@
 </li>
 </ul>
 <h1 id="github"><a href="#github" class="headerlink" title="github"></a>github</h1><ul>
-<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a>:michaelliao/clone.git</li>
+<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a>:michaelliao/clone.git</li>
 </ul>
 <h1 id="码云gitee-com"><a href="#码云gitee-com" class="headerlink" title="码云gitee.com"></a>码云gitee.com</h1><ul>
 <li>国内的Git托管服务</li>
