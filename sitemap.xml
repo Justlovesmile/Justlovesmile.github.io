@@ -774,7 +774,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/GANs/</loc>
+    <loc>https://blog.justlovesmile.top/tags/GAN/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -788,7 +788,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E4%BA%A4%E5%8F%89%E7%86%B5/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/Detectron2/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -809,7 +816,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/Wasserstein/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B7%E7%A7%AF/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -823,21 +830,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/NLP/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B7%E7%A7%AF/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/python/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/pytorch/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -865,28 +865,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/pytorch/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/Hexo/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -914,42 +893,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/npm/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/JavaScript/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/CSP/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -964,13 +908,6 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/Node-js/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/English/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -998,7 +935,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/windlx/</loc>
+    <loc>https://blog.justlovesmile.top/tags/English/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1019,13 +956,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/Assembly/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/Git/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
@@ -1034,6 +964,13 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/Github/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1061,6 +998,13 @@
   </url>
   
   <url>
+    <loc>https://blog.justlovesmile.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.justlovesmile.top/tags/%E6%AF%94%E7%89%B9%E5%B8%81/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
@@ -1068,7 +1012,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://blog.justlovesmile.top/tags/c/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1096,20 +1040,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/Jupyter-Lab/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/Loading/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
@@ -1117,14 +1047,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/iOS/</loc>
+    <loc>https://blog.justlovesmile.top/tags/Jupyter/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E6%8D%B7%E5%BE%84/</loc>
+    <loc>https://blog.justlovesmile.top/tags/Loading/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1145,6 +1075,20 @@
   </url>
   
   <url>
+    <loc>https://blog.justlovesmile.top/tags/iOS/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/%E6%8D%B7%E5%BE%84/</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.justlovesmile.top/tags/linux/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
@@ -1153,13 +1097,6 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/wordpress/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1194,20 +1131,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/MySQL/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justlovesmile.top/tags/%E6%97%85%E6%8B%8D/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
@@ -1230,13 +1153,6 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/%E5%AE%9E%E4%B9%A0/</loc>
-    <lastmod>2022-03-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E6%96%B0%E5%8A%A0%E5%9D%A1/</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
