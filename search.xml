@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>博客相关 | 如何提取图片主题色并自动选择标题字体颜色</title>
+    <url>/posts/b16c0eda.html</url>
+    <content><![CDATA[<p>今天在写博客的时候，做了一个封面图，然后<code>hexo cl &amp;&amp; hexo g &amp;&amp; gulp &amp;&amp; hexo s</code>一键生成，点开后却发现这个标题的字体颜色亮瞎我的眼睛：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328124305.png"></p>
+<p>于是试了很多帖子，终于把它改好了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328124527.png"></p>
+<p>提取主题色的js:<a href="https://github.com/briangonzalez/rgbaster.js">https://github.com/briangonzalez/rgbaster.js</a></p>
+<p>处理配色js如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">&#x27;post-cover&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">const</span> img = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;post-cover&#x27;</span>).getAttribute(<span class="string">&#x27;data-lazy-src&#x27;</span>)</span><br><span class="line">  RGBaster.colors(img, &#123;</span><br><span class="line">      <span class="attr">paletteSize</span>: <span class="number">30</span>,</span><br><span class="line">      <span class="attr">exclude</span>: [<span class="string">&quot;rgb(255,255,255)&quot;</span>, <span class="string">&quot;rgb(0,0,0)&quot;</span>, <span class="string">&quot;rgb(254,254,254)&quot;</span>],</span><br><span class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t.dominant != <span class="string">&#x27;rgb()&#x27;</span>)&#123;</span><br><span class="line">          <span class="keyword">const</span> c = t.dominant.match(<span class="regexp">/\d+/g</span>);</span><br><span class="line">          <span class="keyword">const</span> Color = <span class="string">`rgba(<span class="subst">$&#123;c[<span class="number">0</span>]&#125;</span>,<span class="subst">$&#123;c[<span class="number">1</span>]&#125;</span>,<span class="subst">$&#123;c[<span class="number">2</span>]&#125;</span>,0.8)`</span>;</span><br><span class="line">          <span class="keyword">let</span> fontColor;</span><br><span class="line">          <span class="comment">//const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;</span></span><br><span class="line">          <span class="keyword">const</span> grayLevel = c[<span class="number">0</span>] * <span class="number">0.213</span> + c[<span class="number">1</span>] * <span class="number">0.715</span> + c[<span class="number">2</span>] * <span class="number">0.072</span>;</span><br><span class="line">          <span class="comment">//if (grayLevel &gt;= 190) &#123;</span></span><br><span class="line">          <span class="keyword">if</span> (grayLevel &gt;= <span class="number">255</span>/<span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// 若为浅色，把文字设置为黑色</span></span><br><span class="line">            fontColor = <span class="string">&#x27;#000&#x27;</span>;</span><br><span class="line">            metaColor = <span class="string">&#x27;#1C1C1C&#x27;</span>;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            fontColor = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">            metaColor = <span class="string">&#x27;#eee&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-main:&quot;</span> + Color + <span class="string">&quot;!important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-titlecolor:&quot;</span> + fontColor + <span class="string">&quot;!important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-metacolor:&quot;</span> + metaColor + <span class="string">&quot;!important&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-main: rgba(255,250,240,0.5) !important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-titlecolor: #000 !important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-metacolor: #1C1C1C !important&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-main: rgba(255,250,240,0.5) !important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-titlecolor: #000 !important&quot;</span>)</span><br><span class="line">          <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-metacolor: #1C1C1C !important&quot;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-main: transparent !important&quot;</span>)</span><br><span class="line">  <span class="built_in">document</span>.styleSheets[<span class="number">0</span>].addRule(<span class="string">&quot;:root&quot;</span>, <span class="string">&quot;--mj-titlecolor: var(--light-grey) !important&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<ul>
+<li><a href="https://juejin.cn/post/6844903511956815885">https://juejin.cn/post/6844903511956815885</a></li>
+<li><a href="https://blog.realwds.com/posts/84339efc.html">https://blog.realwds.com/posts/84339efc.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>目标检测 | YOLOv1，经典单阶段Anchor-Based目标检测模型</title>
+    <url>/posts/d50da5ec.html</url>
+    <content><![CDATA[<blockquote>
+<p>参考YOLO官网的配色和logo做的封面图，感觉还挺好看的，hhhh<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328120849.png"></p>
+</blockquote>
+<h1 id="You-Only-Look-Once-Unified-Real-Time-Object-Detection"><a href="#You-Only-Look-Once-Unified-Real-Time-Object-Detection" class="headerlink" title="You Only Look Once: Unified, Real-Time Object Detection"></a>You Only Look Once: Unified, Real-Time Object Detection</h1><blockquote>
+<p>论文发表：CVPR 2016<br>论文链接：<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf">You Only Look Once: Unified, Real-Time Object Detection (cv-foundation.org)</a><br>论文官网：<a href="https://pjreddie.com/darknet/yolo/">YOLO: Real-Time Object Detection (pjreddie.com)</a></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/1648433292(1).png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;redmon2016you,</span><br><span class="line">  title=&#123;You only look once: Unified, real-time object detection&#125;,</span><br><span class="line">  author=&#123;Redmon, Joseph and Divvala, Santosh and Girshick, Ross and Farhadi, Ali&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE conference on computer vision and pattern recognition&#125;,</span><br><span class="line">  pages=&#123;779--788&#125;,</span><br><span class="line">  year=&#123;2016&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-归纳总结"><a href="#1-归纳总结" class="headerlink" title="1. 归纳总结"></a>1. 归纳总结</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>目的</th>
+<th>方法</th>
+<th>总结</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#Anchor-Free</td>
+<td>解决两阶段算法检测慢的问题</td>
+<td>将目标检测（cls和reg）都视为回归问题</td>
+<td>经典单阶段算法</td>
+</tr>
+</tbody></table>
+<h2 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h2><p>随着深度学习的大火，在YOLO提出那一年，主流的目标检测算法框架主要分为两类：</p>
+<ul>
+<li>两阶段算法：基于Region Proposal的RCNN系列算法，先生成Proposal，再分类回归</li>
+<li>单阶段算法：直接预测不同目标的类别和位置<br>这两种算法各有优点，一般而言，两阶段算法准确度高，但速度慢；单阶段算法速度快，但准确度相对低。</li>
+</ul>
+<p>作者认为人可以一眼看到目标在哪，并且能立即知道是什么，并且对于很多实际场景而言，如自动驾驶，实时性和准确性都是非常重要的。</p>
+<h2 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h2><p>针对上述问题，作者提出了经典的YOLO算法，它是一个统一的，端到端的单阶段目标检测算法。YOLO具体做法是，首先将输入图片缩放到448x448，然后送入CNN网络，最后使用NMS过滤网络预测结果得到检测的目标。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328103035.png"></p>
+<p>而在CNN网络里，它首先将图片划分为S×S大小的网格，然后每个单元格负责检测中心点落在该格子的目标，如下图，每个单元格会输出B个边界框（每个边界框输出5个预测值：x, y, w, h, confidence）以及边界框类别概率C，例如：作者在PASCAL VOC的检测实验里使用S=7，B=2，C=类别数量20，一共预测7×7×(2×5+20)个向量。同时这里的confidence代表边界框置信度，它的定义为: </p>
+<p>$$Pr(object)\times IoU_{pred}^{truth}$$</p>
+<p>其中边界框包含目标时，$Pr(object)=1$，否则为0。而C代表每个类别的置信度，即：</p>
+<p>$$Pr(Class_i|Object)\times Pr(objec) \times IoU_{pred}^{truth}=Pr(class_i)\times IoU_{pred}^{truth}$$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328103753.png"></p>
+<h3 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h3><p>YOLO采用卷积网络来提取特征，然后使用全连接层来得到预测值。网络结构参考GooLeNet模型，包含24个卷积层和2个全连接层。对于卷积层，主要使用1x1卷积来做channle reduction，然后紧跟3x3卷积。对于卷积层和全连接层，采用Leaky ReLU激活函数$max(x,0.1x)$，但是最后一层却采用线性激活函数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328103101.png"></p>
+<h3 id="3-2-模型训练"><a href="#3-2-模型训练" class="headerlink" title="3.2 模型训练"></a>3.2 模型训练</h3><p>在训练之前，先在ImageNet上进行了预训练，其预训练的分类模型采用图8中前20个卷积层，然后添加一个average-pool层和全连接层。预训练之后，在预训练得到的20层卷积层之上加上随机初始化的4个卷积层和2个全连接层。由于检测任务一般需要更高清的图片，所以将网络的输入从224x224增加到了448x448。</p>
+<h3 id="3-3-模型损失"><a href="#3-3-模型损失" class="headerlink" title="3.3 模型损失"></a>3.3 模型损失</h3><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328110113.png"></p>
+<p>Yolo算法将目标检测看成回归问题，所以采用的是均方差损失函数。但是对不同的部分采用了不同的权重值。首先区分定位误差和分类误差。对于定位误差，即边界框坐标预测误差，采用较大的权重 $\lambda_{coord}=5$ 。然后其区分不包含目标的边界框与含有目标的边界框的置信度，对于前者，采用较小的权重值 $\lambda_{noobj}=0.5$ 。其它权重值均设为1。然后采用均方误差，其同等对待大小不同的边界框，但是实际上较小的边界框的坐标误差应该要比较大的边界框要更敏感。为了保证这一点，将网络的边界框的宽与高预测改为对其平方根的预测，即预测值变为$(x,y,\sqrt{w},\sqrt{h})$。</p>
+<p>损失函数中，第一项为边界框中心坐标的误差项，$\mathbb{1} _ {ij}^{obj}$ 是指第 i 个单元格存在目标，且该单元格中的第 j 个边界框负责预测该目标，第二项是边界框的高与宽的误差项。第三项是包含目标的边界框的置信度误差项。第四项是不包含目标的边界框的置信度误差项。最后一项是包含目标的单元格的分类误差项，$\mathbb{1} _ {i}^{obj}$值是指第 i 个单元格存在目标。</p>
+<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328105647.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328105758.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328105711.png"></p>
+<h2 id="5-参考文献"><a href="#5-参考文献" class="headerlink" title="5. 参考文献"></a>5. 参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/32525231">目标检测|YOLO原理与实现 - 知乎 (zhihu.com)</a></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>目标检测 | SSD，经典单阶段Anchor-Based目标检测模型</title>
+    <url>/posts/8163bb15.html</url>
+    <content><![CDATA[<h1 id="SSD-Single-Shot-MultiBox-Detector"><a href="#SSD-Single-Shot-MultiBox-Detector" class="headerlink" title="SSD: Single Shot MultiBox Detector"></a>SSD: Single Shot MultiBox Detector</h1><blockquote>
+<p>论文发表：2016<br>论文链接：<a href="https://link.springer.com/chapter/10.1007/978-3-319-46448-0_2">SSD: Single Shot MultiBox Detector | SpringerLink</a></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220305111710.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;liu2016ssd,</span><br><span class="line">  title=&#123;Ssd: Single shot multibox detector&#125;,</span><br><span class="line">  author=&#123;Liu, Wei and Anguelov, Dragomir and Erhan, Dumitru and Szegedy, Christian and Reed, Scott and Fu, Cheng-Yang and Berg, Alexander C&#125;,</span><br><span class="line">  booktitle=&#123;European conference on computer vision&#125;,</span><br><span class="line">  pages=&#123;21--37&#125;,</span><br><span class="line">  year=&#123;2016&#125;,</span><br><span class="line">  organization=&#123;Springer&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>目的</th>
+<th>方法</th>
+<th>总结</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#Anchor #单阶段</td>
+<td>实现多尺度以及卷积预测，进一步提升精度和速度</td>
+<td>MultiBox，Anchor</td>
+<td>经典单阶段算法</td>
+</tr>
+</tbody></table>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>SSD算法，其英文全名是Single Shot MultiBox Detector, SSD的优势在于消除了bounding box proposal和pixel or feature resampling，并使用了multi-scale，因此达到了比faster rcnn和yolo更高的检测精度和更快的检测速度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328121925.png"></p>
+<p>图片来自<a href="https://zhuanlan.zhihu.com/p/33544892">目标检测|SSD原理与实现 - 知乎 (zhihu.com)</a></p>
+<h2 id="2-SSD模型"><a href="#2-SSD模型" class="headerlink" title="2. SSD模型"></a>2. SSD模型</h2><p>SSD采用VGG16作为基础模型，然后在VGG16的基础上新增了卷积层来获得更多的特征图以用于检测，模型结构如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220305114612.png"></p>
+<p>SSD和Yolo一样都是采用一个CNN网络来进行检测，但是却采用了多尺度的特征图，网络的核心点：</p>
+<ul>
+<li>使用小的卷积核预测类别和边界框偏移量</li>
+<li>对多个（多尺度）特征图进行检测</li>
+<li>设置不同比例的先验框，如下图</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220305115052.png"></p>
+<p>SSD将背景也当做了一个特殊的类别，如果检测目标共有c个类别，SSD其实需要预测c+1个置信度值，其中第一个置信度指的是不含目标或者属于背景的评分。在预测过程中，置信度最高的那个类别就是边界框所属的类别，特别地，当第一个置信度值最高时，表示边界框中并不包含目标。第二部分就是边界框的location，包含4个值(cx,cy,w,h)，分别表示边界框的中心坐标以及宽高。但是真实预测值其实只是边界框相对于先验框的转换值。先验框位置用$d=(d^{cx},d^{cy},d^{w},d^{h})$表示，其对应边界框用$b=(b^{cx},b^{cy},b^{w},b^{h})$表示，那么边界框的预测值$l$其实是b相对于d的转换值：<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220328114611.png"></p>
+<h2 id="3-模型训练"><a href="#3-模型训练" class="headerlink" title="3. 模型训练"></a>3. 模型训练</h2><h3 id="3-1-正负样本划分"><a href="#3-1-正负样本划分" class="headerlink" title="3.1 正负样本划分"></a>3.1 正负样本划分</h3><p>首先，对于图片中每个ground truth，找到与其IOU最大的先验框，该先验框与其匹配，这样，可以保证每个ground truth一定与某个先验框匹配。通常称与ground truth匹配的先验框为正样本，其次，通过判断先验框和ground truth之间的IoU值是否大于阈值（如0.5），大于则为正样本</p>
+<h3 id="3-2-损失计算"><a href="#3-2-损失计算" class="headerlink" title="3.2 损失计算"></a>3.2 损失计算</h3><p>损失包含两个部分：定位损失和分类损失<br>$$L(x,c,l,g)=\frac{1}{N}(L_{conf}(x,c)+\alpha L_{loc}(x,l,g))$$<br>其中N代表所匹配的正负样本数量，<code>l</code>代表预测框，<code>g</code>代表真实框，和faster rcnn相似，回归的偏移量的值是边界框的中心坐标(cx,cy)和框的宽度w和高度h。<br>$$\hat{g}<em>{j}^{cx}=(g</em>{j}^{cx}-d_{i}^{cx})/d_{i}^{w}$$<br>$$\hat{g}<em>{j}^{cy}=(g</em>{j}^{cy}-d_{i}^{cy})/d_{i}^{h}$$<br>$$\hat{g}<em>{j}^{w}=\log(\frac{g</em>{j}^{w}}{d_{i}^{w}})$$<br>$$\hat{g}<em>{j}^{h}=\log(\frac{g</em>{j}^{h}}{d_{i}^{h}})$$<br>因此定位损失函数为：$L_{loc}(x,l,g)=\sum_{i \in Pos}^N \sum_{m\in {cx,cy,w,h}}x_{ij}^{k}smooth_{L1}(l_i^m-\hat{g}<em>j^m)$<br>分类损失是一个softmax损失：$L</em>{conf}(x,c)=-\sum_{i\in Pos}^{N}x_{ij}^p\log(\hat{c}<em>i^p)-\sum</em>{i\in Neg}log(\hat{c}_i^0)$<br>其中$\hat{c}_i^p=\frac{exp(c_i^p)}{\sum_p(exp(c_i^p))}$</p>
+<h2 id="4-参考文献"><a href="#4-参考文献" class="headerlink" title="4. 参考文献"></a>4. 参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/33544892">目标检测|SSD原理与实现 - 知乎 (zhihu.com)</a></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>目标检测 | FCOS，经典单阶段Anchor-Free目标检测模型</title>
     <url>/posts/bc226294.html</url>
     <content><![CDATA[<h1 id="FCOS-Fully-Convolutional-One-Stage-Object-Detection"><a href="#FCOS-Fully-Convolutional-One-Stage-Object-Detection" class="headerlink" title="FCOS: Fully Convolutional One-Stage Object Detection"></a>FCOS: Fully Convolutional One-Stage Object Detection</h1><blockquote>
@@ -12104,7 +12241,7 @@ void producer()&#123;
 <li>GitHub事在网络上提供Git仓库的一项服务，使用GitHub可以实现多人协作</li>
 </ul>
 <h1 id="Git初始设置"><a href="#Git初始设置" class="headerlink" title="Git初始设置"></a>Git初始设置</h1><h2 id="git-config命令的–global参数"><a href="#git-config命令的–global参数" class="headerlink" title="git config命令的–global参数"></a>git config命令的–global参数</h2><ul>
-<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#56;&#x36;&#53;&#x37;&#x31;&#55;&#x31;&#53;&#x30;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#56;&#x36;&#53;&#x37;&#x31;&#55;&#x31;&#53;&#x30;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a>“</li>
+<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#56;&#x36;&#53;&#55;&#x31;&#55;&#49;&#53;&#x30;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#56;&#x36;&#53;&#55;&#x31;&#55;&#49;&#53;&#x30;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a>“</li>
 <li>让命令的输出具有更高的可读性<br>$ git config –global color.ui auto</li>
 </ul>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><ul>
@@ -12114,7 +12251,7 @@ void producer()&#123;
 <li>查看提交日志</li>
 </ul>
 <p>（1）$ git log（+文件名）</p>
-<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#x38;&#x36;&#x35;&#55;&#49;&#x37;&#49;&#x35;&#x30;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#x38;&#x36;&#x35;&#55;&#49;&#x37;&#49;&#x35;&#x30;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
+<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#56;&#54;&#53;&#55;&#49;&#55;&#x31;&#x35;&#x30;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;">&#56;&#54;&#53;&#55;&#49;&#55;&#x31;&#x35;&#x30;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
 <p>（2）$ git log –pretty=oneline</p>
 <p>db0644b6e8c15385d34c80b44fab5a2124289526 (HEAD -&gt; master) add one line<br>5022ed9f401a7a95b2c325d1f57ef7c9c291e860 wrote a read.txt<br>a4207cab55e08e29847031903c3d885f522483d3 wrote a file</p>
 <p>（3）$ git log -p查看文件改动</p>
@@ -12141,23 +12278,23 @@ void producer()&#123;
 </li>
 </ul>
 <h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
-<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#x75;&#114;&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#x79;&#111;&#x75;&#114;&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a>“</p>
+<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#117;&#114;&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#x79;&#111;&#117;&#114;&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#109;</a>“</p>
 </li>
 <li><p>查看id_rsa.pub文件，并复制<br>$ cat ~/.ssh/id_rsa.pub</p>
 </li>
 <li><p>然后再在github中添加ssh key</p>
 </li>
-<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;</a></p>
+<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a></p>
 </li>
 <li><p>在github中创建一个git仓库</p>
 </li>
-<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 <li><p>将本地库的所有内容推送到远程库上<br>$ git push -u origin master</p>
 </li>
 <li><p>从现在起，只要本地作了提交，就可以通过命令：<br>$ git push origin master</p>
 </li>
-<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/practice.git</p>
+<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:Justlovesmile/practice.git</p>
 </li>
 </ul>
 <h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建于合并"><a href="#创建于合并" class="headerlink" title="创建于合并"></a>创建于合并</h2><ul>
@@ -12206,13 +12343,13 @@ void producer()&#123;
 <h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><ul>
 <li><p>查看远程库的信息<br>$ git remote<br>origin</p>
 </li>
-<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:Justlovesmile/Hello-World.git (push)</p>
+<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git (push)</p>
 </li>
 <li><p>推送master主分支<br>$ git push origin master</p>
 </li>
 <li><p>推送其他分支<br>$ git push origin dev</p>
 </li>
-<li><p>抓取分支<br>$ git clone <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>抓取分支<br>$ git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 </ul>
 <ul>
@@ -12236,7 +12373,7 @@ void producer()&#123;
 </li>
 <li><p>给对应的版本打上标签<br>$ git tag v0.9 f52c633</p>
 </li>
-<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#97;&#x73;&#x6b;&#x78;&#117;&#x65;&#102;&#101;&#x6e;&#x67;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#97;&#x73;&#x6b;&#x78;&#117;&#x65;&#102;&#101;&#x6e;&#x67;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
+<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#x61;&#x73;&#x6b;&#x78;&#117;&#101;&#102;&#x65;&#110;&#103;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x73;&#x6b;&#x78;&#117;&#101;&#102;&#x65;&#110;&#103;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
 </li>
 <li><p>创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
 </li>
@@ -12252,7 +12389,7 @@ void producer()&#123;
 </li>
 </ul>
 <h1 id="github"><a href="#github" class="headerlink" title="github"></a>github</h1><ul>
-<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:michaelliao/clone.git</li>
+<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a>:michaelliao/clone.git</li>
 </ul>
 <h1 id="码云gitee-com"><a href="#码云gitee-com" class="headerlink" title="码云gitee.com"></a>码云gitee.com</h1><ul>
 <li>国内的Git托管服务</li>
@@ -13570,7 +13707,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
