@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>旋转目标检测 | R3Det，基于特征精炼的单阶段检测模型</title>
+    <url>/posts/809258ef.html</url>
+    <content><![CDATA[<h1 id="R3det-Refined-single-stage-detector-with-feature-refinement-for-rotating-object"><a href="#R3det-Refined-single-stage-detector-with-feature-refinement-for-rotating-object" class="headerlink" title="R3det: Refined single-stage detector with feature refinement for rotating object"></a>R3det: Refined single-stage detector with feature refinement for rotating object</h1><blockquote>
+<p>论文发表：AAAI 2021<br>论文链接：<a href="https://ojs.aaai.org/index.php/AAAI/article/view/16426/16233">https://ojs.aaai.org/index.php/AAAI/article/view/16426/16233</a><br>论文代码：<a href="https://github.com/Thinklab-SJTU/R3Det_Tensorflow">https://github.com/Thinklab-SJTU/R3Det_Tensorflow</a></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220322100025.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;yang2019r3det,</span><br><span class="line">  title=&#123;R3det: Refined single-stage detector with feature refinement for rotating object&#125;,</span><br><span class="line">  author=&#123;Yang, Xue and Liu, Qingqing and Yan, Junchi and Li, Ang and Zhang, Zhiqiang and Yu, Gang&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:1908.05612&#125;,</span><br><span class="line">  volume=&#123;2&#125;,</span><br><span class="line">  number=&#123;4&#125;,</span><br><span class="line">  pages=&#123;2&#125;,</span><br><span class="line">  year=&#123;2019&#125;,</span><br><span class="line">  publisher=&#123;Aug&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-归纳总结"><a href="#1-归纳总结" class="headerlink" title="1. 归纳总结"></a>1. 归纳总结</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>目的</th>
+<th>方法</th>
+<th>总结</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#遥感 #单阶段 #Anchor</td>
+<td>针对单阶段精炼检测器特征未对齐的问题，提出了FRM模块</td>
+<td>RRetinaNet Based,FRM,SkewIou</td>
+<td>精炼</td>
+</tr>
+</tbody></table>
+<h2 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h2><p>作者称对于旋转目标检测存在三个挑战：</p>
+<ul>
+<li>大宽高比</li>
+<li>密集排列</li>
+<li>方向任意</li>
+</ul>
+<h2 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h2><p>针对上述问题，作者提出了R3Det，其主要工作如下：</p>
+<ul>
+<li>progressive regression： 作者发现旋转框在密集场景下的能有较好的目标检测精度，而水平框能达到更好的召回率，因此使用了这两种形式的框进行组合，具体做法是第一阶段检测水平框，从而提升检测速度，提高召回率，第二阶段也就是精炼阶段（refinement stage）检测旋转框，以适应密集目标的检测。</li>
+<li>feature refinement module：针对现有的单阶段refined detector，作者发现他们存在特征没对齐的问题，因此设计了一个特征精炼模块，使用特征插值来获取精炼的位置信息并重建特征图实现特征对齐，并且该模块还可以减少精炼边界框的数量，提升检测速度。</li>
+<li>approximate SkewIoU loss：为解决Skew IoU计算不可微的问题，设计了一种近似SkewIoU损失，以获得更精确的旋转估计。</li>
+</ul>
+<h3 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h3><p>R3Det主要基于 RetinaNet 实现，结构如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220322120220.png"></p>
+<h3 id="3-2-边界框定义"><a href="#3-2-边界框定义" class="headerlink" title="3.2 边界框定义"></a>3.2 边界框定义</h3><p>对于边界框$(x,y,w,h,\theta)$，其中x，y代表中心点坐标，w，h代表宽和高，$\theta \in [-\frac{\pi}{2},0)$代表角度，边界框回归的值为：<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323144748.png"></p>
+<p>其中$x,x_a,x’$分别代表gt，anchor以及预测值，其余同上。</p>
+<p>损失函数为：<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323144809.png"></p>
+<p>其中$v’$为预测的偏移量向量，v代表gt的偏移量向量。其中N表示Anchor的数目,超参数 $\lambda_1$， $\lambda_2$ 控制着这两个损失的平衡，并且默认值为1。$L_{cls}$ 和 $L_{reg}$ 分别是Focal Loss和smooth L1 Loss。</p>
+<h3 id="3-3-精炼检测"><a href="#3-3-精炼检测" class="headerlink" title="3.3 精炼检测"></a>3.3 精炼检测</h3><p>Skew IoU对于角度十分敏感，因此作者在第一阶段使用0.5为前景阈值，0.4为背景阈值，在精炼的第一阶段使用0.6为前景阈值，0.5为背景阈值，如果有多段精炼阶段，使用0.7以及0.6为阈值。总损失：<br>$$L_{total}=\sum_{i=1}^N\alpha_iL_i$$<br>其中$L_i$为第i个精炼阶段的损失，$\alpha_i$为平衡系数，默认为1.</p>
+<h3 id="3-4-特征精炼模块"><a href="#3-4-特征精炼模块" class="headerlink" title="3.4 特征精炼模块"></a>3.4 特征精炼模块</h3><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323154129.png"></p>
+<p>许多精炼检测器仍然使用相同的特征图来执行多个分类和回归，而没有考虑边界框位置变化引起的特征未对齐。因此作者提出将当前精炼边界框(橙色矩形)的位置信息重新编码为对应的特征点(红色点)，从而以逐像素的方式<strong>重构整个特征图</strong>，实现<strong>特征对齐</strong>。整个过程如上图（c）所示。为了准确地获取精炼后的包围框对应的位置特征信息，采用了双线性特征插值方法，如上图（a）所示。特征插值可以表示为:<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323154551.png"><br>其中A代表图（a）中的区域，$F\in \mathbb{R}^{C\times 1\times 1}$代表特征图上点的特征向量。</p>
+<p>算法流程：<br><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323154753.png"></p>
+<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><p><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220323155610.png"></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录 | 博客运行超过1000天啦，继续砥砺前行</title>
     <url>/posts/d90df99b.html</url>
     <content><![CDATA[<p>就在刚刚，我在整理阅读笔记、准备发到博客上的时候，突然瞟到博客右下角的运行时间，惊喜地发现博客已经运行超过1000天啦，心中突然有一种又开心又欣慰的情绪在弥漫…</p>
@@ -217,6 +275,7 @@
       <tags>
         <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -1002,12 +1061,12 @@
 
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>代码编程</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
         <tag>目标检测</tag>
-        <tag>python</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1043,6 +1102,7 @@
       <tags>
         <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,6 +1128,7 @@
       <tags>
         <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -2414,8 +2475,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>python</tag>
-        <tag>pytorch</tag>
+        <tag>Python</tag>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>
@@ -2775,8 +2836,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
+        <tag>系统结构</tag>
         <tag>大学课程</tag>
-        <tag>计算机系统结构</tag>
       </tags>
   </entry>
   <entry>
@@ -4280,7 +4341,7 @@
       </categories>
       <tags>
         <tag>大学课程</tag>
-        <tag>微机原理与接口技术</tag>
+        <tag>微机原理</tag>
       </tags>
   </entry>
   <entry>
@@ -4351,7 +4412,7 @@ N
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -5033,7 +5094,7 @@ N
         <category>折腾记录</category>
       </categories>
       <tags>
-        <tag>Loading</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5053,6 +5114,7 @@ N
       </categories>
       <tags>
         <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -5656,7 +5718,7 @@ N
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>大学课程</tag>
         <tag>Arduino</tag>
         <tag>嵌入式</tag>
@@ -5852,9 +5914,9 @@ N
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>大学课程</tag>
-        <tag>计算机系统结构</tag>
+        <tag>系统结构</tag>
         <tag>汇编</tag>
+        <tag>大学课程</tag>
       </tags>
   </entry>
   <entry>
@@ -5868,8 +5930,8 @@ N
         <category>代码编程</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>excel</tag>
+        <tag>Python</tag>
+        <tag>Excel</tag>
       </tags>
   </entry>
   <entry>
@@ -5883,9 +5945,9 @@ N
         <category>代码编程</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>pdf</tag>
-        <tag>excel</tag>
+        <tag>Python</tag>
+        <tag>PDF</tag>
+        <tag>Excel</tag>
       </tags>
   </entry>
   <entry>
@@ -5914,7 +5976,7 @@ N
       </categories>
       <tags>
         <tag>旅拍</tag>
-        <tag>vlog</tag>
+        <tag>Vlog</tag>
       </tags>
   </entry>
   <entry>
@@ -6919,8 +6981,8 @@ N
         <category>学习笔记</category>
       </categories>
       <tags>
+        <tag>系统结构</tag>
         <tag>大学课程</tag>
-        <tag>计算机系统结构</tag>
       </tags>
   </entry>
   <entry>
@@ -7044,6 +7106,7 @@ N
       </categories>
       <tags>
         <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -7076,7 +7139,7 @@ N
       </categories>
       <tags>
         <tag>旅拍</tag>
-        <tag>vlog</tag>
+        <tag>Vlog</tag>
       </tags>
   </entry>
   <entry>
@@ -7097,7 +7160,7 @@ N
         <category>代码编程</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>爬虫</tag>
       </tags>
   </entry>
@@ -7139,7 +7202,8 @@ N
       </categories>
       <tags>
         <tag>旅拍</tag>
-        <tag>vlog</tag>
+        <tag>Vlog</tag>
+        <tag>HEU</tag>
       </tags>
   </entry>
   <entry>
@@ -7223,9 +7287,9 @@ N
         <category>折腾记录</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Linux</tag>
         <tag>阿里云</tag>
-        <tag>php</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -7337,7 +7401,7 @@ N
       </categories>
       <tags>
         <tag>大学课程</tag>
-        <tag>软件工程</tag>
+        <tag>组成原理</tag>
       </tags>
   </entry>
   <entry>
@@ -7884,7 +7948,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>代码编程</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>爬虫</tag>
       </tags>
   </entry>
@@ -7940,7 +8004,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -8264,7 +8328,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -8303,8 +8367,8 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>折腾记录</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>linux</tag>
+        <tag>Python</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -8446,7 +8510,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Node.js</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -8545,7 +8609,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>算法</tag>
       </tags>
   </entry>
@@ -8598,7 +8662,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>c++</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -8630,7 +8694,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
       </categories>
       <tags>
         <tag>印象笔记</tag>
-        <tag>markdown</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -9848,7 +9912,7 @@ void producer()&#123;
       </categories>
       <tags>
         <tag>大学课程</tag>
-        <tag>计算机操作系统</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -10233,7 +10297,7 @@ void producer()&#123;
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>Flask</tag>
       </tags>
   </entry>
@@ -10341,7 +10405,7 @@ void producer()&#123;
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
         <tag>Flask</tag>
       </tags>
   </entry>
@@ -10393,7 +10457,7 @@ void producer()&#123;
         <category>生活琐事</category>
       </categories>
       <tags>
-        <tag>新加坡国立大学</tag>
+        <tag>NUS</tag>
         <tag>实习</tag>
       </tags>
   </entry>
@@ -12450,7 +12514,7 @@ void producer()&#123;
 <li>GitHub事在网络上提供Git仓库的一项服务，使用GitHub可以实现多人协作</li>
 </ul>
 <h1 id="Git初始设置"><a href="#Git初始设置" class="headerlink" title="Git初始设置"></a>Git初始设置</h1><h2 id="git-config命令的–global参数"><a href="#git-config命令的–global参数" class="headerlink" title="git config命令的–global参数"></a>git config命令的–global参数</h2><ul>
-<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#x38;&#54;&#x35;&#x37;&#49;&#55;&#x31;&#53;&#48;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#x38;&#54;&#x35;&#x37;&#49;&#55;&#x31;&#53;&#48;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;</a>“</li>
+<li>设置Git提交时的姓名与邮箱<br>$ git config –global user.name “justlovesmile”<br>$ git config –global user.email “<a href="mailto:&#x38;&#54;&#x35;&#x37;&#49;&#55;&#x31;&#53;&#48;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x38;&#54;&#x35;&#x37;&#49;&#55;&#x31;&#53;&#48;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a>“</li>
 <li>让命令的输出具有更高的可读性<br>$ git config –global color.ui auto</li>
 </ul>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><ul>
@@ -12460,7 +12524,7 @@ void producer()&#123;
 <li>查看提交日志</li>
 </ul>
 <p>（1）$ git log（+文件名）</p>
-<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#x38;&#54;&#x35;&#x37;&#x31;&#x37;&#x31;&#53;&#48;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x38;&#54;&#x35;&#x37;&#x31;&#x37;&#x31;&#53;&#48;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
+<p>commit a4207cab55e08e29847031903c3d885f522483d3 (HEAD -&gt; master)<br>Author: justlovesmile <a href="mailto:&#x38;&#x36;&#x35;&#55;&#49;&#55;&#49;&#x35;&#x30;&#64;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#x38;&#x36;&#x35;&#55;&#49;&#55;&#49;&#x35;&#x30;&#64;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a><br>Date:   Thu Jun 13 11:04:29 2019 +0800<br>    wrote a file</p>
 <p>（2）$ git log –pretty=oneline</p>
 <p>db0644b6e8c15385d34c80b44fab5a2124289526 (HEAD -&gt; master) add one line<br>5022ed9f401a7a95b2c325d1f57ef7c9c291e860 wrote a read.txt<br>a4207cab55e08e29847031903c3d885f522483d3 wrote a file</p>
 <p>（3）$ git log -p查看文件改动</p>
@@ -12487,23 +12551,23 @@ void producer()&#123;
 </li>
 </ul>
 <h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
-<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#x6f;&#117;&#114;&#101;&#x6d;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#x79;&#x6f;&#117;&#114;&#101;&#x6d;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a>“</p>
+<li><p>创建SSH Key<br>$ ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#x6f;&#117;&#x72;&#x65;&#109;&#97;&#105;&#108;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#x79;&#x6f;&#117;&#x72;&#x65;&#109;&#97;&#105;&#108;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a>“</p>
 </li>
 <li><p>查看id_rsa.pub文件，并复制<br>$ cat ~/.ssh/id_rsa.pub</p>
 </li>
 <li><p>然后再在github中添加ssh key</p>
 </li>
-<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a></p>
+<li><p>输入命令测试<br>$ ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a></p>
 </li>
 <li><p>在github中创建一个git仓库</p>
 </li>
-<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>关联远程库<br>$ git remote add origin <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 <li><p>将本地库的所有内容推送到远程库上<br>$ git push -u origin master</p>
 </li>
 <li><p>从现在起，只要本地作了提交，就可以通过命令：<br>$ git push origin master</p>
 </li>
-<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:Justlovesmile/practice.git</p>
+<li><p>克隆远程库到本地库<br>$ git clone <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>:Justlovesmile/practice.git</p>
 </li>
 </ul>
 <h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建于合并"><a href="#创建于合并" class="headerlink" title="创建于合并"></a>创建于合并</h2><ul>
@@ -12552,13 +12616,13 @@ void producer()&#123;
 <h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><ul>
 <li><p>查看远程库的信息<br>$ git remote<br>origin</p>
 </li>
-<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a>:Justlovesmile/Hello-World.git (push)</p>
+<li><p>查看远程库的详细信息<br>$ git remote -v<br>origin  <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:Justlovesmile/Hello-World.git (fetch)<br>origin  <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:Justlovesmile/Hello-World.git (push)</p>
 </li>
 <li><p>推送master主分支<br>$ git push origin master</p>
 </li>
 <li><p>推送其他分支<br>$ git push origin dev</p>
 </li>
-<li><p>抓取分支<br>$ git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;</a>:Justlovesmile/Hello-World.git</p>
+<li><p>抓取分支<br>$ git clone <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:Justlovesmile/Hello-World.git</p>
 </li>
 </ul>
 <ul>
@@ -12582,7 +12646,7 @@ void producer()&#123;
 </li>
 <li><p>给对应的版本打上标签<br>$ git tag v0.9 f52c633</p>
 </li>
-<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#x61;&#x73;&#x6b;&#x78;&#117;&#101;&#x66;&#101;&#x6e;&#103;&#x40;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;">&#x61;&#x73;&#x6b;&#x78;&#117;&#101;&#x66;&#101;&#x6e;&#103;&#x40;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
+<li><p>标签它是按字母排序的，查看标签<br>$ git show v0.9commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)<br>Author: Michael Liao <a href="mailto:&#x61;&#x73;&#x6b;&#x78;&#117;&#x65;&#102;&#101;&#110;&#x67;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x73;&#x6b;&#x78;&#117;&#x65;&#102;&#101;&#110;&#x67;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a><br>Date:   Fri May 18 21:56:54 2018 +0800<br>  add merge<br>diff –git a/readme.txt b/readme.txt</p>
 </li>
 <li><p>创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
 </li>
@@ -12598,7 +12662,7 @@ void producer()&#123;
 </li>
 </ul>
 <h1 id="github"><a href="#github" class="headerlink" title="github"></a>github</h1><ul>
-<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:michaelliao/clone.git</li>
+<li>对于感兴趣的项目，先点Fork克隆仓库，然后再从自己的账号下clone<br>git clone <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:michaelliao/clone.git</li>
 </ul>
 <h1 id="码云gitee-com"><a href="#码云gitee-com" class="headerlink" title="码云gitee.com"></a>码云gitee.com</h1><ul>
 <li>国内的Git托管服务</li>
@@ -13915,7 +13979,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
