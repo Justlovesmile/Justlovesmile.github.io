@@ -149,7 +149,7 @@ a:hover {color:var(--mj-hovertext);}
 .layout{padding-top: 1rem; max-width: 1500px;}
 #aside-content{max-width: 300px; min-width: 300px;}
 #aside-content .item-headline{font-size: 1em;}
-b, strong {color: var(--mj-lighttext);}
+
 /* 分类归档页面 */
 .category-lists .category-list a {padding-left: 18px;}
 #page .category-lists ul {text-align: center;}
@@ -1214,7 +1214,7 @@ a.reward-main-btn:hover {
     font-size: .8rem;
     margin-left: .5rem;
 }
-
+.tk-meta strong {color: var(--mj-lighttext);}
 /* 侧边栏  */
 .card-announcement-animation{
     color: var(--mj-theme);
