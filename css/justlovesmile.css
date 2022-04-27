@@ -86,7 +86,7 @@
   }
 
 /* 全局 */
-body{cursor: url(https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/cursor.ico),default;}
+body{cursor: url(https://npm.elemecdn.com/justlovesmile-static/img/cursor.ico),default;}
 .layout.hide-aside{max-width:1200px;}
 #local-search .search-dialog .search-result-list{max-height: 300px;}
 #local-search .search-dialog .local-search__hit-item .search-result{font-size: small;}
