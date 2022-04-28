@@ -149,7 +149,17 @@ a:hover {color:var(--mj-hovertext);}
 .layout{padding-top: 1rem; max-width: 1500px;}
 #aside-content{max-width: 300px; min-width: 300px;}
 #aside-content .item-headline{font-size: 1em;}
-
+#article-container ul>li:not(.tab):before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 50%;
+    border: solid 4px var(--mj-main);
+    vertical-align: middle;
+    margin-right: 12px;
+}
+#article-container ul>li:not(.tab) {list-style: none;}
 /* 分类归档页面 */
 .category-lists .category-list a {padding-left: 18px;}
 #page .category-lists ul {text-align: center;}
@@ -178,6 +188,7 @@ a:hover {color:var(--mj-hovertext);}
 .button--animated:before{display:none}
 
 /* 导航栏  */
+#page-header.not-top-img #nav {background: 0 0;}
 #page-header.nav-fixed #nav,
     #page-header.post-bg.nav-fixed #nav {
         background: var(--mj-card-bg)!important;
@@ -186,7 +197,8 @@ a:hover {color:var(--mj-hovertext);}
     background: var(--mj-theme)!important;
     border-radius: 8px;}
 #nav a:hover{color: var(--mj-white) !important;}
-#nav .nav-fixed a{color: var(--mj-fontcolor)!important;text-shadow: none;}
+#nav .nav-fixed a,
+    #page-header.nav-fixed a{color: var(--mj-fontcolor)!important;text-shadow: none;}
 #page-header.nav-fixed #nav,
     #page-header.nav-fixed.nav-visible #nav,
     #page-header.post-bg.nav-fixed.nav-visible #nav {transition:.2s;top: 0;}
@@ -298,6 +310,13 @@ a:hover {color:var(--mj-hovertext);}
     font-size: 1em;
     padding-left: .4rem !important;
 }
+#page-header #nav a,
+#page-header.not-top-img #nav a{
+    color: var(--mj-titlecolor);
+}
+#page-header #nav a:hover{
+    color: var(--mj-white);
+}
 
 /* 文章顶部post info */
 .coverdiv:after {
@@ -345,12 +364,6 @@ a:hover {color:var(--mj-hovertext);}
     font-size: 3em;
     font-weight: 700;
     margin: 4px 0 16px 0;
-}
-#page-header #nav a{
-    color: var(--mj-titlecolor);
-}
-#page-header #nav a:hover{
-    color: var(--mj-white);
 }
 @media screen and (max-width: 768px){
     #post-info .post-title {
@@ -631,6 +644,26 @@ blockquote {
   background: none;
   padding: 0;
 }
+#article-container .headerlink {
+    float: right;
+    opacity: .08;
+    position: relative;
+    transition: .3s;
+}
+#article-container h1:hover .headerlink,
+#article-container h2:hover .headerlink,
+#article-container h3:hover .headerlink,
+#article-container h4:hover .headerlink,
+#article-container h5:hover .headerlink,
+#article-container h6:hover .headerlink {
+    opacity: .8;
+    transition: .3s;
+}
+#article-container .headerlink::before {
+    content: "\f0c1";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
 #article-container #moments_container a:hover,
 #article-container .flink-desc a:hover{
     color: var(--mj-lighttext) !important;
@@ -774,7 +807,7 @@ blockquote {
 #pagination .prev-post:hover,
 #pagination .next-post:hover{
     background: var(--mj-main);
-    transition: .6s;
+    transition: .3s;
 }
 .relatedPosts>.relatedPosts-list>div .content .date{display: none;}
 .relatedPosts>.relatedPosts-list>div:hover .content .title,
@@ -783,6 +816,7 @@ blockquote {
 #pagination .prev-post:hover .prev_info,
 #pagination .next-post:hover .next_info{
     color: var(--mj-titlecolor) !important;
+    transition: .3s;
 }
 #post .post-copyright {border-radius: 8px;}
 
@@ -1190,18 +1224,14 @@ a.reward-main-btn:hover {
     padding: .5rem;
     transition: .3s;
 }
-.tk-comments-container>.tk-comment:hover {
+.tk-comments-container>.tk-comment:hover,
+.tk-replies>.tk-comment:hover {
     border: var(--style-hover-border);
 }
-.tk-replies>.tk-comment.tk-master{
-    background: var(--mj-white);
-    border: var(--style-border);
-    border-radius: 12px;
-    padding: .5rem;
-    transition: .3s;
+.tk-replies>.tk-comment.tk-master:hover{
+    border: 1px solid var(--mj-lighttext);
 }
 .tk-replies>.tk-comment{
-    background: var(--mj-secondbg);
     border: var(--style-border);
     border-radius: 12px;
     padding: .5rem;
@@ -1215,6 +1245,7 @@ a.reward-main-btn:hover {
     margin-left: .5rem;
 }
 .tk-meta strong {color: var(--mj-lighttext);}
+
 /* 侧边栏  */
 .card-announcement-animation{
     color: var(--mj-theme);
@@ -1239,7 +1270,7 @@ a.reward-main-btn:hover {
     background: var(--mj-card-bg);
     border: var(--style-border);
     margin-top: 15px;
-    padding: 15px 24px;
+    padding: 12px 22px;
 }
 #aside-content .card-widget:hover {border: var(--style-hover-border);}
 #aside-content .aside-list > .aside-list-item .content > .title,

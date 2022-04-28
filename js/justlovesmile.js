@@ -41,7 +41,7 @@ if (document.getElementById('post-cover')) {
       }
   })
 } else {
-  document.styleSheets[0].addRule(":root", "--mj-main: transparent !important")
+  document.styleSheets[0].addRule(":root", "--mj-main: #007AFF !important")
   document.styleSheets[0].addRule(":root", "--mj-titlecolor: var(--light-grey) !important")
 }
 
