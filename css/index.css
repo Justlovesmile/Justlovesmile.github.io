@@ -5583,11 +5583,11 @@ blockquote.pullquote.right {
   content: '';
 }
 [data-theme='dark'] #web_bg {
-  background: -webkit-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
-  background: -moz-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
-  background: -o-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
-  background: -ms-linear-gradient(top, #3d99be 0%, #56317a 31%, #18171d 100%);
-  background: linear-gradient(to bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -webkit-linear-gradient(bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -moz-linear-gradient(bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -o-linear-gradient(bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: -ms-linear-gradient(bottom, #3d99be 0%, #56317a 31%, #18171d 100%);
+  background: linear-gradient(to top, #3d99be 0%, #56317a 31%, #18171d 100%);
 }
 [data-theme='dark'] #article-container code {
   background: #2c2c2c;
