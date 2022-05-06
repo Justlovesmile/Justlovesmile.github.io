@@ -148,7 +148,8 @@ a:hover {color:var(--mj-hovertext);}
 .layout.hide-aside {max-width: 1300px;}
 .layout{padding-top: 1rem; max-width: 1500px;}
 #aside-content{max-width: 300px; min-width: 300px;}
-#aside-content .item-headline{font-size: 1em;}
+#aside-content .item-headline{display: none;}
+#aside-content .card-merge hr{margin: 1rem 0;border: 1px dashed var(--hr-border);}
 #article-container ul>li:not(.tab):before {
     content: "";
     width: 6px;
@@ -873,7 +874,7 @@ blockquote {
         transition: .3s;
     }
     #recent-posts>.recent-post-item:hover .recent-post-info .article-meta-wrap{
-        bottom: 20px;
+        bottom: 15px;
         transition: .3s;
     }
     .article-meta{overflow: hidden;text-overflow: ellipsis;}
@@ -986,7 +987,7 @@ a.article-meta__categories:hover{
     transition: all .3s;
     -webkit-transform-style: preserve-3d;
   }
-  #recent-posts>.recent-post-item{height:15em;}
+  #recent-posts>.recent-post-item{height:14em;}
 }
 @media screen and (max-width: 768px){
   .recent-post-item .recent-post-info .recent-post-info-top .content {
@@ -1187,11 +1188,17 @@ a.reward-main-btn:hover {
 }
 
 /* 目录  */
+@media screen and (min-width: 1300px){
+    #aside-content .sticky_layout {
+        top: calc(60px + .5rem);
+    }
+}
 #aside-content #card-toc .toc-content .toc-link.active {
-    border-left-color: var(--mj-theme);
-    background: var(--mj-theme);
-    color: var(--mj-white);
+    border-left-color: var(--mj-main);
+    background: var(--mj-main);
+    color: var(--mj-titlecolor);
     border-radius: 4px;
+    font-weight: bold;
 }
 #aside-content #card-toc .toc-content::-webkit-scrollbar {display:none;}
 
@@ -1261,8 +1268,8 @@ a.reward-main-btn:hover {
 
 #aside-content .card-tag-cloud a {
     color: var(--mj-fontcolor)!important;
-    font-size: .85rem !important;
-    border-radius: 8px;
+    font-size: 1rem !important;
+    border-radius: 6px;
 }
 
 #aside-content .card-widget {
@@ -1270,7 +1277,7 @@ a.reward-main-btn:hover {
     background: var(--mj-card-bg);
     border: var(--style-border);
     margin-top: 15px;
-    padding: 12px 22px;
+    padding: 15px 20px;
 }
 #aside-content .card-widget:hover {border: var(--style-hover-border);}
 #aside-content .aside-list > .aside-list-item .content > .title,
