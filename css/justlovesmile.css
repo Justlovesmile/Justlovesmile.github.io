@@ -161,6 +161,7 @@ a:hover {color:var(--mj-hovertext);}
     margin-right: 12px;
 }
 #article-container ul>li:not(.tab) {list-style: none;}
+#article-container ol p, #article-container ul p {display: inline;}
 /* 分类归档页面 */
 .category-lists .category-list a {padding-left: 18px;}
 #page .category-lists ul {text-align: center;}
@@ -659,6 +660,7 @@ blockquote {
 #article-container .headerlink:hover {
     opacity: .8;
     transition: .3s;
+    color: var(--mj-main);
 }
 #article-container .headerlink::before {
     content: "\f0c1";
