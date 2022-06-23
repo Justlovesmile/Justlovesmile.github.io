@@ -361,7 +361,9 @@ document.addEventListener('DOMContentLoaded', function () {
       // toc元素點擊
       $cardToc.addEventListener('click', e => {
         e.preventDefault()
-        const $target = e.target.classList.contains('toc-link')
+        const target = e.target.classList
+        if (target.contains('toc-content')) return
+        const $target = target.contains('toc-link')
           ? e.target
           : e.target.parentElement
         btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI($target.getAttribute('href')).replace('#', ''))), 300)
@@ -476,7 +478,6 @@ document.addEventListener('DOMContentLoaded', function () {
       typeof utterancesTheme === 'function' && utterancesTheme()
       typeof changeGiscusTheme === 'function' && changeGiscusTheme()
       typeof FB === 'object' && window.loadFBComment()
-      window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200)
       typeof runMermaid === 'function' && window.runMermaid()
     },
     showOrHideBtn: (e) => { // rightside 點擊設置 按鈕 展開
@@ -613,13 +614,9 @@ document.addEventListener('DOMContentLoaded', function () {
       $hideInline.forEach(function (item) {
         item.addEventListener('click', function (e) {
           const $this = this
-          const $hideContent = $this.nextElementSibling
-          $this.classList.toggle('open')
-          if ($this.classList.contains('open')) {
-            if ($hideContent.querySelectorAll('.fj-gallery').length > 0) {
-              btf.initJustifiedGallery($hideContent.querySelectorAll('.fj-gallery'))
-            }
-          }
+          $this.classList.add('open')
+          const $fjGallery = $this.nextElementSibling.querySelectorAll('.fj-gallery')
+          $fjGallery.length && btf.initJustifiedGallery($fjGallery)
         })
       })
     }

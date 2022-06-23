@@ -145,6 +145,7 @@ p.top {border-top-width: 5px;border-top-color: var(--Color);}
 /* 全局 */
 body{cursor: url(https://npm.elemecdn.com/justlovesmile-static/img/cursor.ico),default;}
 a:hover {color:var(--mj-hovertext);}
+hr:before {content: '';}
 .layout.hide-aside {max-width: 1300px;}
 .layout{padding-top: 1rem; max-width: 1500px;}
 #aside-content{max-width: 300px; min-width: 300px;}
@@ -1262,6 +1263,24 @@ a.reward-main-btn:hover {
 .post #aside-content .card-info{
     background: var(--mj-main)!important;
     color: var(--mj-titlecolor)!important;
+}
+#aside-content .card-info .card-info-data {
+    display: table;
+    margin: 14px 0 4px;
+    width: 100%;
+    table-layout: fixed;
+}
+#aside-content .card-info .card-info-data > .card-info-data-item {
+    display: table-cell;
+}
+#aside-content .card-info .card-info-data > .card-info-data-item a .length-num {
+    margin-top: -0.42em;
+    color: var(--text-highlight-color);
+    font-size: 1.4em;
+}
+#aside-content .card-info .card-info-data > .card-info-data-item a .headline {
+    color: var(--font-color);
+    font-size: 1em;
 }
 .post #aside-content .card-info .card-info-data > .card-info-data-item a .headline,
 .post #aside-content .card-info .card-info-data > .card-info-data-item a .length-num{
