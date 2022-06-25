@@ -33,8 +33,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +310,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -744,8 +744,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1144,8 +1144,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -1170,8 +1170,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -5121,8 +5121,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5409,8 +5409,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5450,8 +5450,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5625,8 +5625,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5854,8 +5854,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -7054,8 +7054,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -7116,8 +7116,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -14004,7 +14004,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
