@@ -46,7 +46,7 @@ var generateBBHtml = array => {
     $dom.innerHTML = result;
     window.lazyLoadInstance && window.lazyLoadInstance.update();
     window.pjax && window.pjax.refresh($dom);
-    var swiper = new Swiper('.swiper-container', {
+    var swiper = new Swiper('#bbtalk', {
       direction: 'vertical', // 垂直切换选项
       loop: true,
       autoplay: {

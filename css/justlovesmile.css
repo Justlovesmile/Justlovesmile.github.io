@@ -19,6 +19,7 @@
     --text-bg-hover: var(--mj-theme);
     --card-box-shadow: none;
     --card-hover-box-shadow: none;
+    --mj-bg-blur: rgba(0,0,0,0.2);
   }
   
   ::selection {
@@ -146,6 +147,9 @@ p.top {border-top-width: 5px;border-top-color: var(--Color);}
 body{cursor: url(https://npm.elemecdn.com/justlovesmile-static/img/cursor.ico),default;}
 a:hover {color:var(--mj-hovertext);}
 hr:before {content: '';}
+.aplayer .aplayer-miniswitcher {background: var(--mj-main)!important;}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {left: -66px!important;}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {left: 0!important;}
 .layout.hide-aside {max-width: 1300px;}
 .layout{padding-top: 1rem; max-width: 1500px;}
 #aside-content{max-width: 300px; min-width: 300px;}
@@ -333,7 +337,7 @@ hr:before {content: '';}
     position: relative;
     display: block;
     overflow: hidden;
-    filter: blur(2px);
+    filter: blur(4px);
 }
 .coverdiv #post-cover {
     width: 100%!important;
@@ -782,30 +786,38 @@ blockquote {
     opacity: 0;
     transform: scale(0);
 }
-
+#pagination .prev_info, #pagination .next_info{font-weight: 700;}
 .relatedPosts>.relatedPosts-list .content .title {
     font-weight: 700;
     line-height: 1.5;
     -webkit-line-clamp: 4;
-    font-size: .9rem;
+    font-size: 1rem;
 }
-.relatedPosts>.relatedPosts-list>div {
-    background: var(--mj-black);
+.relatedPosts>.relatedPosts-list>div{
     transition: .3s;
     cursor: pointer;
     overflow: hidden;
     border-radius: 8px;
 }
-.relatedPosts>.relatedPosts-list .cover,
+.postImgHover,
+#pagination .prev-post,
+#pagination .next-post{
+    transition: .3s;
+}
+.relatedPosts>.relatedPosts-list>div img,
+.postImgHover img,
+#pagination .prev-post img,
+#pagination .next-post img{
+    opacity: .3;
+    transition: .3s;
+}
 .relatedPosts>.relatedPosts-list>div:hover img,
 .postImgHover:hover img,
 #pagination .prev-post:hover img,
-#pagination .next-post:hover img,
-#pagination .prev-post img,
-#pagination .next-post img{
-    opacity: .15;
+#pagination .next-post:hover img{
+    opacity: 0;
+    transition: .3s;
 }
-
 .relatedPosts>.relatedPosts-list>div:hover,
 .postImgHover:hover,
 #pagination .prev-post:hover,
@@ -1051,10 +1063,6 @@ a.article-meta__categories:hover{
     text-align: center;
     margin-top: 15px;
 }
-#pagination span.space {
-    margin: 0 .3rem;
-    color: var(--mj-white);
-}
 #pagination{
     border-radius: 8px;
     position: relative;
@@ -1092,20 +1100,15 @@ a.extend.next {
         height: 2rem;
     }
 }
-
 .post-reward .reward-button {
     background: var(--mj-red);
     color: var(--mj-white);
     padding: 0;
-    width: 133px;
-    height: 40px;
-    line-height: 39px;
+    width: 120px;
+    height: 33px;
+    line-height: 31px;
     box-shadow: var(--mj-shadow-red);
-    border-radius: 15px;
-}
-.post-reward .reward-button:hover {
-  background: var(--mj-theme);
-  color: var(--mj-white);
+    border-radius: 8px;
 }
 .post-reward .reward-main .reward-all {
     border-radius: 12px;
@@ -1113,6 +1116,12 @@ a.extend.next {
 .reward-group {
     display: flex;
     padding: 0 0.5rem;
+}
+.post-reward{
+    margin-top: 0px !important;
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
 }
 .post-reward .reward-main .reward-all .reward-item .post-qr-code-desc {
     padding-top: 0;
@@ -1146,12 +1155,12 @@ a.reward-main-btn:hover {
 #post .post-copyright {
     margin: 1rem 0 0.5rem;
     width: 100%;
-    background: var(--mj-main);
-    padding: .9rem;
+    border: 2px dashed var(--font-color);
+    padding: 1.5rem 1.3rem;
     overflow: hidden;
 }
 #post .post-copyright .post-copyright__author {
-    color: var(--mj-titlecolor);
+    color: var(--mj-fontcolor);
     padding: 0;
     font-weight: 700;
     font-size: 1rem;
@@ -1166,7 +1175,6 @@ a.reward-main-btn:hover {
 #post .post-copyright .post-copyright-info a {
     text-decoration: none;
     word-break: break-word;
-    color: var(--mj-titlecolor);
 }
 #post .post-copyright:before {
     display: none;
@@ -1174,21 +1182,37 @@ a.reward-main-btn:hover {
 #post .post-copyright:after {
     position: absolute;
     right: 12px;
-    top: -37px;
+    top: -80px;
     content: '\f25e';
-    font-size: 100px;
+    font-size: 150px;
     font-family: 'Font Awesome 5 Brands';
     opacity: .2;
-    color: var(--mj-titlecolor);
+    color: var(--font-color);
     opacity: .4;
+    filter: blur(5px);
 }
-#post .post-copyright .post-copyright-info {
-    color: var(--mj-titlecolor);
+[data-theme=dark] #post .post-copyright .post-copyright-info {
+    color: var(--mj-fontcolor);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+#post .tag_share .post-meta__tags{
+    border: var(--style-border);
+    color: var(--mj-fontcolor);
+}
+#post .tag_share .post-meta__tag-list{
+    float: right;
+}
+#post .tag_share .post-meta__tags:hover{
+    background: var(--mj-main)!important;
+    color: var(--mj-titlecolor);
+}
+#post .tag_share .post_share {
+    float: none;
+}
+#post .tag_share {margin-top: 3rem;}
 
 /* 目录  */
 @media screen and (min-width: 1300px){
@@ -1294,6 +1318,7 @@ a.reward-main-btn:hover {
 }
 
 #aside-content .card-widget {
+    border-radius: 12px;
     box-shadow: var(--mj-shadow-lightblack);
     background: var(--mj-card-bg);
     border: var(--style-border);
@@ -1316,14 +1341,14 @@ a.reward-main-btn:hover {
 }
 #aside-content .aside-list>.aside-list-item:hover{
     background:var(--mj-theme);
-    color:var(--mj-white);
     transition:.3s;
     box-shadow:var(--mj-shadow-main);
 }
 #aside-content .aside-list>.aside-list-item:hover a,
 #aside-content .aside-list>.aside-list-item:hover time,
-#aside-content .aside-list>.aside-list-item:hover .name{
-    color:var(--mj-white)!important
+#aside-content .aside-list>.aside-list-item:hover .name,
+#aside-content .aside-list>.aside-list-item:hover .comment{
+    color:var(--mj-titlecolor) !important;
 }
 #aside-content .aside-list>.aside-list-item:not(:last-child) {
     border-bottom: 0 dashed var(--mj-background)!important;
@@ -1701,11 +1726,61 @@ span.card-archive-list-count-unit {
 .homeTopGroup::-webkit-scrollbar {
     display: none;
 }
+.homeTopGroup #banner_group {display: flex;}
+div#banners {display: none;}
+@media screen and (min-width: 1300px){
+  .homeTopGroup #banner_group {
+    width: calc(100% - 600px - 1.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  div#banners {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: var(--mj-main);
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    border: var(--style-border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  div#banners:hover{
+    border: var(--style-hover-border);
+  }
+  .homeTopGroup .category_group {
+    flex-direction: row !important;
+  }
+  .homeTopGroup .category_item {
+    width: calc(100% / 3 - .33rem);
+    height: 100% !important;
+    margin-right: .5rem;
+  }
+  .homeTopGroup .category_item:nth-child(3) {
+    margin-right: 0;
+    display: flex !important;
+  }
+  #banner-page {
+    width: 100%;
+    height: 100%;
+  }
+  .top_post_group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: calc(328px + .5rem);
+    align-content: space-between;
+    width: calc(600px + 1.5rem);
+  }
+}
+
 .homeTopGroup .category_group{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: .5rem;
     min-width: 200px;
 }
 .homeTopGroup .category_item {
@@ -1714,6 +1789,9 @@ span.card-archive-list-count-unit {
     transition: .3s;
     height: 48%;
     border-radius: 12px;
+}
+.homeTopGroup .category_item:nth-child(3) {
+    display: none;
 }
 .homeTopGroup .category_item a.category_button {
     height: 100%;
@@ -1784,7 +1862,7 @@ a.category_button:after {
     max-height: 164px;
     flex-direction: column;
     align-items: flex-start;
-    margin-right: .5rem;
+    margin-left: .5rem;
     background: var(--mj-card-bg);
     border-radius: 12px;
     overflow: hidden;

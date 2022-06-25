@@ -12,6 +12,9 @@ if (document.getElementById('post-cover')) {
       success: function(t) {
         if (t.dominant != 'rgb()'){
           const c = t.dominant.match(/\d+/g);
+          if(c[0]>210&&c[1]>210&&c[2]>210){
+            c[0]=210;c[1]=210;c[2]=210;
+          }
           const Color = `rgba(${c[0]},${c[1]},${c[2]})`;
           let fontColor;
           //const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
@@ -29,15 +32,15 @@ if (document.getElementById('post-cover')) {
           document.styleSheets[0].addRule(":root", "--mj-titlecolor:" + fontColor + "!important")
           document.styleSheets[0].addRule(":root", "--mj-metacolor:" + metaColor + "!important")
         } else {
-          document.styleSheets[0].addRule(":root", "--mj-main: rgba(255,250,240) !important")
+          document.styleSheets[0].addRule(":root", "--mj-main: rgba(210,210,210) !important")
           document.styleSheets[0].addRule(":root", "--mj-titlecolor: #000 !important")
           document.styleSheets[0].addRule(":root", "--mj-metacolor: #1C1C1C !important")
         }
       },
       error: function() {
-          document.styleSheets[0].addRule(":root", "--mj-main: rgba(255,250,240) !important")
-          document.styleSheets[0].addRule(":root", "--mj-titlecolor: #000 !important")
-          document.styleSheets[0].addRule(":root", "--mj-metacolor: #1C1C1C !important")
+        document.styleSheets[0].addRule(":root", "--mj-main: rgba(210,210,210) !important")
+        document.styleSheets[0].addRule(":root", "--mj-titlecolor: #000 !important")
+        document.styleSheets[0].addRule(":root", "--mj-metacolor: #1C1C1C !important")
       }
   })
 } else {
@@ -187,19 +190,19 @@ function topCategoriesBarScroll(){
   }
 }
 //鼠标控制横向滚动
-function topPostsBarScroll(){
-  if (document.getElementById("homeTopGroup")){
-    let xscroll = document.getElementById("homeTopGroup");
-  xscroll.addEventListener("mousewheel", function (e) {
-    //计算鼠标滚轮滚动的距离
-    let v = -e.wheelDelta / 2;
-    xscroll.scrollLeft += v;
-    //阻止浏览器默认方法
-    e.preventDefault();
-}, false);
-  }
-}
+// function topPostsBarScroll(){
+//   if (document.getElementById("homeTopGroup")){
+//     let xscroll = document.getElementById("homeTopGroup");
+//   xscroll.addEventListener("mousewheel", function (e) {
+//     //计算鼠标滚轮滚动的距离
+//     let v = -e.wheelDelta / 2;
+//     xscroll.scrollLeft += v;
+//     //阻止浏览器默认方法
+//     e.preventDefault();
+// }, false);
+//   }
+// }
 categoriesBarActive()
 tagsBarActive()
 topCategoriesBarScroll()
-topPostsBarScroll()
+//topPostsBarScroll()

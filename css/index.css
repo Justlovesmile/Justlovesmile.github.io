@@ -1274,7 +1274,7 @@ hr:before,
   --tab-button-active-bg: #fff;
   --card-bg: #fff;
   --sidebar-bg: #f6f8fa;
-  --btn-hover-color: #ff7242;
+  --btn-hover-color: var(--mj-main);
   --btn-color: #fff;
   --btn-bg: #425aef;
   --text-bg-hover: rgba(66,90,239,0.7);
@@ -1288,9 +1288,9 @@ hr:before,
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
-  --pseudo-hover: #ff7242;
+  --pseudo-hover: var(--mj-main);
   --headline-presudo: #a0a0a0;
-  --scrollbar-color: #49b1f5;
+  --scrollbar-color: var(--mj-main);
 }
 body {
   position: relative;
@@ -4506,7 +4506,7 @@ h2.f4.text-normal.mb-3 {
 #waline-wrap {
   --waline-font-size: 1.1em;
   --waline-theme-color: #425aef;
-  --waline-active-color: #ff7242;
+  --waline-active-color: var(--mj-main);
 }
 #waline-wrap .vuser {
   -webkit-transition: all 0.5s;
@@ -5511,7 +5511,7 @@ blockquote.pullquote.right {
   --blockquote-color: rgba(255,255,255,0.7);
   --blockquote-bg: #2c2c2c;
   --reward-pop: #2c2c2c;
-  --toc-link-color: rgba(255,255,255,0.6);
+  --toc-link-color: rgba(255,255,255,0.8);
   --hl-color: rgba(255,255,255,0.7);
   --hl-bg: #171717;
   --hltools-bg: #1a1a1a;
