@@ -4900,7 +4900,6 @@ N
         <category>生活琐事</category>
       </categories>
       <tags>
-        <tag>超级英雄</tag>
         <tag>电影</tag>
       </tags>
   </entry>
@@ -5835,7 +5834,7 @@ N
       </categories>
       <tags>
         <tag>大学课程</tag>
-        <tag>计算机图形学</tag>
+        <tag>图形学</tag>
         <tag>MFC</tag>
       </tags>
   </entry>
@@ -6093,7 +6092,7 @@ N
       </categories>
       <tags>
         <tag>数据库</tag>
-        <tag>阿里云</tag>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -7247,7 +7246,6 @@ N
       <tags>
         <tag>旅拍</tag>
         <tag>Vlog</tag>
-        <tag>HEU</tag>
       </tags>
   </entry>
   <entry>
@@ -7331,8 +7329,7 @@ N
         <category>折腾记录</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>阿里云</tag>
+        <tag>服务器</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -14004,7 +14001,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
