@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>目标检测 | ATSS，正负样本的选择决定检测性能</title>
+    <url>/posts/c9c6591.html</url>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code>《Bridging the Gap Between Anchor-based and Anchor-free Detection via Adaptive Training Sample Selection》</code></p>
+<blockquote>
+<p>论文发表：<code>CVPR2020</code><br>论文链接：<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhang_Bridging_the_Gap_Between_Anchor-Based_and_Anchor-Free_Detection_via_Adaptive_CVPR_2020_paper.pdf">https://openaccess.thecvf.com</a><br>论文代码：<a href="https://github.com/sfzhang15/ATSS">https://github.com/sfzhang15/ATSS</a></p>
+</blockquote>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220308201514.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;zhang2020bridging,</span><br><span class="line">  title=&#123;Bridging the gap between anchor-based and anchor-free detection via adaptive training sample selection&#125;,</span><br><span class="line">  author=&#123;Zhang, Shifeng and Chi, Cheng and Yao, Yongqiang and Lei, Zhen and Li, Stan Z&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE/CVF conference on computer vision and pattern recognition&#125;,</span><br><span class="line">  pages=&#123;9759--9768&#125;,</span><br><span class="line">  year=&#123;2020&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">标签</td>
+<td align="center">#正负样本 #目标检测</td>
+</tr>
+<tr>
+<td align="center">数据集</td>
+<td align="center"><code>MSCOCO</code></td>
+</tr>
+<tr>
+<td align="center">目的</td>
+<td align="center">通过实验发现<code>Anchor-Base</code>和<code>Anchor-Free</code>的区别在于正负样本定义，并提出了<code>ATSS</code></td>
+</tr>
+<tr>
+<td align="center">方法</td>
+<td align="center">使用IoU的均值和标准差作为判断正负样本的自适应<code>IoU</code>阈值</td>
+</tr>
+</tbody></table>
+<h1 id="3-问题背景"><a href="#3-问题背景" class="headerlink" title="3. 问题背景"></a>3. 问题背景</h1><p>论文指出单阶段<code>Anchor-Based</code>和<code>Center-Based Anchor-Free</code>检测算法的性能差异主要来自于<code>正负样本的选择策略不同</code>，基于此问题，作者提出了ATSS(Adaptive Training Sample Selection)方法，该方法能够自动根据真实框（GT）的相关统计特征自适应地选择合适的样本，进而提升模型性能…</p>
+<h1 id="4-主要工作"><a href="#4-主要工作" class="headerlink" title="4. 主要工作"></a>4. 主要工作</h1><ul>
+<li>指出<code>Anchor-Free</code>和<code>Anchor-Based</code>方法的根本差异主要来源于正负样本的选择;</li>
+<li>提出<code>ATSS</code>( <code>Adaptive Training Sample Selection</code>)方法来根据对象的统计特征自动选择正负样本;</li>
+<li>证明每个位置设定多个<code>anchor</code>是无用的操作;</li>
+<li>不引入其它额外的开销，在<code>MS COCO</code>上达到<code>SOTA</code>;</li>
+</ul>
+<h2 id="4-1-Anchor-Based和Anchor-Free的区别分析"><a href="#4-1-Anchor-Based和Anchor-Free的区别分析" class="headerlink" title="4.1 Anchor-Based和Anchor-Free的区别分析"></a>4.1 <code>Anchor-Based</code>和<code>Anchor-Free</code>的区别分析</h2><p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311102454.png"></p>
+<p>由于<code>FCOS</code>是基于<code>point</code>进行预测，故可以认为就是一个像素位置有一个<code>anchor</code>，为了公平对比，将<code>RetinaNet</code>的<code>anchor</code>也设置为1个(<code>#A=1</code>),将<code>FCOS</code>的训练策略移动到<code>RetinaNet</code>上面，可以发现性能依然是<code>RetinaNet</code>低于fcos 0.8mAP。 排除这个因素后，现在两个算法的区别是：</p>
+<ul>
+<li>1.<strong>正负样本定义；</strong><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220311102531.png"></li>
+<li>2.<strong>回归分支中从<code>point</code>回归还是从<code>anchor</code>回归；</strong>从<code>point</code>回归就是指的每个点预测距离4条边的距离模式，而从<code>anchor</code>回归是指的<code>RetinaNet</code>那种基于<code>anchor</code>偏移量回归的模式。<img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220311102948.png"></li>
+</ul>
+<p>但作者通过实验分析可以知道回归分支中从point回归还是从anchor回归对最终影响很小，反而是正负样本定义对结果影响最大。</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311103001.png"></p>
+<h2 id="4-2-ATSS"><a href="#4-2-ATSS" class="headerlink" title="4.2 ATSS"></a>4.2 ATSS</h2><p>算法流程如下：<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311103116.png"></p>
+<p>论文提出ATSS方法，该方法根据目标的相关统计特征自动进行正负样本的选择，具体逻辑如算法1所示。对于每个GT box  <code>g</code>，首先在每个特征层找到中心点最近的<code>k</code>个候选anchor boxes(非预测结果)，计算候选box与GT间的IoU $U_g$，计算IoU的均值$m_g$和标准差$v_g$，得到IoU阈值$t_g=m_g+v_g$，最后选择阈值大于$t_g$的box作为最后的输出。如果anchor box对应多个GT，则选择IoU最大的GT。</p>
+<p>均值$m_g$表示预设的anchor与GT的匹配程度，均值高则应当提高阈值来调整正样本，均值低则应当降低阈值来调整正样本。标准差$v_g$表示适合GT的FPN层数，标准差高则表示高质量的anchor box集中在一个层中，应将阈值加上标准差来过滤其他层的anchor box，低则表示多个层都适合该GT，将阈值加上标准差来选择合适的层的anchor box，均值和标准差结合作为IoU阈值能够很好地自动选择对应的特征层上合适的anchor box;</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311110826.png"></p>
+<p>根据统计原理，大约16%的anchor box会落在$[m_g+v_g,1]$，尽管候选框的IoU不是标准正态分布，但统计下来每个GT大约有0.2×kL个正样本，与其大小和长宽比无关，而RetinaNet和FCOS则是偏向大目标有更多的正样本，导致训练不公平；其中ATSS仅有一个超参数k，并且实验表明ATSS的性能对k不敏感，参数<code>k</code>在区间$[7,17]$几乎是一样的，过大的设置会到导致过多的低质量候选anchor，而过小的设置则会导致过少的正样本，而且统计结果也不稳定。总体而言，参数<code>k</code>是相对鲁棒的，所以ATSS几乎是hyperparameter-free的。</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311111137.png"></p>
+<p>将ATSS应用到RetinaNet和FCOS上测试效果：</p>
+<ul>
+<li>将RetinaNet中的正负样本替换为ATSS，AP提升了2.9%，这样的性能提升几乎是没有任何额外消耗的</li>
+<li>在FCOS上的应用主要用两种：lite版本采用ATSS的思想，从选取GT内的anchor point改为选取每层离GT最近的top-$k$个候选anchor point，提升了0.8%AP；full版本将FCOS的<code>anchor point</code>改为长宽为$8S$的<code>anchor box</code>来根据ATSS选择正负样本，但仍然使用原始的回归方法，提升了1.4%AP。两种方法找到的<code>anchor point</code>在空间位置上大致相同，但是在<code>FPN</code>层上的选择不太一样。从结果来看，自适应的选择方法比固定的方法更有效。</li>
+</ul>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220629153201.png"></p>
+<p>论文还补充测试了不同anchor数下的性能，并且其实验结果证明，在每个位置设定多个anchor box是无用的操作，关键在于选择合适的正样本；</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220629153202.png"></p>
+<h1 id="5-实验结果"><a href="#5-实验结果" class="headerlink" title="5. 实验结果"></a>5. 实验结果</h1><p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311111508.png"></p>
+<h1 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6. 参考文献"></a>6. 参考文献</h1><p><a href="https://zhuanlan.zhihu.com/p/115407465">ATSS : 目标检测的自适应正负anchor选择，很扎实的trick | CVPR 2020 - 知乎 (zhihu.com)</a></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客 | 如何为博客添加顶部轮播图和文章推荐卡片</title>
     <url>/posts/6a0d6454.html</url>
     <content><![CDATA[<p>最近看了<a href="https://blog.zhheo.com/">zhheo</a>大佬的博客首页，发现大佬的布局还是那么的好看，于是果断<code>COPY</code>，再加上我一直想要在我的博客首页加一个大画幅的轮播图插件，于是又参考了<a href="https://hassanwong.top/">Hassan</a>的文章轮播图…经过一番折腾，效果如下：</p>
@@ -482,13 +557,14 @@
   <entry>
     <title>目标检测 | FCOS，经典单阶段Anchor-Free目标检测模型</title>
     <url>/posts/bc226294.html</url>
-    <content><![CDATA[<h1 id="FCOS-Fully-Convolutional-One-Stage-Object-Detection"><a href="#FCOS-Fully-Convolutional-One-Stage-Object-Detection" class="headerlink" title="FCOS: Fully Convolutional One-Stage Object Detection"></a>FCOS: Fully Convolutional One-Stage Object Detection</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code> 《FCOS: Fully Convolutional One-Stage Object Detection》</code></p>
+<blockquote>
 <p>论文来源：ICCV2019<br>论文链接：<a href="https://arxiv.org/abs/1904.01355">https://arxiv.org/abs/1904.01355</a><br>论文代码：<a href="https://github.com/tianzhi0549/FCOS/">https://github.com/tianzhi0549/FCOS/</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20211119114214.png" alt="20211119114214"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;tian2019fcos,</span><br><span class="line">  title=&#123;Fcos: Fully convolutional one-stage object detection&#125;,</span><br><span class="line">  author=&#123;Tian, Zhi and Shen, Chunhua and Chen, Hao and He, Tong&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE/CVF international conference on computer vision&#125;,</span><br><span class="line">  pages=&#123;9627--9636&#125;,</span><br><span class="line">  year=&#123;2019&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -504,7 +580,7 @@
 <td>Anchor-Free经典算法</td>
 </tr>
 </tbody></table>
-<h2 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h2><p>FCOS是一种基于全卷积的单阶段目标检测算法，并且是一种Anchor box free的算法。其实现了无Anchor，无Proposal，并且提出了Center-ness的思想，极大的提升了Anchor-Free目标检测算法的性能。</p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>FCOS是一种基于全卷积的单阶段目标检测算法，并且是一种Anchor box free的算法。其实现了无Anchor，无Proposal，并且提出了Center-ness的思想，极大的提升了Anchor-Free目标检测算法的性能。</p>
 <p>Anchor free的好处是：</p>
 <ul>
 <li>避免了Anchor Box带来的复杂计算，如计算重合度IoU；</li>
@@ -518,7 +594,7 @@
 <li>FCOS在单阶段算法中性能不错，并且证明了FCOS替换两阶段算法里的RPNs也可以取得更好的性能</li>
 <li>适用于各种instance-wise的预测问题</li>
 </ul>
-<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p>模型结构如下图：</p>
+<h2 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h2><p>模型结构如下图：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119160053912.png" alt="image-20211119160053912"></p>
 <p>FCOS包含三个大模块：</p>
 <ul>
@@ -527,22 +603,22 @@
 <li>Classification+Center-ness+Regression Head</li>
 </ul>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119155237711.png" alt="image-20211119155237711"></p>
-<p>对于FCOS，其直接将每个位置$(x,y)$视为训练样本，其需要回归的值为一个4维向量$t=(l,t,r,b)$，如上图所示。<br>由于一张图片中的目标数量有限，所以导致基于Anchor的算法会产生更多的负样本，因此FCOS对于每个像素点只回归一组值（可以理解为Anchor数量为1），可以利用更多的前景（正）样本信息去训练。如果坐标落在任何ground-truth box中即为正样本，且该位置的类别为这个gt box的类别$c^*$，否则为负样本（即背景，类别为0），如果落在多个gt box中，则认为其是一个歧义样本（ambiguous sample），针对这种情况，可通过FPN解决。计算$(l^*, t^*, r^*, b^*)$，$m_i$为每个特征层最大距离（论文里作者设置$m_2$~$m_7$分别为0，64，128，256，512，$\infty$），如果$\max(l^*, t^*, r^*, b^*) &gt; m_i$ 或者 $\max(l^*, t^*, r^*, b^*) &lt; m_{i−1}$,则此位置为负样本，不进行计算；对于大小相近又存在重叠的gt box，FPN无法区别，则选择面积最小的gt box为回归目标。</p>
-<h3 id="正负样本定义"><a href="#正负样本定义" class="headerlink" title="正负样本定义"></a>正负样本定义</h3><p>一个目标检测算法性能的优异性，最大影响因素就是<strong>如何定义正负样本</strong>。而FCOS的定义方式非常通俗易懂。主要分为两步：<br><strong>(1) 设置regress_ranges=((-1, 64), (64, 128), (128, 256), (256, 512),(512, INF)，用于将不同大小的bbox分配到不同的FPN层进行预测即距离4条边的最大值在给定范围内</strong><br><strong>(2) 设置center_sampling_ratio=1.5,用于确定对于任意一个输出层距离bbox中心多远的区域属于正样本（基于gt bbox中心点进行扩展出正方形，扩展范围是center_sample_radius×stride，正方形区域就当做新的gt bbox），该值越大，扩张比例越大，选择正样本区域越大；（细节：如果扩展比例过大，导致中心采样区域超过了gt bbox本身范围了，此时需要截断操作）</strong></p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>FCOS的损失函数为：</p>
+<p>对于FCOS，其直接将每个位置$(x,y)$视为训练样本，其需要回归的值为一个4维向量$t=(l,t,r,b)$，如上图所示。<br>由于一张图片中的目标数量有限，所以导致基于Anchor的算法会产生更多的负样本，因此FCOS对于每个像素点只回归一组值（可以理解为Anchor数量为1），可以利用更多的前景（正）样本信息去训练。如果坐标落在任何ground-truth box中即为正样本，且该位置的类别为这个gt box的类别$c^{ * }$ ，否则为负样本（即背景，类别为0），如果落在多个gt box中，则认为其是一个歧义样本（ambiguous sample），针对这种情况，可通过FPN解决。计算 $(l^*, t^*, r^*, b^*)$，$m_i$为每个特征层最大距离（论文里作者设置$m_2$ ~ $m_7$分别为0，64，128，256，512，$\infty$），如果$\max(l^*, t^*, r^*, b^*) &gt; m _ i$ 或者 $\max(l^*, t^*, r^*, b^*) &lt; m _ {i−1}$,则此位置为负样本，不进行计算；对于大小相近又存在重叠的gt box，FPN无法区别，则选择面积最小的gt box为回归目标。</p>
+<h2 id="3-2-正负样本定义"><a href="#3-2-正负样本定义" class="headerlink" title="3.2 正负样本定义"></a>3.2 正负样本定义</h2><p>一个目标检测算法性能的优异性，最大影响因素就是<strong>如何定义正负样本</strong>。而FCOS的定义方式非常通俗易懂。主要分为两步：<br><strong>(1) 设置regress_ranges=((-1, 64), (64, 128), (128, 256), (256, 512),(512, INF)，用于将不同大小的bbox分配到不同的FPN层进行预测即距离4条边的最大值在给定范围内</strong><br><strong>(2) 设置center_sampling_ratio=1.5,用于确定对于任意一个输出层距离bbox中心多远的区域属于正样本（基于gt bbox中心点进行扩展出正方形，扩展范围是center_sample_radius×stride，正方形区域就当做新的gt bbox），该值越大，扩张比例越大，选择正样本区域越大；（细节：如果扩展比例过大，导致中心采样区域超过了gt bbox本身范围了，此时需要截断操作）</strong></p>
+<h2 id="3-3-损失函数"><a href="#3-3-损失函数" class="headerlink" title="3.3 损失函数"></a>3.3 损失函数</h2><p>FCOS的损失函数为：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119173209315.png" alt="image-20211119173209315"></p>
 <p>其中$L_{cls}$是focal loss，$L_{reg}$是IoU loss，$N_{pos}$代表正样本数量，$\lambda$用于平衡$L_{reg}$的权重；$\mathbb{1} _ {c^{ * }<em>{i}}$当$c^{ * }</em>{i}&gt;0$时为1，否则为0；</p>
 <p>为了减少低质量检测框，减少误检，FCOS增加了一个一层的分支，用于预测Center-ness，其描绘了位置到目标中心的归一化距离，下图展示了使用Center-ness（左）和不使用Center-ness（右）的区别。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119175758242.png" alt="image-20211119175758242"></p>
 <p>Center-ness的计算公式如下，其范围为0-1，训练阶段使用BCE Loss并和之前的损失函数相加，测试阶段用于加权预测得分：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119180027086.png" alt="image-20211119180027086"></p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>对比实验结果：</p>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h1><p>对比实验结果：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119180536280.png" alt="image-20211119180536280"></p>
 <p>有无Center-ness分支的消融实验：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220326134621.png"></p>
 <p>替换RPN的消融实验：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220326134721.png"></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/267346645">mmdetection最小复刻版(六)：FCOS深入可视化分析 - 知乎 (zhihu.com)</a></p>
+<h1 id="5-参考文献"><a href="#5-参考文献" class="headerlink" title="5. 参考文献"></a>5. 参考文献</h1><p><a href="https://zhuanlan.zhihu.com/p/267346645">mmdetection最小复刻版(六)：FCOS深入可视化分析 - 知乎 (zhihu.com)</a></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -861,13 +937,14 @@
   <entry>
     <title>目标检测 | Faster R-CNN，经典两阶段检测模型</title>
     <url>/posts/fc798de3.html</url>
-    <content><![CDATA[<h1 id="Faster-R-CNN-Towards-Real-Time-ObjectDetection-with-Region-Proposal-Networks"><a href="#Faster-R-CNN-Towards-Real-Time-ObjectDetection-with-Region-Proposal-Networks" class="headerlink" title="Faster R-CNN: Towards Real-Time ObjectDetection with Region Proposal Networks"></a>Faster R-CNN: Towards Real-Time ObjectDetection with Region Proposal Networks</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code>《Faster R-CNN: Towards Real-Time ObjectDetection with Region Proposal Networks》</code></p>
+<blockquote>
 <p>论文发表：2015<br>论文链接：<a href="https://arxiv.org/abs/1506.01497">https://arxiv.org/abs/1506.01497</a><br>论文代码：<a href="https://github.com/rbgirshick/py-faster-rcnn">https://github.com/rbgirshick/py-faster-rcnn</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120141803069.png" alt="image-20211120141803069"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;ren2015faster,</span><br><span class="line">  title=&#123;Faster r-cnn: Towards real-time object detection with region proposal networks&#125;,</span><br><span class="line">  author=&#123;Ren, Shaoqing and He, Kaiming and Girshick, Ross and Sun, Jian&#125;,</span><br><span class="line">  journal=&#123;Advances in neural information processing systems&#125;,</span><br><span class="line">  volume=&#123;28&#125;,</span><br><span class="line">  pages=&#123;91--99&#125;,</span><br><span class="line">  year=&#123;2015&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -883,7 +960,7 @@
 <td>首次提出RPN和Anchor</td>
 </tr>
 </tbody></table>
-<h2 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h2><p>Faster R-CNN是在R-CNN和Fast R-CNN的基础上提出的一种两阶段目标检测算法，其主要包括：</p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>Faster R-CNN是在R-CNN和Fast R-CNN的基础上提出的一种两阶段目标检测算法，其主要包括：</p>
 <ul>
 <li>特征提取网络（Backbone）</li>
 <li>RPN（Region Proposal Networks）</li>
@@ -921,7 +998,7 @@
 <p>首先对同一个类别所有的目标框进行排序，（这里默认之前预测的分类概率最大的类别为目标所属类别），然后从大到小依次选择一个目标框和其他剩余目标框计算IoU值，如果IoU值大于设定的阈值如0.5，就代表重叠，此时舍去得分小的目标框，否则就保留，然后依次比较之后，就能实现对重叠目标的去重处理。</p>
 <p>论文里的实验结果：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120151656814.png" alt="image-20211120151656814"></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/31426458">一文读懂Faster RCNN - 知乎 (zhihu.com)</a></p>
+<h1 id="4-参考文献"><a href="#4-参考文献" class="headerlink" title="4. 参考文献"></a>4. 参考文献</h1><p><a href="https://zhuanlan.zhihu.com/p/31426458">一文读懂Faster RCNN - 知乎 (zhihu.com)</a></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -1741,14 +1818,15 @@
   <entry>
     <title>深度学习 | 论文笔记（A Review on Generative Adversarial Networks）</title>
     <url>/posts/c63e7cba.html</url>
-    <content><![CDATA[<h2 id="A-Review-on-Generative-Adversarial-Networks-Algorithms-Theory-and-Applications"><a href="#A-Review-on-Generative-Adversarial-Networks-Algorithms-Theory-and-Applications" class="headerlink" title="A Review on Generative Adversarial Networks: Algorithms, Theory, and Applications"></a>A Review on Generative Adversarial Networks: Algorithms, Theory, and Applications</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20201209235414.jpg" alt="0fe50f6cc4ef45dbaee2e011ea2940bb_th"></p>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文题目：<code>《A Review on Generative Adversarial Networks: Algorithms, Theory, and Applications》</code></p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-img/20201209235414.jpg" alt="0fe50f6cc4ef45dbaee2e011ea2940bb_th"></p>
 <p><a href="https://arxiv.org/pdf/2001.06937.pdf">Arxiv Link : https://arxiv.org/pdf/2001.06937.pdf</a></p>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>Generative Adversarial Networks (GANs)  have been widely studied since 2014. There are a large number of different GANs variants.</p>
+<h1 id="2-Abstract"><a href="#2-Abstract" class="headerlink" title="2. Abstract"></a>2. Abstract</h1><p>Generative Adversarial Networks (GANs)  have been widely studied since 2014. There are a large number of different GANs variants.</p>
 <blockquote>
 <p>生成对抗网络，始于2014年，现在已有很多变种</p>
 </blockquote>
-<h3 id="Index-Terms"><a href="#Index-Terms" class="headerlink" title="Index Terms"></a>Index Terms</h3><p>Deep Learning ; GANs ; Algorithm ; Theory ; Applications</p>
-<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>GANs consists of two models: a generator and a discriminator. These two models are typically implemented by neural networks, but they can be implemented with any form of differentiable system that maps data from one space to the other.</p>
+<h2 id="Index-Terms"><a href="#Index-Terms" class="headerlink" title="Index Terms"></a>Index Terms</h2><p>Deep Learning ; GANs ; Algorithm ; Theory ; Applications</p>
+<h1 id="3-Introduction"><a href="#3-Introduction" class="headerlink" title="3. Introduction"></a>3. Introduction</h1><p>GANs consists of two models: a generator and a discriminator. These two models are typically implemented by neural networks, but they can be implemented with any form of differentiable system that maps data from one space to the other.</p>
 <blockquote>
 <p>GANs包括两个模型：一个生成器和一个辨别器。一般是由神经网络实现，但是也可以由不同类型的能映射数据到另一个空间的可微系统实现。</p>
 </blockquote>
@@ -1766,15 +1844,15 @@
 <p>$$\min_G \max_D V(D,G)=\mathbb{E} _ {x \sim p_{data}(x)}[\log D(x)]+\mathbb{E} _ {z \sim p_z(z)}[\log (1-D(G(z)))] $$</p>
 <p>生成器G和判别器D两者相互对抗，共同学习，不断优化</p>
 </blockquote>
-<h3 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h3><p>GANs belong to generative algorithms</p>
+<h1 id="4-Related-Work"><a href="#4-Related-Work" class="headerlink" title="4. Related Work"></a>4. Related Work</h1><p>GANs belong to generative algorithms</p>
 <blockquote>
 <p>GANs 属于生成算法</p>
 </blockquote>
-<h4 id="2-1-Generative-algorithms"><a href="#2-1-Generative-algorithms" class="headerlink" title="2.1 Generative algorithms"></a>2.1 Generative algorithms</h4><p>Generative algorithms can be classified into two classes: explicit density model and implicit density model.</p>
+<h2 id="4-1-Generative-algorithms"><a href="#4-1-Generative-algorithms" class="headerlink" title="4.1 Generative algorithms"></a>4.1 Generative algorithms</h2><p>Generative algorithms can be classified into two classes: explicit density model and implicit density model.</p>
 <blockquote>
 <p>生成算法可分为两类：显式密度模型和隐式密度模型。</p>
 </blockquote>
-<h5 id="2-1-1-Explicit-density-model"><a href="#2-1-1-Explicit-density-model" class="headerlink" title="2.1.1 Explicit density model"></a>2.1.1 Explicit density model</h5><p>An explicit density model assumes the distribution and utilizes true data to train the model containing the distribution or fit the distribution parameters. When finished, new examples are produced utilizing the learned model or distribution.</p>
+<h3 id="4-1-1-Explicit-density-model"><a href="#4-1-1-Explicit-density-model" class="headerlink" title="4.1.1 Explicit density model"></a>4.1.1 Explicit density model</h3><p>An explicit density model assumes the distribution and utilizes true data to train the model containing the distribution or fit the distribution parameters. When finished, new examples are produced utilizing the learned model or distribution.</p>
 <blockquote>
 <p>显式密度模型假设分布，并利用真实数据训练包含分布的模型或拟合分布参数。完成后，利用学习的模型或分布产生新的示例。</p>
 </blockquote>
@@ -1782,7 +1860,7 @@
 <blockquote>
 <p>显式密度模型包括最大似然估计（MLE），近似推断和马尔可夫链方法。</p>
 </blockquote>
-<h5 id="2-1-2-Implicit-density-model"><a href="#2-1-2-Implicit-density-model" class="headerlink" title="2.1.2 Implicit density model"></a>2.1.2 Implicit density model</h5><p>It produces data instances from the distribution without an explicit hypothesis and utilizes the produced examples to modify the model.</p>
+<h3 id="4-1-2-Implicit-density-model"><a href="#4-1-2-Implicit-density-model" class="headerlink" title="4.1.2 Implicit density model"></a>4.1.2 Implicit density model</h3><p>It produces data instances from the distribution without an explicit hypothesis and utilizes the produced examples to modify the model.</p>
 <blockquote>
 <p>它在没有明确假设的情况下从分布中生成数据实例，并利用生成的实例来修改模型。</p>
 </blockquote>
@@ -1790,15 +1868,15 @@
 <blockquote>
 <p>GANs属于有向隐式密度模型类别。</p>
 </blockquote>
-<h5 id="2-1-3-The-comparison-between-GANs-and-other-generative-algorithms"><a href="#2-1-3-The-comparison-between-GANs-and-other-generative-algorithms" class="headerlink" title="2.1.3 The comparison between GANs and other generative algorithms"></a>2.1.3 The comparison between GANs and other generative algorithms</h5><p>The basic idea behind adversarial learning is that the generator tries to create as realistic examples as possible to deceive the discriminator. The discriminator tries to distinguish fake examples from true examples. Both the generator and discriminator improve through adversarial learning. </p>
+<h3 id="4-1-3-The-comparison-between-GANs-and-other-generative-algorithms"><a href="#4-1-3-The-comparison-between-GANs-and-other-generative-algorithms" class="headerlink" title="4.1.3 The comparison between GANs and other generative algorithms"></a>4.1.3 The comparison between GANs and other generative algorithms</h3><p>The basic idea behind adversarial learning is that the generator tries to create as realistic examples as possible to deceive the discriminator. The discriminator tries to distinguish fake examples from true examples. Both the generator and discriminator improve through adversarial learning. </p>
 <blockquote>
 <p>对抗式学习背后的基本思想是，生成器试图创建尽可能真实的示例来欺骗鉴别器。鉴别器试图区分假例子和真例子。生成器和鉴别器都通过对抗性学习进行改进。</p>
 </blockquote>
-<h4 id="2-2-Adversarial-idea"><a href="#2-2-Adversarial-idea" class="headerlink" title="2.2 Adversarial idea"></a>2.2 Adversarial idea</h4><p>Adversarial machine learning is a minimax problem. The defender, who builds the classifier that we want to work correctly, is searching over the parameter space to find the parameters that reduce the cost of the classifier as much as possible. Simultaneously, the attacker is searching over the inputs of the model to maximize the cost.</p>
+<h2 id="4-2-Adversarial-idea"><a href="#4-2-Adversarial-idea" class="headerlink" title="4.2 Adversarial idea"></a>4.2 Adversarial idea</h2><p>Adversarial machine learning is a minimax problem. The defender, who builds the classifier that we want to work correctly, is searching over the parameter space to find the parameters that reduce the cost of the classifier as much as possible. Simultaneously, the attacker is searching over the inputs of the model to maximize the cost.</p>
 <blockquote>
 <p>对抗性机器学习是一个极小极大问题。防守者(defender)构建了我们想要正确工作的分类器，他在参数空间中搜索尽可能降低分类器成本（cost）的参数（parameter）。同时，攻击者(attacker)搜索模型的输入以使成本（cost）最大化。</p>
 </blockquote>
-<h3 id="3-Algorithms"><a href="#3-Algorithms" class="headerlink" title="3. Algorithms"></a>3. Algorithms</h3><h4 id="3-1-Generative-Adversarial-Nets-（GANs）"><a href="#3-1-Generative-Adversarial-Nets-（GANs）" class="headerlink" title="3.1 Generative Adversarial Nets （GANs）"></a>3.1 Generative Adversarial Nets （GANs）</h4><p>In order to learn the generator’s distribution $p_g$ over data $x$, a prior on input noise variables is defined as $p_z(z)$ and $z$ is the noise variable. </p>
+<h1 id="5-Algorithms"><a href="#5-Algorithms" class="headerlink" title="5. Algorithms"></a>5. Algorithms</h1><h2 id="5-1-Generative-Adversarial-Nets-（GANs）"><a href="#5-1-Generative-Adversarial-Nets-（GANs）" class="headerlink" title="5.1 Generative Adversarial Nets （GANs）"></a>5.1 Generative Adversarial Nets （GANs）</h2><p>In order to learn the generator’s distribution $p_g$ over data $x$, a prior on input noise variables is defined as $p_z(z)$ and $z$ is the noise variable. </p>
 <blockquote>
 <p>为了了解生成器在数据$x$上的分布$p_g$，将输入噪声变量的先验定义为$p_z(z)$，$z$是噪声变量。</p>
 </blockquote>
@@ -1814,7 +1892,7 @@
 <blockquote>
 <p>对鉴别器D进行训练以最大限度地提高对训练数据和从生成器G生成的伪样本给出正确标签的概率。G被训练以同时最小化$\log(1−D(G(z))$。</p>
 </blockquote>
-<h5 id="3-1-1-Objective-function"><a href="#3-1-1-Objective-function" class="headerlink" title="3.1.1 Objective function"></a>3.1.1 Objective function</h5><p><strong>(1) Original minimax game</strong></p>
+<h3 id="5-1-1-Objective-function"><a href="#5-1-1-Objective-function" class="headerlink" title="5.1.1 Objective function"></a>5.1.1 Objective function</h3><p><strong>(1) Original minimax game</strong></p>
 <p>The objective function of GANs is :</p>
 <p>$$\min_G \max_D V(D,G)=\mathbb{E} _ {x \sim p_{data}(x)}[\log D(x)]+\mathbb{E} _ {z \sim p_z(z)}[\log (1-D(G(z)))]$$</p>
 <p>$\log D(x)$ is the cross-entropy between $\begin{bmatrix}1 &amp; 0 \end{bmatrix}^T$ and $\begin{bmatrix}D(x) &amp; 1-D(x) \end{bmatrix}^T$. Similarly, $\log(1-D(G(z)))$ is the cross-entropy between  $\begin{bmatrix}0 &amp; 1 \end{bmatrix}^T$ and $\begin{bmatrix}D(G(z)) &amp; 1-D(G(z)) \end{bmatrix}^T$ . </p>
@@ -14046,7 +14124,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
