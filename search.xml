@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>旋转目标检测 | IENet，单阶段Anchor-Free旋转目标检测模型</title>
+    <url>/posts/afb37b1d.html</url>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：《IENet: Interactive Embranchment Network Based One-Stage Anchor Free Detector for Orientational Aerial Object Detection》</p>
+<blockquote>
+<p>论文发表：arxiv 2019<br>论文链接：<a href="https://arxiv.org/pdf/1912.00969">https://arxiv.org/pdf/1912.00969</a></p>
+</blockquote>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420214710.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;lin2019ienet,</span><br><span class="line">  title=&#123;IENet: Interacting embranchment one stage anchor free detector for orientation aerial object detection&#125;,</span><br><span class="line">  author=&#123;Lin, Youtian and Feng, Pengming and Guan, Jian and Wang, Wenwu and Chambers, Jonathon&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:1912.00969&#125;,</span><br><span class="line">  year=&#123;2019&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签</td>
+<td>#遥感 #目标检测</td>
+</tr>
+<tr>
+<td>数据集</td>
+<td>DOTA,HRSC2016</td>
+</tr>
+<tr>
+<td>目的</td>
+<td>两阶段方法计算量大，单阶段方法性能不足</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>基于自注意力的互动分支</td>
+</tr>
+</tbody></table>
+<h1 id="3-问题背景"><a href="#3-问题背景" class="headerlink" title="3. 问题背景"></a>3. 问题背景</h1><p>作者提到，遥感图像的目标检测任务的难点在于：</p>
+<ul>
+<li>和自然图像相比，物体形状相似且可见特征稀少</li>
+<li>目标具有不同的旋转角度</li>
+<li>具有更多的小目标和密集目标</li>
+</ul>
+<p>而目前最好的性能都是两阶段算法实现的，但是两阶段算法通常在第一阶段定位，在第二阶段分类，因此计算量是非常大的，尤其是对旋转目标检测而言，因为Anchor匹配（涉及IoU计算）和RoI特征提取的计算量大。</p>
+<h1 id="4-主要工作"><a href="#4-主要工作" class="headerlink" title="4. 主要工作"></a>4. 主要工作</h1><p>针对上诉问题，作者提出了<strong>IENet</strong>（interactive embranchment network），其是一个<strong>单阶段</strong>的<strong>Anchor-Free旋转目标</strong>检测器，其包含如下贡献点：</p>
+<ul>
+<li>一个新的geometric transformation（几何变换），用于更好地表示旋转目标框</li>
+<li>一个基于自注意力机制的分支交互模块（a branch interactive module with a self-attention mechanism）</li>
+<li>一个针对旋转框检测改进的IoU Loss</li>
+</ul>
+<h2 id="4-1-模型结构"><a href="#4-1-模型结构" class="headerlink" title="4.1 模型结构"></a>4.1 模型结构</h2><h3 id="（1）-Baseline模型结构-FCOS-O"><a href="#（1）-Baseline模型结构-FCOS-O" class="headerlink" title="（1） Baseline模型结构(FCOS-O)"></a>（1） Baseline模型结构(FCOS-O)</h3><p>在FCOS的基础上增加了一个独立的角度回归分支（Orientation Regression）<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420221515.png"></p>
+<h3 id="（2）-IENet"><a href="#（2）-IENet" class="headerlink" title="（2） IENet"></a>（2） IENet</h3><p>由于独立的角度分支不能很好的利用位置等信息，因此检测性能下降，基于此IENet提出了基于自注意力机制的分支交互模块即IE（Interactive Embranchment） Module，用于利用分类和位置回归信息。<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420221600.png"></p>
+<h2 id="4-2-旋转框几何变换"><a href="#4-2-旋转框几何变换" class="headerlink" title="4.2 旋转框几何变换"></a>4.2 旋转框几何变换</h2><p>IENet使用HBB+几何变换来表征OBB，如下图所示：</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220422192914.png"></p>
+<p>IENet使用HBB加h,w来表示一个OBB，其中GT OBB是一个8维的向量$[x_1,y_1,x_2,y_2,x_3,y_3,x_4,y_4]$，HBB可由$[x_{min},y_{min},x_{max},y_{max}]$表示，h和w计算如下：<br>$$w=x_{max}-x_2$$<br>$$h=y_{max}-y_1$$<br>基于上述几何变化，可将OBB回归问题转换成HBB回归和方向回归的问题，其中HBB回归和FCOS的一致，为Box的偏移量$R_b=[l,t,r,b]$，方向回归为$R_o=[w,h]$.</p>
+<h2 id="4-3-IE-Module"><a href="#4-3-IE-Module" class="headerlink" title="4.3 IE Module"></a>4.3 IE Module</h2><p>IE模块结构图：<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420221612.png"></p>
+<p>在获得了分类和位置回归的特征图$F^m$后，使用1x1的卷积层和softmax层来构建自注意力模块：</p>
+<ul>
+<li>首先利用三个1x1的卷积层$f(F^m),g(F^m),h(F^m)$将特征映射到三个特征空间</li>
+<li>将$f(\cdot)$和$g(\cdot)$和并通过softmax层组成注意力图$\gamma= softmax(f(F^m)^Tg(F^m))$，因此特征图之间的关系为$\gamma_{q,p}= \frac{exp(\delta_{pq})}{\sum_{p=1}^{N}exp(\delta_{pq})}$，其中$q,p\in{1,…,N}$为注意力图的行号和列号，$\delta$代表$f(F^m)^Tg(F^m)$输出的NxN的矩阵</li>
+<li>然后，注意图可以用来表示输入特征之间的关系，并对$h(\cdot)$的起作用，得到$\theta=(\theta_1,\theta_2,…,\theta_1,…,\theta_N)$，且$\theta_q=\sum_{p=1}^N\gamma_{q,p}h(f_p^m)$</li>
+<li>为了保留原始特征信息，最后输出的特征为$\mathbb{Y}=\gamma\theta+F^m$</li>
+</ul>
+<h2 id="4-4-损失函数"><a href="#4-4-损失函数" class="headerlink" title="4.4 损失函数"></a>4.4 损失函数</h2><p>总损失为：<br>$$L = \frac{1}{N_{pos}}L_{cls}+\frac{\lambda}{N_pos}L_{reg}+\frac{\omega}{N_{pos}}L_{ori}$$<br>其中分类损失为Focal Loss损失<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220422200843.png"><br>位置回归损失为centerness损失加smoothL1<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220422200856.png"><br>角度回归损失为smoothL1损失<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220422200905.png"></p>
+<h1 id="5-实验结果"><a href="#5-实验结果" class="headerlink" title="5. 实验结果"></a>5. 实验结果</h1><p>DOTA_v1<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420222408.png"></p>
+<p>HRSC2016<br><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220420222445.png"></p>
+<p>同时IENet在推理和训练时的速度上也有优势：</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220630104801.png"></p>
+<p>消融实验：</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220630104802.png"></p>
+<p>特征可视化：</p>
+<p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.2/20220630104803.png"></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>目标检测 | ATSS，正负样本的选择决定检测性能</title>
     <url>/posts/c9c6591.html</url>
     <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code>《Bridging the Gap Between Anchor-based and Anchor-free Detection via Adaptive Training Sample Selection》</code></p>
@@ -115,8 +195,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -153,20 +233,21 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
     <title>旋转目标检测 | R3Det，基于特征精炼的单阶段检测模型</title>
     <url>/posts/809258ef.html</url>
-    <content><![CDATA[<h1 id="R3det-Refined-single-stage-detector-with-feature-refinement-for-rotating-object"><a href="#R3det-Refined-single-stage-detector-with-feature-refinement-for-rotating-object" class="headerlink" title="R3det: Refined single-stage detector with feature refinement for rotating object"></a>R3det: Refined single-stage detector with feature refinement for rotating object</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题： R3det: Refined single-stage detector with feature refinement for rotating object</p>
+<blockquote>
 <p>论文发表：AAAI 2021<br>论文链接：<a href="https://ojs.aaai.org/index.php/AAAI/article/view/16426/16233">https://ojs.aaai.org/index.php/AAAI/article/view/16426/16233</a><br>论文代码：<a href="https://github.com/Thinklab-SJTU/R3Det_Tensorflow">https://github.com/Thinklab-SJTU/R3Det_Tensorflow</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220322100025.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;yang2019r3det,</span><br><span class="line">  title=&#123;R3det: Refined single-stage detector with feature refinement for rotating object&#125;,</span><br><span class="line">  author=&#123;Yang, Xue and Liu, Qingqing and Yan, Junchi and Li, Ang and Zhang, Zhiqiang and Yu, Gang&#125;,</span><br><span class="line">  journal=&#123;arXiv preprint arXiv:1908.05612&#125;,</span><br><span class="line">  volume=&#123;2&#125;,</span><br><span class="line">  number=&#123;4&#125;,</span><br><span class="line">  pages=&#123;2&#125;,</span><br><span class="line">  year=&#123;2019&#125;,</span><br><span class="line">  publisher=&#123;Aug&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-归纳总结"><a href="#1-归纳总结" class="headerlink" title="1. 归纳总结"></a>1. 归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -182,29 +263,29 @@
 <td>精炼</td>
 </tr>
 </tbody></table>
-<h2 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h2><p>作者称对于旋转目标检测存在三个挑战：</p>
+<h1 id="3-问题背景"><a href="#3-问题背景" class="headerlink" title="3. 问题背景"></a>3. 问题背景</h1><p>作者称对于旋转目标检测存在三个挑战：</p>
 <ul>
 <li>大宽高比</li>
 <li>密集排列</li>
 <li>方向任意</li>
 </ul>
-<h2 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h2><p>针对上述问题，作者提出了R3Det，其主要工作如下：</p>
+<h1 id="4-主要工作"><a href="#4-主要工作" class="headerlink" title="4. 主要工作"></a>4. 主要工作</h1><p>针对上述问题，作者提出了R3Det，其主要工作如下：</p>
 <ul>
 <li>progressive regression： 作者发现旋转框在密集场景下的能有较好的目标检测精度，而水平框能达到更好的召回率，因此使用了这两种形式的框进行组合，具体做法是第一阶段检测水平框，从而提升检测速度，提高召回率，第二阶段也就是精炼阶段（refinement stage）检测旋转框，以适应密集目标的检测。</li>
 <li>feature refinement module：针对现有的单阶段refined detector，作者发现他们存在特征没对齐的问题，因此设计了一个特征精炼模块，使用特征插值来获取精炼的位置信息并重建特征图实现特征对齐，并且该模块还可以减少精炼边界框的数量，提升检测速度。</li>
 <li>approximate SkewIoU loss：为解决Skew IoU计算不可微的问题，设计了一种近似SkewIoU损失，以获得更精确的旋转估计。</li>
 </ul>
-<h3 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h3><p>R3Det主要基于 RetinaNet 实现，结构如下：</p>
+<h2 id="4-1-模型结构"><a href="#4-1-模型结构" class="headerlink" title="4.1 模型结构"></a>4.1 模型结构</h2><p>R3Det主要基于 RetinaNet 实现，结构如下：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220322120220.png"></p>
-<h3 id="3-2-边界框定义"><a href="#3-2-边界框定义" class="headerlink" title="3.2 边界框定义"></a>3.2 边界框定义</h3><p>对于边界框$(x,y,w,h,\theta)$，其中x，y代表中心点坐标，w，h代表宽和高，$\theta \in [-\frac{\pi}{2},0)$代表角度，边界框回归的值为：<br><img src="https://npm.elemecdn.com/justlovesmile-img/20220323144748.png"></p>
+<h2 id="4-2-边界框定义"><a href="#4-2-边界框定义" class="headerlink" title="4.2 边界框定义"></a>4.2 边界框定义</h2><p>对于边界框$(x,y,w,h,\theta)$，其中x，y代表中心点坐标，w，h代表宽和高，$\theta \in [-\frac{\pi}{2},0)$代表角度，边界框回归的值为：<br><img src="https://npm.elemecdn.com/justlovesmile-img/20220323144748.png"></p>
 <p>其中$x,x_a,x’$分别代表gt，anchor以及预测值，其余同上。</p>
 <p>损失函数为：<br><img src="https://npm.elemecdn.com/justlovesmile-img/20220323144809.png"></p>
 <p>其中$v’$为预测的偏移量向量，v代表gt的偏移量向量。其中N表示Anchor的数目,超参数 $\lambda_1$， $\lambda_2$ 控制着这两个损失的平衡，并且默认值为1。$L_{cls}$ 和 $L_{reg}$ 分别是Focal Loss和smooth L1 Loss。</p>
-<h3 id="3-3-精炼检测"><a href="#3-3-精炼检测" class="headerlink" title="3.3 精炼检测"></a>3.3 精炼检测</h3><p>Skew IoU对于角度十分敏感，因此作者在第一阶段使用0.5为前景阈值，0.4为背景阈值，在精炼的第一阶段使用0.6为前景阈值，0.5为背景阈值，如果有多段精炼阶段，使用0.7以及0.6为阈值。总损失：<br>$$L_{total}=\sum_{i=1}^N\alpha_iL_i$$<br>其中$L_i$为第i个精炼阶段的损失，$\alpha_i$为平衡系数，默认为1.</p>
-<h3 id="3-4-特征精炼模块"><a href="#3-4-特征精炼模块" class="headerlink" title="3.4 特征精炼模块"></a>3.4 特征精炼模块</h3><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220323154129.png"></p>
+<h2 id="4-3-精炼检测"><a href="#4-3-精炼检测" class="headerlink" title="4.3 精炼检测"></a>4.3 精炼检测</h2><p>Skew IoU对于角度十分敏感，因此作者在第一阶段使用0.5为前景阈值，0.4为背景阈值，在精炼的第一阶段使用0.6为前景阈值，0.5为背景阈值，如果有多段精炼阶段，使用0.7以及0.6为阈值。总损失：<br>$$L_{total}=\sum_{i=1}^N\alpha_iL_i$$<br>其中$L_i$为第i个精炼阶段的损失，$\alpha_i$为平衡系数，默认为1.</p>
+<h2 id="4-4-特征精炼模块"><a href="#4-4-特征精炼模块" class="headerlink" title="4.4 特征精炼模块"></a>4.4 特征精炼模块</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220323154129.png"></p>
 <p>许多精炼检测器仍然使用相同的特征图来执行多个分类和回归，而没有考虑边界框位置变化引起的特征未对齐。因此作者提出将当前精炼边界框(橙色矩形)的位置信息重新编码为对应的特征点(红色点)，从而以逐像素的方式<strong>重构整个特征图</strong>，实现<strong>特征对齐</strong>。整个过程如上图（c）所示。为了准确地获取精炼后的包围框对应的位置特征信息，采用了双线性特征插值方法，如上图（a）所示。特征插值可以表示为:<br><img src="https://npm.elemecdn.com/justlovesmile-img/20220323154551.png"><br>其中A代表图（a）中的区域，$F\in \mathbb{R}^{C\times 1\times 1}$代表特征图上点的特征向量。</p>
 <p>算法流程：<br><img src="https://npm.elemecdn.com/justlovesmile-img/20220323154753.png"></p>
-<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220323155610.png"></p>
+<h1 id="5-实验结果"><a href="#5-实验结果" class="headerlink" title="5. 实验结果"></a>5. 实验结果</h1><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220323155610.png"></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -253,13 +334,14 @@
   <entry>
     <title>目标检测 | FPN，多尺度目标检测经典Backbone</title>
     <url>/posts/4c29d81e.html</url>
-    <content><![CDATA[<h1 id="Feature-Pyramid-Networks-for-Object-Detection"><a href="#Feature-Pyramid-Networks-for-Object-Detection" class="headerlink" title="Feature Pyramid Networks for Object Detection"></a>Feature Pyramid Networks for Object Detection</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题： Feature Pyramid Networks for Object Detection</p>
+<blockquote>
 <p>论文发表：CVPR2017<br>论文链接：<a href="http://openaccess.thecvf.com/content_cvpr_2017/html/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.html">CVPR2017 open access</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408112206.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;lin2017feature,</span><br><span class="line">  title=&#123;Feature pyramid networks for object detection&#125;,</span><br><span class="line">  author=&#123;Lin, Tsung-Yi and Doll&#123;\&#x27;a&#125;r, Piotr and Girshick, Ross and He, Kaiming and Hariharan, Bharath and Belongie, Serge&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE conference on computer vision and pattern recognition&#125;,</span><br><span class="line">  pages=&#123;2117--2125&#125;,</span><br><span class="line">  year=&#123;2017&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-归纳总结"><a href="#1-归纳总结" class="headerlink" title="1. 归纳总结"></a>1. 归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -283,9 +365,9 @@
 <td>是目标检测模型的标配，较好地解决了多尺度检测问题</td>
 </tr>
 </tbody></table>
-<h2 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h2><p>作者提到，在2017年以前，目标检测中的一个基本挑战就是目标检测模型在处理目标多尺度变化问题的不足，因为在当时很多网络都使用了利用单个高层特征，(比如说Faster R-CNN利用下采样四倍的卷积层——Conv4，进行后续的物体的分类和bounding box的回归)，但是这样做有一个明显的缺陷，即小物体本身具有的像素信息较少，在下采样的过程中极易被丢失，而之前的图像金字塔结构虽然也能解决多尺度问题，但计算量大，内存消耗大，因此作者提出了特征金字塔结构，能在增加极小的计算量的情况下，处理好物体检测中的多尺度变化问题。</p>
-<h2 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h2><p>针对上诉问题，提出了一个利用深度卷积神经网络固有的多尺度金字塔结构来以极小的计算量构建特征金字塔的网络结构，即FPN。</p>
-<h3 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h3><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408115456.png"><br>作者对比了多种金字塔结构，其中：</p>
+<h1 id="3-问题背景"><a href="#3-问题背景" class="headerlink" title="3. 问题背景"></a>3. 问题背景</h1><p>作者提到，在2017年以前，目标检测中的一个基本挑战就是目标检测模型在处理目标多尺度变化问题的不足，因为在当时很多网络都使用了利用单个高层特征，(比如说Faster R-CNN利用下采样四倍的卷积层——Conv4，进行后续的物体的分类和bounding box的回归)，但是这样做有一个明显的缺陷，即小物体本身具有的像素信息较少，在下采样的过程中极易被丢失，而之前的图像金字塔结构虽然也能解决多尺度问题，但计算量大，内存消耗大，因此作者提出了特征金字塔结构，能在增加极小的计算量的情况下，处理好物体检测中的多尺度变化问题。</p>
+<h1 id="4-主要工作"><a href="#4-主要工作" class="headerlink" title="4. 主要工作"></a>4. 主要工作</h1><p>针对上诉问题，提出了一个利用深度卷积神经网络固有的多尺度金字塔结构来以极小的计算量构建特征金字塔的网络结构，即FPN。</p>
+<h2 id="4-1-模型结构"><a href="#4-1-模型结构" class="headerlink" title="4.1 模型结构"></a>4.1 模型结构</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408115456.png"><br>作者对比了多种金字塔结构，其中：</p>
 <ul>
 <li>图（a）所示的是经典的图像金字塔结构，其通过对不同尺度的图像提取特征，来构建特征金字塔，因此其需要对不同尺度图像分别提取特征，计算量大且消耗内存多；</li>
 <li>图（b）所示的是2017年常见的利用最后一层（高层）特征图检测目标的模型结构，其对于多尺度目标的检测能力不足；</li>
@@ -300,9 +382,9 @@
 <li>自上而下的特征融合以及横向连接：即将高层的语义信息和本层的细节信息相融合。自上而下的过程通过上采样（Up-Sampling）实现，上采样的方法是<strong>最近邻插值法</strong>，如下图所示。具体过程为：C5层先经过1 x 1卷积，改变特征图的通道数(文章中设置d=256，与Faster R-CNN中RPN层的维数相同便于分类与回归)。然后通过上采样，再加上(特征图中每一个相同位置元素直接相加)C4经过1 x 1卷积后的特征图M4（固定通道256）。这个过程再做两次，分别得到C3对应的特征图M3（固定通道256）以及C2对应的特征图M2（固定通道256）。M层特征图再经过3 x 3卷积(减轻最近邻近插值带来的混叠影响，周围的数都相同)，得到最终的P2，P3，P4，P5层特征。</li>
 </ul>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408122814.png"><br>图片来自<a href="https://zhuanlan.zhihu.com/p/92005927">【论文笔记】FPN —— 特征金字塔 - 知乎 (zhihu.com)</a></p>
-<h3 id="3-2-代码"><a href="#3-2-代码" class="headerlink" title="3.2 代码"></a>3.2 代码</h3><p>可参考Pytorch官方的代码<a href="https://github.com/pytorch/vision">https://github.com/pytorch/vision</a></p>
-<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408123357.png"></p>
-<h2 id="5-参考文献"><a href="#5-参考文献" class="headerlink" title="5. 参考文献"></a>5. 参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/92005927">【论文笔记】FPN —— 特征金字塔 - 知乎 (zhihu.com)</a></p>
+<h2 id="4-2-代码"><a href="#4-2-代码" class="headerlink" title="4.2 代码"></a>4.2 代码</h2><p>可参考Pytorch官方的代码<a href="https://github.com/pytorch/vision">https://github.com/pytorch/vision</a></p>
+<h1 id="5-实验结果"><a href="#5-实验结果" class="headerlink" title="5. 实验结果"></a>5. 实验结果</h1><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220408123357.png"></p>
+<h1 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6. 参考文献"></a>6. 参考文献</h1><p><a href="https://zhuanlan.zhihu.com/p/92005927">【论文笔记】FPN —— 特征金字塔 - 知乎 (zhihu.com)</a></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -316,13 +398,14 @@
   <entry>
     <title>小样本学习 | ProtoNet，基于度量的Few-Shot分类网络</title>
     <url>/posts/286eabe4.html</url>
-    <content><![CDATA[<h1 id="Prototypical-Networks-for-Few-shot-Learning"><a href="#Prototypical-Networks-for-Few-shot-Learning" class="headerlink" title="Prototypical Networks for Few-shot Learning"></a>Prototypical Networks for Few-shot Learning</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：Prototypical Networks for Few-shot Learning</p>
+<blockquote>
 <p>论文发表：Advances in neural information processing systems, 2017<br>论文链接：<a href="https://proceedings.neurips.cc/paper/6996-prototypical-networks-for-few-shot-learning">https://proceedings.neurips.cc/paper/6996-prototypical-networks-for-few-shot-learning</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211202215720417.png" alt="image-20211202215720417"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;snell2017prototypical,</span><br><span class="line">  title=&#123;Prototypical networks for few-shot learning&#125;,</span><br><span class="line">  author=&#123;Snell, Jake and Swersky, Kevin and Zemel, Richard&#125;,</span><br><span class="line">  journal=&#123;Advances in neural information processing systems&#125;,</span><br><span class="line">  volume=&#123;30&#125;,</span><br><span class="line">  year=&#123;2017&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -338,11 +421,11 @@
 <td>将分类问题转换成度量问题</td>
 </tr>
 </tbody></table>
-<h2 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h2><p>ProtoNet，即原型网络，其想法非常直接但有效，即对每张图像都先用神经网络得到一个特征表示，然后对支持集中每个类别的所有特征取一个平均，作为这个类别的类中心，最后比较查询集和各个类中心之间的距离，取最近的一个类别作为预测结果。</p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>ProtoNet，即原型网络，其想法非常直接但有效，即对每张图像都先用神经网络得到一个特征表示，然后对支持集中每个类别的所有特征取一个平均，作为这个类别的类中心，最后比较查询集和各个类中心之间的距离，取最近的一个类别作为预测结果。</p>
 <p>作者的思想是构建一个映射函数，可以将每一类映射到一个简单的原型特征点集中。因此作者使用神经网络学习了一个非线性映射，将输入映射到嵌入空间中，并且规定每一类的原型特征为每个嵌入空间的均值。之后就可以将分类任务看作是在嵌入空间中寻找距离最近的原型特征。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/202110071602172.png" alt="image-20211007160201702">定义样本为S，类别为k，原型特征为$c_k=\frac{1}{S_k}\sum_{(x_i,y_i)\in{S_k}}f_{\phi}(x_i)$，衡量距离的函数为d，那么对于输入样本，其在嵌入空间的分布为$p_\phi(y=k|x)=\frac{\exp(-d(f_\phi(x),c_k))}{\sum_{k^\prime}\exp(-d(f_\phi(x),c_{k^{\prime}}))}$，学习的过程就是最小化负对数损失$J(\phi)=-\log{p_\phi(y=k|x)}$。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/202110271603163.png" alt="image-20211027160339284"></p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>其实验结果如下：</p>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h1><p>其实验结果如下：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211202220308120.png" alt="image-20211202220308120"></p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211202220326742.png" alt="image-20211202220326742"></p>
 ]]></content>
@@ -430,8 +513,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -441,13 +524,14 @@
     <content><![CDATA[<blockquote>
 <p>PS:参考YOLO官网的配色和logo做的封面图，感觉还挺好看的，hhhh</p>
 </blockquote>
-<h1 id="You-Only-Look-Once-Unified-Real-Time-Object-Detection"><a href="#You-Only-Look-Once-Unified-Real-Time-Object-Detection" class="headerlink" title="You Only Look Once: Unified, Real-Time Object Detection"></a>You Only Look Once: Unified, Real-Time Object Detection</h1><blockquote>
+<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：You Only Look Once: Unified, Real-Time Object Detection</p>
+<blockquote>
 <p>论文发表：CVPR 2016<br>论文链接：<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf">You Only Look Once: Unified, Real-Time Object Detection (cv-foundation.org)</a><br>论文官网：<a href="https://pjreddie.com/darknet/yolo/">YOLO: Real-Time Object Detection (pjreddie.com)</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/1648433292(1).png"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;redmon2016you,</span><br><span class="line">  title=&#123;You only look once: Unified, real-time object detection&#125;,</span><br><span class="line">  author=&#123;Redmon, Joseph and Divvala, Santosh and Girshick, Ross and Farhadi, Ali&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE conference on computer vision and pattern recognition&#125;,</span><br><span class="line">  pages=&#123;779--788&#125;,</span><br><span class="line">  year=&#123;2016&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-归纳总结"><a href="#1-归纳总结" class="headerlink" title="1. 归纳总结"></a>1. 归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -463,29 +547,29 @@
 <td>经典单阶段算法</td>
 </tr>
 </tbody></table>
-<h2 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h2><p>随着深度学习的大火，在YOLO提出那一年，主流的目标检测算法框架主要分为两类：</p>
+<h1 id="3-问题背景"><a href="#3-问题背景" class="headerlink" title="3. 问题背景"></a>3. 问题背景</h1><p>随着深度学习的大火，在YOLO提出那一年，主流的目标检测算法框架主要分为两类：</p>
 <ul>
 <li>两阶段算法：基于Region Proposal的RCNN系列算法，先生成Proposal，再分类回归</li>
 <li>单阶段算法：直接预测不同目标的类别和位置<br>这两种算法各有优点，一般而言，两阶段算法准确度高，但速度慢；单阶段算法速度快，但准确度相对低。</li>
 </ul>
 <p>作者认为人可以一眼看到目标在哪，并且能立即知道是什么，并且对于很多实际场景而言，如自动驾驶，实时性和准确性都是非常重要的。</p>
-<h2 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h2><p>针对上述问题，作者提出了经典的YOLO算法，它是一个统一的，端到端的单阶段目标检测算法。YOLO具体做法是，首先将输入图片缩放到448x448，然后送入CNN网络，最后使用NMS过滤网络预测结果得到检测的目标。</p>
+<h1 id="4-主要工作"><a href="#4-主要工作" class="headerlink" title="4. 主要工作"></a>4. 主要工作</h1><p>针对上述问题，作者提出了经典的YOLO算法，它是一个统一的，端到端的单阶段目标检测算法。YOLO具体做法是，首先将输入图片缩放到448x448，然后送入CNN网络，最后使用NMS过滤网络预测结果得到检测的目标。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328103035.png"></p>
 <p>而在CNN网络里，它首先将图片划分为S×S大小的网格，然后每个单元格负责检测中心点落在该格子的目标，如下图，每个单元格会输出B个边界框（每个边界框输出5个预测值：x, y, w, h, confidence）以及边界框类别概率C，例如：作者在PASCAL VOC的检测实验里使用S=7，B=2，C=类别数量20，一共预测7×7×(2×5+20)个向量。同时这里的confidence代表边界框置信度，它的定义为: </p>
 <p>$$Pr(object)\times IoU_{pred}^{truth}$$</p>
 <p>其中边界框包含目标时，$Pr(object)=1$，否则为0。而C代表每个类别的置信度，即：</p>
 <p>$$Pr(Class_i|Object)\times Pr(objec) \times IoU_{pred}^{truth}=Pr(class_i)\times IoU_{pred}^{truth}$$</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328103753.png"></p>
-<h3 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h3><p>YOLO采用卷积网络来提取特征，然后使用全连接层来得到预测值。网络结构参考GooLeNet模型，包含24个卷积层和2个全连接层。对于卷积层，主要使用1x1卷积来做channle reduction，然后紧跟3x3卷积。对于卷积层和全连接层，采用Leaky ReLU激活函数$max(x,0.1x)$，但是最后一层却采用线性激活函数。</p>
+<h2 id="4-1-模型结构"><a href="#4-1-模型结构" class="headerlink" title="4.1 模型结构"></a>4.1 模型结构</h2><p>YOLO采用卷积网络来提取特征，然后使用全连接层来得到预测值。网络结构参考GooLeNet模型，包含24个卷积层和2个全连接层。对于卷积层，主要使用1x1卷积来做channle reduction，然后紧跟3x3卷积。对于卷积层和全连接层，采用Leaky ReLU激活函数$max(x,0.1x)$，但是最后一层却采用线性激活函数。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328103101.png"></p>
-<h3 id="3-2-模型训练"><a href="#3-2-模型训练" class="headerlink" title="3.2 模型训练"></a>3.2 模型训练</h3><p>在训练之前，先在ImageNet上进行了预训练，其预训练的分类模型采用图8中前20个卷积层，然后添加一个average-pool层和全连接层。预训练之后，在预训练得到的20层卷积层之上加上随机初始化的4个卷积层和2个全连接层。由于检测任务一般需要更高清的图片，所以将网络的输入从224x224增加到了448x448。</p>
-<h3 id="3-3-模型损失"><a href="#3-3-模型损失" class="headerlink" title="3.3 模型损失"></a>3.3 模型损失</h3><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328110113.png"></p>
+<h2 id="4-2-模型训练"><a href="#4-2-模型训练" class="headerlink" title="4.2 模型训练"></a>4.2 模型训练</h2><p>在训练之前，先在ImageNet上进行了预训练，其预训练的分类模型采用图8中前20个卷积层，然后添加一个average-pool层和全连接层。预训练之后，在预训练得到的20层卷积层之上加上随机初始化的4个卷积层和2个全连接层。由于检测任务一般需要更高清的图片，所以将网络的输入从224x224增加到了448x448。</p>
+<h2 id="4-3-模型损失"><a href="#4-3-模型损失" class="headerlink" title="4.3 模型损失"></a>4.3 模型损失</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328110113.png"></p>
 <p>Yolo算法将目标检测看成回归问题，所以采用的是均方差损失函数。但是对不同的部分采用了不同的权重值。首先区分定位误差和分类误差。对于定位误差，即边界框坐标预测误差，采用较大的权重 $\lambda_{coord}=5$ 。然后其区分不包含目标的边界框与含有目标的边界框的置信度，对于前者，采用较小的权重值 $\lambda_{noobj}=0.5$ 。其它权重值均设为1。然后采用均方误差，其同等对待大小不同的边界框，但是实际上较小的边界框的坐标误差应该要比较大的边界框要更敏感。为了保证这一点，将网络的边界框的宽与高预测改为对其平方根的预测，即预测值变为$(x,y,\sqrt{w},\sqrt{h})$。</p>
 <p>损失函数中，第一项为边界框中心坐标的误差项，$\mathbb{1} _ {ij}^{obj}$ 是指第 i 个单元格存在目标，且该单元格中的第 j 个边界框负责预测该目标，第二项是边界框的高与宽的误差项。第三项是包含目标的边界框的置信度误差项。第四项是不包含目标的边界框的置信度误差项。最后一项是包含目标的单元格的分类误差项，$\mathbb{1} _ {i}^{obj}$值是指第 i 个单元格存在目标。</p>
-<h2 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328105647.png"></p>
+<h1 id="5-实验结果"><a href="#5-实验结果" class="headerlink" title="5. 实验结果"></a>5. 实验结果</h1><p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328105647.png"></p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328105758.png"></p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/20220328105711.png"></p>
-<h2 id="5-参考文献"><a href="#5-参考文献" class="headerlink" title="5. 参考文献"></a>5. 参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/32525231">目标检测|YOLO原理与实现 - 知乎 (zhihu.com)</a></p>
+<h1 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6. 参考文献"></a>6. 参考文献</h1><p><a href="https://zhuanlan.zhihu.com/p/32525231">目标检测|YOLO原理与实现 - 知乎 (zhihu.com)</a></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -865,20 +949,21 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
     <title>目标检测 | RetinaNet，经典单阶段Anchor-Based目标检测模型</title>
     <url>/posts/bb608df3.html</url>
-    <content><![CDATA[<h1 id="Focal-Loss-for-Dense-Object-Detection"><a href="#Focal-Loss-for-Dense-Object-Detection" class="headerlink" title="Focal Loss for Dense Object Detection"></a>Focal Loss for Dense Object Detection</h1><blockquote>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：Focal Loss for Dense Object Detection</p>
+<blockquote>
 <p>论文来源：IEEE Transactions on Pattern Analysis and Machine Intelligence 2020<br>论文链接：<a href="https://ieeexplore.ieee.org/document/8417976">Focal Loss for Dense Object Detection | IEEE Xplore</a><br>论文代码：<a href="https://github.com/facebookresearch/Detectron">https://github.com/facebookresearch/Detectron</a></p>
 </blockquote>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211119213555220.png" alt="image-20211119213555220"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@inproceedings&#123;lin2017focal,</span><br><span class="line">  title=&#123;Focal loss for dense object detection&#125;,</span><br><span class="line">  author=&#123;Lin, Tsung-Yi and Goyal, Priya and Girshick, Ross and He, Kaiming and Doll&#123;\&#x27;a&#125;r, Piotr&#125;,</span><br><span class="line">  booktitle=&#123;Proceedings of the IEEE international conference on computer vision&#125;,</span><br><span class="line">  pages=&#123;2980--2988&#125;,</span><br><span class="line">  year=&#123;2017&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h2><table>
+<h1 id="2-归纳总结"><a href="#2-归纳总结" class="headerlink" title="2. 归纳总结"></a>2. 归纳总结</h1><table>
 <thead>
 <tr>
 <th>标签</th>
@@ -894,8 +979,8 @@
 <td>针对训练过程中的实际问题，修改损失函数以达到优化的目的</td>
 </tr>
 </tbody></table>
-<h2 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h2><p>作者认为之前的单阶段检测算法精度不高的原因可能是前后景类别（正负样本）严重不均衡导致的。因此作者重新设计了一个损失：Focal Loss，其能降低可以较好分类的样本的损失权重，防止训练过程中大量的easy negatives给检测器带来的压制影响，并基于Focal Loss设计提出并训练了RetinaNet。</p>
-<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>RetinaNet的结构如下图：</p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>作者认为之前的单阶段检测算法精度不高的原因可能是前后景类别（正负样本）严重不均衡导致的。因此作者重新设计了一个损失：Focal Loss，其能降低可以较好分类的样本的损失权重，防止训练过程中大量的easy negatives给检测器带来的压制影响，并基于Focal Loss设计提出并训练了RetinaNet。</p>
+<h2 id="3-1-网络结构"><a href="#3-1-网络结构" class="headerlink" title="3.1 网络结构"></a>3.1 网络结构</h2><p>RetinaNet的结构如下图：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120135540595.png" alt="image-20211120135540595"></p>
 <p>主要包括三个部分：</p>
 <ul>
@@ -904,7 +989,7 @@
 <li>subnets：用于分类和回归，结构相同但参数不共享的小型FCN结构</li>
 </ul>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120135222791.png" alt="image-20211120135222791"></p>
-<h3 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h3><p>作者提到基于R-CNN模式的两阶段算法在解决训练过程中的正负样本不均衡的方法是：</p>
+<h2 id="3-2-Focal-Loss"><a href="#3-2-Focal-Loss" class="headerlink" title="3.2 Focal Loss"></a>3.2 Focal Loss</h2><p>作者提到基于R-CNN模式的两阶段算法在解决训练过程中的正负样本不均衡的方法是：</p>
 <ul>
 <li>两阶段级联：在proposal阶段过滤掉大量负样本</li>
 <li>启发式采样：例如固定正负样本比例（例如1:3）或者在线难样本挖掘（Online Hard Example Mining，OHEM）</li>
@@ -923,7 +1008,7 @@
 <p>因此当$p_t$趋近于1时，可以较好分类的样本被降权；而$\gamma$可以用来调节权重比率。除此之外，还可以将$\alpha$和FL损失相结合：</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120134227038.png" alt="image-20211120134227038"></p>
 <p>除此之外还有其他的Focal Loss变种形式。</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120141212266.png" alt="image-20211120141212266"></p>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h1><p><img src="https://npm.elemecdn.com/justlovesmile-img/image-20211120141212266.png" alt="image-20211120141212266"></p>
 ]]></content>
       <categories>
         <category>人工智能</category>
@@ -1266,8 +1351,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -1292,8 +1377,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -5243,8 +5328,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5531,8 +5616,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5572,8 +5657,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5747,8 +5832,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -5976,8 +6061,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -7176,8 +7261,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -7238,8 +7323,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>Hexo</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -7724,7 +7809,7 @@ China is expected to launch a commercial operation of 5G (5th generation) mobile
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>英语</tag>
+        <tag>大学课程</tag>
       </tags>
   </entry>
   <entry>
@@ -12480,7 +12565,7 @@ void producer()&#123;
       </categories>
       <tags>
         <tag>大学课程</tag>
-        <tag>计算机网络</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -14124,7 +14209,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
