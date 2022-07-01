@@ -366,6 +366,13 @@
   </url>
   
   <url>
+    <loc>https://blog.justlovesmile.top/love/music/index.html</loc>
+    
+    <lastmod>2020-08-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.justlovesmile.top/love/photos/index.html</loc>
     
     <lastmod>2020-08-01</lastmod>
@@ -374,13 +381,6 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/love/todo/index.html</loc>
-    
-    <lastmod>2020-08-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/love/music/index.html</loc>
     
     <lastmod>2020-08-01</lastmod>
     
@@ -928,14 +928,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B7%E7%A7%AF/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B7%E7%A7%AF/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -991,14 +991,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/JS/</loc>
+    <loc>https://blog.justlovesmile.top/tags/PyTorch/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/PyTorch/</loc>
+    <loc>https://blog.justlovesmile.top/tags/JS/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1145,21 +1145,14 @@
   </url>
   
   <url>
+    <loc>https://blog.justlovesmile.top/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.justlovesmile.top/tags/Jupyter/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/Markdown/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1180,7 +1173,28 @@
   </url>
   
   <url>
-    <loc>https://blog.justlovesmile.top/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.justlovesmile.top/tags/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/Markdown/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justlovesmile.top/tags/PHP/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1230,20 +1244,6 @@
   
   <url>
     <loc>https://blog.justlovesmile.top/tags/%E5%AE%9E%E4%B9%A0/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justlovesmile.top/tags/PHP/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
