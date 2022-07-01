@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python小工具 | 如何自动下载、压缩并批量替换文章中的外链图片</title>
+    <url>/posts/7a5857a0.html</url>
+    <content><![CDATA[<p>由于前段时间JsdeliverCDN加速的崩盘，博主存在Github上的图片全部访问失败，文章阅读体验极差，于是2022年以后的文章全部采用npm做图片，在此之前的文章由于数量过多并没有替换。再加上之前一直忙着研一阶段的期末考，一直懒得动博客。幸好这段时间有空，于是写了个小工具来替换博客中外链图片，具体流程如下：</p>
+<ul>
+<li>首先，遍历<code>hexo\source\_posts\</code>文件夹中的全部文章，把里面含有<code>https://cdn.jsdeliver.net/gh</code>的图片全部下载下来，并替换链接为npm的CDN链接。</li>
+<li>其次，对下载下来的图片做简单的压缩。</li>
+<li>最后，把压缩后的图片上传npm。</li>
+</ul>
+<p>总体流程非常简单，下面是具体实现。</p>
+<h1 id="1-下载并替换图片外链"><a href="#1-下载并替换图片外链" class="headerlink" title="1. 下载并替换图片外链"></a>1. 下载并替换图片外链</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> os.path <span class="keyword">as</span> osp</span><br><span class="line"><span class="keyword">import</span> shutil <span class="keyword">as</span> sh</span><br><span class="line"><span class="keyword">import</span>  re</span><br><span class="line"><span class="keyword">from</span> tqdm.auto <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makedir</span>(<span class="params">root</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> osp.exists(root):</span><br><span class="line">        os.mkdir(root)  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_img</span>(<span class="params">root,img_url</span>):</span></span><br><span class="line">    path=root+img_url.split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> osp.exists(path):</span><br><span class="line">            s = requests.session()</span><br><span class="line">            s.keep_alive = <span class="literal">False</span> <span class="comment"># 关闭多余连接</span></span><br><span class="line">            r = s.get(img_url) <span class="comment"># 你需要的网址</span></span><br><span class="line">            <span class="comment">#r=requests.get(img_url)</span></span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(path,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(r.content)</span><br><span class="line">                f.close()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(path+<span class="string">&quot;文件已存在！&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(img_url+<span class="string">&quot;, 爬取失败！&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(img_url+<span class="string">&quot;已下载&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findimg</span>(<span class="params">line,ori_pre</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        img = re.findall(<span class="string">f&quot;(<span class="subst">&#123;ori_pre&#125;</span>.*?(\.jfif|\.svg|\.webp|\.gif|\.jpeg|\.jpg|\.png|\.PNG|\.JPEG|\.JPG))&quot;</span>,line)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">        name = img.split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;已自动忽略：&quot;</span>,line)</span><br><span class="line">        img,name = <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> img,name</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">changeurl</span>(<span class="params">ori_root,save_root,down_root,ori_pre,new_pre</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> ori_pre[-<span class="number">1</span>]==<span class="string">&#x27;/&#x27;</span> <span class="keyword">and</span> new_pre[-<span class="number">1</span>]==<span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="keyword">if</span> osp.isdir(ori_root):</span><br><span class="line">        files = os.listdir(ori_root)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        file = osp.basename(ori_root)</span><br><span class="line">        ori_root = ori_root.split(file)[<span class="number">0</span>]</span><br><span class="line">        files = [file]</span><br><span class="line">    makedir(save_root)</span><br><span class="line">    makedir(down_root)</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> tqdm(files):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Starting... &quot;</span>,file)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(ori_root+file,<span class="string">&#x27;r&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            content = f.readlines()</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(save_root+file,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> content:</span><br><span class="line">                <span class="keyword">if</span> ori_pre <span class="keyword">in</span> line:</span><br><span class="line">                    img,name = findimg(line,ori_pre)</span><br><span class="line">                    <span class="keyword">if</span> img!=<span class="literal">None</span>:</span><br><span class="line">                        change = new_pre + name</span><br><span class="line">                        <span class="built_in">print</span>(line,<span class="string">&quot;==&gt;&quot;</span>,line.replace(img,change))</span><br><span class="line">                        code = save_img(down_root,img)</span><br><span class="line">                        <span class="keyword">if</span> code == <span class="number">0</span>:</span><br><span class="line">                            line = line.replace(img,change)</span><br><span class="line">                f.write(line)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    ori_root = <span class="string">&#x27;./hexo/source/_posts/&#x27;</span></span><br><span class="line">    save_root = <span class="string">&#x27;./markdown/&#x27;</span></span><br><span class="line">    down_root = <span class="string">&#x27;./download/&#x27;</span></span><br><span class="line">    ori_pre = <span class="string">&#x27;https://cdn.jsdelivr.net/gh/&#x27;</span></span><br><span class="line">    new_pre = <span class="string">&#x27;https://npm.elemecdn.com/justlovesmile-post@1.0.3/&#x27;</span></span><br><span class="line">    changeurl(ori_root,save_root,down_root,ori_pre,new_pre)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-压缩图片"><a href="#2-压缩图片" class="headerlink" title="2. 压缩图片"></a>2. 压缩图片</h1><p>由第一步已经下载好图片了，这一步需要对图片进行简单的压缩，这里我采用最简单的图片缩放，通过<code>缩小图片来压缩(有损)</code>，需要无损压缩的可以用软件或者其他方法（百度、CSDN）。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"> </span><br><span class="line"><span class="comment"># image_dir = &quot;image_dir&quot;</span></span><br><span class="line">template_dir = <span class="string">&#x27;template&#x27;</span></span><br><span class="line">output_dir = <span class="string">&#x27;output&#x27;</span></span><br><span class="line">error_dir = <span class="string">&#x27;error&#x27;</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_dir</span>(<span class="params">dir_name</span>):</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(dir_name):</span><br><span class="line">        shutil.rmtree(dir_name)</span><br><span class="line">        os.makedirs(dir_name)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.makedirs(dir_name)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># image_file_list = glob(f&quot;&#123;image_dir&#125;/*&quot;)</span></span><br><span class="line"><span class="comment"># image_file_list</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">imagesize</span>(<span class="params">filepath</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    获得文件的磁盘大小</span></span><br><span class="line"><span class="string">    :param filepath:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> os.path.getsize(filepath) / <span class="number">1024</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compress_image</span>(<span class="params">image_path, target_size=<span class="number">500</span></span>):</span></span><br><span class="line">    raw_image = Image.<span class="built_in">open</span>(image_path)</span><br><span class="line">    temp_image_name = image_path.split(os.sep)[-<span class="number">1</span>]</span><br><span class="line">    template_image = os.path.join(template_dir, temp_image_name)</span><br><span class="line">    output_image = os.path.join(output_dir, temp_image_name)</span><br><span class="line">    error_image = os.path.join(error_dir, temp_image_name)</span><br><span class="line"> </span><br><span class="line">    target_size = target_size  <span class="comment"># kb</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> imagesize(image_path) &lt; target_size:</span><br><span class="line">            shutil.copyfile(image_path, output_image)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            width, height = raw_image.size</span><br><span class="line">            raw_image.resize((<span class="built_in">int</span>(width * <span class="number">0.9</span>), <span class="built_in">int</span>(height * <span class="number">0.9</span>)), Image.ANTIALIAS).save(template_image)</span><br><span class="line">            <span class="keyword">while</span> imagesize(template_image) &gt; target_size:</span><br><span class="line">                template_iamge2 = Image.<span class="built_in">open</span>(template_image)</span><br><span class="line">                width_2, height_2 = template_iamge2.size</span><br><span class="line">                template_iamge2.resize((<span class="built_in">int</span>(width_2 * <span class="number">0.9</span>), <span class="built_in">int</span>(height_2 * <span class="number">0.9</span>)), Image.ANTIALIAS).save(template_image)</span><br><span class="line"> </span><br><span class="line">            shutil.copyfile(template_image, output_image)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        shutil.copyfile(image_path, error_image)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;文件保存失败: <span class="subst">&#123;image_path&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="comment"># print(e)</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 批量创建文件夹</span></span><br><span class="line">    [clean_dir(i) <span class="keyword">for</span> i <span class="keyword">in</span> [template_dir, output_dir, error_dir]]</span><br><span class="line"> </span><br><span class="line">    image_dir = <span class="built_in">input</span>(<span class="string">&#x27;dir path:&#x27;</span>)</span><br><span class="line">    target_size = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;target size (kb):&#x27;</span>))</span><br><span class="line"> </span><br><span class="line">    image_file_list = <span class="built_in">list</span>(chain(*[glob(os.path.join(image_dir, i)) <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="string">&#x27;*.png&#x27;</span>, <span class="string">&#x27;*.jpg&#x27;</span>, <span class="string">&#x27;*.jpeg&#x27;</span>]]))</span><br><span class="line"> </span><br><span class="line">    <span class="comment">#for temp_image_path in tqdm(image_file_list):</span></span><br><span class="line">    <span class="comment">#     compress_image(temp_image_path)</span></span><br><span class="line"> </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;\n\n文件保存父目录: <span class="subst">&#123;os.getcwd()&#125;</span>\n&#x27;</span></span><br><span class="line">          <span class="string">f&#x27;输出文件位置:<span class="subst">&#123;os.path.join(os.getcwd(), output_dir)&#125;</span>\n\n&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># parallel</span></span><br><span class="line">    P = Pool(processes=<span class="number">10</span>)</span><br><span class="line">    pbar = tqdm(total=<span class="built_in">len</span>(image_file_list))</span><br><span class="line"> </span><br><span class="line">    res_temp = [P.apply_async(func=compress_image, args=(i,target_size), callback=<span class="keyword">lambda</span> _: pbar.update(<span class="number">1</span>)) <span class="keyword">for</span> i <span class="keyword">in</span></span><br><span class="line">                image_file_list]</span><br><span class="line"> </span><br><span class="line">    _ = [res.get() <span class="keyword">for</span> res <span class="keyword">in</span> res_temp]</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-上传npm"><a href="#3-上传npm" class="headerlink" title="3. 上传npm"></a>3. 上传npm</h1><p>到这一步就很简单了，把之前压缩好的图片放在一个文件夹里，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- mj-img\</span><br><span class="line">    - 1.jpg</span><br><span class="line">    - 2.png</span><br><span class="line">      ...</span><br><span class="line">    - xxx.jpeg</span><br></pre></td></tr></table></figure>
+
+<p>之前用过npm的，可以直接在文件夹里打开<code>bash</code>，输入<code>npm init</code>与<code>npm publish</code>.</p>
+<p>没有使用过npm的，可以参考<a href="https://akilar.top/posts/3e956346/">Akilar的npm图床使用技巧</a>.</p>
+]]></content>
+      <categories>
+        <category>代码编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>旋转目标检测 | IENet，单阶段Anchor-Free旋转目标检测模型</title>
     <url>/posts/afb37b1d.html</url>
     <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：《IENet: Interactive Embranchment Network Based One-Stage Anchor Free Detector for Orientational Aerial Object Detection》</p>
@@ -76,8 +105,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -124,8 +153,8 @@
 <h2 id="4-1-Anchor-Based和Anchor-Free的区别分析"><a href="#4-1-Anchor-Based和Anchor-Free的区别分析" class="headerlink" title="4.1 Anchor-Based和Anchor-Free的区别分析"></a>4.1 <code>Anchor-Based</code>和<code>Anchor-Free</code>的区别分析</h2><p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311102454.png"></p>
 <p>由于<code>FCOS</code>是基于<code>point</code>进行预测，故可以认为就是一个像素位置有一个<code>anchor</code>，为了公平对比，将<code>RetinaNet</code>的<code>anchor</code>也设置为1个(<code>#A=1</code>),将<code>FCOS</code>的训练策略移动到<code>RetinaNet</code>上面，可以发现性能依然是<code>RetinaNet</code>低于fcos 0.8mAP。 排除这个因素后，现在两个算法的区别是：</p>
 <ul>
-<li>1.<strong>正负样本定义；</strong><img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220311102531.png"></li>
-<li>2.<strong>回归分支中从<code>point</code>回归还是从<code>anchor</code>回归；</strong>从<code>point</code>回归就是指的每个点预测距离4条边的距离模式，而从<code>anchor</code>回归是指的<code>RetinaNet</code>那种基于<code>anchor</code>偏移量回归的模式。<img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN2/post/20220311102948.png"></li>
+<li>1.<strong>正负样本定义；</strong><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311102531.png"></li>
+<li>2.<strong>回归分支中从<code>point</code>回归还是从<code>anchor</code>回归；</strong>从<code>point</code>回归就是指的每个点预测距离4条边的距离模式，而从<code>anchor</code>回归是指的<code>RetinaNet</code>那种基于<code>anchor</code>偏移量回归的模式。<img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311102948.png"></li>
 </ul>
 <p>但作者通过实验分析可以知道回归分支中从point回归还是从anchor回归对最终影响很小，反而是正负样本定义对结果影响最大。</p>
 <p><img src="https://npm.elemecdn.com/justlovesmile-post@1.0.1/20220311103001.png"></p>
@@ -151,8 +180,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -195,8 +224,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -233,8 +262,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -292,8 +321,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -391,8 +420,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -513,8 +542,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -576,8 +605,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -634,8 +663,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -709,8 +738,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -949,8 +978,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1015,8 +1044,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1090,8 +1119,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1351,8 +1380,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -1377,8 +1406,8 @@
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
         <tag>JS</tag>
       </tags>
   </entry>
@@ -1990,8 +2019,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>论文笔记</tag>
         <tag>GAN</tag>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -5328,8 +5357,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5616,8 +5645,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5657,8 +5686,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5832,8 +5861,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -6061,8 +6090,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -7261,8 +7290,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -7323,8 +7352,8 @@ N
         <category>博客相关</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>前端</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -14209,7 +14238,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
