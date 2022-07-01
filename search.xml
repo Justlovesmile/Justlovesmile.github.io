@@ -3,9 +3,9 @@
   <entry>
     <title>Python小工具 | 如何自动下载、压缩并批量替换文章中的外链图片</title>
     <url>/posts/7a5857a0.html</url>
-    <content><![CDATA[<p>由于前段时间JsdeliverCDN加速的崩盘，博主存在Github上的图片全部访问失败，文章阅读体验极差，于是2022年以后的文章全部采用npm做图片，在此之前的文章由于数量过多并没有替换。再加上之前一直忙着研一阶段的期末考，一直懒得动博客。幸好这段时间有空，于是写了个小工具来替换博客中外链图片，具体流程如下：</p>
+    <content><![CDATA[<p>由于前段时间JsdelivrCDN加速的崩盘，博主存在Github上的图片全部访问失败，文章阅读体验极差，于是2022年以后的文章全部采用npm做图床，在此之前的文章由于数量过多并没有替换。再加上之前一直忙着研一阶段的期末考，懒得动博客。幸好这段时间有空，于是写了个python小工具来替换博客中外链图片，具体流程如下：</p>
 <ul>
-<li>首先，遍历<code>hexo\source\_posts\</code>文件夹中的全部文章，把里面含有<code>https://cdn.jsdeliver.net/gh</code>的图片全部下载下来，并替换链接为npm的CDN链接。</li>
+<li>首先，遍历<code>hexo\source\_posts\</code>文件夹中的全部文章，把里面含有<code>https://cdn.jsdelivr.net/gh</code>的图片全部下载下来，并替换链接为npm的CDN链接。</li>
 <li>其次，对下载下来的图片做简单的压缩。</li>
 <li>最后，把压缩后的图片上传npm。</li>
 </ul>
@@ -105,8 +105,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +180,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -321,8 +321,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -420,8 +420,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -605,8 +605,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -663,8 +663,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -738,8 +738,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1044,8 +1044,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1119,8 +1119,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -2019,8 +2019,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>论文笔记</tag>
         <tag>GAN</tag>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -14238,7 +14238,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
