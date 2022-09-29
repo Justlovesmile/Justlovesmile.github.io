@@ -1,1 +1,42 @@
-jQuery(document).ready((function(){var a=$("#QRBox"),e=$("#MainBox");function o(o){o&&e.css("background-image","url("+o+")"),$("#DonateText,#donateBox,#github").addClass("blur"),a.fadeIn(300,(function(a){e.addClass("showQR")}))}$("#donateBox>li").click((function(a){var e=$(this).attr("id");"BTC"===e||("AliPay"===e?o("/img/alipay.jpg"):"WeChat"===e&&o("/img/wechat.jpg"))})),e.click((function(o){e.removeClass("showQR").addClass("hideQR"),setTimeout((function(o){a.fadeOut(300,(function(a){e.removeClass("hideQR")})),$("#DonateText,#donateBox,#github").removeClass("blur")}),600)}))}));
+jQuery(document).ready(function() {
+	var QRBox	=	$('#QRBox');
+	var MainBox	=	$('#MainBox');
+	var BTCQR	=	'/img/BTCQR.png';
+	var AliPayQR	=	'/img/alipay.jpg';
+	var WeChanQR	=	'/img/wechat.jpg';
+
+	
+
+	function showQR(QR) {
+		if (QR) {
+			MainBox.css('background-image','url('+QR+')');
+		}
+		$('#DonateText,#donateBox,#github').addClass('blur');
+		QRBox.fadeIn(300,function(argument) {
+			MainBox.addClass('showQR');
+		});
+	}
+
+	$('#donateBox>li').click(function(event) {
+		var thisID	=	$(this).attr('id');
+		if (thisID === 'BTC') {
+			//showQR(BTCQR);
+			//new Clipboard('#BTCBn');
+		} else if (thisID === 'AliPay') {
+			showQR(AliPayQR);
+		} else if (thisID === 'WeChat') {
+			showQR(WeChanQR);
+		}
+	});
+
+	MainBox.click(function(event) {
+		MainBox.removeClass('showQR').addClass('hideQR');
+		setTimeout (function(a) {
+			QRBox.fadeOut(300,function(argument) {
+				MainBox.removeClass('hideQR');
+			});
+			$('#DonateText,#donateBox,#github').removeClass('blur');
+		},600);
+
+	});
+});
