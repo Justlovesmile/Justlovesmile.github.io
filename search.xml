@@ -14351,7 +14351,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
