@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>旋转目标检测 | FSDet，解决旋转特征不对齐与正负样本不均衡</title>
+    <url>/posts/201349fc.html</url>
+    <content><![CDATA[<h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code>《Object Detection for Aerial Images With Feature Enhancement and Soft Label Assignment》</code></p>
+<blockquote>
+<p>论文发表：2022 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING<br>论文链接：<a href="https://ieeexplore.ieee.org/document/9780146">https://ieeexplore.ieee.org/document/9780146</a></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915134858.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;yu2022object,</span><br><span class="line">  title=&#123;Object Detection for Aerial Images with Feature Enhancement and Soft Label Assignment&#125;,</span><br><span class="line">  author=&#123;Yu, Ying and Yang, Xi and Li, Jie and Gao, Xinbo&#125;,</span><br><span class="line">  journal=&#123;IEEE Transactions on Geoscience and Remote Sensing&#125;,</span><br><span class="line">  year=&#123;2022&#125;,</span><br><span class="line">  publisher=&#123;IEEE&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签</td>
+<td>#遥感 #特征增强 #标签分配 #旋转目标检测</td>
+</tr>
+<tr>
+<td>数据集</td>
+<td>DOTA1.0；DOTA1.5；HRSC2016；UCAS-AOD;</td>
+</tr>
+<tr>
+<td>目的</td>
+<td>解决遥感图像中旋转特征不对齐以及正负样本不平衡的问题</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>提出旋转特征精炼，类感知上下文聚合以及软标签分配策略</td>
+</tr>
+</tbody></table>
+<h1 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h1><p>作者提到，航拍图像目标检测任务存在目标方向任意以及前景与背景极不平衡的问题。并且提到Anchor-Based方法受超参数影响较大。因此作者的工作主要基于Anchor-Free模型实现。</p>
+<p>（1）目标方向任意<br>由于航拍图像的鸟瞰视角，目标具有任意方向的性质。因此，通过标准2D卷积的水平感受野所获得特征并不能准确描述旋转目标的特征。下图可见，水平感受野和OBB不能很好的对齐。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135010.png"><br>（2）正负样本<br>作者发现不同空间位置的正样本展现出不一致的检测能力。下图可见，在不同位置检测出的OBB在IoU和Cls Score得到的结果差距很大。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135029.png"><br>并且作者发现遥感图像中前景和背景不平衡问题极其突出，导致模型不能学到很强的（strong）、公正的（unbiased）特征。下图可见，遥感图像中的前后景不平衡，导致的FP。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135044.png"></p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>为解决上诉问题，作者提出了FSDet，其包含：<br>（1）旋转特征精炼（oriented feature refinement，OFR），利用几何信息解决特征未对齐问题<br>（2）类感知上下文聚合（class-aware context aggregation，CCA），提高类内前景特征的分辨能力<br>（3）软标签分配（soft label assignment，SLA），解决训练过程中不同位置样本得到结果不一致问题</p>
+<h2 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h2><p>FSDet基于FCOS构建，并加入了其所提出的OFR，CCA以及SLA模块。</p>
+<ul>
+<li>  Head之前和FCOS一致，使用了5层FPN，包括P3-P7；</li>
+<li>  替换了centerness分支，改用IoU分支来预测IoU的值；</li>
+<li>  Baseline使用的label assignment是原始的FCOS的策略，即采样范围为Bounding Box;</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135302.png"></p>
+<p>目标框表示方法为$d=(l,t,r,b,\theta)$，如下图所示：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135352.png"></p>
+<p>损失函数如下:<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135410.png"></p>
+<p>其中分类损失为focal loss，回归损失包括HBB损失（使用的GIoU loss）以及角度损失：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135423.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135433.png"></p>
+<h2 id="3-2-旋转特征精炼（OFR）"><a href="#3-2-旋转特征精炼（OFR）" class="headerlink" title="3.2 旋转特征精炼（OFR）"></a>3.2 旋转特征精炼（OFR）</h2><p>OFR：利用旋转目标框的空间几何信息，学习更有效的特征表示。<br>OFR包括辅助回归分支和框特征注意机制。</p>
+<ul>
+<li>  辅助回归分支输出特征图每个位置的$(l,t,r,b,\theta)$，得到一个初始Box；</li>
+<li>  基于此初始Box使用框特征注意机制来生成精炼特征图，以获取更准确的信息；如下图，作者表示了同一位置（红点）使用不同3×3卷积核所获取的特征（蓝点），例如：标准卷积会明显与GT Box不对齐，可形变卷积在没有显式监督信息的条件下不能保证特征点落在目标上。因此作者取该初始Box的9个点来辅助特征对齐。受启发于Transformer的多头注意力，其按照顺时针顺序取这9个点（位于中心点的第二象限的边为上边缘，以此边开始顺时针取点），令红点$f^q_i\in\mathbb{R}^{d_f}$为Query，蓝点$f^v_i\in\mathbb{R}^{9\times d_f}$为Value，输入到多头注意力模块中。输出为特征$f_i^{o}\in\mathbb{R}^{d_f}$的计算如下：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135611.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135646.png"><h2 id="3-3-类感知上下文聚合（CCA）"><a href="#3-3-类感知上下文聚合（CCA）" class="headerlink" title="3.3 类感知上下文聚合（CCA）"></a>3.3 类感知上下文聚合（CCA）</h2>CCA模块包括一个辅助分类分支和特征增强处理。</li>
+<li>  辅助分类分支预测一个C维的向量表示初始类别得分。</li>
+<li>  基于此初始类别得分，网络开始聚合类感知上下文信息来丰富特征图，用于最后的分类。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135719.png"></li>
+</ul>
+<p>首先特征图F输入到辅助分类分支得到粗糙的分类结果$\hat{c}={p_{i,k}|k=1,…,C}$，然后输入到一个门函数（gating function）来抑制负样本和低质量正样本，如下图：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135757.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135804.png"><br>其中t是预设阈值，A是放大系数，默认20。然后得到新的分类结果$\hat{p} _ {i,k}$，使用它来聚合每一层上此类的特征：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915135835.png"><br>之后使用 $v_{k}$ 表示获取了更多类内语义信息的特征。同时为了计算每个位置的上下文特征，挖掘分类和位置的联系，使用每个位置$i$的特征$f_{i}$和类别$c^{\ast}$以及聚合特征$v _ {cls}$，计算两者的相似性：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140010.png"><br>并且希望$f_{i}$和其他类的相似性低于$f_{i}$和$c^{\ast}$。在计算特征的相似性后，得到类感知上下文特征$z_i$。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140123.png"><br>并且作者验证了CCA模块的有效性：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140142.png"></p>
+<h2 id="3-4-软标签分配（SLA）"><a href="#3-4-软标签分配（SLA）" class="headerlink" title="3.4 软标签分配（SLA）"></a>3.4 软标签分配（SLA）</h2><p>由于高质量样本能够产生比低质量样本更准确预测的结果，SLA对每个样本的损失分配了一个软权重，使模型更关注高质量样本点。样本的质量$Q_{i,n}$定义为：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140408.png"><br>其中$p_{i,c^{(n)}}$代表样本$i$属于第n个Box的类别的概率，$IoU(\hat{B} _ i,B_n)$代表预测OBB$\hat{B} _ i$和真值OBB$B_n$之间的IoU值。超参$\alpha\in[0,1]$用于控制分类和回归之间的权重。$x$表示坐标$(x,y)$,$G_{n}(x)$代表高斯分布：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140620.png"><br>其中$\mu$和$\sum$代表均值和高斯分布的协方差矩阵。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140652.png"><br>其中<strong>R</strong>代表旋转矩阵，$\Lambda$代表特征值的对角矩阵。特征值$\lambda_{1}$和$\lambda_{2}$分别是椭圆半轴的平方，将OBB内切椭圆外的位置的$G_{n}(x)$值设为0。高斯分布将高值分配给靠近物体中心的位置，而低值分配给远离中心的位置。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140800.png"><br>根据样本的质量$Q_{i,n}$，可得正样本权重：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140833.png"><br>负样本权重：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140904.png"><br>加权后的损失：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140850.png"><br>辅助分支的损失：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140930.png"><br>总损失：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915140940.png"></p>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h1><p>（1）消融实验：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915141004.png"><br>（2）不同层的正样本权重可视化：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915141018.png"><br>（3）其他实验<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915141027.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915141038.png"><br>（4）对比试验<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/20220915141054.png"></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>论文笔记</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PLOG | 国庆随手拍，北京动物园以及奥体公园</title>
     <url>/posts/4d2d3e0a.html</url>
     <content><![CDATA[<h1 id="长安街、故宫附近"><a href="#长安街、故宫附近" class="headerlink" title="长安街、故宫附近"></a>长安街、故宫附近</h1><p>本打算9月30日晚上去天安门看看，结果去太晚了不让进，只能在附近转转…</p>
@@ -117,8 +184,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -226,8 +293,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -301,8 +368,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -442,8 +509,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -541,8 +608,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -726,8 +793,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -785,8 +852,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -860,8 +927,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1166,8 +1233,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1241,8 +1308,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>目标检测</tag>
         <tag>论文笔记</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -2141,8 +2208,8 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>论文笔记</tag>
         <tag>GAN</tag>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -14360,7 +14427,7 @@ CASCADE为级联，表示在删除时同时把该模式下所有数据对象全�
 </li>
 <li><p>修改hexo根目录下的文件<code>_config.yml</code>中的deploy：</p>
 <ul>
-<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
+<li>deploy:<br>  type： git<br>  repository： <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a>:username/username.github.io.git<br>  branch: master</li>
 </ul>
 </li>
 <li><p>上传到github：$ hexo d -g</p>
