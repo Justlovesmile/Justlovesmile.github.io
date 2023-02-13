@@ -167,7 +167,9 @@ hr:before {content: '';}
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {left: 0!important;}
 .layout.hide-aside {max-width: 1400px;}
 .layout{padding-top: 1rem; max-width: 1400px;}
+@media screen and (min-width: 900px){
 .layout #post,.layout > div{width: calc(100% - 300px)!important;}
+}
 #aside-content{width: 300px !important;}
 #aside-content .item-headline{display: none;}
 #aside-content #card-toc .item-headline{display: inline-block;}
