@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>标签分配 | GGHL，面向旋转目标检测的标签分配策略 | Justlovesmile's BLOG</title><meta name="author" content="Justlovesmile,865717150@qq.com"><meta name="copyright" content="Justlovesmile"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="1. 论文信息论文标题：《A General Gaussian Heatmap Label Assignment for Arbitrary-Oriented Object Detection》  论文发表：2022 IEEE TRANSACTIONS ON IMAGE PROCESSING论文链接：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9709203   12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="标签分配 | GGHL，面向旋转目标检测的标签分配策略">
+<meta property="og:url" content="https://blog.justlovesmile.top/posts/d990ca76.html">
+<meta property="og:site_name" content="Justlovesmile&#39;s BLOG">
+<meta property="og:description" content="1. 论文信息论文标题：《A General Gaussian Heatmap Label Assignment for Arbitrary-Oriented Object Detection》  论文发表：2022 IEEE TRANSACTIONS ON IMAGE PROCESSING论文链接：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9709203   12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png">
+<meta property="article:published_time" content="2023-01-10T07:24:42.000Z">
+<meta property="article:modified_time" content="2023-01-10T07:24:42.000Z">
+<meta property="article:author" content="Justlovesmile">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="论文笔记">
+<meta property="article:tag" content="目标检测">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://blog.justlovesmile.top/posts/d990ca76.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//sdk.51.la"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/SnackBar-0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"Jjiy0nZXL36jA5Tw",ck:"Jjiy0nZXL36jA5Tw"});
+</script><script>!(function(c,i,e,b){
+var h=i.createElement("script");
+var f=i.getElementsByTagName("script")[0];
+h.type="text/javascript";
+h.crossorigin=true;
+h.onload=function(){new c[b]["Monitor"]().init({id:"JjiylmjLzsi6Expg"});};
+f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/perf/js-sdk-perf.min.js","LingQue");</script><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/font/Titillium.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: Justlovesmile","link":"链接: ","source":"来源: Justlovesmile's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"var(--mj-main)","bgDark":"var(--mj-main)","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://npm.elemecdn.com/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://npm.elemecdn.com/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '标签分配 | GGHL，面向旋转目标检测的标签分配策略',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-10 15:24:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/font-awesome-animation-1.1.1/css/font-awesome-animation.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/swiper-8.1.4/swiper-bundle.min.css"><link rel="stylesheet" href="/css/justlovesmile.css"><link rel="stylesheet" href="/css/blogicon.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Justlovesmile's BLOG" type="application/atom+xml">
+</head><body><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">98</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">56</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 博主关注</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言信箱</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 博客打赏</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-list-ul"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-commenting-o"></i><span> 哔哔</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png')"><nav id="nav"><div id="nav-group"><div id="blog-info"><div class="back-home-button"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.justlovesmile.top/" title="前往Justlovesmil主页" target="_blank" rel="external nofollow noopener noreferrer"><img class="back-menu-item-icon" src="https://npm.elemecdn.com/justlovesmile-static/img/avatar.jpg"><span class="back-menu-item-text">个人主页</span></a></div><div class="back-menu-list"><a class="back-menu-item" href="/" title="前往Justlovesmil博客" target="_blank"><img class="back-menu-item-icon" src="/img/logo.jpg"><span class="back-menu-item-text">知识博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">监控</div><div class="back-menu-list"><a class="back-menu-item" href="https://stats.uptimerobot.com/P6AvnF44Wq" title="前往网站状态监控页面" target="_blank" rel="external nofollow noopener noreferrer"><img class="back-menu-item-icon" src="/img/stats.ico"><span class="back-menu-item-text">网站状态</span></a></div></div></div></div><a id="site-name" href="/"><span id="site-name-icon">Justlovesmile</span></a></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 博主关注</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言信箱</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 博客打赏</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-list-ul"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-commenting-o"></i><span> 哔哔</span></a></li></ul></div></div></div><div id="nav-right"><div id="search-button"><a class="nav-rightbutton site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div id="darkmode_navswitch"><a class="nav-rightbutton site-page darkmode_switchbutton" onclick="switchDarkMode()"><i class="fas fa-moon"></i></a></div><div id="toggle-menu"><a class="nav-rightbutton site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="cover entered loading" id="post-cover" alt="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png"></div><div id="post-info"><div class="post-firstinfo" id="post-meta"><span class="post-meta-categories"><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">#论文笔记</a><a class="post-meta__tags" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">#目标检测</a></div></div><h1 class="post-title">标签分配 | GGHL，面向旋转目标检测的标签分配策略</h1><div id="post-meta"><div class="meta-firstline"><span class="meta-share-time"><span class="meta-avatar"><a class="meta-avatar-img" href="/about/" title="关于作者"><img alt="作者头像" src="/img/avatar.jpg"></a><a class="meta-avatar-name" href="/about/" title="关于作者">Justlovesmile</a></span></span><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2023-01-10T07:24:42.000Z" title="发表于 2023-01-10 15:24:42">2023-01-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span id data-flag-title="标签分配 | GGHL，面向旋转目标检测的标签分配策略"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/d990ca76.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-论文信息"><a href="#1-论文信息" class="headerlink" title="1. 论文信息"></a>1. 论文信息</h1><p>论文标题：<code>《A General Gaussian Heatmap Label Assignment for Arbitrary-Oriented Object Detection》</code></p>
+<blockquote>
+<p>论文发表：2022 IEEE TRANSACTIONS ON IMAGE PROCESSING<br>论文链接：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ieeexplore.ieee.org/document/9709203">https://ieeexplore.ieee.org/document/9709203</a></p>
+</blockquote>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915141751.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;huang2022general,</span><br><span class="line">  title=&#123;A general gaussian heatmap label assignment for arbitrary-oriented object detection&#125;,</span><br><span class="line">  author=&#123;Huang, Zhanchao and Li, Wei and Xia, Xiang-Gen and Tao, Ran&#125;,</span><br><span class="line">  journal=&#123;IEEE Transactions on Image Processing&#125;,</span><br><span class="line">  volume=&#123;31&#125;,</span><br><span class="line">  pages=&#123;1895--1910&#125;,</span><br><span class="line">  year=&#123;2022&#125;,</span><br><span class="line">  publisher=&#123;IEEE&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签</td>
+<td>#遥感 #标签分配 #旋转目标检测</td>
+</tr>
+<tr>
+<td>数据集</td>
+<td>#DOTA #DOTAv2 #SKU10-R #SSDD</td>
+</tr>
+<tr>
+<td>目的</td>
+<td>解决旋转目标检测任务中，采样策略没有考虑目标的形状和方向特性的问题。</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>提出了GGHL，其包含OLA,ORC以及JOL</td>
+</tr>
+</tbody></table>
+<h1 id="2-问题背景"><a href="#2-问题背景" class="headerlink" title="2. 问题背景"></a>2. 问题背景</h1><p>作者提到近年来，大多数做旋转目标检测的方法都是设计复杂的网络结构以使得提取的特征分布接近GT的分布。然而改进模型结构不是提升性能的唯一解决途径。下图可见，一个完整的检测流程包括：数据；标签分配（正负样本划分）；模型结构；目标函数（损失）。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915141907.png"></p>
+<p>对于CNN-Based检测器而言，如何提升标签分配也很重要，不同的策略将会通过影响生成的样本空间来直接影响模型的性能。因此，要想提升检测性能，一个方法是使用复杂的CNN结构（复杂的近似估计函数），另一个方法是设计标签分配策略从而构建更好的能够反映目标特性的样本空间。</p>
+<p>目前一些工作采用的标签分配策略如下：</p>
+<p>（1）Anchor-Based Label Assignment<br>SCRDet，LO-Det，DAL，CenterMap，DCL以及Oriented R-CNN等使用的基于Anchor的标签分配策略。（计算IoU，通过和阈值比较来判断）这种方法会导致正负样本误分。</p>
+<p>（2）Dense-Points Assignment<br>FCOS，IENet，AOPG等使用更宽松的采样策略，会导致样本空间中混入负样本。</p>
+<p>（3）Key-Point Assignment<br>CenterNet，BBAVector以及O2DNet等使用更严格的采样策略，导致正负样本严重不平衡。</p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915141959.png"></p>
+<p>因此一个上述标签分配策略都没有考虑目标的旋转和形状特性，故而存在很多不足。此外，即便得到了更好的训练样本空间，还需要一个合适的目标函数来引导模型学到更高质量的特征。而目前，主流的目标函数都是独立优化分类和回归分支。因此其可能导致精准定位的预测框只有很低的分类得分，或者高得分的目标定位不准。因此，PISA，Free-Anchor，以及AutoAssign等方法将不同子任务联合训练来实现更理想的性能。</p>
+<h1 id="3-主要工作"><a href="#3-主要工作" class="headerlink" title="3. 主要工作"></a>3. 主要工作</h1><p>针对上述问题，作者提出了通用高斯热力图标签分配策略（GGHL），其主要包括三个部分：</p>
+<ul>
+<li>  一个目标自适应的采样策略（OLA），基于2D旋转高斯热力图，使得采样策略更能反映目标的尺寸和方向特性。</li>
+<li>  一个旋转边界框表示组件（ORC），基于正样本点到OBB顶点的距离构建OBB的表示方法。此外，还使用了一个目标自适应加权调整机制（OWAM），用于自适应调整不同位置的高斯中心权重以加权不同位置的损失。</li>
+<li>  一个带有面积归一化和动态加权的联合优化损失（JOL），用于精炼正负样本间未对齐的优化目标，并可以平衡模型对于不同位置不同大小的不同类别的目标的学习能力。</li>
+</ul>
+<h2 id="3-1-模型结构"><a href="#3-1-模型结构" class="headerlink" title="3.1 模型结构"></a>3.1 模型结构</h2><p>下图为GGHL的结构框架。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142030.png"></p>
+<h2 id="3-2-目标自适应采样策略（OLA）"><a href="#3-2-目标自适应采样策略（OLA）" class="headerlink" title="3.2 目标自适应采样策略（OLA）"></a>3.2 目标自适应采样策略（OLA）</h2><p>作者提到，之前的标签分配（Label Assignment，LA）存在样本误匹配的问题，并且存在大量超参数。如GWD使用2D高斯来计算损失，其LA仍基于Anchor实现。CenterNet，BBAvector，DRN等使用标准高斯分布（圆形）不能反映目标的形状和方向特性，并且其只使用高斯峰值点作为正样本加剧了正负样本不平衡，并且使用高分辨率特征图加大了计算复杂性。因此作者提出的OLA采用旋转椭圆高斯区域来采样。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142057.png"></p>
+<p>（1）与标准高斯分布不同，OLA使用整个高斯区域作为正样本采样区域，再根据高斯密度函数对不同位置加权。高斯概率密度函数如下：<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142110.png"><br>其中$X=[x,y]^T\sim N(\mu,C)$，$\mu\in R^2$代表平均向量，$C\in R^{2\times2}$为非负半定实矩阵，代表两个变量的协方差矩阵。实对称矩阵$C$正交对角分解为：<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142225.png"><br>其中Q为实对称矩阵，$\Lambda$代表由降序特征值组成的对角矩阵。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142249.png"><br>高斯概率密度函数变换为：<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142302.png"></p>
+<p>如果$f(x,y)&gt;0$，该位置定义为正样本，且其值代表该位置的权重。</p>
+<p>（2）对于重叠问题，如果一个位置包含在不同的高斯区域内，则将其分配给$f(x,y)$最大的那个高斯区域。</p>
+<p>（3）空间和尺度范围。对于空间范围，设高斯峰值的边界框为C-BBox，此时其他位置的边界框与C-BBox的IoU大于阈值$T_{IoU}$则视为正位置（positive location）。这些正位置构成了原始高斯候选区域的一个子集(表现为一个较小的椭圆，与原始高斯椭圆共心)，其半轴长度为：<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142356.png"><br>其中$r_i$代表原始高斯椭圆的半轴长度。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142422.png"><br>而对于尺度范围，假设不同特征层的下采样率为$stride_m=2^{m+3},m=1,2,3$，同时为了保证在空间尺度上正样本的数量，定义$max_i(r_i^c)/stride_m\geq 1$，即$max_i(2r_i)\geq \frac{2\times stride_m}{1-T_{IoU}}$。定义OBB的四条边长为$d_j,j=1,2,3,4$，则有$max_j(d_j)=max_i(2r_i)\geq \frac{2\times stride_m}{1-T_{IoU}}$。定义一个超参数$\tau=3$，得到两个阈值：<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142554.png"><br>此时，当$max_j(d_j)\in (1,range_1)$时，目标分配给$stride_1$。当$max_j(d_j)\in(range_1,range_2]$时，目标分配给$stride_2$。当$max_j(d_j)\in(range_2,\sqrt{2}len^{img}]$时，目标分配给$stride_3$。</p>
+<h2 id="3-3-旋转边界框表示组件（ORC）"><a href="#3-3-旋转边界框表示组件（ORC）" class="headerlink" title="3.3 旋转边界框表示组件（ORC）"></a>3.3 旋转边界框表示组件（ORC）</h2><p>作者提到，现有的OBB表示方法有两类，一类是基于角度的，如CenterMap，另一类是基于点的，如Gliding Vertex。ORC如下图，使用$l_{x,y,m}=[l_1,l_2,l_3,l_4]$以及$s_{x,y,m}=[s_1,s_2,s_3,s_4]$来表示一个位于$(x,y) _ {m}$的点所表示的OBB。其中与Gliding Vertex一样，使用$ar_{x,y,m}\in[0,1]$表示HBB和OBB的面积比例，因此ORC相当于使用一个9维的向量表示OBB：$obb_{x,y,m}=[l_{x,y,m},s_{x,y,m},ar_{x,y,m}]$。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142827.png"><br>除此之外，并不是每一个凸四边形都能被ORC表示，还需要讨论顶点不在HBB上的情况以及ORC中顶点的隐式排序。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142841.png"><br>此外，直接使用高斯分布来加权并不适合部分目标，如港口等等。因此需要设计一种自适应的加权调整策略，如AutoAssign以及IQDet等等。因此借鉴此思想，作者提出了OWAM。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142856.png"></p>
+<h2 id="3-4-联合优化损失（JOL）"><a href="#3-4-联合优化损失（JOL）" class="headerlink" title="3.4 联合优化损失（JOL）"></a>3.4 联合优化损失（JOL）</h2><p>包括：</p>
+<ul>
+<li>  联合概率密度函数</li>
+<li>  面积归一化和损失重加权机制</li>
+<li>  用于实现整个联合优化函数的极大似然估计</li>
+</ul>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h1><p>（1）消融实验</p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142916.png"><br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142921.png"><br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142926.png"></p>
+<p>（2）可视化结果<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142941.png"></p>
+<p>（3）对比实验<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915142955.png"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/20220915143004.png"></p>
+</article><div class="tag_share"><div class="post-reward"><div class="reward-button"><i class="fas fa-hamburger"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/donate"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><a class="post-meta__tags" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://npm.elemecdn.com/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-copyright"><div class="post-copyright__author"></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.justlovesmile.top/posts/d990ca76.html">https://blog.justlovesmile.top/posts/d990ca76.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.justlovesmile.top" target="_blank">Justlovesmile's BLOG</a>！</span></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/7dc5beaf.html" title="标签分配 | SASM，形状自适应的样本选择策略"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/sasm.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">标签分配 | SASM，形状自适应的样本选择策略</div></div></a></div><div class="next-post pull-right"><a href="/posts/201349fc.html" title="旋转目标检测 | FSDet，解决旋转特征不对齐与正负样本不均衡"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/202210100000000001.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">旋转目标检测 | FSDet，解决旋转特征不对齐与正负样本不均衡</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/6f41176a.html" title="旋转目标检测 | Oriented RepPoints，基于点集表示的旋转目标检测模型"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/orientedreppoints.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-13</div><div class="title">旋转目标检测 | Oriented RepPoints，基于点集表示的旋转目标检测模型</div></div></a></div><div><a href="/posts/7dc5beaf.html" title="标签分配 | SASM，形状自适应的样本选择策略"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/sasm.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-12</div><div class="title">标签分配 | SASM，形状自适应的样本选择策略</div></div></a></div><div><a href="/posts/201349fc.html" title="旋转目标检测 | FSDet，解决旋转特征不对齐与正负样本不均衡"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/202210100000000001.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-10</div><div class="title">旋转目标检测 | FSDet，解决旋转特征不对齐与正负样本不均衡</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">Justlovesmile</div><div class="author-info__description">一个计算机专业学生的个人博客，记录着学习笔记和生活中的思考，期待着和所有人相遇</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">98</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">56</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E8%AE%BA%E6%96%87%E4%BF%A1%E6%81%AF"><span class="toc-text">1. 论文信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-text">2. 问题背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C"><span class="toc-text">3. 主要工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">3.1 模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%9B%AE%E6%A0%87%E8%87%AA%E9%80%82%E5%BA%94%E9%87%87%E6%A0%B7%E7%AD%96%E7%95%A5%EF%BC%88OLA%EF%BC%89"><span class="toc-text">3.2 目标自适应采样策略（OLA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%97%8B%E8%BD%AC%E8%BE%B9%E7%95%8C%E6%A1%86%E8%A1%A8%E7%A4%BA%E7%BB%84%E4%BB%B6%EF%BC%88ORC%EF%BC%89"><span class="toc-text">3.3 旋转边界框表示组件（ORC）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%81%94%E5%90%88%E4%BC%98%E5%8C%96%E6%8D%9F%E5%A4%B1%EF%BC%88JOL%EF%BC%89"><span class="toc-text">3.4 联合优化损失（JOL）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">4. 实验结果</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="social-icon" href="mailto:865717150@qq.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_43701912" target="_blank" title="CSDN" rel="external nofollow noopener noreferrer"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="https://github.com/Justlovesmile" target="_blank" title="Github" rel="external nofollow noopener noreferrer"><i class="fab fa-github"></i></a><a class="social-icon" href="https://weibo.com/u/5252319712" target="_blank" title="微博" rel="external nofollow noopener noreferrer"><i class="fa fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/168738824" target="_blank" title="Bilibili" rel="external nofollow noopener noreferrer"><i class="fas iconfont icon-bilibili"></i></a></div><div id="mj-footer"><div class="footer-group"><h3 class="footer-title">推荐<i class="fa fa-fire" style="color:var(--mj-red);padding-left:5px;"></i></h3><div class="footer-links"><a class="footer-item" href="/tags/Hexo/">博客魔改</a><a class="footer-item" href="/tags/深度学习/">深度学习</a><a class="footer-item" href="/tags/大学课程/">大学课程</a><a class="footer-item" href="/tags/论文笔记/">论文笔记</a></div></div><div class="footer-group"><h3 class="footer-title">生活</h3><div class="footer-links"><a class="footer-item" href="/photos/">年度影集</a><a class="footer-item" href="/music/">音乐列表</a><a class="footer-item" href="/video/">视频剪辑</a><a class="footer-item" href="/essay/">日常哔哔</a></div></div><div class="footer-group"><h3 class="footer-title">网站</h3><div class="footer-links"><a class="footer-item" href="/guestbook/">留言信箱</a><a class="footer-item" href="/donate/">博客打赏<i class="fa fa-coffee" style="color:var(--mj-lighttext);padding-left:5px;"></i></a><a class="footer-item" href="/charts/">博客统计</a><a class="footer-item" href="/update/">更新日志</a></div></div><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.justlovesmile.top/">个人主页</a><a class="footer-item" href="/friends/">友情链接</a><a class="footer-item" href="/fcircle/">朋友圈</a><a class="footer-item" href="/atom.xml">RSS订阅<i class="fa fa-rss-square" style="color:var(--mj-lighttext);padding-left:5px;"></i></a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/privacy/">隐私协议</a><a class="footer-item" href="/cookies/">Cookies</a><a class="footer-item" href="/cc/">版权协议</a></div></div></div><div id="footer-banner"><div class="footer-banner-links"><div class="footer-banner-left"><div id="footer-banner-tips">&copy;2020 - 2023 By Justlovesmile</div></div><div class="footer-banner-right"><a class="footer-banner-link" href="/update/">主题</a><a class="footer-banner-link" href="/about/">关于</a><a class="footer-banner-link" target="_blank" rel="external nofollow noopener noreferrer" href="http://beian.miit.gov.cn/">蜀ICP备20004960号</a></div></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fa-solid fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fa-solid fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrow-rotate-right"></i></div><div class="rightMenu-item" id="menu-top"><i class="fa-solid fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><a class="rightMenu-item" id="menu-commenttext"><i class="fa-solid fa-comments"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-copytext"><i class="fa-solid fa-copy"></i><span>复制文本</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="fa-solid fa-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="fa-solid fa-copy"></i><span>复制链接</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="fa-solid fa-copy"></i><span>复制图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="fa-solid fa-download"></i><span>下载图片</span></div><div class="rightMenu-item search" id="menu-search"><i class="fas fa-search fa-fw"></i><span>本站搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="fa fa-solid fa-search-plus"></i><span>百度搜索</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-random" href="/random/"><i class="fa-solid fa-shoe-prints"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="fa-solid fa-shapes"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="fa-solid fa-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item menu-link" href="/cc/"><i class="fa fa-solid fa-creative-commons"></i><span>版权协议</span></a><a class="rightMenu-item menu-link" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span>博文打赏</span></a><div class="rightMenu-item" id="menu-copy"><i class="fa-solid fa-share"></i><span>分享本页</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-darkmode"><i class="fa-solid fa-moon"></i><span>明暗切换</span></div></div></div><div id="rightmenu-mask" style="display:none;"></div><!--script(src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js")--><script defer="defer" data-pjax="data-pjax" src="/js/rightmenu.js"></script><link rel="stylesheet" href="/css/rightmenu.css"><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/@fancyapps/ui/dist/fancybox.umd.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/SnackBar-0.1.16/dist/snackbar.min.js"></script><script defer src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://npm.elemecdn.com/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://comment.justlovesmile.top',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://comment.justlovesmile.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer>console.log("\n %c 欢迎来到Justlovesmile の Blog %c https://github.com/Justlovesmile %c https://blog.justlovesmile.top \n","color: #f9ed69; background: #252a34; padding:5px 0;","background: #3fc1c9; padding:5px 0;","background: #3fc1c9; padding:5px 0;");</script><script defer src="/js/rgbaster.min.js"></script><script defer src="/js/justlovesmile.js"></script><script>window.addEventListener('load', async () => {navigator.serviceWorker.register(`/js/sw.js?time=${new Date().getTime()}`).then(async reg => {if (window.localStorage.getItem('install') != 'true') {window.localStorage.setItem('install', 'true');setTimeout(() => {window.location.search = `?time=${new Date().getTime()}`}, 1000)}}).catch(err => { })});</script></div></body></html>

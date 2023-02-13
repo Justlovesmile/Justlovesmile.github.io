@@ -1,2 +1,942 @@
 /*! For license information please see friend.min.js.LICENSE.txt */
-!function(){var t={926:function(t){function n(t,n,e,r,i,a,o){try{var s=t[a](o),c=s.value}catch(t){return void e(t)}s.done?n(c):Promise.resolve(c).then(r,i)}t.exports=function(t){return function(){var e=this,r=arguments;return new Promise((function(i,a){var o=t.apply(e,r);function s(t){n(o,i,a,s,c,"next",t)}function c(t){n(o,i,a,s,c,"throw",t)}s(void 0)}))}}},575:function(t){t.exports=function(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}},913:function(t){function n(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}t.exports=function(t,e,r){return e&&n(t.prototype,e),r&&n(t,r),t}},655:function(t){t.exports=function(t,n){return n||(n=t.slice(0)),Object.freeze(Object.defineProperties(t,{raw:{value:Object.freeze(n)}}))}},553:function(t){var n=function(t){"use strict";var n,e=Object.prototype,r=e.hasOwnProperty,i="function"==typeof Symbol?Symbol:{},a=i.iterator||"@@iterator",o=i.asyncIterator||"@@asyncIterator",s=i.toStringTag||"@@toStringTag";function c(t,n,e){return Object.defineProperty(t,n,{value:e,enumerable:!0,configurable:!0,writable:!0}),t[n]}try{c({},"")}catch(t){c=function(t,n,e){return t[n]=e}}function l(t,n,e,r){var i=n&&n.prototype instanceof m?n:m,a=Object.create(i.prototype),o=new T(r||[]);return a._invoke=function(t,n,e){var r=u;return function(i,a){if(r===h)throw new Error("Generator is already running");if(r===p){if("throw"===i)throw a;return M()}for(e.method=i,e.arg=a;;){var o=e.delegate;if(o){var s=j(o,e);if(s){if(s===v)continue;return s}}if("next"===e.method)e.sent=e._sent=e.arg;else if("throw"===e.method){if(r===u)throw r=p,e.arg;e.dispatchException(e.arg)}else"return"===e.method&&e.abrupt("return",e.arg);r=h;var c=f(t,n,e);if("normal"===c.type){if(r=e.done?p:d,c.arg===v)continue;return{value:c.arg,done:e.done}}"throw"===c.type&&(r=p,e.method="throw",e.arg=c.arg)}}}(t,e,o),a}function f(t,n,e){try{return{type:"normal",arg:t.call(n,e)}}catch(t){return{type:"throw",arg:t}}}t.wrap=l;var u="suspendedStart",d="suspendedYield",h="executing",p="completed",v={};function m(){}function g(){}function y(){}var b={};b[a]=function(){return this};var k=Object.getPrototypeOf,x=k&&k(k(O([])));x&&x!==e&&r.call(x,a)&&(b=x);var w=y.prototype=m.prototype=Object.create(b);function _(t){["next","throw","return"].forEach((function(n){c(t,n,(function(t){return this._invoke(n,t)}))}))}function L(t,n){function e(i,a,o,s){var c=f(t[i],t,a);if("throw"!==c.type){var l=c.arg,u=l.value;return u&&"object"==typeof u&&r.call(u,"__await")?n.resolve(u.__await).then((function(t){e("next",t,o,s)}),(function(t){e("throw",t,o,s)})):n.resolve(u).then((function(t){l.value=t,o(l)}),(function(t){return e("throw",t,o,s)}))}s(c.arg)}var i;this._invoke=function(t,r){function a(){return new n((function(n,i){e(t,r,n,i)}))}return i=i?i.then(a,a):a()}}function j(t,e){var r=t.iterator[e.method];if(r===n){if(e.delegate=null,"throw"===e.method){if(t.iterator.return&&(e.method="return",e.arg=n,j(t,e),"throw"===e.method))return v;e.method="throw",e.arg=new TypeError("The iterator does not provide a 'throw' method")}return v}var i=f(r,t.iterator,e.arg);if("throw"===i.type)return e.method="throw",e.arg=i.arg,e.delegate=null,v;var a=i.arg;return a?a.done?(e[t.resultName]=a.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=n),e.delegate=null,v):a:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,v)}function E(t){var n={tryLoc:t[0]};1 in t&&(n.catchLoc=t[1]),2 in t&&(n.finallyLoc=t[2],n.afterLoc=t[3]),this.tryEntries.push(n)}function S(t){var n=t.completion||{};n.type="normal",delete n.arg,t.completion=n}function T(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(E,this),this.reset(!0)}function O(t){if(t){var e=t[a];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var i=-1,o=function e(){for(;++i<t.length;)if(r.call(t,i))return e.value=t[i],e.done=!1,e;return e.value=n,e.done=!0,e};return o.next=o}}return{next:M}}function M(){return{value:n,done:!0}}return g.prototype=w.constructor=y,y.constructor=g,g.displayName=c(y,s,"GeneratorFunction"),t.isGeneratorFunction=function(t){var n="function"==typeof t&&t.constructor;return!!n&&(n===g||"GeneratorFunction"===(n.displayName||n.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,y):(t.__proto__=y,c(t,s,"GeneratorFunction")),t.prototype=Object.create(w),t},t.awrap=function(t){return{__await:t}},_(L.prototype),L.prototype[o]=function(){return this},t.AsyncIterator=L,t.async=function(n,e,r,i,a){void 0===a&&(a=Promise);var o=new L(l(n,e,r,i),a);return t.isGeneratorFunction(e)?o:o.next().then((function(t){return t.done?t.value:o.next()}))},_(w),c(w,s,"Generator"),w[a]=function(){return this},w.toString=function(){return"[object Generator]"},t.keys=function(t){var n=[];for(var e in t)n.push(e);return n.reverse(),function e(){for(;n.length;){var r=n.pop();if(r in t)return e.value=r,e.done=!1,e}return e.done=!0,e}},t.values=O,T.prototype={constructor:T,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=n,this.done=!1,this.delegate=null,this.method="next",this.arg=n,this.tryEntries.forEach(S),!t)for(var e in this)"t"===e.charAt(0)&&r.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=n)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function i(r,i){return s.type="throw",s.arg=t,e.next=r,i&&(e.method="next",e.arg=n),!!i}for(var a=this.tryEntries.length-1;a>=0;--a){var o=this.tryEntries[a],s=o.completion;if("root"===o.tryLoc)return i("end");if(o.tryLoc<=this.prev){var c=r.call(o,"catchLoc"),l=r.call(o,"finallyLoc");if(c&&l){if(this.prev<o.catchLoc)return i(o.catchLoc,!0);if(this.prev<o.finallyLoc)return i(o.finallyLoc)}else if(c){if(this.prev<o.catchLoc)return i(o.catchLoc,!0)}else{if(!l)throw new Error("try statement without catch or finally");if(this.prev<o.finallyLoc)return i(o.finallyLoc)}}}},abrupt:function(t,n){for(var e=this.tryEntries.length-1;e>=0;--e){var i=this.tryEntries[e];if(i.tryLoc<=this.prev&&r.call(i,"finallyLoc")&&this.prev<i.finallyLoc){var a=i;break}}a&&("break"===t||"continue"===t)&&a.tryLoc<=n&&n<=a.finallyLoc&&(a=null);var o=a?a.completion:{};return o.type=t,o.arg=n,a?(this.method="next",this.next=a.finallyLoc,v):this.complete(o)},complete:function(t,n){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&n&&(this.next=n),v},finish:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var e=this.tryEntries[n];if(e.finallyLoc===t)return this.complete(e.completion,e.afterLoc),S(e),v}},catch:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var e=this.tryEntries[n];if(e.tryLoc===t){var r=e.completion;if("throw"===r.type){var i=r.arg;S(e)}return i}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,r){return this.delegate={iterator:O(t),resultName:e,nextLoc:r},"next"===this.method&&(this.arg=n),v}},t}(t.exports);try{regeneratorRuntime=n}catch(t){Function("r","regeneratorRuntime = r")(n)}},757:function(t,n,e){t.exports=e(553)},663:function(t,n,e){"use strict";var r=e(645),i=e.n(r)()((function(t){return t[1]}));i.push([t.id,"/* 头像自动旋转 */\n@keyframes auto_rotate_left {\n  from {\n    transform: rotate(0);\n  }\n  to {\n    transform: rotate(-360deg);\n  }\n}\n@keyframes auto_rotate_right {\n  from {\n    transform: rotate(0);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n#article-container .flink .flink-list > .flink-list-item {\n  border: 0px solid #49b1f5;\n  border: 0px solid var(--primary-color, #49b1f5);\n}\n#article-container .flink .flink-list > .flink-list-item a {\n  color: #000;\n  color: var(--namecolor, #000);\n  text-decoration: none;\n}\n#article-container .flink .flink-list > .flink-list-item a:hover {\n  color: #fff;\n  color: var(--namecolorHover, #fff);\n}\n#article-container .flink .flink-list > .flink-list-item a:hover span {\n  transition: 0.6s;\n  transform: translateX(-75px);\n}\n#article-container .flink .flink-list > .flink-list-item a .lauto {\n  animation: auto_rotate_left var(--autotime) linear infinite;\n}\n#article-container .flink .flink-list > .flink-list-item a .rauto {\n  animation: auto_rotate_right var(--autotime) linear infinite;\n}\n#article-container .flink .flink-list > .flink-list-item a span {\n  transition: 0.3s;\n}\n#article-container .flink .flink-list > .flink-list-item:before {\n  background: #49b1f5;\n  background: var(--primary-color, #49b1f5);\n}\n#article-container .flink .flink-list > .flink-list-item:hover {\n  background: #49b1f5;\n  background: var(--primary-color, #49b1f5);\n  box-shadow: 0 2px 20px #49b1f5;\n  box-shadow: 0 2px 20px var(--primary-color, #49b1f5);\n  animation-play-state: paused;\n}\n#article-container .flink .flink-list > .flink-list-item:hover img {\n  transform: rotate(var(--primary-rotate));\n}\n#article-container .flink .flink-list > .flink-list-item .customcolor {\n  color: #1f2d3d;\n  color: var(--namecolor, #1f2d3d);\n}\n#article-container .flink .flink-list > .flink-list-item .customcolor:hover {\n  color: #fff;\n}\n@keyframes coverIn {\n  0% {\n    opacity: 0.6;\n  }\n  to {\n    opacity: 1;\n  }\n}\n#article-container img {\n  margin: 0;\n}\n.flink-list-card {\n  overflow: auto;\n}\n.flink-list-card > a {\n  width: calc(100% / 4 - 15px);\n  height: 130px;\n  position: relative;\n  display: block;\n  margin: 15px 7px;\n  float: left;\n  overflow: hidden;\n  border-radius: 3px;\n  transition: all 0.3s ease 0s, transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;\n  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.06);\n}\n.flink-list-card > a:hover .info {\n  transform: translateY(-100%);\n}\n.flink-list-card > a:hover .wrapper img {\n  transform: scale(1.2);\n}\n.flink-list-card > a .cover {\n  width: 100%;\n  transition: transform 0.5s ease-out;\n}\n.flink-list-card > a .wrapper {\n  position: relative;\n}\n.flink-list-card > a .wrapper .fadeIn {\n  animation: coverIn 0.8s ease-out forwards;\n}\n.flink-list-card > a .wrapper .cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.flink-list-card > a .info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  border-radius: 3px;\n  background-color: rgba(255, 255, 255, 0.7);\n  transition: transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;\n}\n.flink-list-card > a .info img {\n  position: relative;\n  top: 22px;\n  width: 66px;\n  height: 66px;\n  border-radius: 50%;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\n  z-index: 1;\n}\n.flink-list-card > a .info span {\n  padding: 20px 0 12px;\n  font-size: 16px;\n  width: 100%;\n  text-align: center;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0.7);\n  color: var(--font-color);\n}\n@media screen and (max-width: 1024px) {\n  .flink-list-card > a {\n    width: calc(100% / 3 - 15px);\n  }\n}\n@media screen and (max-width: 600px) {\n  .flink-list-card > a {\n    width: calc(100% / 2 - 15px);\n  }\n}\n[data-theme='dark'] .flink-list-card a .info,\n[data-theme='dark'] .flink-list-card a .info span {\n  background-color: rgba(0, 0, 0, 0.6);\n}\n",""]),n.Z=i},645:function(t){"use strict";t.exports=function(t){var n=[];return n.toString=function(){return this.map((function(n){var e=t(n);return n[2]?"@media ".concat(n[2]," {").concat(e,"}"):e})).join("")},n.i=function(t,e,r){"string"==typeof t&&(t=[[null,t,""]]);var i={};if(r)for(var a=0;a<this.length;a++){var o=this[a][0];null!=o&&(i[o]=!0)}for(var s=0;s<t.length;s++){var c=[].concat(t[s]);r&&i[c[0]]||(e&&(c[2]?c[2]="".concat(e," and ").concat(c[2]):c[2]=e),n.push(c))}},n}},379:function(t,n,e){"use strict";var r,i=function(){var t={};return function(n){if(void 0===t[n]){var e=document.querySelector(n);if(window.HTMLIFrameElement&&e instanceof window.HTMLIFrameElement)try{e=e.contentDocument.head}catch(t){e=null}t[n]=e}return t[n]}}(),a=[];function o(t){for(var n=-1,e=0;e<a.length;e++)if(a[e].identifier===t){n=e;break}return n}function s(t,n){for(var e={},r=[],i=0;i<t.length;i++){var s=t[i],c=n.base?s[0]+n.base:s[0],l=e[c]||0,f="".concat(c," ").concat(l);e[c]=l+1;var u=o(f),d={css:s[1],media:s[2],sourceMap:s[3]};-1!==u?(a[u].references++,a[u].updater(d)):a.push({identifier:f,updater:v(d,n),references:1}),r.push(f)}return r}function c(t){var n=document.createElement("style"),r=t.attributes||{};if(void 0===r.nonce){var a=e.nc;a&&(r.nonce=a)}if(Object.keys(r).forEach((function(t){n.setAttribute(t,r[t])})),"function"==typeof t.insert)t.insert(n);else{var o=i(t.insert||"head");if(!o)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");o.appendChild(n)}return n}var l,f=(l=[],function(t,n){return l[t]=n,l.filter(Boolean).join("\n")});function u(t,n,e,r){var i=e?"":r.media?"@media ".concat(r.media," {").concat(r.css,"}"):r.css;if(t.styleSheet)t.styleSheet.cssText=f(n,i);else{var a=document.createTextNode(i),o=t.childNodes;o[n]&&t.removeChild(o[n]),o.length?t.insertBefore(a,o[n]):t.appendChild(a)}}function d(t,n,e){var r=e.css,i=e.media,a=e.sourceMap;if(i?t.setAttribute("media",i):t.removeAttribute("media"),a&&"undefined"!=typeof btoa&&(r+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),t.styleSheet)t.styleSheet.cssText=r;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(r))}}var h=null,p=0;function v(t,n){var e,r,i;if(n.singleton){var a=p++;e=h||(h=c(n)),r=u.bind(null,e,a,!1),i=u.bind(null,e,a,!0)}else e=c(n),r=d.bind(null,e,n),i=function(){!function(t){if(null===t.parentNode)return!1;t.parentNode.removeChild(t)}(e)};return r(t),function(n){if(n){if(n.css===t.css&&n.media===t.media&&n.sourceMap===t.sourceMap)return;r(t=n)}else i()}}t.exports=function(t,n){(n=n||{}).singleton||"boolean"==typeof n.singleton||(n.singleton=(void 0===r&&(r=Boolean(window&&document&&document.all&&!window.atob)),r));var e=s(t=t||[],n);return function(t){if(t=t||[],"[object Array]"===Object.prototype.toString.call(t)){for(var r=0;r<e.length;r++){var i=o(e[r]);a[i].references--}for(var c=s(t,n),l=0;l<e.length;l++){var f=o(e[l]);0===a[f].references&&(a[f].updater(),a.splice(f,1))}e=c}}}}},n={};function e(r){if(n[r])return n[r].exports;var i=n[r]={id:r,exports:{}};return t[r](i,i.exports,e),i.exports}e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,{a:n}),n},e.d=function(t,n){for(var r in n)e.o(n,r)&&!e.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:n[r]})},e.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},function(){"use strict";var t=e(757),n=e.n(t),r=e(926),i=e.n(r),a=e(575),o=e.n(a),s=e(913),c=e.n(s),l=e(379),f=e.n(l),u=e(663);f()(u.Z,{insert:"head",singleton:!1}),u.Z.locals,e(655);var d=function(t){var n=["--primary-color","border-width","border-style","animation","background","--primary-rotate","--namecolor","--namecolorHover"],e="";for(var r in n){var i=t[n[r]];"你写的好像不对哦！"!==i&&(e+="".concat(n[r],":").concat(i,";"))}return e},h=function(t){var n=["img_animation"],e="";for(var r in n){var i=t[n[r]];"你写的好像不对哦！"!==i&&(e+="".concat(i,";"))}return e},p=function(t){if(t.length)return t[0].name},v=function(t,n){return t||"https://image.thum.io/get/width/1024/crop/768/".concat(n)},m=function(t,n){var e=t.link,r=t.name,i=t.link,a=t.screenshot,o=t.avatar,s=t.descr,c=t.card_style,l={item:'<div class="flink-list-item" style="'.concat(d(t),'"><a href="').concat(e,'" title="').concat(r,'" target="_blank"><img class="rauto loaded" style="animation:').concat(h(t),'" data-lazy-src="').concat(o,'" onerror="this.onerror=null,this.src=\'').concat(n,'\'" alt="').concat(r,'" src="').concat(o,'"><div class="flink-item-info"><span class="flink-item-name">').concat(r,'</span><span class="flink-item-desc" title="').concat(s,'">').concat(s,"</span></div></a></div>"),card:'<a href="'.concat(e,'" target="_blank"\n    ><div class="wrapper cover">\n      <img\n        src="').concat(v(a,i),'"\n        class="cover fadeIn"\n      />\n    </div>\n    <div class="info">\n    <img class=\'loaded\' data-lazy-src="').concat(o,'" onerror="this.onerror=null;this.src=\'').concat(n,'\'" alt="').concat(r,'" src="').concat(o,'">\n      <span>').concat(r,"</span>\n    </div>\n    </a>"),error:'<tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">'.concat(r,'</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">').concat(s,'</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">').concat(e,'</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">').concat(o,"</span></span><br></pre></td></tr>")};return{type:c,template:l[c]?l[c]:l.item}},g=function(t,n){var e="";return t.labelDescr[n]&&(e=t.labelDescr[n]),e},y=function(){function t(n){o()(this,t);var e=n.url,r=n.sort_container,i=n.labelDescr,a=n.el,s=n.fail_img,c=n.loading_img;this.url=e,this.sort_container=r,this.labelDescr=i,this.el=a,this.text=[],this.fail_img=s||"/img/loading.gif",this.loading_img=c||"https://npm.elemecdn.com/justlovesmile-static/img/clockloading.gif",this.init()}var e;return c()(t,[{key:"init",value:function(){this.getPageFriend()}},{key:"getPageFriend",value:(e=i()(n().mark((function t(){return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return this.showLoading(),t.next=3,this.getFriends(this);case 3:this.createFriend();case 4:case"end":return t.stop()}}),t,this)}))),function(){return e.apply(this,arguments)})},{key:"showLoading",value:function(){document.querySelector("".concat(this.el)).innerHTML='<div class="loader"><img style="display:block;margin: 0 auto;" src=\''.concat(this.loading_img,"'></div>")}},{key:"createContainer",value:function(){for(var t in this.sort_container)"失联"==this.sort_container[t]?document.querySelector("".concat(this.el)).insertAdjacentHTML("beforeend","<details class='declare'><summary><strong>🚀失联友链</strong></summary><div class='content'><h2 id=".concat(this.sort_container[t],">").concat(this.sort_container[t],'</h2><div class="flink-desc">').concat(g(this,this.sort_container[t]),'</div><div class="flink-list-card"></div><div class="flink-list"><figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><table><tbody id="friend-error-list" style="text-align:left;"></tbody></table></figure></div></div></detail>')):document.querySelector("".concat(this.el)).insertAdjacentHTML("beforeend","<h2 id=".concat(this.sort_container[t],">").concat(this.sort_container[t],'</h2><div class="flink-desc">').concat(g(this,this.sort_container[t]),'</div><div class="flink-list-card"></div><div class="flink-list"></div>'))}},{key:"createFriend",value:function(){var t="",n=this.text;for(var e in document.querySelector(".loader").style.display="none",this.createContainer(),n)if(n[e].labels){var r=n[e].body,i=document.querySelector("#".concat(n[e].labels)),a=document.querySelectorAll("#"+n[e].labels);t=r.template,"card"==r.type?a.length?i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend",t):document.querySelector(this.el).insertAdjacentHTML("beforeend","<h2 id=".concat(n[e].labels,">").concat(n[e].labels,'</h2><div class="flink-desc">').concat(g(this,n[e].labels),"</div>")+'<div class="flink-list-card">'+t+'</div><div class="flink-list"></div>'):"item"==r.type?a.length?i.nextElementSibling.nextElementSibling.nextElementSibling?i.nextElementSibling.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend",t):i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend",t):document.querySelector(this.el).insertAdjacentHTML("beforeend","<h2 id=".concat(n[e].labels,">").concat(n[e].labels,'</h2><div class="flink-desc">').concat(g(this,n[e].labels),'</div><div class="flink-list">')+t+"</div>"):"error"==r.type&&(a.length?document.querySelector("#friend-error-list")?document.querySelector("#friend-error-list").insertAdjacentHTML("beforeend",t):i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend",t):document.querySelector(this.el).insertAdjacentHTML("beforeend","<details class='declare'><summary><strong>失联友链</strong></summary><h2 id=".concat(n[e].labels,">").concat(n[e].labels,'</h2><div class="flink-desc">').concat(g(this,n[e].labels),'</div><div class="flink-list"><figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><table><tbody id="friend-error-list" style="text-align:left;">')+t+"</tbody></table></figure></div></detail>"))}}},{key:"getFriends",value:function(t){return fetch(t.url).then((function(t){return t.json()})).then((function(n){if(t.text=[],n){for(var e in n.gitee)"open"==n.gitee[e].state&&((i={}).labels=p(n.gitee[e].label),"小伙伴"==i.labels||"大伙伴"==i.labels?n.gitee[e].body.card_style="item":"失联"==i.labels&&(n.gitee[e].body.card_style="error"),i.body=m(n.gitee[e].body,t.fail_img),t.text.push(i));for(var r in n.github){var i;"open"==n.github[r].state&&((i={}).labels=p(n.github[r].label),"小伙伴"==i.labels||"大伙伴"==i.labels?n.github[r].body.card_style="item":"失联"==i.labels&&(n.github[r].body.card_style="error"),i.body=m(n.github[r].body,t.fail_img),t.text.push(i))}}}))}}]),t}();window.Friend=y}()}();var obj={el:"#friend-card-group",url:"https://unpkg.com/friendsofmj@latest/friend.json",sort_container:["大伙伴","小伙伴","失联"],labelDescr:{"大伙伴":'<div class="note success">※ 以下友链来自<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>的ISSUE👍</div>',"小伙伴":'<div class="note success">※ 以下友链来自<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>的ISSUE😊</div>',"失联":'<div class="note warning">※ 以下友链可能走失，请前往<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>😭查看，如已恢复正常或有更改，请留言告知</div>'},fail_img:"/img/loading.gif",loading_img:"/img/clockloading.gif"};document.querySelector(".flink").insertAdjacentHTML("beforeEnd","<div id='friend-card-group'></div>"),new Friend(obj);
+!function() {
+    var n = {
+        926: function(n) {
+            function t(n, t, e, r, i, o, a) {
+                try {
+                    var c = n[o](a)
+                      , l = c.value
+                } catch (s) {
+                    return void e(s)
+                }
+                c.done ? t(l) : Promise.resolve(l).then(r, i)
+            }
+            n.exports = function(n) {
+                return function() {
+                    var e = this
+                      , r = arguments;
+                    return new Promise((function(i, o) {
+                        var a = n.apply(e, r);
+                        function c(n) {
+                            t(a, i, o, c, l, "next", n)
+                        }
+                        function l(n) {
+                            t(a, i, o, c, l, "throw", n)
+                        }
+                        c(undefined)
+                    }
+                    ))
+                }
+            }
+        },
+        575: function(n) {
+            n.exports = function(n, t) {
+                if (!(n instanceof t))
+                    throw new TypeError("Cannot call a class as a function")
+            }
+        },
+        913: function(n) {
+            function t(n, t) {
+                for (var e = 0; e < t.length; e++) {
+                    var r = t[e];
+                    r.enumerable = r.enumerable || !1,
+                    r.configurable = !0,
+                    "value"in r && (r.writable = !0),
+                    Object.defineProperty(n, r.key, r)
+                }
+            }
+            n.exports = function(n, e, r) {
+                return e && t(n.prototype, e),
+                r && t(n, r),
+                n
+            }
+        },
+        655: function(n) {
+            n.exports = function(n, t) {
+                return t || (t = n.slice(0)),
+                Object.freeze(Object.defineProperties(n, {
+                    raw: {
+                        value: Object.freeze(t)
+                    }
+                }))
+            }
+        },
+        553: function(n) {
+            var t = function(n) {
+                "use strict";
+                var t, e = Object.prototype, r = e.hasOwnProperty, i = "function" == typeof Symbol ? Symbol : {}, o = i.iterator || "@@iterator", a = i.asyncIterator || "@@asyncIterator", c = i.toStringTag || "@@toStringTag";
+                function l(n, t, e) {
+                    return Object.defineProperty(n, t, {
+                        value: e,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }),
+                    n[t]
+                }
+                try {
+                    l({}, "")
+                } catch (C) {
+                    l = function(n, t, e) {
+                        return n[t] = e
+                    }
+                }
+                function s(n, t, e, r) {
+                    var i = t && t.prototype instanceof m ? t : m
+                      , o = Object.create(i.prototype)
+                      , a = new O(r || []);
+                    return o._invoke = function(n, t, e) {
+                        var r = d;
+                        return function(i, o) {
+                            if (r === h)
+                                throw new Error("Generator is already running");
+                            if (r === p) {
+                                if ("throw" === i)
+                                    throw o;
+                                return F()
+                            }
+                            for (e.method = i,
+                            e.arg = o; ; ) {
+                                var a = e.delegate;
+                                if (a) {
+                                    var c = E(a, e);
+                                    if (c) {
+                                        if (c === v)
+                                            continue;
+                                        return c
+                                    }
+                                }
+                                if ("next" === e.method)
+                                    e.sent = e._sent = e.arg;
+                                else if ("throw" === e.method) {
+                                    if (r === d)
+                                        throw r = p,
+                                        e.arg;
+                                    e.dispatchException(e.arg)
+                                } else
+                                    "return" === e.method && e.abrupt("return", e.arg);
+                                r = h;
+                                var l = f(n, t, e);
+                                if ("normal" === l.type) {
+                                    if (r = e.done ? p : u,
+                                    l.arg === v)
+                                        continue;
+                                    return {
+                                        value: l.arg,
+                                        done: e.done
+                                    }
+                                }
+                                "throw" === l.type && (r = p,
+                                e.method = "throw",
+                                e.arg = l.arg)
+                            }
+                        }
+                    }(n, e, a),
+                    o
+                }
+                function f(n, t, e) {
+                    try {
+                        return {
+                            type: "normal",
+                            arg: n.call(t, e)
+                        }
+                    } catch (C) {
+                        return {
+                            type: "throw",
+                            arg: C
+                        }
+                    }
+                }
+                n.wrap = s;
+                var d = "suspendedStart"
+                  , u = "suspendedYield"
+                  , h = "executing"
+                  , p = "completed"
+                  , v = {};
+                function m() {}
+                function g() {}
+                function y() {}
+                var b = {};
+                b[o] = function() {
+                    return this
+                }
+                ;
+                var k = Object.getPrototypeOf
+                  , x = k && k(k(T([])));
+                x && x !== e && r.call(x, o) && (b = x);
+                var w = y.prototype = m.prototype = Object.create(b);
+                function _(n) {
+                    ["next", "throw", "return"].forEach((function(t) {
+                        l(n, t, (function(n) {
+                            return this._invoke(t, n)
+                        }
+                        ))
+                    }
+                    ))
+                }
+                function L(n, t) {
+                    function e(i, o, a, c) {
+                        var l = f(n[i], n, o);
+                        if ("throw" !== l.type) {
+                            var s = l.arg
+                              , d = s.value;
+                            return d && "object" == typeof d && r.call(d, "__await") ? t.resolve(d.__await).then((function(n) {
+                                e("next", n, a, c)
+                            }
+                            ), (function(n) {
+                                e("throw", n, a, c)
+                            }
+                            )) : t.resolve(d).then((function(n) {
+                                s.value = n,
+                                a(s)
+                            }
+                            ), (function(n) {
+                                return e("throw", n, a, c)
+                            }
+                            ))
+                        }
+                        c(l.arg)
+                    }
+                    var i;
+                    this._invoke = function(n, r) {
+                        function o() {
+                            return new t((function(t, i) {
+                                e(n, r, t, i)
+                            }
+                            ))
+                        }
+                        return i = i ? i.then(o, o) : o()
+                    }
+                }
+                function E(n, e) {
+                    var r = n.iterator[e.method];
+                    if (r === t) {
+                        if (e.delegate = null,
+                        "throw" === e.method) {
+                            if (n.iterator["return"] && (e.method = "return",
+                            e.arg = t,
+                            E(n, e),
+                            "throw" === e.method))
+                                return v;
+                            e.method = "throw",
+                            e.arg = new TypeError("The iterator does not provide a 'throw' method")
+                        }
+                        return v
+                    }
+                    var i = f(r, n.iterator, e.arg);
+                    if ("throw" === i.type)
+                        return e.method = "throw",
+                        e.arg = i.arg,
+                        e.delegate = null,
+                        v;
+                    var o = i.arg;
+                    return o ? o.done ? (e[n.resultName] = o.value,
+                    e.next = n.nextLoc,
+                    "return" !== e.method && (e.method = "next",
+                    e.arg = t),
+                    e.delegate = null,
+                    v) : o : (e.method = "throw",
+                    e.arg = new TypeError("iterator result is not an object"),
+                    e.delegate = null,
+                    v)
+                }
+                function j(n) {
+                    var t = {
+                        tryLoc: n[0]
+                    };
+                    1 in n && (t.catchLoc = n[1]),
+                    2 in n && (t.finallyLoc = n[2],
+                    t.afterLoc = n[3]),
+                    this.tryEntries.push(t)
+                }
+                function S(n) {
+                    var t = n.completion || {};
+                    t.type = "normal",
+                    delete t.arg,
+                    n.completion = t
+                }
+                function O(n) {
+                    this.tryEntries = [{
+                        tryLoc: "root"
+                    }],
+                    n.forEach(j, this),
+                    this.reset(!0)
+                }
+                function T(n) {
+                    if (n) {
+                        var e = n[o];
+                        if (e)
+                            return e.call(n);
+                        if ("function" == typeof n.next)
+                            return n;
+                        if (!isNaN(n.length)) {
+                            var i = -1
+                              , a = function e() {
+                                for (; ++i < n.length; )
+                                    if (r.call(n, i))
+                                        return e.value = n[i],
+                                        e.done = !1,
+                                        e;
+                                return e.value = t,
+                                e.done = !0,
+                                e
+                            };
+                            return a.next = a
+                        }
+                    }
+                    return {
+                        next: F
+                    }
+                }
+                function F() {
+                    return {
+                        value: t,
+                        done: !0
+                    }
+                }
+                return g.prototype = w.constructor = y,
+                y.constructor = g,
+                g.displayName = l(y, c, "GeneratorFunction"),
+                n.isGeneratorFunction = function(n) {
+                    var t = "function" == typeof n && n.constructor;
+                    return !!t && (t === g || "GeneratorFunction" === (t.displayName || t.name))
+                }
+                ,
+                n.mark = function(n) {
+                    return Object.setPrototypeOf ? Object.setPrototypeOf(n, y) : (n.__proto__ = y,
+                    l(n, c, "GeneratorFunction")),
+                    n.prototype = Object.create(w),
+                    n
+                }
+                ,
+                n.awrap = function(n) {
+                    return {
+                        __await: n
+                    }
+                }
+                ,
+                _(L.prototype),
+                L.prototype[a] = function() {
+                    return this
+                }
+                ,
+                n.AsyncIterator = L,
+                n.async = function(t, e, r, i, o) {
+                    void 0 === o && (o = Promise);
+                    var a = new L(s(t, e, r, i),o);
+                    return n.isGeneratorFunction(e) ? a : a.next().then((function(n) {
+                        return n.done ? n.value : a.next()
+                    }
+                    ))
+                }
+                ,
+                _(w),
+                l(w, c, "Generator"),
+                w[o] = function() {
+                    return this
+                }
+                ,
+                w.toString = function() {
+                    return "[object Generator]"
+                }
+                ,
+                n.keys = function(n) {
+                    var t = [];
+                    for (var e in n)
+                        t.push(e);
+                    return t.reverse(),
+                    function r() {
+                        for (; t.length; ) {
+                            var e = t.pop();
+                            if (e in n)
+                                return r.value = e,
+                                r.done = !1,
+                                r
+                        }
+                        return r.done = !0,
+                        r
+                    }
+                }
+                ,
+                n.values = T,
+                O.prototype = {
+                    constructor: O,
+                    reset: function(n) {
+                        if (this.prev = 0,
+                        this.next = 0,
+                        this.sent = this._sent = t,
+                        this.done = !1,
+                        this.delegate = null,
+                        this.method = "next",
+                        this.arg = t,
+                        this.tryEntries.forEach(S),
+                        !n)
+                            for (var e in this)
+                                "t" === e.charAt(0) && r.call(this, e) && !isNaN(+e.slice(1)) && (this[e] = t)
+                    },
+                    stop: function() {
+                        this.done = !0;
+                        var n = this.tryEntries[0].completion;
+                        if ("throw" === n.type)
+                            throw n.arg;
+                        return this.rval
+                    },
+                    dispatchException: function(n) {
+                        if (this.done)
+                            throw n;
+                        var e = this;
+                        function i(r, i) {
+                            return c.type = "throw",
+                            c.arg = n,
+                            e.next = r,
+                            i && (e.method = "next",
+                            e.arg = t),
+                            !!i
+                        }
+                        for (var o = this.tryEntries.length - 1; o >= 0; --o) {
+                            var a = this.tryEntries[o]
+                              , c = a.completion;
+                            if ("root" === a.tryLoc)
+                                return i("end");
+                            if (a.tryLoc <= this.prev) {
+                                var l = r.call(a, "catchLoc")
+                                  , s = r.call(a, "finallyLoc");
+                                if (l && s) {
+                                    if (this.prev < a.catchLoc)
+                                        return i(a.catchLoc, !0);
+                                    if (this.prev < a.finallyLoc)
+                                        return i(a.finallyLoc)
+                                } else if (l) {
+                                    if (this.prev < a.catchLoc)
+                                        return i(a.catchLoc, !0)
+                                } else {
+                                    if (!s)
+                                        throw new Error("try statement without catch or finally");
+                                    if (this.prev < a.finallyLoc)
+                                        return i(a.finallyLoc)
+                                }
+                            }
+                        }
+                    },
+                    abrupt: function(n, t) {
+                        for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+                            var i = this.tryEntries[e];
+                            if (i.tryLoc <= this.prev && r.call(i, "finallyLoc") && this.prev < i.finallyLoc) {
+                                var o = i;
+                                break
+                            }
+                        }
+                        o && ("break" === n || "continue" === n) && o.tryLoc <= t && t <= o.finallyLoc && (o = null);
+                        var a = o ? o.completion : {};
+                        return a.type = n,
+                        a.arg = t,
+                        o ? (this.method = "next",
+                        this.next = o.finallyLoc,
+                        v) : this.complete(a)
+                    },
+                    complete: function(n, t) {
+                        if ("throw" === n.type)
+                            throw n.arg;
+                        return "break" === n.type || "continue" === n.type ? this.next = n.arg : "return" === n.type ? (this.rval = this.arg = n.arg,
+                        this.method = "return",
+                        this.next = "end") : "normal" === n.type && t && (this.next = t),
+                        v
+                    },
+                    finish: function(n) {
+                        for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                            var e = this.tryEntries[t];
+                            if (e.finallyLoc === n)
+                                return this.complete(e.completion, e.afterLoc),
+                                S(e),
+                                v
+                        }
+                    },
+                    "catch": function(n) {
+                        for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                            var e = this.tryEntries[t];
+                            if (e.tryLoc === n) {
+                                var r = e.completion;
+                                if ("throw" === r.type) {
+                                    var i = r.arg;
+                                    S(e)
+                                }
+                                return i
+                            }
+                        }
+                        throw new Error("illegal catch attempt")
+                    },
+                    delegateYield: function(n, e, r) {
+                        return this.delegate = {
+                            iterator: T(n),
+                            resultName: e,
+                            nextLoc: r
+                        },
+                        "next" === this.method && (this.arg = t),
+                        v
+                    }
+                },
+                n
+            }(n.exports);
+            try {
+                regeneratorRuntime = t
+            } catch (e) {
+                Function("r", "regeneratorRuntime = r")(t)
+            }
+        },
+        757: function(n, t, e) {
+            n.exports = e(553)
+        },
+        663: function(n, t, e) {
+            "use strict";
+            var r = e(645)
+              , i = e.n(r)()((function(n) {
+                return n[1]
+            }
+            ));
+            i.push([n.id, "/* 头像自动旋转 */\n@keyframes auto_rotate_left {\n  from {\n    transform: rotate(0);\n  }\n  to {\n    transform: rotate(-360deg);\n  }\n}\n@keyframes auto_rotate_right {\n  from {\n    transform: rotate(0);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n#article-container .flink .flink-list > .flink-list-item {\n  border: 0px solid #49b1f5;\n  border: 0px solid var(--primary-color, #49b1f5);\n}\n#article-container .flink .flink-list > .flink-list-item a {\n  color: #000;\n  color: var(--namecolor, #000);\n  text-decoration: none;\n}\n#article-container .flink .flink-list > .flink-list-item a:hover {\n  color: #fff;\n  color: var(--namecolorHover, #fff);\n}\n#article-container .flink .flink-list > .flink-list-item a:hover span {\n  transition: 0.6s;\n  transform: translateX(-75px);\n}\n#article-container .flink .flink-list > .flink-list-item a .lauto {\n  animation: auto_rotate_left var(--autotime) linear infinite;\n}\n#article-container .flink .flink-list > .flink-list-item a .rauto {\n  animation: auto_rotate_right var(--autotime) linear infinite;\n}\n#article-container .flink .flink-list > .flink-list-item a span {\n  transition: 0.3s;\n}\n#article-container .flink .flink-list > .flink-list-item:before {\n  background: #49b1f5;\n  background: var(--primary-color, #49b1f5);\n}\n#article-container .flink .flink-list > .flink-list-item:hover {\n  background: #49b1f5;\n  background: var(--primary-color, #49b1f5);\n  box-shadow: 0 2px 20px #49b1f5;\n  box-shadow: 0 2px 20px var(--primary-color, #49b1f5);\n  animation-play-state: paused;\n}\n#article-container .flink .flink-list > .flink-list-item:hover img {\n  transform: rotate(var(--primary-rotate));\n}\n#article-container .flink .flink-list > .flink-list-item .customcolor {\n  color: #1f2d3d;\n  color: var(--namecolor, #1f2d3d);\n}\n#article-container .flink .flink-list > .flink-list-item .customcolor:hover {\n  color: #fff;\n}\n@keyframes coverIn {\n  0% {\n    opacity: 0.6;\n  }\n  to {\n    opacity: 1;\n  }\n}\n#article-container img {\n  margin: 0;\n}\n.flink-list-card {\n  overflow: auto;\n}\n.flink-list-card > a {\n  width: calc(100% / 4 - 15px);\n  height: 130px;\n  position: relative;\n  display: block;\n  margin: 15px 7px;\n  float: left;\n  overflow: hidden;\n  border-radius: 3px;\n  transition: all 0.3s ease 0s, transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;\n  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.06);\n}\n.flink-list-card > a:hover .info {\n  transform: translateY(-100%);\n}\n.flink-list-card > a:hover .wrapper img {\n  transform: scale(1.2);\n}\n.flink-list-card > a .cover {\n  width: 100%;\n  transition: transform 0.5s ease-out;\n}\n.flink-list-card > a .wrapper {\n  position: relative;\n}\n.flink-list-card > a .wrapper .fadeIn {\n  animation: coverIn 0.8s ease-out forwards;\n}\n.flink-list-card > a .wrapper .cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.flink-list-card > a .info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  border-radius: 3px;\n  background-color: rgba(255, 255, 255, 0.7);\n  transition: transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;\n}\n.flink-list-card > a .info img {\n  position: relative;\n  top: 22px;\n  width: 66px;\n  height: 66px;\n  border-radius: 50%;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\n  z-index: 1;\n}\n.flink-list-card > a .info span {\n  padding: 20px 0 12px;\n  font-size: 16px;\n  width: 100%;\n  text-align: center;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0.7);\n  color: var(--font-color);\n}\n@media screen and (max-width: 1024px) {\n  .flink-list-card > a {\n    width: calc(100% / 3 - 15px);\n  }\n}\n@media screen and (max-width: 600px) {\n  .flink-list-card > a {\n    width: calc(100% / 2 - 15px);\n  }\n}\n[data-theme='dark'] .flink-list-card a .info,\n[data-theme='dark'] .flink-list-card a .info span {\n  background-color: rgba(0, 0, 0, 0.6);\n}\n", ""]),
+            t.Z = i
+        },
+        645: function(n) {
+            "use strict";
+            n.exports = function(n) {
+                var t = [];
+                return t.toString = function() {
+                    return this.map((function(t) {
+                        var e = n(t);
+                        return t[2] ? "@media ".concat(t[2], " {").concat(e, "}") : e
+                    }
+                    )).join("")
+                }
+                ,
+                t.i = function(n, e, r) {
+                    "string" == typeof n && (n = [[null, n, ""]]);
+                    var i = {};
+                    if (r)
+                        for (var o = 0; o < this.length; o++) {
+                            var a = this[o][0];
+                            null != a && (i[a] = !0)
+                        }
+                    for (var c = 0; c < n.length; c++) {
+                        var l = [].concat(n[c]);
+                        r && i[l[0]] || (e && (l[2] ? l[2] = "".concat(e, " and ").concat(l[2]) : l[2] = e),
+                        t.push(l))
+                    }
+                }
+                ,
+                t
+            }
+        },
+        379: function(n, t, e) {
+            "use strict";
+            var r, i = function() {
+                return void 0 === r && (r = Boolean(window && document && document.all && !window.atob)),
+                r
+            }, o = function() {
+                var n = {};
+                return function(t) {
+                    if ("undefined" == typeof n[t]) {
+                        var e = document.querySelector(t);
+                        if (window.HTMLIFrameElement && e instanceof window.HTMLIFrameElement)
+                            try {
+                                e = e.contentDocument.head
+                            } catch (r) {
+                                e = null
+                            }
+                        n[t] = e
+                    }
+                    return n[t]
+                }
+            }(), a = [];
+            function c(n) {
+                for (var t = -1, e = 0; e < a.length; e++)
+                    if (a[e].identifier === n) {
+                        t = e;
+                        break
+                    }
+                return t
+            }
+            function l(n, t) {
+                for (var e = {}, r = [], i = 0; i < n.length; i++) {
+                    var o = n[i]
+                      , l = t.base ? o[0] + t.base : o[0]
+                      , s = e[l] || 0
+                      , f = "".concat(l, " ").concat(s);
+                    e[l] = s + 1;
+                    var d = c(f)
+                      , u = {
+                        css: o[1],
+                        media: o[2],
+                        sourceMap: o[3]
+                    };
+                    -1 !== d ? (a[d].references++,
+                    a[d].updater(u)) : a.push({
+                        identifier: f,
+                        updater: m(u, t),
+                        references: 1
+                    }),
+                    r.push(f)
+                }
+                return r
+            }
+            function s(n) {
+                var t = document.createElement("style")
+                  , r = n.attributes || {};
+                if ("undefined" == typeof r.nonce) {
+                    var i = e.nc;
+                    i && (r.nonce = i)
+                }
+                if (Object.keys(r).forEach((function(n) {
+                    t.setAttribute(n, r[n])
+                }
+                )),
+                "function" == typeof n.insert)
+                    n.insert(t);
+                else {
+                    var a = o(n.insert || "head");
+                    if (!a)
+                        throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+                    a.appendChild(t)
+                }
+                return t
+            }
+            var f, d = (f = [],
+            function(n, t) {
+                return f[n] = t,
+                f.filter(Boolean).join("\n")
+            }
+            );
+            function u(n, t, e, r) {
+                var i = e ? "" : r.media ? "@media ".concat(r.media, " {").concat(r.css, "}") : r.css;
+                if (n.styleSheet)
+                    n.styleSheet.cssText = d(t, i);
+                else {
+                    var o = document.createTextNode(i)
+                      , a = n.childNodes;
+                    a[t] && n.removeChild(a[t]),
+                    a.length ? n.insertBefore(o, a[t]) : n.appendChild(o)
+                }
+            }
+            function h(n, t, e) {
+                var r = e.css
+                  , i = e.media
+                  , o = e.sourceMap;
+                if (i ? n.setAttribute("media", i) : n.removeAttribute("media"),
+                o && "undefined" != typeof btoa && (r += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(o)))), " */")),
+                n.styleSheet)
+                    n.styleSheet.cssText = r;
+                else {
+                    for (; n.firstChild; )
+                        n.removeChild(n.firstChild);
+                    n.appendChild(document.createTextNode(r))
+                }
+            }
+            var p = null
+              , v = 0;
+            function m(n, t) {
+                var e, r, i;
+                if (t.singleton) {
+                    var o = v++;
+                    e = p || (p = s(t)),
+                    r = u.bind(null, e, o, !1),
+                    i = u.bind(null, e, o, !0)
+                } else
+                    e = s(t),
+                    r = h.bind(null, e, t),
+                    i = function() {
+                        !function(n) {
+                            if (null === n.parentNode)
+                                return !1;
+                            n.parentNode.removeChild(n)
+                        }(e)
+                    }
+                    ;
+                return r(n),
+                function(t) {
+                    if (t) {
+                        if (t.css === n.css && t.media === n.media && t.sourceMap === n.sourceMap)
+                            return;
+                        r(n = t)
+                    } else
+                        i()
+                }
+            }
+            n.exports = function(n, t) {
+                (t = t || {}).singleton || "boolean" == typeof t.singleton || (t.singleton = i());
+                var e = l(n = n || [], t);
+                return function(n) {
+                    if (n = n || [],
+                    "[object Array]" === Object.prototype.toString.call(n)) {
+                        for (var r = 0; r < e.length; r++) {
+                            var i = c(e[r]);
+                            a[i].references--
+                        }
+                        for (var o = l(n, t), s = 0; s < e.length; s++) {
+                            var f = c(e[s]);
+                            0 === a[f].references && (a[f].updater(),
+                            a.splice(f, 1))
+                        }
+                        e = o
+                    }
+                }
+            }
+        }
+    }
+      , t = {};
+    function e(r) {
+        if (t[r])
+            return t[r].exports;
+        var i = t[r] = {
+            id: r,
+            exports: {}
+        };
+        return n[r](i, i.exports, e),
+        i.exports
+    }
+    e.n = function(n) {
+        var t = n && n.__esModule ? function() {
+            return n["default"]
+        }
+        : function() {
+            return n
+        }
+        ;
+        return e.d(t, {
+            a: t
+        }),
+        t
+    }
+    ,
+    e.d = function(n, t) {
+        for (var r in t)
+            e.o(t, r) && !e.o(n, r) && Object.defineProperty(n, r, {
+                enumerable: !0,
+                get: t[r]
+            })
+    }
+    ,
+    e.o = function(n, t) {
+        return Object.prototype.hasOwnProperty.call(n, t)
+    }
+    ,
+    function() {
+        "use strict";
+        var n = e(757)
+          , t = e.n(n)
+          , r = e(926)
+          , i = e.n(r)
+          , o = e(575)
+          , a = e.n(o)
+          , c = e(913)
+          , l = e.n(c)
+          , s = e(379)
+          , f = e.n(s)
+          , d = e(663)
+          , u = {
+            insert: "head",
+            singleton: !1
+        };
+        f()(d.Z, u),
+        d.Z.locals,
+        e(655);
+        var h = function(n) {
+            var t = ["--primary-color", "border-width", "border-style", "animation", "background", "--primary-rotate", "--namecolor", "--namecolorHover"]
+              , e = "";
+            for (var r in t) {
+                var i = n[t[r]];
+                "你写的好像不对哦！" !== i && (e += "".concat(t[r], ":").concat(i, ";"))
+            }
+            return e
+        }
+          , p = function(n) {
+            var t = ["img_animation"]
+              , e = "";
+            for (var r in t) {
+                var i = n[t[r]];
+                "你写的好像不对哦！" !== i && (e += "".concat(i, ";"))
+            }
+            return e
+        }
+          , v = function(n) {
+            if (n.length)
+                return n[0].name
+        }
+          , m = function(n, t) {
+            return n || "https://image.thum.io/get/width/1024/crop/768/".concat(t)
+        }
+          , g = function(n, t) {
+            var e = n.link
+              , r = n.name
+              , i = n.link
+              , o = n.screenshot
+              , a = n.avatar
+              , c = n.descr
+              , l = n.card_style
+              , s = {
+                item: '<div class="flink-list-item" style="'.concat(h(n), '"><a href="').concat(e, '" title="').concat(r, '" target="_blank"><img class="rauto loaded" style="animation:').concat(p(n), '" data-lazy-src="').concat(a, '" onerror="this.onerror=null,this.src=\'').concat(t, '\'" alt="').concat(r, '" src="').concat(a, '"><div class="flink-item-info"><span class="flink-item-name">').concat(r, '</span><span class="flink-item-desc" title="').concat(c, '">').concat(c, "</span></div></a></div>"),
+                card: '<a href="'.concat(e, '" target="_blank"\n    ><div class="wrapper cover">\n      <img\n        src="').concat(m(o, i), '"\n        class="cover fadeIn"\n      />\n    </div>\n    <div class="info">\n    <img class=\'loaded\' data-lazy-src="').concat(a, '" onerror="this.onerror=null;this.src=\'').concat(t, '\'" alt="').concat(r, '" src="').concat(a, '">\n      <span>').concat(r, "</span>\n    </div>\n    </a>"),
+                error: '<tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">'.concat(r,'</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">').concat(c,'</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">').concat(e,'</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">').concat(a,'</span></span><br></pre></td></tr>')
+            };
+            return {
+                type: l,
+                template: s[l] ? s[l] : s.item
+            }
+        }
+          , y = function(n, t) {
+            var e = "";
+            return n.labelDescr[t] && (e = n.labelDescr[t]),
+            e
+        }
+          , b = function() {
+            function n(t) {
+                a()(this, n);
+                var e = t.url
+                  , r = t.sort_container
+                  , i = t.labelDescr
+                  , o = t.el
+                  , c = t.fail_img
+                  , l = t.loading_img;
+                this.url = e,
+                this.sort_container = r,
+                this.labelDescr = i,
+                this.el = o,
+                this.text = [],
+                this.fail_img = c || "/img/loading.gif",
+                this.loading_img = l || "https://npm.elemecdn.com/justlovesmile-static/img/clockloading.gif",
+                this.init()
+            }
+            var e;
+            return l()(n, [{
+                key: "init",
+                value: function() {
+                    this.getPageFriend()
+                }
+            }, {
+                key: "getPageFriend",
+                value: (e = i()(t().mark((function r() {
+                    return t().wrap((function(n) {
+                        for (; ; )
+                            switch (n.prev = n.next) {
+                            case 0:
+                                return this.showLoading(),
+                                n.next = 3,
+                                this.getFriends(this);
+                            case 3:
+                                this.createFriend();
+                            case 4:
+                            case "end":
+                                return n.stop()
+                            }
+                    }
+                    ), r, this)
+                }
+                ))),
+                function() {
+                    return e.apply(this, arguments)
+                }
+                )
+            }, {
+                key: "showLoading",
+                value: function() {
+                    document.querySelector("".concat(this.el)).innerHTML = '<div class="loader"><img style="display:block;margin: 0 auto;" src=\''.concat(this.loading_img, "'></div>")
+                }
+            }, {
+                key: "createContainer",
+                value: function() {
+                    for (var n in this.sort_container){
+                        if (this.sort_container[n]=="失联"){
+                            document.querySelector("".concat(this.el)).insertAdjacentHTML("beforeend", "<details class='declare'><summary><strong>🚀失联友链</strong></summary><div class='content'><h2 id=".concat(this.sort_container[n], ">").concat(this.sort_container[n], '</h2><div class="flink-desc">').concat(y(this, this.sort_container[n]), '</div><div class="flink-list-card"></div><div class="flink-list"><figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><table><tbody id="friend-error-list" style="text-align:left;"></tbody></table></figure></div></div></detail>'))
+                        }else{
+                        document.querySelector("".concat(this.el)).insertAdjacentHTML("beforeend", "<h2 id=".concat(this.sort_container[n], ">").concat(this.sort_container[n], '</h2><div class="flink-desc">').concat(y(this, this.sort_container[n]), '</div><div class="flink-list-card"></div><div class="flink-list"></div>'))
+                    }
+                  }
+                }
+            }, {
+                key: "createFriend",
+                value: function() {
+                    var n = ""
+                      , t = this.text;
+                    for (var e in document.querySelector(".loader").style.display = "none",
+                    this.createContainer(),
+                    t)
+                        if (t[e].labels) {
+                            var r = t[e].body
+                              , i = document.querySelector("#".concat(t[e].labels))
+                              , o = document.querySelectorAll("#" + t[e].labels);
+                            n = r.template,
+                            "card" == r.type ? (o.length ? i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend", n) : document.querySelector(this.el).insertAdjacentHTML("beforeend", "<h2 id=".concat(t[e].labels, ">").concat(t[e].labels, '</h2><div class="flink-desc">').concat(y(this, t[e].labels), "</div>") + '<div class="flink-list-card">' + n + '</div><div class="flink-list"></div>')) : ("item" == r.type ? (o.length ? (i.nextElementSibling.nextElementSibling.nextElementSibling ? i.nextElementSibling.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend", n) : i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend", n)) : document.querySelector(this.el).insertAdjacentHTML("beforeend", "<h2 id=".concat(t[e].labels, ">").concat(t[e].labels, '</h2><div class="flink-desc">').concat(y(this, t[e].labels), '</div><div class="flink-list">') + n + "</div>")) : ("error"==r.type ? (o.length ? (document.querySelector("#friend-error-list") ? document.querySelector("#friend-error-list").insertAdjacentHTML("beforeend", n) : i.nextElementSibling.nextElementSibling.insertAdjacentHTML("beforeend", n)) : document.querySelector(this.el).insertAdjacentHTML("beforeend", "<details class='declare'><summary><strong>失联友链</strong></summary><h2 id=".concat(t[e].labels, ">").concat(t[e].labels, '</h2><div class="flink-desc">').concat(y(this, t[e].labels), '</div><div class="flink-list"><figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><table><tbody id="friend-error-list" style="text-align:left;">') + n + "</tbody></table></figure></div></detail>")): "")) 
+                        }
+                }
+            }, {
+                key: "getFriends",
+                value: function(n) {
+                    return fetch(n.url).then((function(n) {
+                        return n.json()
+                    }
+                    )).then((function(t) {
+                        if (n.text = [],
+                        t) {
+                            for (var e in t.gitee) {
+                                if ("open" == t.gitee[e].state){
+                                    (i = {}).labels = v(t.gitee[e].label);
+                                    if (i.labels=="小伙伴"){
+                                        t.gitee[e].body.card_style="item"
+                                    }
+                                    else if (i.labels=="大伙伴"){
+                                        t.gitee[e].body.card_style="item"
+                                    }
+                                    else if (i.labels=="失联"){
+                                        t.gitee[e].body.card_style="error"
+                                    }
+                                    i.body = g(t.gitee[e].body, n.fail_img);
+                                    n.text.push(i);
+                                }
+                            }
+                            for (var r in t.github) {
+                                var i;
+                                if ("open" == t.github[r].state){
+                                    (i = {}).labels = v(t.github[r].label);
+                                    if (i.labels=="小伙伴"){
+                                        t.github[r].body.card_style="item"
+                                    }
+                                    else if (i.labels=="大伙伴"){
+                                        t.github[r].body.card_style="item"
+                                    }
+                                    else if (i.labels=="失联"){
+                                        t.github[r].body.card_style="error"
+                                    }
+                                    i.body = g(t.github[r].body, n.fail_img);
+                                    n.text.push(i)
+                                }
+                            }
+                        }
+                    }
+                    ))
+                }
+            }]),
+            n
+        }();
+        window.Friend = b
+    }()
+}();
+
+var obj = {
+    // 容器选择器
+    el: '#friend-card-group',
+    // 你的友链JSON 需配合项目 https://www.yuque.com/kdoc/bf/dcu90d 使用
+    url: 'https://unpkg.com/friendsofmj@latest/friend.json',
+    //url: 'https://npm.elemecdn.com//friendsofmj/friend.json',
+    // 按标签排序
+    sort_container: ['大伙伴','小伙伴','失联'],
+    // 标签描述
+    labelDescr: {
+      大伙伴: '<div class="note success">※ 以下友链来自<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>的ISSUE👍</div>',
+      小伙伴: '<div class="note success">※ 以下友链来自<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>的ISSUE😊</div>',
+      失联: '<div class="note warning">※ 以下友链可能走失，请前往<a href="https://gitee.com/justlovesmile/friendissue/issues">Gitee</a>或<a href="https://github.com/Justlovesmile/friend-issue/issues">Github</a>😭查看，如已恢复正常或有更改，请留言告知</div>'
+    },
+    // 头像加载失败时显示的图像(可不填，有默认值)
+    fail_img: '/img/loading.gif',
+    // loading的图片
+    loading_img: '/img/clockloading.gif',
+  };
+document.querySelector('.flink').insertAdjacentHTML('beforeEnd',"<div id='friend-card-group'></div>");
+new Friend(obj);
