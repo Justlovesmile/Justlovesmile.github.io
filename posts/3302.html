@@ -255,7 +255,7 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects.vercel.app',
+      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects',
       region: '',
       onCommentLoaded: function () {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -267,7 +267,7 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects.vercel.app',
+      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
