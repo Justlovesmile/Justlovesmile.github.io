@@ -79,8 +79,8 @@
 }
 #cf-more:hover {
 	width:60%;
-	background:var(--mj-main);
-	color:var(--mj-white)
+	background:var(--site-main);
+	color:var(--site-white)
 }
 #cf-more i.fas::before {
 	content:"加载更多"
@@ -103,7 +103,7 @@
 }
 #cf-container a:hover {
 	border-bottom:none;
-	background-color:var(--mj-none);
+	background-color:var(--site-none);
 	box-shadow:none
 }
 #cf-container .img-alt {
@@ -155,10 +155,10 @@ img.cf-img-avatar {
 	transition:.3s
 }
 .cf-article-avatar a:hover span {
-	color:var(--mj-lighttext)
+	color:var(--site-lighttext)
 }
 .cf-article-author:hover {
-	color:var(--mj-lighttext)
+	color:var(--site-lighttext)
 }
 .cf-article-author .cf-img-avatar {
 	margin-right:.3rem
@@ -255,14 +255,14 @@ img.cf-img-avatar {
 	top:50%;
 	transform:translate(-50%,-50%);
 	box-shadow:0 12px 40px rgba(0,0,0,.093);
-	background:var(--mj-theme)
+	background:var(--site-theme)
 }
 .cf-overshow-head:hover img.cf-img-avatar {
 	transform:rotate(360deg);
 	transition:.8s
 }
 .cf-overshow .cf-overshow-head a {
-	color:var(--mj-white);
+	color:var(--site-white);
 	display:block;
 	text-align:center;
 	font-weight:700;
@@ -302,7 +302,7 @@ img.cf-img-avatar {
 	display:box;
 	-webkit-line-clamp:2;
 	-webkit-box-orient:vertical;
-	color:var(--mj-fontcolor);
+	color:var(--site-fontcolor);
 }
 .cf-overshow p span {
 	z-index:1;
@@ -317,7 +317,7 @@ img.cf-img-avatar {
 	padding:10px 15px 10px;
 	border-bottom-left-radius:20px;
 	border-bottom-right-radius:20px;
-	background:var(--mj-card-bg);
+	background:var(--site-card-bg);
 	display:flex;
 	flex-direction:column
 }
@@ -331,19 +331,19 @@ img.cf-img-avatar {
 	height:100%
 }
 .cf-article .cf-article-title:hover {
-	color:var(--mj-lighttext)!important
+	color:var(--site-lighttext)!important
 }
 #cf-more,#cf-state {
-	background:var(--mj-secondbg);
-	color:var(--mj-fontcolor)
+	background:var(--site-secondbg);
+	color:var(--site-fontcolor)
 }
 #cf-change,.cf-article-floor,.cf-time-created,.cf-time-updated {
-	color:var(--mj-fontcolor);
+	color:var(--site-fontcolor);
 	opacity:.4;
 	transition:.3s
 }
 .cf-article a.cf-article-title,.cf-article-author,.cf-article:hover .cf-article-floor,.cf-article:hover .cf-time-created,.cf-article:hover .cf-time-updated {
-	color:var(--mj-fontcolor);
+	color:var(--site-fontcolor);
 	opacity:1
 }
 .cf-article {
@@ -358,18 +358,18 @@ img.cf-img-avatar {
 	border:var(--style-hover-border);
 }
 #cf-change span:hover {
-	color:var(--mj-lighttext);
+	color:var(--site-lighttext);
 	cursor:pointer
 }
 #cf-change .cf-change-now {
-	color:var(--mj-lighttext);
+	color:var(--site-lighttext);
 	font-weight:800
 }
 .cf-overshow p a:hover {
-	color:var(--mj-lighttext)!important
+	color:var(--site-lighttext)!important
 }
 .cf-overshow p span {
-	color:var(--mj-fontcolor);
+	color:var(--site-fontcolor);
 	opacity:.4
 }
 .dark-theme #cf-overlay,.theme-dark #cf-overlay {

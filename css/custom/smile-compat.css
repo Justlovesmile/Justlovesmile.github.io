@@ -1,0 +1,29 @@
+:root {
+  --site-main: var(--efu-main);
+  --site-theme: var(--efu-theme);
+  --site-theme-op: var(--efu-theme-op);
+  --site-lighttext: var(--efu-lighttext);
+  --site-fontcolor: var(--efu-fontcolor);
+  --site-titlecolor: var(--efu-fontcolor);
+  --site-metacolor: var(--efu-secondtext);
+  --site-secondtext: var(--efu-secondtext);
+  --site-card-bg: var(--efu-card-bg);
+  --site-card-border: var(--efu-card-border);
+  --site-secondbg: var(--efu-secondbg);
+  --site-gray-op: var(--efu-gray-op);
+  --site-white: var(--efu-white);
+  --site-none: var(--efu-none);
+  --site-shadow-border: var(--efu-shadow-border);
+  --site-shadow-lightblack: var(--efu-shadow-lightblack);
+  --card-hover-box-shadow: var(--efu-shadow-main);
+}
+
+body {
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+.echarts-tooltip,
+div[style*="background-color: rgb(255, 255, 255)"] {
+  color: var(--efu-fontcolor);
+}

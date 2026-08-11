@@ -1,5 +1,9 @@
 var start_date = '20210101' // 开始日期
 var date = new Date();
+(async () => {
+if (!window.echarts) {
+  await Solitude.getScript('https://npm.elemecdn.com/echarts@4.7.0/dist/echarts.min.js', {id: 'echarts-runtime'})
+}
 var end_date = date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
 var access_token = '121.b1b7e4e4f67b068029060db26898605a.YHdc9aV68wnG7U_gYI66D5R_ZRxlbU4kpWCdLqA.gSHKHQ' // accessToken
 var site_id = '13889331' // 网址 id
@@ -68,8 +72,9 @@ function mapChart () {
           },
           data: ${mapArrJson}
           }]
-        };
+      };
       mapChart.setOption(mapOption);
+      window.refreshSiteChartsTheme?.();
       window.addEventListener("resize", () => { 
         mapChart.resize();
       });`
@@ -185,6 +190,7 @@ function trendsChart () {
           }]
         };
         trendsChart.setOption(trendsOption);
+        window.refreshSiteChartsTheme?.();
         window.addEventListener("resize", () => { 
           trendsChart.resize();
         });`
@@ -252,6 +258,7 @@ function sourcesChart () {
           }]
         };
         sourcesChart.setOption(sourcesOption);
+        window.refreshSiteChartsTheme?.();
         window.addEventListener("resize", () => { 
           sourcesChart.resize();
         });`
@@ -264,3 +271,4 @@ function sourcesChart () {
 if (document.getElementById('map-chart')) mapChart()
 if (document.getElementById('trends-chart')) trendsChart()
 if (document.getElementById('sources-chart')) sourcesChart()
+})()

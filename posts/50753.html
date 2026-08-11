@@ -1,185 +1,261 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>大学课程 | 编译原理知识点 | Justlovesmile's BLOG</title><meta name="author" content="Justlovesmile,865717150@qq.com"><meta name="copyright" content="Justlovesmile"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="大三编译原理复习知识点">
-<meta property="og:type" content="article">
-<meta property="og:title" content="大学课程 | 编译原理知识点">
-<meta property="og:url" content="https://blog.justlovesmile.top/posts/50753.html">
-<meta property="og:site_name" content="Justlovesmile&#39;s BLOG">
-<meta property="og:description" content="大三编译原理复习知识点">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg">
-<meta property="article:published_time" content="2019-10-25T14:22:39.000Z">
-<meta property="article:modified_time" content="2019-10-25T14:22:39.000Z">
-<meta property="article:author" content="Justlovesmile">
-<meta property="article:tag" content="大学课程">
-<meta property="article:tag" content="编译原理">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://blog.justlovesmile.top/posts/50753.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//sdk.51.la"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/SnackBar-0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"Jjiy0nZXL36jA5Tw",ck:"Jjiy0nZXL36jA5Tw"});
-</script><script>!(function(c,i,e,b){
-var h=i.createElement("script");
-var f=i.getElementsByTagName("script")[0];
-h.type="text/javascript";
-h.crossorigin=true;
-h.onload=function(){new c[b]["Monitor"]().init({id:"JjiylmjLzsi6Expg"});};
-f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/perf/js-sdk-perf.min.js","LingQue");</script><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/font/Titillium.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: {"limitCount":200,"languages":{"author":"作者: Justlovesmile","link":"链接: ","source":"来源: Justlovesmile's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"var(--mj-main)","bgDark":"var(--mj-main)","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://npm.elemecdn.com/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://npm.elemecdn.com/flickr-justified-gallery/dist/fjGallery.css'
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>学习手札 | 编译原理知识点 | XMJ's BLOG</title><noscript>开启 JavaScript 后才能访问本站</noscript><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css?v=4.0.0"><link rel="canonical" href="https://blog.xiemingjie.cn/posts/50753.html"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.0/css/all.min.css"><!-- Feature-specific CSS--><!-- aplayer--><!-- swiper--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.5/swiper-bundle.min.css"><!-- fancybox ui--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.min.css"><!-- Open Graph--><meta name="description" content="大三编译原理复习知识点 问题？ 什么是解释器？什么是编辑器？什么是前端后端？分析和综合？遍？翻译过程的输入输出？T型图的意义描述？ 词法分析：什么是正则表达式？什么是有穷自动机？DFA？NFA？区别，特点？基本概念？正则表达式到NFA到DFA，再最小化。构建方法。扫描器功能的输入输出？什么是字母"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="XMJ's BLOG"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/favicon.ico"><link rel="apple-touch-icon" href="/img/favicon.ico" sizes="180x180"><script>let mdate = "12-13";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
     }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  }
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '大学课程 | 编译原理知识点',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2019-10-25 22:22:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+}
+</script><link rel="stylesheet" href="/css/custom/smile-compat.css"><script>(()=>{
+        const parseConfig = (id) => {
+            const element = document.getElementById(id)
+            if (!element) return {}
+            try {
+                return JSON.parse(element.content?.textContent || element.textContent || '{}')
+            } catch (error) {
+                console.error('Invalid Solitude config:', error)
+                return {}
+            }
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+                if (!itemStr) {
+                    return undefined
+                }
+                let item
+                try {
+                    item = JSON.parse(itemStr)
+                } catch (error) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                const now = new Date()
 
-        if (!itemStr) {
-          return undefined
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        const resourceRequests = new Map()
+        const loadResource = (url, create) => {
+            const absoluteUrl = new URL(url, document.baseURI).href
+            if (resourceRequests.has(absoluteUrl)) return resourceRequests.get(absoluteUrl)
+            const request = new Promise((resolve, reject) => {
+                const element = create(absoluteUrl)
+                element.addEventListener('load', () => resolve(element), {once: true})
+                element.addEventListener('error', () => {
+                    resourceRequests.delete(absoluteUrl)
+                    reject(new Error('Unable to load ' + absoluteUrl))
+                }, {once: true})
+                document.head.appendChild(element)
+            })
+            resourceRequests.set(absoluteUrl, request)
+            return request
         }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
+        const api = window.Solitude || {}
+        window.Solitude = api
+        api.installLegacyAdapter = () => {
+            const aliases = {
+                utils: api,
+                sco: api,
+                GLOBAL_CONFIG: api.config
+            }
+            Object.entries(aliases).forEach(([name, value]) => {
+                if (name in window) return
+                Object.defineProperty(window, name, {
+                    configurable: true,
+                    enumerable: false,
+                    value
+                })
+            })
         }
-        return item.value
-      }
+        Object.defineProperties(api, {
+            config: {configurable: true, get: () => parseConfig('site-config')},
+            page: {configurable: true, get: () => parseConfig('config-diff')}
+        })
+        Object.assign(api, {
+            saveToLocal: saveToLocal,
+            loadStyle: (url, options = {}) => loadResource(url, href => {
+                const link = document.createElement('link')
+                link.rel = 'stylesheet'
+                link.href = href
+                if (options.id) link.id = options.id
+                return link
+            }),
+            loadScript: (url, options = {}) => {
+              if (url.includes('barrage')) api.installLegacyAdapter()
+              return loadResource(url, src => {
+                const script = document.createElement('script')
+                script.src = src
+                script.async = options.async !== false
+                Object.entries(options.attributes || {}).forEach(([key, value]) => script.setAttribute(key, value))
+                return script
+              })
+            },
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              api.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+            },
+            diffDateFormat: (selector) => {
+                selector.forEach(item => {
+                    const date = new Date(item.getAttribute('datetime') || item.textContent);
+                    item.textContent = (date.getMonth() + 1).toString()+'/'+date.getDate().toString();
+                });
+            },
+        })
+        api.getCSS = (url, id = false) => api.loadStyle(url, {id})
+        api.getScript = (url, attr = {}) => api.loadScript(url, {attributes: attr})
+        api.on = (name, handler) => {
+            const eventName = 'solitude:' + name
+            document.addEventListener(eventName, handler)
+            return () => document.removeEventListener(eventName, handler)
+        }
+        api.navigate = url => api.pjax?.loadUrl ? api.pjax.loadUrl(url) : window.location.assign(url)
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = Solitude.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
     }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = url => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      link.onload = () => resolve()
-      link.onerror = () => reject()
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
+    Solitude.rightMenu?.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><template id="site-config">{"root":"/","algolia":null,"localsearch":{"preload":true,"path":"/search.xml"},"runtime":"2019-07-10 23:59:59","lazyload":{"enable":true,"error":"/img/error_load.avif"},"copyright":{"limit":200,"author":"作者: XMJ","link":"链接: ","source":"来源: XMJ's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"},"highlight":{"limit":400,"expand":true,"copy":true,"syntax":"highlight.js"},"friend_links":{"async":false,"path":"/links.json","total":14,"placeholder":"","default_avatar":"/img/default_avatar.avif","more_url":"/links/","loading":"正在加载友链…","error":"友链加载失败，请稍后重试。","retry":"重新加载","random":"点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：⌈ ${name} ⌋","to":"前往","more":"更多","default_sort":"默认排序","random_sort":"随机排序","sort_label":"切换排序方式","scroll_left":"向左滚动","scroll_right":"向右滚动"},"random_posts":["posts/6f41176a.html","posts/7dc5beaf.html","posts/d990ca76.html","posts/201349fc.html","posts/4d2d3e0a.html","posts/20083b4c.html","posts/8f7eb979.html","posts/7a5857a0.html","posts/afb37b1d.html","posts/c9c6591.html","posts/6a0d6454.html","posts/7127424c.html","posts/809258ef.html","posts/d90df99b.html","posts/4c29d81e.html","posts/286eabe4.html","posts/a806bebe.html","posts/b16c0eda.html","posts/d50da5ec.html","posts/8163bb15.html","posts/bc226294.html","posts/80a64b4b.html","posts/589ec011.html","posts/56b0563d.html","posts/bb608df3.html","posts/fc798de3.html","posts/d150f284.html","posts/e05a9ab6.html","posts/865c56ba.html","posts/2bfb1caa.html","posts/6a260bf6.html","posts/223c1a0c.html","posts/6a054795.html","posts/ebe3a70b.html","posts/f6289062.html","posts/ba289ad3.html","posts/fdbf585c.html","posts/c63e7cba.html","posts/ef2381bd.html","posts/bfa4054.html","posts/43678.html","posts/651e6a0b.html","posts/43666.html","posts/7c5e3f37.html","posts/604a50ec.html","posts/c8972b63.html","posts/e24ee5c3.html","posts/7e7ef81c.html","posts/86111745.html","posts/7376.html","posts/57206.html","posts/27301.html","posts/27831.html","posts/14495.html","posts/16593.html","posts/14357.html","posts/47699.html","posts/18326.html","posts/10294.html","posts/5b7875dc.html","posts/355a5fb2.html","posts/50754.html","posts/15391.html","posts/56163.html","posts/24067.html","posts/14353.html","posts/52305.html","posts/1f068f9e.html","posts/62966.html","posts/10224.html","posts/60270.html","posts/51917.html","posts/10024.html","posts/16050.html","posts/5271.html","posts/11952.html","posts/4582.html","posts/50753.html","posts/54183.html","posts/39201.html","posts/49210.html","posts/4966.html","posts/4646.html","posts/10406.html","posts/8398.html","posts/48052.html","posts/43010.html","posts/3494.html","posts/3302.html","posts/92550e63.html","posts/28758.html","posts/38368.html","posts/42803.html","posts/4475.html","posts/41347.html","posts/33244.html"],"randomlink":false,"feature_modules":{"search":"local","post_ai":false,"friend_links":true,"music":false,"right_menu":true,"translate":false,"covercolor":"local"},"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已开启，请遵守 GPL 协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 \u003cb>${count}\u003c/b> 条结果。","loading":"搜索中…"},"barrage":{"title":"评论"}},"aside":{"state":{"morning":"✨ 早上好，新的一天开始了","noon":"🍲 午餐时间","afternoon":"🌞 下午好","night":"🌙 早点休息","goodnight":"😴 晚安"},"witty_words":["你可以的","你一定可以的","祝你好运"],"witty_comment":{"prefix":"好久不见，","back":"欢迎回来，"}},"covercolor":{"enable":true,"mode":"local","api":"https://api.qjqq.cn/api/Imgcolor?img=","time":43200000},"comment":{"avatar":"https://gravatar.com/avatar","commentBarrage":true},"lightbox":"fancybox","right_menu":{"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载","barrage":{"open":"显示热评","close":"关闭热评"}},"translate":false,"lure":false,"expire":false}</template><template id="config-diff">{"is_post":true,"is_page":false,"is_home":false,"page":"post","toc":true,"comment":true,"ai_text":false,"color":false}</template><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="XMJ's BLOG" type="application/atom+xml">
+</head><body id="body"><div><div id="loading-box" data-solitude-action="endLoading" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="/img/logo.jpg" alt="loading image"></div></div></div><div><div id="console"><div class="console-content"><div class="console-card-group" data-solitude-action="onConsoleCardGroupClick" data-solitude-event="true"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" data-solitude-action="hideConsole"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论<a class="recent-comment-more" href="/recentcomments/" title="最近评论" heotip="最近评论"><i class="solitude fas fa-circle-chevron-right"></i></a></div></div><div class="console_recentcomments"><script pjax>(async () => {
+    document.querySelector('.console-card .console_recentcomments').textContent = `加载中…`
+    const emojiReg = /<img class="tk-owo-emotion" [^>]+>/g
+    let cache = Solitude.saveToLocal.get('twikoo-recent-comments-console')
+    if (cache) {
+        setHtml(document.querySelector('.console-card .console_recentcomments'), cache)
+        return
     }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/icon/font-awesome-animation-1.1.1/css/font-awesome-animation.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/justlovesmile-static/js/swiper-8.1.4/swiper-bundle.min.css"><link rel="stylesheet" href="/css/justlovesmile.css"><link rel="stylesheet" href="/css/blogicon.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Justlovesmile's BLOG" type="application/atom+xml">
-</head><body><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">98</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">57</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 博主关注</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言信箱</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 博客打赏</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-list-ul"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-commenting-o"></i><span> 哔哔</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg')"><nav id="nav"><div id="nav-group"><div id="blog-info"><div class="back-home-button"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.justlovesmile.top/" title="前往Justlovesmil主页" target="_blank" rel="external nofollow noopener noreferrer"><img class="back-menu-item-icon" src="https://npm.elemecdn.com/justlovesmile-static/img/avatar.jpg"><span class="back-menu-item-text">个人主页</span></a></div><div class="back-menu-list"><a class="back-menu-item" href="/" title="前往Justlovesmil博客" target="_blank"><img class="back-menu-item-icon" src="/img/logo.jpg"><span class="back-menu-item-text">知识博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">监控</div><div class="back-menu-list"><a class="back-menu-item" href="https://stats.uptimerobot.com/P6AvnF44Wq" title="前往网站状态监控页面" target="_blank" rel="external nofollow noopener noreferrer"><img class="back-menu-item-icon" src="/img/stats.ico"><span class="back-menu-item-text">网站状态</span></a></div></div></div></div><a id="site-name" href="/"><span id="site-name-icon">Justlovesmile</span></a></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 文章列表</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 全部标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 全部分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-shoe-prints"></i><span> 随便逛逛</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="fa-fw fa fa-lightbulb-o"></i><span> 项目展示</span></a></li><li><a class="site-page child" href="/focus/"><i class="fa-fw fa fa-check-square-o"></i><span> 博主关注</span></a></li><li><a class="site-page child" href="/friends/"><i class="fa-fw fas fa-paper-plane"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/"><i class="fa-fw fas fa-pencil-alt"></i><span> 留言信箱</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fa fa-pie-chart"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span> 博客打赏</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw fa fa-list-ul"></i><span> 更新日志</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa fa-video-camera"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 歌单</span></a></li><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> Love</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa fa-commenting-o"></i><span> 哔哔</span></a></li></ul></div></div></div><div id="nav-right"><div id="search-button"><a class="nav-rightbutton site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div id="darkmode_navswitch"><a class="nav-rightbutton site-page darkmode_switchbutton" onclick="switchDarkMode()"><i class="fas fa-moon"></i></a></div><div id="toggle-menu"><a class="nav-rightbutton site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="cover entered loading" id="post-cover" alt="cover" src="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg"></div><div id="post-info"><div class="post-firstinfo" id="post-meta"><span class="post-meta-categories"><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">#大学课程</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a></div></div><h1 class="post-title">大学课程 | 编译原理知识点</h1><div id="post-meta"><div class="meta-firstline"><span class="meta-share-time"><span class="meta-avatar"><a class="meta-avatar-img" href="/about/" title="关于作者"><img alt="作者头像" src="/img/avatar.jpg"></a><a class="meta-avatar-name" href="/about/" title="关于作者">Justlovesmile</a></span></span><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2019-10-25T14:22:39.000Z" title="发表于 2019-10-25 22:22:39">2019-10-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span id data-flag-title="大学课程 | 编译原理知识点"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/50753.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>大三编译原理复习知识点</p>
+    let ls = []
+
+    await fetch('https://comment.xiemingjie.cn', {
+        method: "POST",
+        body: JSON.stringify({
+            "event": "GET_RECENT_COMMENTS",
+            "includeReply": true,
+            "pageSize": 6
+        }),
+        headers: {'Content-Type': 'application/json'}
+    }).then(res => res.json()).then(async ({data}) => {
+        for (const i of data) {
+            if (i.avatar === undefined) i.avatar = 'https://gravatar.com/avatar/avatar/d615d5793929e8c7d70eab5f00f7f5f1?d=mp'
+            let title = ''
+            if (i.url) {
+                await fetch(i.url).then(res => res.text()).then(html => {
+                    const parser = new DOMParser()
+                    const doc = parser.parseFromString(html, 'text/html')
+                    title = doc.querySelector('title').innerText
+                }).catch(() => {
+                    title = i.url
+                })
+            }
+            if (title.indexOf('|') > 0) {
+                title = title.split('|')[0]
+            }
+            ls.push({
+                avatar: i.avatar,
+                nick: i.nick,
+                title: title,
+                content: i.comment,
+                url: i.url + '#' + i.id,
+                time: i.created
+            })
+        }
+        setHtml(document.querySelector('.console-card .console_recentcomments'), ls)
+        Solitude.saveToLocal.set('twikoo-recent-comments-console', ls, 0.2)
+    });
+
+    function setHtml(el, data) {
+        el.innerHTML = data.length !== 0 ? data.map(i => `
+            <div class="comment-card" title="${i.title}" data-solitude-action="navigateTo" data-solitude-url="${i.url}">
+                <div class="comment-info">
+                    <img src="${i.avatar}" class="nolazyload" alt="${i.nick}">
+                    <div>
+                        <span class="comment-user">${i.nick}</span>
+                    </div>
+                    <time class="comment-time" datetime="${new Date(i.time)}"></time>
+                </div>
+                <div class="comment-content">${formatContent(i.content)}</div>
+                <div class="comment-title">
+                <i class="solitude fas fa-comment"></i>
+                ${i.title}</div>
+            </div>
+        `).join('') : `暂无评论…`
+        Solitude.diffDateFormat(document.querySelectorAll('.comment-time'))
+    }
+
+    function formatContent(content) {
+        content = content.replace(emojiReg, '表情')
+        content = content.replace(/<\/*br>|[\s\uFEFF\xA0]+/g, '');
+        content = content.replace(/<img.*?>/g, '[图片]');
+        content = content.replace(/<a.*?>.*?<\/a>/g, '[链接]');
+        content = content.replace(/<pre.*?>.*?<\/pre>/g, '[代码]');
+        content = content.replace(/<.*?>/g, '');
+        return content
+    }
+})()</script></div></div></div><div class="console-card-group-right"><div class="console-card tags" data-solitude-action="hideConsole"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">探索感兴趣的内容</div></div><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95/">算法<sup>6</sup></a><a href="/tags/Python/">Python<sup>11</sup></a><a href="/tags/CSP/">CSP<sup>1</sup></a><a href="/tags/PDF/">PDF<sup>2</sup></a><a href="/tags/Excel/">Excel<sup>2</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/">爬虫<sup>3</sup></a><a href="/tags/API/">API<sup>1</sup></a><a href="/tags/%E5%9B%BE%E5%BA%8A/">图床<sup>2</sup></a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习<sup>10</sup></a><a href="/tags/GPU/">GPU<sup>1</sup></a><a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算<sup>1</sup></a><a href="/tags/Flask/">Flask<sup>2</sup></a><a href="/tags/Web%E5%BC%80%E5%8F%91/">Web开发<sup>2</sup></a><a href="/tags/Git/">Git<sup>1</sup></a><a href="/tags/GitHub/">GitHub<sup>2</sup></a><a href="/tags/GAN/">GAN<sup>3</sup></a><a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">损失函数<sup>2</sup></a><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<sup>6</sup></a><a href="/tags/%E8%8A%B1%E4%B9%A6/">花书<sup>1</sup></a><a href="/tags/Node-js/">Node.js<sup>1</sup></a><a href="/tags/JavaScript/">JavaScript<sup>1</sup></a><a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱<sup>1</sup></a><a href="/tags/NLP/">NLP<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测<sup>9</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集<sup>1</sup></a><a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/">比特币<sup>1</sup></a><a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链<sup>1</sup></a><a href="/tags/%E5%8D%B7%E7%A7%AF/">卷积<sup>1</sup></a><a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">英语学习<sup>1</sup></a><a href="/tags/%E5%9B%9B%E5%85%AD%E7%BA%A7/">四六级<sup>1</sup></a><a href="/tags/%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0/">小样本学习<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库<sup>2</sup></a><a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程<sup>12</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">计算机系统结构<sup>3</sup></a><a href="/tags/%E6%B1%87%E7%BC%96/">汇编<sup>1</sup></a><a href="/tags/PyTorch/">PyTorch<sup>2</sup></a><a href="/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论<sup>4</sup></a><a href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理<sup>1</sup></a><a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理<sup>1</sup></a><a href="/tags/Hexo/">Hexo<sup>20</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发<sup>16</sup></a><a href="/tags/%E8%A7%86%E9%A2%91/">视频<sup>1</sup></a><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学<sup>1</sup></a><a href="/tags/MFC/">MFC<sup>1</sup></a><a href="/tags/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/">课程设计<sup>2</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络<sup>1</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">主题美化<sup>9</sup></a><a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式<sup>1</sup></a><a href="/tags/Arduino/">Arduino<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<sup>2</sup></a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">深度学习框架<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/">插件<sup>3</sup></a><a href="/tags/Valine/">Valine<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E5%AE%89%E5%85%A8/">博客安全<sup>1</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">主题配置<sup>1</sup></a><a href="/tags/%E7%89%B9%E6%95%88/">特效<sup>3</sup></a><a href="/tags/Typed-js/">Typed.js<sup>1</sup></a><a href="/tags/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/">印象笔记<sup>1</sup></a><a href="/tags/Markdown/">Markdown<sup>1</sup></a><a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具<sup>2</sup></a><a href="/tags/Linux/">Linux<sup>1</sup></a><a href="/tags/%E7%95%99%E5%AD%A6%E4%BA%A4%E6%B5%81/">留学交流<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验<sup>1</sup></a><a href="/tags/%E6%96%B0%E5%8A%A0%E5%9D%A1/">新加坡<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题<sup>1</sup></a><a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器<sup>2</sup></a><a href="/tags/MySQL/">MySQL<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E5%8E%86%E7%A8%8B/">博客历程<sup>1</sup></a><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔<sup>2</sup></a><a href="/tags/%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%89%B9%E5%BE%81/">多尺度特征<sup>1</sup></a><a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读<sup>17</sup></a><a href="/tags/Anchor-Free/">Anchor-Free<sup>2</sup></a><a href="/tags/PHP/">PHP<sup>1</sup></a><a href="/tags/WordPress/">WordPress<sup>1</sup></a><a href="/tags/%E6%97%8B%E8%BD%AC%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">旋转目标检测<sup>7</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE%E5%88%86%E9%85%8D/">标签分配<sup>4</sup></a><a href="/tags/%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">度量学习<sup>1</sup></a><a href="/tags/%E7%82%B9%E9%9B%86%E8%A1%A8%E7%A4%BA/">点集表示<sup>1</sup></a><a href="/tags/%E7%89%B9%E5%BE%81%E7%B2%BE%E7%82%BC/">特征精炼<sup>1</sup></a><a href="/tags/%E5%A4%9A%E5%B0%BA%E5%BA%A6%E6%A3%80%E6%B5%8B/">多尺度检测<sup>1</sup></a><a href="/tags/Focal-Loss/">Focal Loss<sup>1</sup></a><a href="/tags/%E5%8D%95%E9%98%B6%E6%AE%B5%E6%A3%80%E6%B5%8B/">单阶段检测<sup>1</sup></a><a href="/tags/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">在线工具<sup>1</sup></a><a href="/tags/CodePen/">CodePen<sup>1</sup></a><a href="/tags/%E9%81%A5%E6%84%9F%E5%9B%BE%E5%83%8F/">遥感图像<sup>1</sup></a><a href="/tags/Jupyter/">Jupyter<sup>1</sup></a><a href="/tags/%E6%97%85%E6%8B%8D/">旅拍<sup>5</sup></a><a href="/tags/Plog/">Plog<sup>2</sup></a><a href="/tags/%E5%8C%97%E4%BA%AC/">北京<sup>2</sup></a><a href="/tags/%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/">加载动画<sup>1</sup></a><a href="/tags/Vlog/">Vlog<sup>3</sup></a><a href="/tags/%E9%9B%B6%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0/">零样本学习<sup>1</sup></a><a href="/tags/%E7%BB%88%E8%BA%AB%E5%AD%A6%E4%B9%A0/">终身学习<sup>1</sup></a><a href="/tags/%E5%93%88%E5%B0%94%E6%BB%A8/">哈尔滨<sup>1</sup></a><a href="/tags/iOS/">iOS<sup>2</sup></a><a href="/tags/%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4/">快捷指令<sup>2</sup></a><a href="/tags/%E6%BB%91%E9%9B%AA/">滑雪<sup>1</sup></a><a href="/tags/%E7%94%B5%E5%BD%B1/">电影<sup>1</sup></a><a href="/tags/%E8%A7%82%E5%BD%B1%E6%8C%87%E5%8D%97/">观影指南<sup>1</sup></a></div></div><div class="console-card history" data-solitude-action="hideConsole"><ul class="card-archive-list"><li class="item"><a href="/archives/2019/"><span class="date">2019</span><div class="count-group"><span class="count">24</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2020/"><span class="date">2020</span><div class="count-group"><span class="count">37</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2021/"><span class="date">2021</span><div class="count-group"><span class="count">8</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2022/"><span class="date">2022</span><div class="count-group"><span class="count">24</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2023/"><span class="date">2023</span><div class="count-group"><span class="count">3</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/"><span class="date">全部文章</span><div class="count-group"><span class="count">96</span><span class="unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" data-solitude-action="toggleTheme" title="昼夜切换" heotip="昼夜切换"><i class="solitude fas fa-circle-half-stroke"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" data-solitude-action="switchHideAside" title="侧边栏显示" heotip="侧边栏显示"><i class="solitude fas fa-arrows-left-right-to-line"></i></span></div><div class="console-btn-item on" id="consoleCommentBarrage" data-solitude-action="switchCommentBarrage"><span class="commentBarrage" title="热评" heotip="热评"><i class="solitude fas fa-comment"></i></span></div></div></div><div class="console-mask" data-solitude-action="hideConsole"></div></div></div><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">96</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">103</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" data-solitude-action="toggleTheme"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiemingjie.cn/" title="我的主页" heotip="我的主页"><img class="nolazyload back-menu-item-icon" src="/img/logo.jpg" alt="我的主页"><span class="back-menu-item-text">我的主页</span></a><a class="back-menu-item" href="/" title="我的博客" heotip="我的博客"><img class="nolazyload back-menu-item-icon" src="/img/logo.jpg" alt="我的博客"><span class="back-menu-item-text">我的博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">监控</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://stats.uptimerobot.com/P6AvnF44Wq" title="网站状态" heotip="网站状态"><img class="nolazyload back-menu-item-icon" src="/img/stats.ico" alt="网站状态"><span class="back-menu-item-text">网站状态</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);" title="文库" heotip="文库"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/" title="全部文章" heotip="全部文章"><i class="solitude  fas fa-calendar"></i><span>全部文章</span></a></li><li><a class="site-page child" href="/categories/" title="分类列表" heotip="分类列表"><i class="solitude  fas fa-folder-open"></i><span>分类列表</span></a></li><li><a class="site-page child" href="/tags/" title="标签列表" heotip="标签列表"><i class="solitude  fas fa-tags"></i><span>标签列表</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" title="探索" heotip="探索"><span>探索</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/essay/" title="即刻短文" heotip="即刻短文"><i class="solitude  fas fa-newspaper"></i><span>即刻短文</span></a></li><li><a class="site-page child" href="/recentcomments/" title="最新评论" heotip="最新评论"><i class="solitude  fas fa-comments"></i><span>最新评论</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" title="网站" heotip="网站"><span>网站</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/" title="留言信箱" heotip="留言信箱"><i class="solitude  fas fa-pencil-alt"></i><span>留言信箱</span></a></li><li><a class="site-page child" href="/donate/" title="博客打赏" heotip="博客打赏"><i class="solitude  fas fa-mug-saucer"></i><span>博客打赏</span></a></li><li><a class="site-page child" href="/friends/" title="友情链接" heotip="友情链接"><i class="solitude  fas fa-paper-plane"></i><span>友情链接</span></a></li><li><a class="site-page child" href="/rss/" title="RSS 订阅" heotip="RSS 订阅"><i class="solitude  fas fa-rss"></i><span>RSS 订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" title="生活" heotip="生活"><span>生活</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/" title="相册" heotip="相册"><i class="solitude  fas fa-camera-retro"></i><span>相册</span></a></li><li><a class="site-page child" href="/video/" title="视频" heotip="视频"><i class="solitude  fa fa-video-camera"></i><span>视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" title="关于" heotip="关于"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/" title="我的项目" heotip="我的项目"><i class="solitude  fa fa-puzzle-piece"></i><span>我的项目</span></a></li><li><a class="site-page child" href="/about/" title="关于本站" heotip="关于本站"><i class="solitude  fas fa-user"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95/">算法<sup>6</sup></a><a href="/tags/Python/">Python<sup>11</sup></a><a href="/tags/CSP/">CSP<sup>1</sup></a><a href="/tags/PDF/">PDF<sup>2</sup></a><a href="/tags/Excel/">Excel<sup>2</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/">爬虫<sup>3</sup></a><a href="/tags/API/">API<sup>1</sup></a><a href="/tags/%E5%9B%BE%E5%BA%8A/">图床<sup>2</sup></a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习<sup>10</sup></a><a href="/tags/GPU/">GPU<sup>1</sup></a><a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算<sup>1</sup></a><a href="/tags/Flask/">Flask<sup>2</sup></a><a href="/tags/Web%E5%BC%80%E5%8F%91/">Web开发<sup>2</sup></a><a href="/tags/Git/">Git<sup>1</sup></a><a href="/tags/GitHub/">GitHub<sup>2</sup></a><a href="/tags/GAN/">GAN<sup>3</sup></a><a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">损失函数<sup>2</sup></a><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<sup>6</sup></a><a href="/tags/%E8%8A%B1%E4%B9%A6/">花书<sup>1</sup></a><a href="/tags/Node-js/">Node.js<sup>1</sup></a><a href="/tags/JavaScript/">JavaScript<sup>1</sup></a><a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱<sup>1</sup></a><a href="/tags/NLP/">NLP<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测<sup>9</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集<sup>1</sup></a><a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/">比特币<sup>1</sup></a><a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链<sup>1</sup></a><a href="/tags/%E5%8D%B7%E7%A7%AF/">卷积<sup>1</sup></a><a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">英语学习<sup>1</sup></a><a href="/tags/%E5%9B%9B%E5%85%AD%E7%BA%A7/">四六级<sup>1</sup></a><a href="/tags/%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0/">小样本学习<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库<sup>2</sup></a><a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程<sup>12</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">计算机系统结构<sup>3</sup></a><a href="/tags/%E6%B1%87%E7%BC%96/">汇编<sup>1</sup></a><a href="/tags/PyTorch/">PyTorch<sup>2</sup></a><a href="/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论<sup>4</sup></a><a href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理<sup>1</sup></a><a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理<sup>1</sup></a><a href="/tags/Hexo/">Hexo<sup>20</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发<sup>16</sup></a><a href="/tags/%E8%A7%86%E9%A2%91/">视频<sup>1</sup></a><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学<sup>1</sup></a><a href="/tags/MFC/">MFC<sup>1</sup></a><a href="/tags/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/">课程设计<sup>2</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络<sup>1</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">主题美化<sup>9</sup></a><a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式<sup>1</sup></a><a href="/tags/Arduino/">Arduino<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建<sup>2</sup></a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">深度学习框架<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/">插件<sup>3</sup></a><a href="/tags/Valine/">Valine<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E5%AE%89%E5%85%A8/">博客安全<sup>1</sup></a><a href="/tags/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">主题配置<sup>1</sup></a><a href="/tags/%E7%89%B9%E6%95%88/">特效<sup>3</sup></a><a href="/tags/Typed-js/">Typed.js<sup>1</sup></a><a href="/tags/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/">印象笔记<sup>1</sup></a><a href="/tags/Markdown/">Markdown<sup>1</sup></a><a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具<sup>2</sup></a><a href="/tags/Linux/">Linux<sup>1</sup></a><a href="/tags/%E7%95%99%E5%AD%A6%E4%BA%A4%E6%B5%81/">留学交流<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验<sup>1</sup></a><a href="/tags/%E6%96%B0%E5%8A%A0%E5%9D%A1/">新加坡<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题<sup>1</sup></a><a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器<sup>2</sup></a><a href="/tags/MySQL/">MySQL<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E5%8E%86%E7%A8%8B/">博客历程<sup>1</sup></a><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔<sup>2</sup></a><a href="/tags/%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%89%B9%E5%BE%81/">多尺度特征<sup>1</sup></a><a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读<sup>17</sup></a><a href="/tags/Anchor-Free/">Anchor-Free<sup>2</sup></a><a href="/tags/PHP/">PHP<sup>1</sup></a><a href="/tags/WordPress/">WordPress<sup>1</sup></a><a href="/tags/%E6%97%8B%E8%BD%AC%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">旋转目标检测<sup>7</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE%E5%88%86%E9%85%8D/">标签分配<sup>4</sup></a><a href="/tags/%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/">度量学习<sup>1</sup></a><a href="/tags/%E7%82%B9%E9%9B%86%E8%A1%A8%E7%A4%BA/">点集表示<sup>1</sup></a><a href="/tags/%E7%89%B9%E5%BE%81%E7%B2%BE%E7%82%BC/">特征精炼<sup>1</sup></a><a href="/tags/%E5%A4%9A%E5%B0%BA%E5%BA%A6%E6%A3%80%E6%B5%8B/">多尺度检测<sup>1</sup></a><a href="/tags/Focal-Loss/">Focal Loss<sup>1</sup></a><a href="/tags/%E5%8D%95%E9%98%B6%E6%AE%B5%E6%A3%80%E6%B5%8B/">单阶段检测<sup>1</sup></a><a href="/tags/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">在线工具<sup>1</sup></a><a href="/tags/CodePen/">CodePen<sup>1</sup></a><a href="/tags/%E9%81%A5%E6%84%9F%E5%9B%BE%E5%83%8F/">遥感图像<sup>1</sup></a><a href="/tags/Jupyter/">Jupyter<sup>1</sup></a><a href="/tags/%E6%97%85%E6%8B%8D/">旅拍<sup>5</sup></a><a href="/tags/Plog/">Plog<sup>2</sup></a><a href="/tags/%E5%8C%97%E4%BA%AC/">北京<sup>2</sup></a><a href="/tags/%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BB/">加载动画<sup>1</sup></a><a href="/tags/Vlog/">Vlog<sup>3</sup></a><a href="/tags/%E9%9B%B6%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0/">零样本学习<sup>1</sup></a><a href="/tags/%E7%BB%88%E8%BA%AB%E5%AD%A6%E4%B9%A0/">终身学习<sup>1</sup></a><a href="/tags/%E5%93%88%E5%B0%94%E6%BB%A8/">哈尔滨<sup>1</sup></a><a href="/tags/iOS/">iOS<sup>2</sup></a><a href="/tags/%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4/">快捷指令<sup>2</sup></a><a href="/tags/%E6%BB%91%E9%9B%AA/">滑雪<sup>1</sup></a><a href="/tags/%E7%94%B5%E5%BD%B1/">电影<sup>1</sup></a><a href="/tags/%E8%A7%82%E5%BD%B1%E6%8C%87%E5%8D%97/">观影指南<sup>1</sup></a></div></div><span class="sidebar-menu-item-title">网站信息</span><div class="webinfo"><div class="webinfo-item"><div class="item-name">全站字数：</div><div class="item-count">274.5k</div></div></div></div></div><div><div class="needEndHide" id="rightside"><div class="rs_hide"><button class="mode" type="button" title="显示模式切换" heotip="显示模式切换" data-solitude-action="toggleTheme"><i class="fas fa-circle-half-stroke"></i></button><button class="aside pc" type="button" title="侧边栏" heotip="侧边栏" data-solitude-action="switchHideAside"><i class="fas fa-arrows-alt-h"></i></button></div><div class="rs_show"><button class="config" type="button" title="扩展" heotip="扩展" data-solitude-action="toggleTargetClass" data-solitude-target=".rs_hide"><i class="fas fa-gear"></i></button><button class="mobile toc" type="button" title="目录" heotip="目录" data-solitude-action="toggleTargetClass" data-solitude-target="#card-toc" data-solitude-class="open"><i class="fas fa-list"></i></button><button class="comment" type="button" title="评论" heotip="评论" data-solitude-action="scrollTo" data-solitude-target="post-comment"><i class="fas fa-comment"></i></button><button class="barrage pc" type="button" title="弹" heotip="弹" data-solitude-action="switchCommentBarrage"><span>弹</span></button></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav" data-solitude-action="onNavBlankClickCloseConsole" data-solitude-event="true"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="solitude fas fa-bars-progress"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiemingjie.cn/"><img class="nolazyload back-menu-item-icon" src="/img/logo.jpg" alt="我的主页"><span class="back-menu-item-text">我的主页</span></a><a class="back-menu-item" href="/"><img class="nolazyload back-menu-item-icon" src="/img/logo.jpg" alt="我的博客"><span class="back-menu-item-text">我的博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">监控</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://stats.uptimerobot.com/P6AvnF44Wq"><img class="nolazyload back-menu-item-icon" src="/img/stats.ico" alt="网站状态"><span class="back-menu-item-text">网站状态</span></a></div></div></div></div><a href="/" title="返回博客主页" id="site-name" heotip="返回博客主页"><i class="solitude fa fa-ghost"></i><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" data-solitude-action="toTop" title="返回顶部" heotip="返回顶部">学习手札 | 编译原理知识点</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-calendar"></i><span>全部文章</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-folder-open"></i><span>分类列表</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>标签列表</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>探索</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/essay/"><i class="solitude  fas fa-newspaper"></i><span>即刻短文</span></a></li><li><a class="site-page child" href="/recentcomments/"><i class="solitude  fas fa-comments"></i><span>最新评论</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>网站</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/guestbook/"><i class="solitude  fas fa-pencil-alt"></i><span>留言信箱</span></a></li><li><a class="site-page child" href="/donate/"><i class="solitude  fas fa-mug-saucer"></i><span>博客打赏</span></a></li><li><a class="site-page child" href="/friends/"><i class="solitude  fas fa-paper-plane"></i><span>友情链接</span></a></li><li><a class="site-page child" href="/rss/"><i class="solitude  fas fa-rss"></i><span>RSS 订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>生活</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="solitude  fas fa-camera-retro"></i><span>相册</span></a></li><li><a class="site-page child" href="/video/"><i class="solitude  fa fa-video-camera"></i><span>视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/laboratory/"><i class="solitude  fa fa-puzzle-piece"></i><span>我的项目</span></a></li><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-user"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" data-solitude-action="randomPost" data-solitude-prevent="true" title="随机一篇文章" heotip="随机一篇文章" href="javascript:void(0);"><i class="solitude fas fa-dice-d6"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索" heotip="搜索"><i class="solitude fas fa-magnifying-glass"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" data-solitude-action="toggleConsole" data-solitude-prevent="true" title="中控台" heotip="中控台" href="javascript:void(0);"><label><i class="left"></i><i class="center"></i><i class="right"></i></label></a></div><div class="nav-button" id="nav-totop" data-solitude-action="toTop" title="返回顶部" heotip="返回顶部"><a class="totopbtn"><i class="solitude fas fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav><div class="post-cover-aside"><a class="post-cover-aside-link fancybox" href="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="学习手札 | 编译原理知识点" aria-label="学习手札 | 编译原理知识点"><img class="post-cover-aside-img nolazyload" id="post-cover" src="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg" alt="学习手札 | 编译原理知识点"></a></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="本文采用 原创 许可协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E6%9C%AD/">学习手札</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>大学课程</span></a><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>编译原理</span></a></div></div></div></div><h1 class="post-title">学习手札 | 编译原理知识点</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-wordcount"><i class="post-meta-icon solitude fas fa-file-word" title="文章字数"></i><span class="word-count">4.5k</span></span><span class="post-meta-date" title="发布于 2019-10-25 22:22:39"><i class="post-meta-icon solitude fas fa-calendar-days"></i><time datetime="2019-10-25T14:22:39.000Z">2019-10-25T14:22:39.000Z</time></span><span class="post-meta-readtime"><i class="post-meta-icon solitude fas fa-clock" title="阅读时长"></i><span>15 分钟</span></span><a class="post-meta-pv" href="/posts/50753.html" title="阅读量"><i class="post-meta-icon solitude fas fa-fire-flame-curved"></i><span id="twikoo_visitors"><i class="solitude fas fa-spinner fa-spin"></i></span></a><span class="post-meta-commentcount" title="评论数" data-solitude-action="scrollTo" data-solitude-target="post-comment"><i class="solitude fas fa-comment"></i><a href="/posts/50753.html#post-comment"><span class="twikoo-count"><i class="solitude fas fa-spinner fa-spin"></i></span></a></span></div></div></div><div class="post-radius-bottom"></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content article-container"><p>大三编译原理复习知识点</p>
 <span id="more"></span>
-
 <p>问题？</p>
 <ul>
 <li>什么是解释器？什么是编辑器？什么是前端后端？分析和综合？遍？翻译过程的输入输出？T型图的意义描述？</li>
 <li>词法分析：什么是正则表达式？什么是有穷自动机？DFA？NFA？区别，特点？基本概念？正则表达式到NFA到DFA，再最小化。构建方法。扫描器功能的输入输出？什么是字母表，元符号，正则表达式的三种基本操作</li>
-<li>0&#x2F;1&#x2F;2&#x2F;3型文法？什么是最左推导？最右推导？什么是终结符，非终结符？什么是产生式？如何识别二义性，消除方法？语言到文法？</li>
+<li>0/1/2/3型文法？什么是最左推导？最右推导？什么是终结符，非终结符？什么是产生式？如何识别二义性，消除方法？语言到文法？</li>
 <li>递归下降？LL(1)判断是不是？消除左递归，提取左公因子，First集follow集，构造分析表，对一个句子分析。LL(1)三种基本动作：生成（最左推导），匹配，接受。</li>
 <li>自底向上？</li>
 <li>语义分析：什么是属性？什么是属性文法？什么是联编？联编的时间？静态语义和动态语义？常见的静态语义？什么是符号表？作用,内容?描述–&gt;属性文法？综合属性，基本属性</li>
 <li>了解几种运行环境的特点：Fortran77 完全静态，不允许递归调用。基于栈的C，C++，Pascal。LISP完全动态</li>
 <li>中间代码：种类，三元式，四元式，控制表达式，逆波兰，波兰。</li>
 </ul>
-<h1 id="第一章-概论"><a href="#第一章-概论" class="headerlink" title="第一章 概论"></a>第一章 概论</h1><h2 id="什么是编译器？"><a href="#什么是编译器？" class="headerlink" title="什么是编译器？"></a>什么是编译器？</h2><p>（1）</p>
+<h1>第一章 概论</h1>
+<h2 id="什么是编译器？">什么是编译器？</h2>
+<p>（1）</p>
 <ul>
 <li>编译器是将一种语言翻译为另一种语言的计算机程序。</li>
 <li>编译器将编写的程序作为输入，而产生用目标语言编写的等价程序</li>
-<li>源程序→{编译器}→目标程序<br>（2）</li>
+<li>源程序→{编译器}→目标程序<br>
+（2）</li>
 <li>编译器是将便于人编写，阅读，维护的高阶计算机语言翻译为计算机能解读，运行的低阶机器语言的程序。</li>
 <li>编译器将原始程序作为输入，翻译产生使用目标的等价程序。源代码一般为高阶语言，而目标语言则是汇编语言或目标机器的目标代码，有时也称作机器代码。</li>
 </ul>
-<h2 id="编译器分类结构"><a href="#编译器分类结构" class="headerlink" title="编译器分类结构"></a>编译器分类结构</h2><ul>
+<h2 id="编译器分类结构">编译器分类结构</h2>
+<ul>
 <li>根据<code>语言文法的难易程度</code>以及<code>识别它们所需要的算法</code>分类：如<code>乔姆斯基分类结构</code>：</li>
-<li>4类：分为0型，1型，2型，3型文法<ul>
+<li>4类：分为0型，1型，2型，3型文法
+<ul>
 <li>0型文法为：无限制文法</li>
 <li>1型文法为：上下文有关文法</li>
 <li>2型文法为：上下文无关文法</li>
@@ -188,7 +264,8 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
 </li>
 <li>4个文法的定义是逐渐增加限制的</li>
 </ul>
-<h2 id="与编译器相关的程序"><a href="#与编译器相关的程序" class="headerlink" title="与编译器相关的程序"></a>与编译器相关的程序</h2><ul>
+<h2 id="与编译器相关的程序">与编译器相关的程序</h2>
+<ul>
 <li>（1）解释程序</li>
 <li>如同编译器的一种语言翻译程序。与编译器的不同在于：它立即执行源程序而不是在翻译完成之后才执行目标代码。</li>
 <li>（2）汇编程序</li>
@@ -207,9 +284,10 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
 <li>在执行中搜集目标程序行为统计的程序</li>
 <li>（9）项目管理程序</li>
 </ul>
-<h2 id="翻译步骤"><a href="#翻译步骤" class="headerlink" title="翻译步骤"></a>翻译步骤</h2><ul>
+<h2 id="翻译步骤">翻译步骤</h2>
+<ul>
 <li>编译器内部包括了许多步骤或称为阶段。</li>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/13/uvUU4U.png" alt="uvUU4U.png"></li>
+<li><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/13/uvUU4U.png" alt="uvUU4U.png"></li>
 <li>（1）扫描程序：编译器阅读源程序。扫描程序会执行词法分析，将字符序列收集到称作<code>记号</code>的单元中。</li>
 <li>（2）语法分析程序：从扫描程序获取记号形式的源代码，并完成定义程序结构的语法分析。通常将语法分析的结果表示为<code>分析树</code>或者<code>语法树</code>。</li>
 <li>（3）语义分析程序：程序的语义确定程序的运行。但是大多数的程序设计语言都具有在执行前被确定而不易有语法表示和由分析程序分析的特征。这些特征被称为<code>静态语义</code>。而语义分析程序的任务就是分析这些语义。由语义分析程序计算的额外信息被称为属性，输出结果为<code>注释树</code></li>
@@ -217,7 +295,8 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
 <li>（5）代码生成器：代码生成器得到中间代码，生成<code>目标机器的代码</code>。</li>
 <li>（6）目标代码优化程序：优化目标代码</li>
 </ul>
-<h2 id="编译器中的主要数据结构"><a href="#编译器中的主要数据结构" class="headerlink" title="编译器中的主要数据结构"></a>编译器中的主要数据结构</h2><ul>
+<h2 id="编译器中的主要数据结构">编译器中的主要数据结构</h2>
+<ul>
 <li>记号</li>
 <li>语法树</li>
 <li>符号表</li>
@@ -225,151 +304,203 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
 <li>中间代码</li>
 <li>临时文件</li>
 </ul>
-<h2 id="什么是遍？"><a href="#什么是遍？" class="headerlink" title="什么是遍？"></a>什么是遍？</h2><ul>
+<h2 id="什么是遍？">什么是遍？</h2>
+<ul>
 <li>编译过程的几个阶段仅仅是逻辑功能上的一种划分，具体实现时，受不同源语言，设计要求，使用对象和计算机条件（如主存容量）的限制，往往将编译程序组织为若干遍。所谓“遍”就是对源程序或源程序的中间结果从头到尾扫描一次，并作有关的加工处理，生成新的中间结果或目标程序。</li>
 <li>通常，每遍的工作由从外存上获得的前一遍的中间结果开始，完成它所含的有关工作之后，再把结果记录于外存，既可以将几个不同阶段合为一遍，也可以把一个阶段的工作分为若干遍。当一遍中包含若干阶段时，各阶段的工作是穿插进行的。</li>
 </ul>
-<h2 id="什么是前端后端？"><a href="#什么是前端后端？" class="headerlink" title="什么是前端后端？"></a>什么是前端后端？</h2><ul>
+<h2 id="什么是前端后端？">什么是前端后端？</h2>
+<ul>
 <li>通常认为，只依赖于源语言的的操作为前端，只依赖于目标语言的操作为后端。</li>
 <li>如：扫描程序，分析程序，语义分析程序为前端。代码生成器为后端。</li>
 <li>便于编译器的可移植性</li>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/25/KwRZlD.png" alt="KwRZlD.png"></li>
+<li><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/25/KwRZlD.png" alt="KwRZlD.png"></li>
 </ul>
-<h2 id="什么是分析与综合？"><a href="#什么是分析与综合？" class="headerlink" title="什么是分析与综合？"></a>什么是分析与综合？</h2><ul>
+<h2 id="什么是分析与综合？">什么是分析与综合？</h2>
+<ul>
 <li>分析：分析源程序以计算其特性的编译器操作</li>
 <li>综合：生成翻译代码时所涉及到的操作</li>
 </ul>
-<h2 id="什么是扫描器？"><a href="#什么是扫描器？" class="headerlink" title="什么是扫描器？"></a>什么是扫描器？</h2><ul>
+<h2 id="什么是扫描器？">什么是扫描器？</h2>
+<ul>
 <li>扫描器就是词法分析程序</li>
 <li>其主要功能是依据词法规则，分析由字符组成的源程序，把它分割为一个一个具有独立意义的最小语法单位，即单词。</li>
 </ul>
-<h2 id="汇编语言的优缺点"><a href="#汇编语言的优缺点" class="headerlink" title="汇编语言的优缺点"></a>汇编语言的优缺点</h2><ul>
+<h2 id="汇编语言的优缺点">汇编语言的优缺点</h2>
+<ul>
 <li>优点：汇编语言大大提高了编程的速度和准确度</li>
 <li>缺点：编写起来也不容易 , 阅读和理解很难；而且汇编语言的编写严格依赖于特定的机器，所以为一台计算机编写的代码在应用于另一台计算机时必须完全重写。</li>
 </ul>
-<h2 id="什么是静态语义"><a href="#什么是静态语义" class="headerlink" title="什么是静态语义"></a>什么是静态语义</h2><ul>
+<h2 id="什么是静态语义">什么是静态语义</h2>
+<ul>
 <li>程序的语义确定程序的运行，但是大多数的程序设计语言都具有在执行之前被确定而不易由语法表示和由分析程序分析的特征。这些特征被称作<code>静态语义</code>。</li>
 <li>一般的程序设计语言的典型静态语义包括<code>声明</code>和<code>类型检查</code>。由语义分析程序计算的额外信息 ( 诸如数据类型 ) 被称为属性，它们通常是作为注释或 “ 装饰 ” 增加到树中 ( 还可将属性添加到符号表中 ) 。</li>
 </ul>
-<h2 id="编译器中第一个考虑目标机的物理特性的模块是：-代码生成器"><a href="#编译器中第一个考虑目标机的物理特性的模块是：-代码生成器" class="headerlink" title="编译器中第一个考虑目标机的物理特性的模块是： 代码生成器"></a>编译器中第一个考虑目标机的物理特性的模块是： 代码生成器</h2><h2 id="T-型图中S-T-H-分别代表什么？"><a href="#T-型图中S-T-H-分别代表什么？" class="headerlink" title="T 型图中S,T,H 分别代表什么？"></a>T 型图中S,T,H 分别代表什么？</h2><p>| S T|<br>|  H |</p>
+<h2 id="编译器中第一个考虑目标机的物理特性的模块是：-代码生成器">编译器中第一个考虑目标机的物理特性的模块是： 代码生成器</h2>
+<h2 id="T-型图中S-T-H-分别代表什么？">T 型图中S,T,H 分别代表什么？</h2>
+<p>| S T|<br>
+|  H |</p>
 <ul>
 <li>语言H( 代表宿主语言 ) 编写的编译器将语言S( 代表源语言 ) 翻译为语言T( 代表目标语言 )</li>
 </ul>
-<h2 id="T-型图描述自举及移植的过程"><a href="#T-型图描述自举及移植的过程" class="headerlink" title="T 型图描述自举及移植的过程"></a>T 型图描述自举及移植的过程</h2><ul>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/25/KwWwKe.png" alt="KwWwKe.png"></li>
+<h2 id="T-型图描述自举及移植的过程">T 型图描述自举及移植的过程</h2>
+<ul>
+<li><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/25/KwWwKe.png" alt="KwWwKe.png"></li>
 </ul>
-<h1 id="第二章-词法分析"><a href="#第二章-词法分析" class="headerlink" title="第二章 词法分析"></a>第二章 词法分析</h1><h2 id="什么是词法分析"><a href="#什么是词法分析" class="headerlink" title="什么是词法分析"></a>什么是词法分析</h2><ul>
+<h1>第二章 词法分析</h1>
+<h2 id="什么是词法分析">什么是词法分析</h2>
+<ul>
 <li>将源程序读作字符文件并将其分为若干记号</li>
 </ul>
-<h2 id="记号分类"><a href="#记号分类" class="headerlink" title="记号分类"></a>记号分类</h2><ul>
+<h2 id="记号分类">记号分类</h2>
+<ul>
 <li>关键字： 如if，while</li>
 <li>标识符：用户定义的串</li>
 <li>特殊符号：算术符号，一些多字符符号等</li>
 </ul>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><ul>
+<h2 id="正则表达式">正则表达式</h2>
+<ul>
 <li>是一种表示字符串的格式</li>
 <li>三种基本操作：选择，连结，重复（闭包）</li>
-<li>元字符&#x2F;元符号：正则表达式中有特殊含义的字符</li>
+<li>元字符/元符号：正则表达式中有特殊含义的字符</li>
 </ul>
-<h2 id="什么是有穷自动机"><a href="#什么是有穷自动机" class="headerlink" title="什么是有穷自动机"></a>什么是有穷自动机</h2><ul>
+<h2 id="什么是有穷自动机">什么是有穷自动机</h2>
+<ul>
 <li>是描述特定类型算法的数学方法。</li>
 <li>圆圈表示状态，带有箭头的线表示记录一个状态向另一个状态的转换。</li>
 </ul>
-<h2 id="DFA（确定性有穷自动机）"><a href="#DFA（确定性有穷自动机）" class="headerlink" title="DFA（确定性有穷自动机）"></a>DFA（确定性有穷自动机）</h2><ul>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/25/Kw4VUA.png" alt="Kw4VUA.png"></li>
+<h2 id="DFA（确定性有穷自动机）">DFA（确定性有穷自动机）</h2>
+<ul>
+<li><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/25/Kw4VUA.png" alt="Kw4VUA.png"></li>
 <li>给出一个状态和字符，通常肯定会有一个指向单个新状态的唯一转换</li>
 </ul>
-<h2 id="NFA（非确定性有穷自动机）"><a href="#NFA（非确定性有穷自动机）" class="headerlink" title="NFA（非确定性有穷自动机）"></a>NFA（非确定性有穷自动机）</h2><ul>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/25/Kw4Bb4.png" alt="Kw4Bb4.png"></li>
+<h2 id="NFA（非确定性有穷自动机）">NFA（非确定性有穷自动机）</h2>
+<ul>
+<li><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/25/Kw4Bb4.png" alt="Kw4Bb4.png"></li>
 </ul>
-<h1 id="第三章-上下文无关文法"><a href="#第三章-上下文无关文法" class="headerlink" title="第三章 上下文无关文法"></a>第三章 上下文无关文法</h1><h2 id="上下文无关文法与正则表达式的主要区别："><a href="#上下文无关文法与正则表达式的主要区别：" class="headerlink" title="上下文无关文法与正则表达式的主要区别："></a>上下文无关文法与正则表达式的主要区别：</h2><ul>
+<h1>第三章 上下文无关文法</h1>
+<h2 id="上下文无关文法与正则表达式的主要区别：">上下文无关文法与正则表达式的主要区别：</h2>
+<ul>
 <li>上下文无关文法的规则是递归的</li>
 </ul>
-<h2 id="终结符和非终结符"><a href="#终结符和非终结符" class="headerlink" title="终结符和非终结符"></a>终结符和非终结符</h2><ul>
+<h2 id="终结符和非终结符">终结符和非终结符</h2>
+<ul>
 <li>非终结符：在推导中必须被进一步替换的结构名</li>
 <li>终结符：终结推导的字母表中的符号</li>
 </ul>
-<h2 id="什么是推导"><a href="#什么是推导" class="headerlink" title="什么是推导"></a>什么是推导</h2><ul>
+<h2 id="什么是推导">什么是推导</h2>
+<ul>
 <li>推导是在文法规则的右边进行选择的一个结构名字的替换序列。推导以一个结构名字开始并以记号符号串结束。</li>
 <li>最左推导：它的每一步中最左的非终结符都要被替换的推导。</li>
 <li>最右推导：它的每一步中最右的非终结符都要被替换的推导。</li>
 <li>最左推导和与其相关的分析树的内部节点的前序编号相对应；而最右推导则和后序编号相对应。</li>
 </ul>
-<h2 id="产生式"><a href="#产生式" class="headerlink" title="产生式"></a>产生式</h2><ul>
+<h2 id="产生式">产生式</h2>
+<ul>
 <li>文法规则也被称为产生式。</li>
 </ul>
-<h2 id="二义性文法"><a href="#二义性文法" class="headerlink" title="二义性文法"></a>二义性文法</h2><ul>
+<h2 id="二义性文法">二义性文法</h2>
+<ul>
 <li>可生成两个不同分析树的串的文法</li>
 <li>解决方法：一，设置规则，即消除二义性规则。二，将文法改变成一个强制正确分析树构造的格式</li>
 </ul>
-<h2 id="语法分析器的作用"><a href="#语法分析器的作用" class="headerlink" title="语法分析器的作用"></a>语法分析器的作用</h2><ul>
-<li>编译过程中，语法分析器的任务是<br>(1)   分析单词串是如何构成语句和说明的<br>(2)   分析语句和说明是如何构成程序的<br>(3)   分析程序的结构</li>
+<h2 id="语法分析器的作用">语法分析器的作用</h2>
+<ul>
+<li>编译过程中，语法分析器的任务是<br>
+(1)   分析单词串是如何构成语句和说明的<br>
+(2)   分析语句和说明是如何构成程序的<br>
+(3)   分析程序的结构</li>
 </ul>
-<h1 id="第四章-自顶向下的分析"><a href="#第四章-自顶向下的分析" class="headerlink" title="第四章 自顶向下的分析"></a>第四章 自顶向下的分析</h1><h2 id="自顶向下的分析"><a href="#自顶向下的分析" class="headerlink" title="自顶向下的分析"></a>自顶向下的分析</h2><ul>
+<h1>第四章 自顶向下的分析</h1>
+<h2 id="自顶向下的分析">自顶向下的分析</h2>
+<ul>
 <li>两类程序：回溯分析程序；预测分析程序</li>
 <li>两类算法：递归下降分析；LL(1)分析</li>
 </ul>
-<h2 id="LL-1-文法"><a href="#LL-1-文法" class="headerlink" title="LL(1)文法"></a>LL(1)文法</h2><ul>
+<h2 id="LL-1-文法">LL(1)文法</h2>
+<ul>
 <li>LL(1)分析：第一个<code>L</code>指由左向右处理输入，第二个<code>L</code>为输入串描绘出一个最左推导，<code>1</code>是指先行一个符号</li>
 <li>使用显示栈来完成分析</li>
 <li>是非二义性的文法</li>
 <li>对于文法G，其相关的LL(1)分析表的每个项目中至多只有一个产生式，则该文法就是LL(1)文法。</li>
 <li>LL(1)三种基本动作：生成（最左推导），匹配，接受</li>
 </ul>
-<h2 id="将BNF写为LL-1-分析算法"><a href="#将BNF写为LL-1-分析算法" class="headerlink" title="将BNF写为LL(1)分析算法"></a>将BNF写为LL(1)分析算法</h2><ul>
-<li>消除左递归：<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0df54.png" alt="K0df54.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dLVO.png" alt="K0dLVO.png"></li>
-<li>提取左公因子：<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dOaD.png" alt="K0dOaD.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dvPH.png" alt="K0dvPH.png"></li>
+<h2 id="将BNF写为LL-1-分析算法">将BNF写为LL(1)分析算法</h2>
+<ul>
+<li>消除左递归：<img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0df54.png" alt="K0df54.png"><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dLVO.png" alt="K0dLVO.png"></li>
+<li>提取左公因子：<img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dOaD.png" alt="K0dOaD.png"><img src= "" data-lazy-src="https://s2.ax1x.com/2019/10/26/K0dvPH.png" alt="K0dvPH.png"></li>
 </ul>
-<h2 id="FIRST集-定义："><a href="#FIRST集-定义：" class="headerlink" title="FIRST集 定义："></a>FIRST集 定义：</h2><p>令 X 为一个文法符号（一个终结符或非终结符）或 ε ，则集合 First (X)  由终结符组成，此外可能还有 ε ，它的定义如下：</p>
+<h2 id="FIRST集-定义：">FIRST集 定义：</h2>
+<p>令 X 为一个文法符号（一个终结符或非终结符）或 ε ，则集合 First (X)  由终结符组成，此外可能还有 ε ，它的定义如下：</p>
 <ol>
-<li>若 X 是终结符或 ε ，则 First (X) &#x3D; {X} 。</li>
+<li>若 X 是终结符或 ε ，则 First (X) = {X} 。</li>
 <li>若 X 是非终结符，则对于每个产生式  X → X1 X2 . . . Xn  ， First (X) 都包含了 First (X1 ) - { ε } 。若对于某个 i &lt; n ，所有的集合 First (X1 ), . . . , First (Xi )  都包括了 ε ，则 First (X)  也包括了 First (X i + 1 ) -  { ε } 。若所有集合 First (X1 ), . . . , First (Xn ) 包括了 ε ，则 First (X) 也包括 ε 。</li>
 </ol>
-<h2 id="FOLLOW集-定义："><a href="#FOLLOW集-定义：" class="headerlink" title="FOLLOW集 定义："></a>FOLLOW集 定义：</h2><p>给出一个非终结符 A ，那么集合 Follow (A) 则是由终结符组成，此外可能还有 $ 。<br>集合 Follo w (A) 的定义如下：</p>
+<h2 id="FOLLOW集-定义：">FOLLOW集 定义：</h2>
+<p>给出一个非终结符 A ，那么集合 Follow (A) 则是由终结符组成，此外可能还有 $ 。<br>
+集合 Follo w (A) 的定义如下：</p>
 <ol>
 <li>若 A 是开始符号，则 $ 就在 Follo w (A) 中。</li>
 <li>若存在产生式 B →α A γ，则 First ( γ ) - { ε } 在 Follo w (A) 中。</li>
 <li>若存在产生式 B →α A γ，且在 Firs t  ( γ ) 中，则 F ollo w (A) 包括 Follow (B) 。</li>
 </ol>
-<h2 id="SELECT集"><a href="#SELECT集" class="headerlink" title="SELECT集"></a>SELECT集</h2><ol>
-<li>定义：<br>给定上下文无关文法的产生式A→α, A∈VN,α∈V*, 若α不能推导出ε,则SELECT(A→α)&#x3D;FIRST(α);如果α能推导出ε则：SELECT(A→α)&#x3D;（FIRST(α) –{ε}）∪FOLLOW(A)。需要注意的是，SELECT集是针对<code>产生式</code>而言的。</li>
-<li>LL(1)文法：<br>一个上下文无关文法是LL(1)文法的充分必要条件是：对每个非终结符A的两个不同产生式，A→α, A→β,满足SELECT(A→α)∩SELECT(A→β)&#x3D;空集  其中α，β不同时能推导出ε。</li>
+<h2 id="SELECT集">SELECT集</h2>
+<ol>
+<li>定义：<br>
+给定上下文无关文法的产生式A→α, A∈VN,α∈V*, 若α不能推导出ε,则SELECT(A→α)=FIRST(α);如果α能推导出ε则：SELECT(A→α)=（FIRST(α) –{ε}）∪FOLLOW(A)。需要注意的是，SELECT集是针对<code>产生式</code>而言的。</li>
+<li>LL(1)文法：<br>
+一个上下文无关文法是LL(1)文法的充分必要条件是：对每个非终结符A的两个不同产生式，A→α, A→β,满足SELECT(A→α)∩SELECT(A→β)=空集  其中α，β不同时能推导出ε。</li>
 </ol>
-<h2 id="LL-1-证明定理"><a href="#LL-1-证明定理" class="headerlink" title="LL(1) 证明定理"></a>LL(1) 证明定理</h2><ol>
+<h2 id="LL-1-证明定理">LL(1) 证明定理</h2>
+<ol>
 <li>在每个产生式 A →α 1  |  α 2  | . . . | α n 中，对于所有的 i  和 j ： 1 ≤ i ， j ≤ n ， i ≠ j ， First ( α i  )  ∩ First ( α j ) 为空。</li>
 <li>若对于每个非终结符 A 都有 First (A)  包含了 ε ，那么 First (A) ∩ Follow (A) 为空。</li>
 </ol>
-<h2 id="构造LL-1-预测分析表"><a href="#构造LL-1-预测分析表" class="headerlink" title="构造LL(1)预测分析表"></a>构造LL(1)预测分析表</h2><ol>
+<h2 id="构造LL-1-预测分析表">构造LL(1)预测分析表</h2>
+<ol>
 <li>对于文法G的每一个产生式A→α执行第2，3步</li>
 <li>对每个终结符a∈FIRST(α)，把A→α加到M[A,a]中</li>
 <li>若ε∈FIRST(α)，则对任何b∈FOLLOW(A)把A→α加入[A,b]中</li>
 <li>其余无定义为出错</li>
 </ol>
 <ul>
-<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722173126.png"></li>
+<li><img src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722173126.png" alt></li>
 </ul>
-<h1 id="第五章-自底向上的分析"><a href="#第五章-自底向上的分析" class="headerlink" title="第五章 自底向上的分析"></a>第五章 自底向上的分析</h1><h2 id="LR-1"><a href="#LR-1" class="headerlink" title="LR(1)"></a>LR(1)</h2><ul>
+<h1>第五章 自底向上的分析</h1>
+<h2 id="LR-1">LR(1)</h2>
+<ul>
 <li>LR(1)分析：L表示由左向右处理输入，R表示生成了最右推导，数字1表示先行一个符号</li>
 <li>移进规约分析程序：主要任务是判断分析中的下一个句柄</li>
 </ul>
-<h1 id="第六章-语义分析"><a href="#第六章-语义分析" class="headerlink" title="第六章 语义分析"></a>第六章 语义分析</h1><h2 id="什么是语义分析"><a href="#什么是语义分析" class="headerlink" title="什么是语义分析"></a>什么是语义分析</h2><ul>
+<h1>第六章 语义分析</h1>
+<h2 id="什么是语义分析">什么是语义分析</h2>
+<ul>
 <li>语义分析也可称为<code>静态语义分析</code></li>
 <li>语义分析包括：构造符号表，记录声明中建立的名字的含义，在表达式和语句中进行类型推断和类型检查，以及在语言的类型规则作用域内判断正确性</li>
 <li>语义分析分为：程序的分析；由编译程序执行的分析</li>
 </ul>
-<h2 id="什么是属性"><a href="#什么是属性" class="headerlink" title="什么是属性"></a>什么是属性</h2><ul>
-<li>属性： 属性是编程语言结构的任意特性。属性在其包含的信息和复杂性等方面变化很大，特别是当它们能确定时翻译 &#x2F; 执行过程的时间。属性的典型例子有：<br>•变量的数据类型。<br>•表达式的值。<br>•存储器中变量的位置。<br>•程序的目标代码。<br>•数的有效位数。</li>
+<h2 id="什么是属性">什么是属性</h2>
+<ul>
+<li>属性： 属性是编程语言结构的任意特性。属性在其包含的信息和复杂性等方面变化很大，特别是当它们能确定时翻译 / 执行过程的时间。属性的典型例子有：<br>
+•变量的数据类型。<br>
+•表达式的值。<br>
+•存储器中变量的位置。<br>
+•程序的目标代码。<br>
+•数的有效位数。</li>
 </ul>
-<h2 id="什么是属性文法"><a href="#什么是属性文法" class="headerlink" title="什么是属性文法"></a>什么是属性文法</h2><ul>
+<h2 id="什么是属性文法">什么是属性文法</h2>
+<ul>
 <li>确定语言实体的属性或特性，它们必须进行计算并写成属性等式或语义规则，并描述这些属性的计算如何与语言的文法规则相关。这样的一组属性和等式称作<code>属性文法</code>。</li>
 </ul>
-<h2 id="什么是联编"><a href="#什么是联编" class="headerlink" title="什么是联编"></a>什么是联编</h2><ul>
+<h2 id="什么是联编">什么是联编</h2>
+<ul>
 <li>联编： 属性的计算及将计算值与正在讨论的语言结构联系的过程称作属性的联编。</li>
-<li>联编时间： 联编属性发生时编译 &#x2F; 执行过程的时间称作联编时间 。</li>
+<li>联编时间： 联编属性发生时编译 / 执行过程的时间称作联编时间 。</li>
 <li>执行之前联编的属性是<code>静态</code>的，</li>
 <li>执行期间联编的属性是<code>动态</code>的。</li>
 </ul>
-<h2 id="静态动态"><a href="#静态动态" class="headerlink" title="静态动态"></a>静态动态</h2><ul>
+<h2 id="静态动态">静态动态</h2>
+<ul>
 <li>在如 C 或 Pascal 这样的静态类型的语言中，变量或表达式的数据类型是一个重要的编译时属性。</li>
 <li>FORTRAN7 7 中所有的变量都是静态分配。</li>
 <li>程序的目标代码无疑是一个静态属性。</li>
@@ -379,77 +510,239 @@ f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/per
 <li>C 和 Pasca l 语言混合了静态和动态的两种变量分配。</li>
 <li>数 的有效位数在编译期间是一个不被明确探讨的属性。</li>
 </ul>
-<h2 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h2><ul>
+<h2 id="符号表">符号表</h2>
+<ul>
 <li>是一种目录数据结构</li>
 <li>符号表的主要操作：插入，查找，删除。</li>
-<li>符号表的功能：<br>（1）   建立存储信息<br>（2）   类型检查<br>（3）   数据地址</li>
+<li>符号表的功能：<br>
+（1）   建立存储信息<br>
+（2）   类型检查<br>
+（3）   数据地址</li>
 </ul>
-<h1 id="第七章-运行时的环境"><a href="#第七章-运行时的环境" class="headerlink" title="第七章 运行时的环境"></a>第七章 运行时的环境</h1><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><ul>
+<h1>第七章 运行时的环境</h1>
+<h2 id="运行环境">运行环境</h2>
+<ul>
 <li>完全静态环境：FORTRAN77，所有数据都是静态的，执行期间保持固定。这样的环境可用来实现没有指针或动态分配，且过程不可递归调用的语言。</li>
 <li>基于栈的环境：C，C++，Pascal，Ada。在允许递归调用以及每一个调用中都重新分配局部变量的语言中，不能静态地分配活动记录。相反地，必须以一个基于栈的风格来分配活动记录，即当进行一个新的过程调用 ( 活动记录的压入时，每个新的活动记录都分配在栈的顶部，而当调用退出时则再次解除分配 。</li>
 <li>完全动态环境：LISP。因为活动记录仅在对它们所有的引用都消失了才再重新分配，而且这又要求活动记录在执行时可动态地释放任意次，所以称这个环境为完全动态的 。</li>
 </ul>
-<h1 id="第八章-代码生成"><a href="#第八章-代码生成" class="headerlink" title="第八章 代码生成"></a>第八章 代码生成</h1><h2 id="中间代码"><a href="#中间代码" class="headerlink" title="中间代码"></a>中间代码</h2><ul>
+<h1>第八章 代码生成</h1>
+<h2 id="中间代码">中间代码</h2>
+<ul>
 <li>两种形式：三地址码，P代码</li>
-<li>中间代码应具备的特性<br>1）便于语法制导翻译<br>2）既与机器指令的结构相近,又与具体机器无关.</li>
+<li>中间代码应具备的特性<br>
+1）便于语法制导翻译<br>
+2）既与机器指令的结构相近,又与具体机器无关.</li>
 </ul>
-<h2 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h2><ul>
+<h2 id="控制语句">控制语句</h2>
+<ul>
 <li>控制语句的分类：①无条件转移、②条件转移、③循环语句、④分支语句</li>
 </ul>
-<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ul>
+<h2 id="代码优化">代码优化</h2>
+<ul>
 <li>代码优化：对程序进行各种等价变换，使得从变换后的程序出发，能产生更有效的目标代码。</li>
 <li>目的：产生高效的目标代码。</li>
 <li>级别：局部优化、循环优化、全局优化。</li>
 </ul>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
-<li>活前缀：右句型的前缀，而且其右端不会超过该句型的最右边句柄的末端。<br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722172904.png"><br><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722172937.png"></li>
+<h2 id="补充">补充</h2>
+<ul>
+<li>活前缀：右句型的前缀，而且其右端不会超过该句型的最右边句柄的末端。<br>
+<img src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722172904.png" alt><br>
+<img src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20200722172937.png" alt></li>
 </ul>
-</article><div class="tag_share"><div class="post-reward"><div class="reward-button"><i class="fas fa-hamburger"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/donate"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/justlovesmile-img/001243-1573661563c583.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://npm.elemecdn.com/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-copyright"><div class="post-copyright__author"></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.justlovesmile.top/posts/50753.html">https://blog.justlovesmile.top/posts/50753.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.justlovesmile.top" target="_blank">Justlovesmile's BLOG</a>！</span></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4582.html" title="学习笔记 | 《算法导论》之从入门到放弃（4）"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-img/keyboard.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">学习笔记 | 《算法导论》之从入门到放弃（4）</div></div></a></div><div class="next-post pull-right"><a href="/posts/54183.html" title="学习笔记 | 《算法导论》之从入门到放弃（3）"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-img/sight.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习笔记 | 《算法导论》之从入门到放弃（3）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/10024.html" title="学习笔记 | 四六级复习卡片"><img class="cover" src="https://s2.ax1x.com/2019/12/09/Q0YD61.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-09</div><div class="title">学习笔记 | 四六级复习卡片</div></div></a></div><div><a href="/posts/16593.html" title="大学课程 | 计算机图形学，基于MFC和二维变换的画图软件"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-img/20200619203709.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">大学课程 | 计算机图形学，基于MFC和二维变换的画图软件</div></div></a></div><div><a href="/posts/47699.html" title="大学课程 | 基于WINDLX的系统结构实验"><img class="cover" src="https://npm.elemecdn.com/justlovesmile-img/112541-158165074199b4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-14</div><div class="title">大学课程 | 基于WINDLX的系统结构实验</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">Justlovesmile</div><div class="author-info__description">一个计算机专业学生的个人博客，记录着学习笔记和生活中的思考，期待着和所有人相遇</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">98</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">57</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%AE%BA"><span class="toc-text">第一章 概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91%E5%99%A8%EF%BC%9F"><span class="toc-text">什么是编译器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%84"><span class="toc-text">编译器分类结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-text">与编译器相关的程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E6%AD%A5%E9%AA%A4"><span class="toc-text">翻译步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">编译器中的主要数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%81%8D%EF%BC%9F"><span class="toc-text">什么是遍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%EF%BC%9F"><span class="toc-text">什么是前端后端？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%BC%E5%90%88%EF%BC%9F"><span class="toc-text">什么是分析与综合？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%9F"><span class="toc-text">什么是扫描器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">汇编语言的优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%99%E6%80%81%E8%AF%AD%E4%B9%89"><span class="toc-text">什么是静态语义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%80%83%E8%99%91%E7%9B%AE%E6%A0%87%E6%9C%BA%E7%9A%84%E7%89%A9%E7%90%86%E7%89%B9%E6%80%A7%E7%9A%84%E6%A8%A1%E5%9D%97%E6%98%AF%EF%BC%9A-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">编译器中第一个考虑目标机的物理特性的模块是： 代码生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-%E5%9E%8B%E5%9B%BE%E4%B8%ADS-T-H-%E5%88%86%E5%88%AB%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">T 型图中S,T,H 分别代表什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-%E5%9E%8B%E5%9B%BE%E6%8F%8F%E8%BF%B0%E8%87%AA%E4%B8%BE%E5%8F%8A%E7%A7%BB%E6%A4%8D%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">T 型图描述自举及移植的过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">第二章 词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">什么是词法分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7%E5%88%86%E7%B1%BB"><span class="toc-text">记号分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-text">什么是有穷自动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFA%EF%BC%88%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%89"><span class="toc-text">DFA（确定性有穷自动机）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFA%EF%BC%88%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%89"><span class="toc-text">NFA（非确定性有穷自动机）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="toc-text">第三章 上下文无关文法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-text">上下文无关文法与正则表达式的主要区别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E7%BB%93%E7%AC%A6%E5%92%8C%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6"><span class="toc-text">终结符和非终结符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8E%A8%E5%AF%BC"><span class="toc-text">什么是推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">产生式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E4%B9%89%E6%80%A7%E6%96%87%E6%B3%95"><span class="toc-text">二义性文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">语法分析器的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">第四章 自顶向下的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">自顶向下的分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95"><span class="toc-text">LL(1)文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86BNF%E5%86%99%E4%B8%BALL-1-%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-text">将BNF写为LL(1)分析算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FIRST%E9%9B%86-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">FIRST集 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FOLLOW%E9%9B%86-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">FOLLOW集 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT%E9%9B%86"><span class="toc-text">SELECT集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LL-1-%E8%AF%81%E6%98%8E%E5%AE%9A%E7%90%86"><span class="toc-text">LL(1) 证明定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0LL-1-%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">构造LL(1)预测分析表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">第五章 自底向上的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LR-1"><span class="toc-text">LR(1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90"><span class="toc-text">第六章 语义分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90"><span class="toc-text">什么是语义分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%9E%E6%80%A7"><span class="toc-text">什么是属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%9E%E6%80%A7%E6%96%87%E6%B3%95"><span class="toc-text">什么是属性文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%81%94%E7%BC%96"><span class="toc-text">什么是联编</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81"><span class="toc-text">静态动态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="toc-text">符号表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-text">第七章 运行时的环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-text">运行环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">第八章 代码生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">中间代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-text">代码优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="social-icon" href="mailto:865717150@qq.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_43701912" target="_blank" title="CSDN" rel="external nofollow noopener noreferrer"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="https://github.com/Justlovesmile" target="_blank" title="Github" rel="external nofollow noopener noreferrer"><i class="fab fa-github"></i></a><a class="social-icon" href="https://weibo.com/u/5252319712" target="_blank" title="微博" rel="external nofollow noopener noreferrer"><i class="fa fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/168738824" target="_blank" title="Bilibili" rel="external nofollow noopener noreferrer"><i class="fas iconfont icon-bilibili"></i></a></div><div id="mj-footer"><div class="footer-group"><h3 class="footer-title">推荐<i class="fa fa-fire" style="color:var(--mj-red);padding-left:5px;"></i></h3><div class="footer-links"><a class="footer-item" href="/tags/Hexo/">博客魔改</a><a class="footer-item" href="/tags/深度学习/">深度学习</a><a class="footer-item" href="/tags/大学课程/">大学课程</a><a class="footer-item" href="/tags/论文笔记/">论文笔记</a></div></div><div class="footer-group"><h3 class="footer-title">生活</h3><div class="footer-links"><a class="footer-item" href="/photos/">年度影集</a><a class="footer-item" href="/music/">音乐列表</a><a class="footer-item" href="/video/">视频剪辑</a><a class="footer-item" href="/essay/">日常哔哔</a></div></div><div class="footer-group"><h3 class="footer-title">网站</h3><div class="footer-links"><a class="footer-item" href="/guestbook/">留言信箱</a><a class="footer-item" href="/donate/">博客打赏<i class="fa fa-coffee" style="color:var(--mj-lighttext);padding-left:5px;"></i></a><a class="footer-item" href="/charts/">博客统计</a><a class="footer-item" href="/update/">更新日志</a></div></div><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.justlovesmile.top/">个人主页</a><a class="footer-item" href="/friends/">友情链接</a><a class="footer-item" href="/fcircle/">朋友圈</a><a class="footer-item" href="/atom.xml">RSS订阅<i class="fa fa-rss-square" style="color:var(--mj-lighttext);padding-left:5px;"></i></a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/privacy/">隐私协议</a><a class="footer-item" href="/cookies/">Cookies</a><a class="footer-item" href="/cc/">版权协议</a></div></div></div><div id="footer-banner"><div class="footer-banner-links"><div class="footer-banner-left"><div id="footer-banner-tips">&copy;2020 - 2026 By Justlovesmile</div></div><div class="footer-banner-right"><a class="footer-banner-link" href="/update/">主题</a><a class="footer-banner-link" href="/about/">关于</a><a class="footer-banner-link" target="_blank" rel="external nofollow noopener noreferrer" href="http://beian.miit.gov.cn/">蜀ICP备20004960号</a></div></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fa-solid fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fa-solid fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrow-rotate-right"></i></div><div class="rightMenu-item" id="menu-top"><i class="fa-solid fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><a class="rightMenu-item" id="menu-commenttext"><i class="fa-solid fa-comments"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-copytext"><i class="fa-solid fa-copy"></i><span>复制文本</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="fa-solid fa-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="fa-solid fa-copy"></i><span>复制链接</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="fa-solid fa-copy"></i><span>复制图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="fa-solid fa-download"></i><span>下载图片</span></div><div class="rightMenu-item search" id="menu-search"><i class="fas fa-search fa-fw"></i><span>本站搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="fa fa-solid fa-search-plus"></i><span>百度搜索</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-random" href="/random/"><i class="fa-solid fa-shoe-prints"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="fa-solid fa-shapes"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="fa-solid fa-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item menu-link" href="/cc/"><i class="fa fa-solid fa-creative-commons"></i><span>版权协议</span></a><a class="rightMenu-item menu-link" href="/donate/"><i class="fa-fw fa fa-gratipay"></i><span>博文打赏</span></a><div class="rightMenu-item" id="menu-copy"><i class="fa-solid fa-share"></i><span>分享本页</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-darkmode"><i class="fa-solid fa-moon"></i><span>明暗切换</span></div></div></div><div id="rightmenu-mask" style="display:none;"></div><!--script(src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js")--><script defer="defer" data-pjax="data-pjax" src="/js/rightmenu.js"></script><link rel="stylesheet" href="/css/rightmenu.css"><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/@fancyapps/ui/dist/fancybox.umd.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script defer src="https://npm.elemecdn.com/justlovesmile-static/js/SnackBar-0.1.16/dist/snackbar.min.js"></script><script defer src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
-  const init = () => {
-    twikoo.init(Object.assign({
-      el: '#twikoo-wrap',
-      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects',
-      region: '',
-      onCommentLoaded: function () {
-        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
-      }
-    }, null))
-  }
+</article><div class="post-copyright"><div class="post-copyright__author_group"><div class="post-copyright__author_img"><img class="post-copyright__author_img_front" src="/img/logo.jpg"></div><div class="post-copyright__author_name">XMJ</div><div class="post-copyright__author_desc">Writing, Coding, Researching, and Thinking</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" data-solitude-action="hideReward"></div><div class="post-reward"><div class="reward-button" title="赞赏作者" heotip="赞赏作者" data-solitude-action="showReward"><i class="solitude fas fa-heart"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢您的赞赏</span><ul class="reward-group"><li class="reward-item"><a href="/donate/"><img class="post-qr-code-img nolazyload" src="/img/wechat.jpg" alt="微信" style="border-color: #07c160"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/donate/"><img class="post-qr-code-img nolazyload" src="/img/alipay.jpg" alt="支付宝" style="border-color: #1677ff"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/donate/" style="--reward-hover-image: url(&quot;/img/flower.gif&quot;)"><div class="reward-text">赞赏名单</div><div class="reward-dec">你的支持是我持续创作的动力。</div></a></ul></div></div><div class="reward-link mode"><a class="reward-link-button" href="/rss/"><i class="solitude fas fa-seedling"></i>订阅</a></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a>许可协议，完整转载请注明来自<a href="/">XMJ's BLOG</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>大学课程<span class="tagsPageCount">12</span></span></a><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>编译原理<span class="tagsPageCount">1</span></span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4582.html"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">学习手札 | 算法导论笔记（四）：快速排序</div></div></a></div><div class="next-post pull-right"><a href="/posts/54183.html"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习手札 | 算法导论笔记（三）：堆排序</div></div></a></div></nav>
+        <div class="relatedPosts">
+            <div class="headline">
+                <i class="solitude fas fa-star"></i>
+                <span>喜欢这篇的人也看了</span>
+                <div class="relatedPosts-link">
+                    <a onclick="event.preventDefault(); Solitude.randomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state>随便逛逛</a>
+                </div>
+            </div>
+            <div class="relatedPosts-list">
+            <div>
+                <a href="/posts/a806bebe.html" title="网站公告 | 大学课程笔记归档">
+                    <img class="cover" src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/20220331192754.png" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">网站公告 | 大学课程笔记归档</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/posts/651e6a0b.html" title="学习手札 | 计算机系统结构精简知识点">
+                    <img class="cover" src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/1584111180-soft.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">学习手札 | 计算机系统结构精简知识点</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/posts/43666.html" title="学习手札 | 微机原理与接口技术笔记">
+                    <img class="cover" src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/1584110553-u34116618882606377503fm11gp0.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">学习手札 | 微机原理与接口技术笔记</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/posts/47699.html" title="学习手札 | 基于 WINDLX 的系统结构实验">
+                    <img class="cover" src= "" data-lazy-src="https://npm.elemecdn.com/justlovesmile-img/112541-158165074199b4.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">学习手札 | 基于 WINDLX 的系统结构实验</div>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude fas fa-comment"></i><span> 评论</span><span class="count"> (<span class="twikoo-count"><i class="solitude fas fa-spinner fa-spin"></i></span>)</span></div></div><div class="comment-wrap"><div id="twikoo-wrap"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" data-solitude-action="changeWittyWord"></div></div></div><div class="avatar"><img alt="头像" src="/img/logo.jpg"></div><div class="description">👋嗨！欢迎来到 XMJ 的博客。<br\> 这有关于<b>代码</b>和<b>科研</b>相关的问题与看法，还有对<b>生活</b>的思考与分享。</br\></div><div class="bottom-group"><span class="left"><div class="name">XMJ</div><div class="desc">勇于探索，持续进步 :)</div></span><div class="social-icons is-center"><a class="social-icon" href="mailto:xiemingjie.cn@gmail.com" title="Email" heotip="Email" rel="external nofollow noopener noreferrer" target="_blank"><i class="solitude  fas fa-envelope"></i></a><a class="social-icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile" title="Github" heotip="Github"><i class="solitude  fab fa-github"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude fas fa-bars"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第一章 概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91%E5%99%A8%EF%BC%9F"><span class="toc-text">什么是编译器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%84"><span class="toc-text">编译器分类结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-text">与编译器相关的程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E6%AD%A5%E9%AA%A4"><span class="toc-text">翻译步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">编译器中的主要数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%81%8D%EF%BC%9F"><span class="toc-text">什么是遍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%EF%BC%9F"><span class="toc-text">什么是前端后端？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%BC%E5%90%88%EF%BC%9F"><span class="toc-text">什么是分析与综合？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%9F"><span class="toc-text">什么是扫描器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">汇编语言的优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%99%E6%80%81%E8%AF%AD%E4%B9%89"><span class="toc-text">什么是静态语义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%80%83%E8%99%91%E7%9B%AE%E6%A0%87%E6%9C%BA%E7%9A%84%E7%89%A9%E7%90%86%E7%89%B9%E6%80%A7%E7%9A%84%E6%A8%A1%E5%9D%97%E6%98%AF%EF%BC%9A-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">编译器中第一个考虑目标机的物理特性的模块是： 代码生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-%E5%9E%8B%E5%9B%BE%E4%B8%ADS-T-H-%E5%88%86%E5%88%AB%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">T 型图中S,T,H 分别代表什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-%E5%9E%8B%E5%9B%BE%E6%8F%8F%E8%BF%B0%E8%87%AA%E4%B8%BE%E5%8F%8A%E7%A7%BB%E6%A4%8D%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">T 型图描述自举及移植的过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第二章 词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">什么是词法分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7%E5%88%86%E7%B1%BB"><span class="toc-text">记号分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-text">什么是有穷自动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFA%EF%BC%88%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%89"><span class="toc-text">DFA（确定性有穷自动机）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFA%EF%BC%88%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%89"><span class="toc-text">NFA（非确定性有穷自动机）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第三章 上下文无关文法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-text">上下文无关文法与正则表达式的主要区别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E7%BB%93%E7%AC%A6%E5%92%8C%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6"><span class="toc-text">终结符和非终结符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8E%A8%E5%AF%BC"><span class="toc-text">什么是推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">产生式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E4%B9%89%E6%80%A7%E6%96%87%E6%B3%95"><span class="toc-text">二义性文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">语法分析器的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第四章 自顶向下的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">自顶向下的分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95"><span class="toc-text">LL(1)文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86BNF%E5%86%99%E4%B8%BALL-1-%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-text">将BNF写为LL(1)分析算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FIRST%E9%9B%86-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">FIRST集 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FOLLOW%E9%9B%86-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">FOLLOW集 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT%E9%9B%86"><span class="toc-text">SELECT集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LL-1-%E8%AF%81%E6%98%8E%E5%AE%9A%E7%90%86"><span class="toc-text">LL(1) 证明定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0LL-1-%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">构造LL(1)预测分析表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第五章 自底向上的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LR-1"><span class="toc-text">LR(1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第六章 语义分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90"><span class="toc-text">什么是语义分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%9E%E6%80%A7"><span class="toc-text">什么是属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%9E%E6%80%A7%E6%96%87%E6%B3%95"><span class="toc-text">什么是属性文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%81%94%E7%BC%96"><span class="toc-text">什么是联编</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81"><span class="toc-text">静态动态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="toc-text">符号表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第七章 运行时的环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-text">运行环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第八章 代码生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">中间代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-text">代码优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fas fa-map"></i><span>最近发布</span></div><div class="aside-list"><a class="aside-list-item" href="/posts/6f41176a.html" title="论文赏析 | Oriented RepPoints：点集表示的旋转目标检测"><div class="thumbnail"><img alt="论文赏析 | Oriented RepPoints：点集表示的旋转目标检测" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/orientedreppoints.png"></div><div class="content"><span class="title" href="/posts/6f41176a.html" title="论文赏析 | Oriented RepPoints：点集表示的旋转目标检测">论文赏析 | Oriented RepPoints：点集表示的旋转目标检测</span><span class="categories" href="/posts/6f41176a.html">论文赏析</span></div></a><a class="aside-list-item" href="/posts/7dc5beaf.html" title="论文赏析 | SASM：形状自适应的样本选择策略"><div class="thumbnail"><img alt="论文赏析 | SASM：形状自适应的样本选择策略" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/sasm.png"></div><div class="content"><span class="title" href="/posts/7dc5beaf.html" title="论文赏析 | SASM：形状自适应的样本选择策略">论文赏析 | SASM：形状自适应的样本选择策略</span><span class="categories" href="/posts/7dc5beaf.html">论文赏析</span></div></a><a class="aside-list-item" href="/posts/d990ca76.html" title="论文赏析 | GGHL：旋转目标检测的标签分配策略"><div class="thumbnail"><img alt="论文赏析 | GGHL：旋转目标检测的标签分配策略" src="https://npm.elemecdn.com/justlovesmile-post@1.0.11/gghl.png"></div><div class="content"><span class="title" href="/posts/d990ca76.html" title="论文赏析 | GGHL：旋转目标检测的标签分配策略">论文赏析 | GGHL：旋转目标检测的标签分配策略</span><span class="categories" href="/posts/d990ca76.html">论文赏析</span></div></a><a class="aside-list-item" href="/posts/201349fc.html" title="论文赏析 | FSDet：遥感旋转目标检测"><div class="thumbnail"><img alt="论文赏析 | FSDet：遥感旋转目标检测" src="https://npm.elemecdn.com/justlovesmile-post@1.0.10/202210100000000001.jpg"></div><div class="content"><span class="title" href="/posts/201349fc.html" title="论文赏析 | FSDet：遥感旋转目标检测">论文赏析 | FSDet：遥感旋转目标检测</span><span class="categories" href="/posts/201349fc.html">论文赏析</span></div></a><a class="aside-list-item" href="/posts/4d2d3e0a.html" title="闲聊日常 | 国庆北京随手拍：动物园与奥体公园"><div class="thumbnail"><img alt="闲聊日常 | 国庆北京随手拍：动物园与奥体公园" src="https://npm.elemecdn.com/justlovesmile-post@1.0.9/202210062025075.jpg"></div><div class="content"><span class="title" href="/posts/4d2d3e0a.html" title="闲聊日常 | 国庆北京随手拍：动物园与奥体公园">闲聊日常 | 国庆北京随手拍：动物园与奥体公园</span><span class="categories" href="/posts/4d2d3e0a.html">闲聊日常</span></div></a></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><i class="solitude fa fa-ghost"></i></div><div class="footer-bar-description">勇于探索，持续进步 :)</div><div><a class="footer-bar-link" href="/about/" title="了解更多">了解更多</a></div></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Justlovesmile" title="Github" heotip="Github"><i class="solitude  fab fa-github"></i></a><a class="deal_link" href="mailto:865717150@qq.com" title="Mail" heotip="Mail" rel="external nofollow noopener noreferrer" target="_blank"><i class="solitude  far fa-envelope"></i></a><div><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" heotip="返回顶部" data-solitude-action="toTop"><img src= "" data-lazy-src="/img/logo.jpg" alt="返回顶部"></div></div><a class="deal_link" target="_blank" rel="external nofollow noopener noreferrer" href="https://space.bilibili.com/168738824" title="Bilibili" heotip="Bilibili"><i class="solitude  fab fa-bilibili"></i></a><a class="deal_link" target="_blank" rel="external nofollow noopener noreferrer" href="https://weibo.com/u/5252319712" title="微博" heotip="微博"><i class="solitude  fab fa-weibo"></i></a></div><div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">推荐</h3><div class="footer-links"><a class="footer-item" href="/tags/Hexo/" title="博客魔改">博客魔改</a><a class="footer-item" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">深度学习</a><a class="footer-item" href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" title="大学课程">大学课程</a><a class="footer-item" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" title="论文笔记">论文笔记</a></div></div><div class="footer-group"><h3 class="footer-title">生活</h3><div class="footer-links"><a class="footer-item" href="/photos/" title="年度影集">年度影集</a><a class="footer-item" href="/music/" title="音乐列表">音乐列表</a><a class="footer-item" href="/video/" title="视频剪辑">视频剪辑</a><a class="footer-item" href="/essay/" title="日常哔哔">日常哔哔</a></div></div><div class="footer-group"><h3 class="footer-title">网站</h3><div class="footer-links"><a class="footer-item" href="/guestbook/" title="留言信箱">留言信箱</a><a class="footer-item" href="/donate/" title="博客打赏">博客打赏</a><a class="footer-item" href="/charts/" title="博客统计">博客统计</a><a class="footer-item" href="/update/" title="更新日志">更新日志</a></div></div><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.justlovesmile.top/" title="个人主页">个人主页</a><a class="footer-item" href="/friends/" title="友情链接">友情链接</a><a class="footer-item" href="/fcircle/" title="朋友圈">朋友圈</a><a class="footer-item" href="/atom.xml" title="RSS 订阅">RSS 订阅</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/privacy/" title="隐私协议">隐私协议</a><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/cc/" title="版权协议">版权协议</a></div></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2019 - 2026 By<a class="footer-bar-link" href="/" title="XMJ">XMJ</a></div><div class="beian-group"></div></div><div><div class="footer-bar-right"><a class="footer-bar-link" href="/atom.xml" title="RSS" heotip="RSS">RSS</a><a class="footer-bar-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/everfu/hexo-theme-solitude/blob/main/LICENSE" title="License" heotip="License"><i class="solitude fas fa-copyright"></i><i class="solitude fab fa-creative-commons-by"></i><i class="solitude fab fa-creative-commons-nc"></i><i class="solitude fab fa-creative-commons-nd"></i></a><a class="footer-bar-link" href="/update" title="主题" heotip="主题">主题</a></div></div></div></div><div><div class="comment-barrage needEndHide"></div></div></footer></div><div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="solitude fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="solitude fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="solitude fas fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-top"><i class="solitude fas fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext" title="复制选中文字" heotip="复制选中文字"><i class="solitude fas fa-clone"></i><span>复制选中文字</span></div><div class="rightMenu-item" id="menu-pastetext" title="粘贴文字" heotip="粘贴文字"><i class="solitude fas fa-clipboard"></i><span>粘贴文字</span></div><div class="rightMenu-item" id="menu-commenttext" title="引用到评论" heotip="引用到评论"><i class="solitude fas fa-comment-medical"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow" title="在新窗口打开" heotip="在新窗口打开"><i class="solitude far fa-window-maximize"></i><span>在新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink" title="复制链接地址" heotip="复制链接地址"><i class="solitude fas fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg" title="复制此图片" heotip="复制此图片"><i class="solitude fas fa-clone"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg" title="下载此图片" heotip="下载此图片"><i class="solitude fas fa-cloud-arrow-down"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search" title="站内搜索" heotip="站内搜索"><i class="solitude fas fa-magnifying-glass"></i><span>站内搜索</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-randomPost" data-solitude-action="runConfiguredAction" data-solitude-value="Solitude.randomPost()" title="随机文章" heotip="随机文章"><i class="solitude fas fa-tower-broadcast"></i><span>随机文章</span></div><div class="rightMenu-item" data-solitude-action="runConfiguredAction" data-solitude-value="pjax.loadUrl('/categories/')" title="全部分类" heotip="全部分类"><i class="solitude fas fa-clone"></i><span>全部分类</span></div><div class="rightMenu-item" data-solitude-action="runConfiguredAction" data-solitude-value="pjax.loadUrl('/tags/')" title="全部标签" heotip="全部标签"><i class="solitude fas fa-tags"></i><span>全部标签</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-darkmode" data-solitude-action="switchDarkMode"><i class="solitude fas fa-circle-half-stroke"></i><span class="menu-darkmode-text" title="深色模式" heotip="深色模式">深色模式</span></div></div></div><div id="rightmenu-mask"></div></div><div><!-- Critical scripts loaded synchronously--><script src="/js/utils.js?v=4.0.0"></script><!-- Non-critical scripts loaded asynchronously--><script defer src="/js/third_party/waterfall.min.js?v=4.0.0"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><!-- Feature-specific scripts loaded asynchronously--><script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script><!-- UI enhancement scripts--><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/swiper@14.0.5/swiper-bundle.min.js"></script><!-- Music player scripts--><!-- Cover color processing scripts--><script defer src="https://cdn.jsdelivr.net/npm/colorthief@3.4.0/dist/umd/color-thief.global.min.js"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
 
-  const getCount = () => {
-    const countELement = document.getElementById('twikoo-count')
-    if(!countELement) return
-    twikoo.getCommentsCount({
-      envId: 'twikoo-jfsi-rmeeqm3m0-justlovesmiles-projects',
-      region: '',
-      urls: [window.location.pathname],
-      includeReply: false
-    }).then(function (res) {
-      countELement.innerText = res[0].count
-    }).catch(function (err) {
-      console.error(err);
-    });
-  }
-
-  const runFn = () => {
-    init()
-    GLOBAL_CONFIG_SITE.isPost && getCount()
-  }
-
-  const loadTwikoo = () => {
-    if (typeof twikoo === 'object') {
-      setTimeout(runFn,0)
-      return
-    } 
-    getScript('https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js').then(runFn)
-  }
-
-  if ('Twikoo' === 'Twikoo' || !false) {
-    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
-    else loadTwikoo()
-  } else {
-    window.loadOtherComment = () => {
-      loadTwikoo()
+Solitude.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- Search functionality--><!-- Main module dynamically imports enabled first-party features.--><script type="module" src="/js/main.js?v=4.0.0"></script><script defer src="/js/custom/chart-theme.js"></script><div class="js-pjax"><script>(() => {
+    const getCount = () => {
+        const ele = document.querySelectorAll('.twikoo-count')
+        if (!ele) return
+        twikoo.getCommentsCount({
+            envId: 'https://comment.xiemingjie.cn',
+            region: '',
+            urls: [window.location.pathname],
+            includeReply: false
+        }).then(res => {
+            ele.forEach(item => item.textContent = res[0].count)
+        }).catch(err => {
+            console.error(err)
+        })
     }
-  }
-})()</script></div><script src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer>console.log("\n %c 欢迎来到Justlovesmile の Blog %c https://github.com/Justlovesmile %c https://blog.justlovesmile.top \n","color: #f9ed69; background: #252a34; padding:5px 0;","background: #3fc1c9; padding:5px 0;","background: #3fc1c9; padding:5px 0;");</script><script defer src="/js/rgbaster.min.js"></script><script defer src="/js/justlovesmile.js"></script><script>window.addEventListener('load', async () => {navigator.serviceWorker.register(`/js/sw.js?time=${new Date().getTime()}`).then(async reg => {if (window.localStorage.getItem('install') != 'true') {window.localStorage.setItem('install', 'true');setTimeout(() => {window.location.search = `?time=${new Date().getTime()}`}, 1000)}}).catch(err => { })});</script></div></body></html>
+    const init = () => {
+        twikoo.init(Object.assign({
+            el: '#twikoo-wrap',
+            envId: 'https://comment.xiemingjie.cn',
+            region: '',
+            path: window.location.pathname,
+            onCommentLoaded: () => {
+                Solitude.config.lightbox && Solitude.lightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+            }
+        }, null))
+
+         && getCount()
+        Solitude.owoBig({
+            body: '.OwO-body',
+            item: '.OwO-items li'
+        })
+
+        true && barrageTwikoo()
+    }
+
+    const loadTwikoo = () => {
+        if (typeof twikoo === 'object') setTimeout(init,0)
+        else Solitude.getScript('https://cdn.jsdelivr.net/npm/twikoo@1.7.14/dist/twikoo.all.min.js').then(init)
+    }
+
+    if ('Twikoo' === 'Twikoo' || false) {
+        if (false) Solitude.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+        else loadTwikoo()
+    } else {
+        window.loadTwoComment = loadTwikoo
+    }
+})()
+</script><script>async function barrageTwikoo() {
+    await fetch("https://comment.xiemingjie.cn", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            event: "COMMENT_GET",
+            accessToken: "",
+            url: window.location.pathname
+        })
+    }).then(async res => {
+        if (!res.ok) throw new Error("HTTP error! status: " + res.status)
+        const data = await res.json();
+        const init = () => {
+            initializeCommentBarrage((data.data).map(item => Object.assign({
+                content: item.comment,
+                nick: item.nick,
+                mailMd5: item.mailMd5,
+                id: item.id
+            })))
+        }
+        if (typeof initializeCommentBarrage === "undefined") await Solitude.getScript('/js/third_party/barrage.min.js?v=4.0.0').then(init)
+        else init()
+    }).catch(error => console.error("An error occurred while fetching comments: ", error))
+}</script><script defer pjax src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js"></script></div></div><!-- pjax--><script>function initPjax() {
+    if (typeof Pjax === 'undefined') {
+        setTimeout(initPjax, 100);
+        return;
+    }
+
+    const instance = new Pjax({
+        elements: 'a:not([target="_blank"])',
+        selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+    })
+
+    // Pjax dispatches synthetic resize/scroll events on window after every selector switch.
+    // Use a Node target so injected listeners that call event.target.contains() remain compatible.
+    instance.onSwitch = function () {
+        this.state.numPendingSwitches--
+
+        if (this.state.numPendingSwitches === 0) {
+            document.dispatchEvent(new Event('resize', { bubbles: true }))
+            document.dispatchEvent(new Event('scroll', { bubbles: true }))
+            this.afterAllSwitches()
+        }
+    }
+
+    Solitude.pjax = instance;
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    document.addEventListener('pjax:send', () => {
+        document.dispatchEvent(new CustomEvent('solitude:beforeNavigate'))
+        Solitude.disposePage?.()
+        Object.values(window.globalFn?.pjax || {}).forEach(dispose => dispose())
+        if (window.globalFn) window.globalFn.pjax = {}
+    })
+
+    document.addEventListener('pjax:complete', async () => {
+        await Solitude.refresh()
+
+        document.querySelectorAll('script[data-pjax]').forEach(item => {
+            const newScript = document.createElement('script')
+            const content = item.text || item.textContent || item.innerHTML || ""
+            Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+            newScript.appendChild(document.createTextNode(content))
+            item.parentNode.replaceChild(newScript, item)
+        })
+
+        Solitude.config.lazyload.enable && window.lazyLoadInstance?.update()
+        document.dispatchEvent(new CustomEvent('solitude:afterNavigate', {
+            detail: {page: Solitude.page}
+        }))
+
+    })
+
+    document.addEventListener('pjax:error', (e) => {
+        if (e.request.status === 404) {
+            Solitude.navigate('/404.html')
+        }
+    })
+}
+
+// 初始化 Pjax
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPjax);
+} else {
+    initPjax();
+}</script><!-- google adsense--><div id="local-search"><div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="local-search-title"><nav class="search-nav"><span class="search-dialog-title" id="local-search-title">搜索</span><button class="search-close-button" type="button" aria-label="关闭搜索"><i class="solitude fas fa-xmark"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="search" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找" aria-label="输入关键词快速查找"></div><div id="search-suggestions" aria-label="热门搜索"></div><ul id="search-results" hidden></ul><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div></body></html>

@@ -921,7 +921,7 @@
 
 var obj = {
     // 容器选择器
-    el: '#friend-card-group',
+    el: '#online-link-group',
     // 你的友链JSON 需配合项目 https://www.yuque.com/kdoc/bf/dcu90d 使用
     url: 'https://unpkg.com/friendsofmj@latest/friend.json',
     //url: 'https://npm.elemecdn.com//friendsofmj/friend.json',
@@ -938,5 +938,5 @@ var obj = {
     // loading的图片
     loading_img: '/img/clockloading.gif',
   };
-document.querySelector('.flink').insertAdjacentHTML('beforeEnd',"<div id='friend-card-group'></div>");
+document.querySelector('.article-container').insertAdjacentHTML('beforeEnd',"<div id='online-link-group'></div>");
 new Friend(obj);
